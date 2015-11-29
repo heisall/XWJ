@@ -1,0 +1,709 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
+		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
+		A463207A1C00D7AD0062AA24 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A46320751C00D7AD0062AA24 /* SMS_SDKLocalizable.strings */; };
+		A463207B1C00D7AD0062AA24 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320771C00D7AD0062AA24 /* MOBFoundation.framework */; };
+		A463207C1C00D7AD0062AA24 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320781C00D7AD0062AA24 /* SMS_SDK.framework */; };
+		A48801791C09D2A400714F5B /* XWJBingHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801771C09D2A400714F5B /* XWJBingHouseViewController.m */; };
+		A488017A1C09D2A400714F5B /* XWJBingHouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801781C09D2A400714F5B /* XWJBingHouseViewController.xib */; };
+		A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A488017E1C09F13300714F5B /* XWJHomeTabFactory.m */; };
+		A48801811C09F22700714F5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48801801C09F22700714F5B /* UIKit.framework */; };
+		A48801851C09F41000714F5B /* ITabFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = A48801841C09F41000714F5B /* ITabFactory.h */; };
+		A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801871C09F80500714F5B /* XWJHomeViewController.m */; };
+		A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A488018A1C09F91100714F5B /* XWJButlerViewController.m */; };
+		A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A488018D1C09F94600714F5B /* XWJButlerTabFactory.m */; };
+		A48801911C09FAE700714F5B /* XWJLifeTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */; };
+		A48801941C09FB3800714F5B /* XWJLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801931C09FB3800714F5B /* XWJLifeViewController.m */; };
+		A48801971C09FB4E00714F5B /* XWJFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801961C09FB4E00714F5B /* XWJFindViewController.m */; };
+		A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801991C09FB6F00714F5B /* XWJMineViewController.m */; };
+		A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */; };
+		A48801A01C09FBD100714F5B /* XWJMindTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */; };
+		A48801A31C09FDAD00714F5B /* XWJTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801A21C09FDAD00714F5B /* XWJTabViewController.m */; };
+		A48801A61C0A16FF00714F5B /* XWJTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801A51C0A16FF00714F5B /* XWJTabBarItem.m */; };
+		A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801A71C0AADAE00714F5B /* liebiao@3x.png */; };
+		A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801A91C0AB22A00714F5B /* baritemSelectedIndicator@2x.png */; };
+		A48801AC1C0AB2DE00714F5B /* backIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801AB1C0AB2DE00714F5B /* backIcon@2x.png */; };
+		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
+		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
+		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
+		A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F40BCC1C08B1EB006E2F19 /* XWJIDCodeViewController.m */; };
+		A4F40BD01C08B5B4006E2F19 /* XWJResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F40BCF1C08B5B4006E2F19 /* XWJResetPasswordViewController.m */; };
+		A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F40BD21C08BE77006E2F19 /* XWJBaseViewController.m */; };
+		A4F40BD71C098887006E2F19 /* XWJBindHouseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F40BD61C098887006E2F19 /* XWJBindHouseTableViewController.m */; };
+		DA20ADFA1BFB565D002032D1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADF91BFB565D002032D1 /* libicucore.tbd */; };
+		DA20ADFC1BFB5674002032D1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADFB1BFB5674002032D1 /* libz.tbd */; };
+		DA20ADFE1BFB567D002032D1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADFD1BFB567D002032D1 /* MessageUI.framework */; };
+		DA20AE001BFB5687002032D1 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADFF1BFB5687002032D1 /* JavaScriptCore.framework */; };
+		DA20AE021BFB5694002032D1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20AE011BFB5694002032D1 /* libstdc++.tbd */; };
+		DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */; };
+		DA8834731BFCB47F001B2862 /* XWJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */; };
+		DA8834751BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8834741BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard */; };
+		DAC4AF1C1BF0619700D66E76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC4AF1B1BF0619700D66E76 /* main.m */; };
+		DAC4AF1F1BF0619700D66E76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC4AF1E1BF0619700D66E76 /* AppDelegate.m */; };
+		DAC4AF221BF0619700D66E76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC4AF211BF0619700D66E76 /* ViewController.m */; };
+		DAC4AF251BF0619700D66E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC4AF231BF0619700D66E76 /* Main.storyboard */; };
+		DAC4AF271BF0619700D66E76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC4AF261BF0619700D66E76 /* Images.xcassets */; };
+		DAC4AF2A1BF0619700D66E76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4AF281BF0619700D66E76 /* LaunchScreen.xib */; };
+		DAC4AF361BF0619700D66E76 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC4AF351BF0619700D66E76 /* ___Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC4AF301BF0619700D66E76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC4AF0E1BF0619700D66E76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC4AF151BF0619700D66E76;
+			remoteInfo = "信我家";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		A46320761C00D7AD0062AA24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		A46320771C00D7AD0062AA24 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		A46320781C00D7AD0062AA24 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		A46320791C00D7AD0062AA24 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		A48801761C09D2A400714F5B /* XWJBingHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBingHouseViewController.h; sourceTree = "<group>"; };
+		A48801771C09D2A400714F5B /* XWJBingHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBingHouseViewController.m; sourceTree = "<group>"; };
+		A48801781C09D2A400714F5B /* XWJBingHouseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJBingHouseViewController.xib; sourceTree = "<group>"; };
+		A488017D1C09F13300714F5B /* XWJHomeTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJHomeTabFactory.h; sourceTree = "<group>"; };
+		A488017E1C09F13300714F5B /* XWJHomeTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJHomeTabFactory.m; sourceTree = "<group>"; };
+		A48801801C09F22700714F5B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A48801841C09F41000714F5B /* ITabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITabFactory.h; sourceTree = "<group>"; };
+		A48801861C09F80500714F5B /* XWJHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJHomeViewController.h; sourceTree = "<group>"; };
+		A48801871C09F80500714F5B /* XWJHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJHomeViewController.m; sourceTree = "<group>"; };
+		A48801891C09F91100714F5B /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
+		A488018A1C09F91100714F5B /* XWJButlerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerViewController.m; sourceTree = "<group>"; };
+		A488018C1C09F94600714F5B /* XWJButlerTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerTabFactory.h; sourceTree = "<group>"; };
+		A488018D1C09F94600714F5B /* XWJButlerTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerTabFactory.m; sourceTree = "<group>"; };
+		A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJLifeTabFactory.h; sourceTree = "<group>"; };
+		A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJLifeTabFactory.m; sourceTree = "<group>"; };
+		A48801921C09FB3800714F5B /* XWJLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJLifeViewController.h; sourceTree = "<group>"; };
+		A48801931C09FB3800714F5B /* XWJLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJLifeViewController.m; sourceTree = "<group>"; };
+		A48801951C09FB4E00714F5B /* XWJFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindViewController.h; sourceTree = "<group>"; };
+		A48801961C09FB4E00714F5B /* XWJFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindViewController.m; sourceTree = "<group>"; };
+		A48801981C09FB6F00714F5B /* XWJMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMineViewController.h; sourceTree = "<group>"; };
+		A48801991C09FB6F00714F5B /* XWJMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMineViewController.m; sourceTree = "<group>"; };
+		A488019B1C09FBBB00714F5B /* XWJFindTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindTabFactory.h; sourceTree = "<group>"; };
+		A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindTabFactory.m; sourceTree = "<group>"; };
+		A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMindTabFactory.h; sourceTree = "<group>"; };
+		A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMindTabFactory.m; sourceTree = "<group>"; };
+		A48801A11C09FDAD00714F5B /* XWJTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJTabViewController.h; sourceTree = "<group>"; };
+		A48801A21C09FDAD00714F5B /* XWJTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJTabViewController.m; sourceTree = "<group>"; };
+		A48801A41C0A16FF00714F5B /* XWJTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJTabBarItem.h; sourceTree = "<group>"; };
+		A48801A51C0A16FF00714F5B /* XWJTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJTabBarItem.m; sourceTree = "<group>"; };
+		A48801A71C0AADAE00714F5B /* liebiao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "liebiao@3x.png"; path = "XWJ/liebiao@3x.png"; sourceTree = "<group>"; };
+		A48801A91C0AB22A00714F5B /* baritemSelectedIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "baritemSelectedIndicator@2x.png"; path = "XWJ/baritemSelectedIndicator@2x.png"; sourceTree = "<group>"; };
+		A48801AB1C0AB2DE00714F5B /* backIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backIcon@2x.png"; sourceTree = "<group>"; };
+		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
+		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
+		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
+		A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_Back_Icon@2x.png"; path = "XWJ/nav_Back_Icon@2x.png"; sourceTree = "<group>"; };
+		A4F40BCB1C08B1EB006E2F19 /* XWJIDCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJIDCodeViewController.h; sourceTree = "<group>"; };
+		A4F40BCC1C08B1EB006E2F19 /* XWJIDCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJIDCodeViewController.m; sourceTree = "<group>"; };
+		A4F40BCE1C08B5B4006E2F19 /* XWJResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJResetPasswordViewController.h; sourceTree = "<group>"; };
+		A4F40BCF1C08B5B4006E2F19 /* XWJResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJResetPasswordViewController.m; sourceTree = "<group>"; };
+		A4F40BD11C08BE77006E2F19 /* XWJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBaseViewController.h; sourceTree = "<group>"; };
+		A4F40BD21C08BE77006E2F19 /* XWJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBaseViewController.m; sourceTree = "<group>"; };
+		A4F40BD51C098887006E2F19 /* XWJBindHouseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBindHouseTableViewController.h; sourceTree = "<group>"; };
+		A4F40BD61C098887006E2F19 /* XWJBindHouseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBindHouseTableViewController.m; sourceTree = "<group>"; };
+		DA20ADF91BFB565D002032D1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		DA20ADFB1BFB5674002032D1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		DA20ADFD1BFB567D002032D1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		DA20ADFF1BFB5687002032D1 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		DA20AE011BFB5694002032D1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		DA20AE051BFB5AE3002032D1 /* XWJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJRegisterViewController.h; sourceTree = "<group>"; };
+		DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJRegisterViewController.m; sourceTree = "<group>"; };
+		DA8834711BFCB47F001B2862 /* XWJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJLoginViewController.h; sourceTree = "<group>"; };
+		DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJLoginViewController.m; sourceTree = "<group>"; };
+		DA8834741BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XWJLoginStoryboard.storyboard; sourceTree = "<group>"; };
+		DAC4AF161BF0619700D66E76 /* 信我家.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "信我家.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC4AF1A1BF0619700D66E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC4AF1B1BF0619700D66E76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DAC4AF1D1BF0619700D66E76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DAC4AF1E1BF0619700D66E76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DAC4AF201BF0619700D66E76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DAC4AF211BF0619700D66E76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DAC4AF241BF0619700D66E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAC4AF261BF0619700D66E76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAC4AF291BF0619700D66E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAC4AF2F1BF0619700D66E76 /* XWJTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XWJTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC4AF341BF0619700D66E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC4AF351BF0619700D66E76 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "___Tests.m"; path = "XWJTests/___Tests.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAC4AF131BF0619700D66E76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48801811C09F22700714F5B /* UIKit.framework in Frameworks */,
+				A463207B1C00D7AD0062AA24 /* MOBFoundation.framework in Frameworks */,
+				A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */,
+				A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */,
+				A463207C1C00D7AD0062AA24 /* SMS_SDK.framework in Frameworks */,
+				DA20AE021BFB5694002032D1 /* libstdc++.tbd in Frameworks */,
+				DA20AE001BFB5687002032D1 /* JavaScriptCore.framework in Frameworks */,
+				DA20ADFE1BFB567D002032D1 /* MessageUI.framework in Frameworks */,
+				DA20ADFC1BFB5674002032D1 /* libz.tbd in Frameworks */,
+				DA20ADFA1BFB565D002032D1 /* libicucore.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC4AF2C1BF0619700D66E76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A46320741C00D7AD0062AA24 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				A46320751C00D7AD0062AA24 /* SMS_SDKLocalizable.strings */,
+				A46320771C00D7AD0062AA24 /* MOBFoundation.framework */,
+				A46320781C00D7AD0062AA24 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		A488017B1C09F05300714F5B /* TabFactory */ = {
+			isa = PBXGroup;
+			children = (
+				A488017D1C09F13300714F5B /* XWJHomeTabFactory.h */,
+				A488017E1C09F13300714F5B /* XWJHomeTabFactory.m */,
+				A48801841C09F41000714F5B /* ITabFactory.h */,
+				A48801861C09F80500714F5B /* XWJHomeViewController.h */,
+				A48801871C09F80500714F5B /* XWJHomeViewController.m */,
+				A48801891C09F91100714F5B /* XWJButlerViewController.h */,
+				A488018A1C09F91100714F5B /* XWJButlerViewController.m */,
+				A488018C1C09F94600714F5B /* XWJButlerTabFactory.h */,
+				A488018D1C09F94600714F5B /* XWJButlerTabFactory.m */,
+				A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */,
+				A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */,
+				A48801921C09FB3800714F5B /* XWJLifeViewController.h */,
+				A48801931C09FB3800714F5B /* XWJLifeViewController.m */,
+				A48801951C09FB4E00714F5B /* XWJFindViewController.h */,
+				A48801961C09FB4E00714F5B /* XWJFindViewController.m */,
+				A48801981C09FB6F00714F5B /* XWJMineViewController.h */,
+				A48801991C09FB6F00714F5B /* XWJMineViewController.m */,
+				A488019B1C09FBBB00714F5B /* XWJFindTabFactory.h */,
+				A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */,
+				A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */,
+				A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */,
+				A48801A41C0A16FF00714F5B /* XWJTabBarItem.h */,
+				A48801A51C0A16FF00714F5B /* XWJTabBarItem.m */,
+			);
+			name = TabFactory;
+			sourceTree = "<group>";
+		};
+		A4F40BD41C098862006E2F19 /* BindHouse */ = {
+			isa = PBXGroup;
+			children = (
+				A4F40BD51C098887006E2F19 /* XWJBindHouseTableViewController.h */,
+				A4F40BD61C098887006E2F19 /* XWJBindHouseTableViewController.m */,
+				A48801761C09D2A400714F5B /* XWJBingHouseViewController.h */,
+				A48801771C09D2A400714F5B /* XWJBingHouseViewController.m */,
+				A48801781C09D2A400714F5B /* XWJBingHouseViewController.xib */,
+			);
+			name = BindHouse;
+			sourceTree = "<group>";
+		};
+		A4FD65A71C02103400250538 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */,
+				A4F40B341C07670B006E2F19 /* seperate@2x.png */,
+				A48801A71C0AADAE00714F5B /* liebiao@3x.png */,
+				A48801AB1C0AB2DE00714F5B /* backIcon@2x.png */,
+				A48801A91C0AB22A00714F5B /* baritemSelectedIndicator@2x.png */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		DA20ADF11BFB554C002032D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A48801801C09F22700714F5B /* UIKit.framework */,
+				A46320701C00D6990062AA24 /* AddressBook.framework */,
+				A46320711C00D6990062AA24 /* AddressBookUI.framework */,
+				DA20AE011BFB5694002032D1 /* libstdc++.tbd */,
+				DA20ADFF1BFB5687002032D1 /* JavaScriptCore.framework */,
+				DA20ADFD1BFB567D002032D1 /* MessageUI.framework */,
+				DA20ADFB1BFB5674002032D1 /* libz.tbd */,
+				DA20ADF91BFB565D002032D1 /* libicucore.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAC4AF0D1BF0619700D66E76 = {
+			isa = PBXGroup;
+			children = (
+				A4FD65A71C02103400250538 /* Resource */,
+				A46320741C00D7AD0062AA24 /* SMS_SDK */,
+				DAC4AF181BF0619700D66E76 /* XWJ */,
+				DA20ADF11BFB554C002032D1 /* Frameworks */,
+				DAC4AF321BF0619700D66E76 /* XWJTests */,
+				DAC4AF171BF0619700D66E76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAC4AF171BF0619700D66E76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4AF161BF0619700D66E76 /* 信我家.app */,
+				DAC4AF2F1BF0619700D66E76 /* XWJTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC4AF181BF0619700D66E76 /* XWJ */ = {
+			isa = PBXGroup;
+			children = (
+				A488017B1C09F05300714F5B /* TabFactory */,
+				A4F40BD41C098862006E2F19 /* BindHouse */,
+				DAC4AF191BF0619700D66E76 /* Supporting Files */,
+				DAC4AF1D1BF0619700D66E76 /* AppDelegate.h */,
+				DAC4AF1E1BF0619700D66E76 /* AppDelegate.m */,
+				DAC4AF201BF0619700D66E76 /* ViewController.h */,
+				DAC4AF211BF0619700D66E76 /* ViewController.m */,
+				DAC4AF231BF0619700D66E76 /* Main.storyboard */,
+				DAC4AF261BF0619700D66E76 /* Images.xcassets */,
+				DAC4AF281BF0619700D66E76 /* LaunchScreen.xib */,
+				DA20AE051BFB5AE3002032D1 /* XWJRegisterViewController.h */,
+				DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */,
+				DA8834711BFCB47F001B2862 /* XWJLoginViewController.h */,
+				DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */,
+				A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */,
+				A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */,
+				DA8834741BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard */,
+				A4F40BCB1C08B1EB006E2F19 /* XWJIDCodeViewController.h */,
+				A4F40BCC1C08B1EB006E2F19 /* XWJIDCodeViewController.m */,
+				A4F40BCE1C08B5B4006E2F19 /* XWJResetPasswordViewController.h */,
+				A4F40BCF1C08B5B4006E2F19 /* XWJResetPasswordViewController.m */,
+				A4F40BD11C08BE77006E2F19 /* XWJBaseViewController.h */,
+				A4F40BD21C08BE77006E2F19 /* XWJBaseViewController.m */,
+				A48801A11C09FDAD00714F5B /* XWJTabViewController.h */,
+				A48801A21C09FDAD00714F5B /* XWJTabViewController.m */,
+			);
+			path = XWJ;
+			sourceTree = "<group>";
+		};
+		DAC4AF191BF0619700D66E76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4AF1A1BF0619700D66E76 /* Info.plist */,
+				DAC4AF1B1BF0619700D66E76 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAC4AF321BF0619700D66E76 /* XWJTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4AF351BF0619700D66E76 /* ___Tests.m */,
+				DAC4AF331BF0619700D66E76 /* Supporting Files */,
+			);
+			name = XWJTests;
+			path = "信我家Tests";
+			sourceTree = "<group>";
+		};
+		DAC4AF331BF0619700D66E76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4AF341BF0619700D66E76 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAC4AF151BF0619700D66E76 /* XWJ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC4AF391BF0619700D66E76 /* Build configuration list for PBXNativeTarget "XWJ" */;
+			buildPhases = (
+				DAC4AF121BF0619700D66E76 /* Sources */,
+				DAC4AF131BF0619700D66E76 /* Frameworks */,
+				DAC4AF141BF0619700D66E76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XWJ;
+			productName = "信我家";
+			productReference = DAC4AF161BF0619700D66E76 /* 信我家.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAC4AF2E1BF0619700D66E76 /* XWJTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC4AF3C1BF0619700D66E76 /* Build configuration list for PBXNativeTarget "XWJTests" */;
+			buildPhases = (
+				DAC4AF2B1BF0619700D66E76 /* Sources */,
+				DAC4AF2C1BF0619700D66E76 /* Frameworks */,
+				DAC4AF2D1BF0619700D66E76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAC4AF311BF0619700D66E76 /* PBXTargetDependency */,
+			);
+			name = XWJTests;
+			productName = "信我家Tests";
+			productReference = DAC4AF2F1BF0619700D66E76 /* XWJTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAC4AF0E1BF0619700D66E76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Paul;
+				TargetAttributes = {
+					DAC4AF151BF0619700D66E76 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = UAYEW27P4X;
+					};
+					DAC4AF2E1BF0619700D66E76 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = DAC4AF151BF0619700D66E76;
+					};
+				};
+			};
+			buildConfigurationList = DAC4AF111BF0619700D66E76 /* Build configuration list for PBXProject "XWJ" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = DAC4AF0D1BF0619700D66E76;
+			productRefGroup = DAC4AF171BF0619700D66E76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAC4AF151BF0619700D66E76 /* XWJ */,
+				DAC4AF2E1BF0619700D66E76 /* XWJTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAC4AF141BF0619700D66E76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC4AF251BF0619700D66E76 /* Main.storyboard in Resources */,
+				A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */,
+				DAC4AF2A1BF0619700D66E76 /* LaunchScreen.xib in Resources */,
+				A463207A1C00D7AD0062AA24 /* SMS_SDKLocalizable.strings in Resources */,
+				A488017A1C09D2A400714F5B /* XWJBingHouseViewController.xib in Resources */,
+				DAC4AF271BF0619700D66E76 /* Images.xcassets in Resources */,
+				A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */,
+				A48801AC1C0AB2DE00714F5B /* backIcon@2x.png in Resources */,
+				A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */,
+				A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */,
+				DA8834751BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC4AF2D1BF0619700D66E76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAC4AF121BF0619700D66E76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC4AF221BF0619700D66E76 /* ViewController.m in Sources */,
+				A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */,
+				DAC4AF1F1BF0619700D66E76 /* AppDelegate.m in Sources */,
+				A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */,
+				A48801791C09D2A400714F5B /* XWJBingHouseViewController.m in Sources */,
+				A48801971C09FB4E00714F5B /* XWJFindViewController.m in Sources */,
+				DA8834731BFCB47F001B2862 /* XWJLoginViewController.m in Sources */,
+				A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */,
+				A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */,
+				A4F40BD01C08B5B4006E2F19 /* XWJResetPasswordViewController.m in Sources */,
+				A48801911C09FAE700714F5B /* XWJLifeTabFactory.m in Sources */,
+				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
+				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
+				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
+				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
+				A4F40BD71C098887006E2F19 /* XWJBindHouseTableViewController.m in Sources */,
+				A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */,
+				A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */,
+				DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */,
+				A48801941C09FB3800714F5B /* XWJLifeViewController.m in Sources */,
+				A48801A61C0A16FF00714F5B /* XWJTabBarItem.m in Sources */,
+				A48801A01C09FBD100714F5B /* XWJMindTabFactory.m in Sources */,
+				A48801A31C09FDAD00714F5B /* XWJTabViewController.m in Sources */,
+				A48801851C09F41000714F5B /* ITabFactory.h in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC4AF2B1BF0619700D66E76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC4AF361BF0619700D66E76 /* ___Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAC4AF311BF0619700D66E76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC4AF151BF0619700D66E76 /* XWJ */;
+			targetProxy = DAC4AF301BF0619700D66E76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A46320751C00D7AD0062AA24 /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A46320761C00D7AD0062AA24 /* en */,
+				A46320791C00D7AD0062AA24 /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		DAC4AF231BF0619700D66E76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC4AF241BF0619700D66E76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAC4AF281BF0619700D66E76 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC4AF291BF0619700D66E76 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAC4AF371BF0619700D66E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DAC4AF381BF0619700D66E76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAC4AF3A1BF0619700D66E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ning zhang (J7U23VP8F7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SMS_SDK",
+					"$(PROJECT_DIR)/XWJ",
+				);
+				INFOPLIST_FILE = XWJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hisense.xwj;
+				PRODUCT_NAME = "信我家";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		DAC4AF3B1BF0619700D66E76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ning zhang (J7U23VP8F7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SMS_SDK",
+					"$(PROJECT_DIR)/XWJ",
+				);
+				INFOPLIST_FILE = XWJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hisense.xwj;
+				PRODUCT_NAME = "信我家";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		DAC4AF3D1BF0619700D66E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = XWJTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hisense.xwj.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = XWJTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XWJ.app/XWJ";
+			};
+			name = Debug;
+		};
+		DAC4AF3E1BF0619700D66E76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = XWJTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hisense.xwj.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = XWJTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XWJ.app/XWJ";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAC4AF111BF0619700D66E76 /* Build configuration list for PBXProject "XWJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC4AF371BF0619700D66E76 /* Debug */,
+				DAC4AF381BF0619700D66E76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC4AF391BF0619700D66E76 /* Build configuration list for PBXNativeTarget "XWJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC4AF3A1BF0619700D66E76 /* Debug */,
+				DAC4AF3B1BF0619700D66E76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC4AF3C1BF0619700D66E76 /* Build configuration list for PBXNativeTarget "XWJTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC4AF3D1BF0619700D66E76 /* Debug */,
+				DAC4AF3E1BF0619700D66E76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAC4AF0E1BF0619700D66E76 /* Project object */;
+}
