@@ -31,6 +31,18 @@
 		A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801A71C0AADAE00714F5B /* liebiao@3x.png */; };
 		A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801A91C0AB22A00714F5B /* baritemSelectedIndicator@2x.png */; };
 		A48801AC1C0AB2DE00714F5B /* backIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801AB1C0AB2DE00714F5B /* backIcon@2x.png */; };
+		A48801B21C0AE15E00714F5B /* MineStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48801B11C0AE15E00714F5B /* MineStoryboard.storyboard */; };
+		A48801B41C0AE3D200714F5B /* mor_icon_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801B31C0AE3D100714F5B /* mor_icon_default@2x.png */; };
+		A48801BC1C0B2EAD00714F5B /* XWJMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801BB1C0B2EAD00714F5B /* XWJMyInfoViewController.m */; };
+		A48801C01C0B408100714F5B /* XWJSuggestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801BF1C0B408100714F5B /* XWJSuggestionController.m */; };
+		A48801C31C0B41EF00714F5B /* XWJMyMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801C21C0B41EF00714F5B /* XWJMyMessageController.m */; };
+		A48801C61C0B451300714F5B /* XWJMyHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801C51C0B451300714F5B /* XWJMyHouseController.m */; };
+		A48801CD1C0B5C9500714F5B /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801CC1C0B5C9500714F5B /* StyledPageControl.m */; };
+		A48801CF1C0B5D1800714F5B /* devAdv_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A48801CE1C0B5D1800714F5B /* devAdv_default@2x.png */; };
+		A48801D21C0B5EC500714F5B /* FindStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48801D11C0B5EC500714F5B /* FindStoryboard.storyboard */; };
+		A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48801D31C0B66B800714F5B /* HomeStoryboard.storyboard */; };
+		A48801D71C0B673E00714F5B /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48801D61C0B673E00714F5B /* LifeStoryboard.storyboard */; };
+		A48801DB1C0B789500714F5B /* XWJCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
@@ -104,6 +116,24 @@
 		A48801A71C0AADAE00714F5B /* liebiao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "liebiao@3x.png"; path = "XWJ/liebiao@3x.png"; sourceTree = "<group>"; };
 		A48801A91C0AB22A00714F5B /* baritemSelectedIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "baritemSelectedIndicator@2x.png"; path = "XWJ/baritemSelectedIndicator@2x.png"; sourceTree = "<group>"; };
 		A48801AB1C0AB2DE00714F5B /* backIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backIcon@2x.png"; sourceTree = "<group>"; };
+		A48801B11C0AE15E00714F5B /* MineStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MineStoryboard.storyboard; sourceTree = "<group>"; };
+		A48801B31C0AE3D100714F5B /* mor_icon_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mor_icon_default@2x.png"; sourceTree = "<group>"; };
+		A48801BA1C0B2EAD00714F5B /* XWJMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMyInfoViewController.h; sourceTree = "<group>"; };
+		A48801BB1C0B2EAD00714F5B /* XWJMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMyInfoViewController.m; sourceTree = "<group>"; };
+		A48801BD1C0B30DF00714F5B /* XWJHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWJHeader.h; sourceTree = "<group>"; };
+		A48801BE1C0B408100714F5B /* XWJSuggestionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJSuggestionController.h; sourceTree = "<group>"; };
+		A48801BF1C0B408100714F5B /* XWJSuggestionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJSuggestionController.m; sourceTree = "<group>"; };
+		A48801C11C0B41EF00714F5B /* XWJMyMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMyMessageController.h; sourceTree = "<group>"; };
+		A48801C21C0B41EF00714F5B /* XWJMyMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMyMessageController.m; sourceTree = "<group>"; };
+		A48801C41C0B451300714F5B /* XWJMyHouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMyHouseController.h; sourceTree = "<group>"; };
+		A48801C51C0B451300714F5B /* XWJMyHouseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMyHouseController.m; sourceTree = "<group>"; };
+		A48801CB1C0B5C9500714F5B /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = "<group>"; };
+		A48801CC1C0B5C9500714F5B /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
+		A48801CE1C0B5D1800714F5B /* devAdv_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devAdv_default@2x.png"; sourceTree = "<group>"; };
+		A48801D11C0B5EC500714F5B /* FindStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindStoryboard.storyboard; sourceTree = "<group>"; };
+		A48801D31C0B66B800714F5B /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
+		A48801D61C0B673E00714F5B /* LifeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LifeStoryboard.storyboard; sourceTree = "<group>"; };
+		A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJCollectionCell.xib; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
@@ -197,16 +227,61 @@
 				A48801931C09FB3800714F5B /* XWJLifeViewController.m */,
 				A48801951C09FB4E00714F5B /* XWJFindViewController.h */,
 				A48801961C09FB4E00714F5B /* XWJFindViewController.m */,
-				A48801981C09FB6F00714F5B /* XWJMineViewController.h */,
-				A48801991C09FB6F00714F5B /* XWJMineViewController.m */,
 				A488019B1C09FBBB00714F5B /* XWJFindTabFactory.h */,
 				A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */,
-				A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */,
-				A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */,
 				A48801A41C0A16FF00714F5B /* XWJTabBarItem.h */,
 				A48801A51C0A16FF00714F5B /* XWJTabBarItem.m */,
 			);
 			name = TabFactory;
+			sourceTree = "<group>";
+		};
+		A48801B01C0AE0E600714F5B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				A48801981C09FB6F00714F5B /* XWJMineViewController.h */,
+				A48801991C09FB6F00714F5B /* XWJMineViewController.m */,
+				A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */,
+				A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */,
+				A48801B31C0AE3D100714F5B /* mor_icon_default@2x.png */,
+				A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */,
+				A48801B11C0AE15E00714F5B /* MineStoryboard.storyboard */,
+				A48801BA1C0B2EAD00714F5B /* XWJMyInfoViewController.h */,
+				A48801BB1C0B2EAD00714F5B /* XWJMyInfoViewController.m */,
+				A48801BE1C0B408100714F5B /* XWJSuggestionController.h */,
+				A48801BF1C0B408100714F5B /* XWJSuggestionController.m */,
+				A48801C11C0B41EF00714F5B /* XWJMyMessageController.h */,
+				A48801C21C0B41EF00714F5B /* XWJMyMessageController.m */,
+				A48801C41C0B451300714F5B /* XWJMyHouseController.h */,
+				A48801C51C0B451300714F5B /* XWJMyHouseController.m */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		A48801C71C0B5C4C00714F5B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A48801CB1C0B5C9500714F5B /* StyledPageControl.h */,
+				A48801CC1C0B5C9500714F5B /* StyledPageControl.m */,
+				A48801CE1C0B5D1800714F5B /* devAdv_default@2x.png */,
+				A48801D31C0B66B800714F5B /* HomeStoryboard.storyboard */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		A48801D01C0B5EB200714F5B /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				A48801D11C0B5EC500714F5B /* FindStoryboard.storyboard */,
+			);
+			name = Find;
+			sourceTree = "<group>";
+		};
+		A48801D51C0B672F00714F5B /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				A48801D61C0B673E00714F5B /* LifeStoryboard.storyboard */,
+			);
+			name = Life;
 			sourceTree = "<group>";
 		};
 		A4F40BD41C098862006E2F19 /* BindHouse */ = {
@@ -272,6 +347,10 @@
 		DAC4AF181BF0619700D66E76 /* XWJ */ = {
 			isa = PBXGroup;
 			children = (
+				A48801D51C0B672F00714F5B /* Life */,
+				A48801D01C0B5EB200714F5B /* Find */,
+				A48801C71C0B5C4C00714F5B /* Home */,
+				A48801B01C0AE0E600714F5B /* Mine */,
 				A488017B1C09F05300714F5B /* TabFactory */,
 				A4F40BD41C098862006E2F19 /* BindHouse */,
 				DAC4AF191BF0619700D66E76 /* Supporting Files */,
@@ -297,6 +376,7 @@
 				A4F40BD21C08BE77006E2F19 /* XWJBaseViewController.m */,
 				A48801A11C09FDAD00714F5B /* XWJTabViewController.h */,
 				A48801A21C09FDAD00714F5B /* XWJTabViewController.m */,
+				A48801BD1C0B30DF00714F5B /* XWJHeader.h */,
 			);
 			path = XWJ;
 			sourceTree = "<group>";
@@ -412,12 +492,19 @@
 			files = (
 				DAC4AF251BF0619700D66E76 /* Main.storyboard in Resources */,
 				A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */,
+				A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */,
 				DAC4AF2A1BF0619700D66E76 /* LaunchScreen.xib in Resources */,
 				A463207A1C00D7AD0062AA24 /* SMS_SDKLocalizable.strings in Resources */,
 				A488017A1C09D2A400714F5B /* XWJBingHouseViewController.xib in Resources */,
 				DAC4AF271BF0619700D66E76 /* Images.xcassets in Resources */,
+				A48801B41C0AE3D200714F5B /* mor_icon_default@2x.png in Resources */,
+				A48801CF1C0B5D1800714F5B /* devAdv_default@2x.png in Resources */,
+				A48801D21C0B5EC500714F5B /* FindStoryboard.storyboard in Resources */,
+				A48801D71C0B673E00714F5B /* LifeStoryboard.storyboard in Resources */,
+				A48801B21C0AE15E00714F5B /* MineStoryboard.storyboard in Resources */,
 				A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */,
 				A48801AC1C0AB2DE00714F5B /* backIcon@2x.png in Resources */,
+				A48801DB1C0B789500714F5B /* XWJCollectionCell.xib in Resources */,
 				A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */,
 				A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */,
 				DA8834751BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard in Resources */,
@@ -441,10 +528,12 @@
 				DAC4AF221BF0619700D66E76 /* ViewController.m in Sources */,
 				A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */,
 				DAC4AF1F1BF0619700D66E76 /* AppDelegate.m in Sources */,
+				A48801C01C0B408100714F5B /* XWJSuggestionController.m in Sources */,
 				A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */,
 				A48801791C09D2A400714F5B /* XWJBingHouseViewController.m in Sources */,
 				A48801971C09FB4E00714F5B /* XWJFindViewController.m in Sources */,
 				DA8834731BFCB47F001B2862 /* XWJLoginViewController.m in Sources */,
+				A48801CD1C0B5C9500714F5B /* StyledPageControl.m in Sources */,
 				A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */,
 				A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */,
 				A4F40BD01C08B5B4006E2F19 /* XWJResetPasswordViewController.m in Sources */,
@@ -452,16 +541,19 @@
 				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
 				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
 				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
+				A48801BC1C0B2EAD00714F5B /* XWJMyInfoViewController.m in Sources */,
 				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
 				A4F40BD71C098887006E2F19 /* XWJBindHouseTableViewController.m in Sources */,
 				A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */,
 				A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */,
+				A48801C61C0B451300714F5B /* XWJMyHouseController.m in Sources */,
 				DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */,
 				A48801941C09FB3800714F5B /* XWJLifeViewController.m in Sources */,
 				A48801A61C0A16FF00714F5B /* XWJTabBarItem.m in Sources */,
 				A48801A01C09FBD100714F5B /* XWJMindTabFactory.m in Sources */,
 				A48801A31C09FDAD00714F5B /* XWJTabViewController.m in Sources */,
 				A48801851C09F41000714F5B /* ITabFactory.h in Sources */,
+				A48801C31C0B41EF00714F5B /* XWJMyMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
