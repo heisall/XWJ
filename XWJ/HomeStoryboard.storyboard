@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devAdv_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="Re5-ja-bWC">
-                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="120"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="MZb-WR-2vF"/>
+                                    <constraint firstAttribute="height" constant="120" id="MZb-WR-2vF"/>
                                 </constraints>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="btv-91-n2k">
-                                <rect key="frame" x="0.0" y="338" width="600" height="262"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="btv-91-n2k">
+                                <rect key="frame" x="0.0" y="328" width="600" height="272"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DGW-YP-T0z">
@@ -53,7 +53,7 @@
                                 <animations/>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHu-Hn-Kn7">
-                                <rect key="frame" x="0.0" y="228" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="148" width="600" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsP-QH-IU2">
                                         <rect key="frame" x="40" y="18" width="60" height="30"/>
@@ -137,20 +137,28 @@
                                     <constraint firstItem="0fk-ld-Du1" firstAttribute="height" secondItem="zsP-QH-IU2" secondAttribute="height" id="wgN-Ib-vKw"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-T6-RtW">
+                                <rect key="frame" x="0.0" y="236" width="600" height="89"/>
+                                <animations/>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UHu-Hn-Kn7" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="43G-BI-VEC"/>
+                            <constraint firstItem="Qew-T6-RtW" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="75F-n5-Gc7"/>
                             <constraint firstItem="UHu-Hn-Kn7" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="ALj-jF-xr8"/>
                             <constraint firstItem="Re5-ja-bWC" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="CuV-zV-CUc"/>
                             <constraint firstItem="3Hm-Rq-EZe" firstAttribute="top" secondItem="btv-91-n2k" secondAttribute="bottom" id="Fc1-Fr-XYh"/>
                             <constraint firstItem="Re5-ja-bWC" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="IAp-bQ-uT9"/>
+                            <constraint firstItem="Qew-T6-RtW" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="8" id="QwT-VP-5xj"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="cn5-Rx-NT0"/>
                             <constraint firstItem="UHu-Hn-Kn7" firstAttribute="top" secondItem="Re5-ja-bWC" secondAttribute="bottom" constant="8" id="e3j-MY-fmw"/>
+                            <constraint firstItem="btv-91-n2k" firstAttribute="top" secondItem="Qew-T6-RtW" secondAttribute="bottom" constant="3" id="fkz-5M-JR9"/>
                             <constraint firstItem="Re5-ja-bWC" firstAttribute="top" secondItem="npp-YY-3Zu" secondAttribute="bottom" id="le8-fR-DPP"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="uUd-Wn-yCE"/>
-                            <constraint firstItem="btv-91-n2k" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="30" id="uVy-hw-Ga1"/>
+                            <constraint firstItem="btv-91-n2k" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="100" id="uVy-hw-Ga1"/>
+                            <constraint firstItem="Qew-T6-RtW" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="vxJ-D4-Qo3"/>
                         </constraints>
                     </view>
                     <connections>

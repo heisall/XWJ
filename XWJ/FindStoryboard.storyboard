@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-e4-ToJ">
-                                <rect key="frame" x="0.0" y="30" width="300" height="70"/>
+                                <rect key="frame" x="0.0" y="30" width="300" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="社会活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE3-Zc-gQm">
                                         <rect key="frame" x="115" y="22" width="68" height="21"/>
@@ -39,11 +39,11 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.49019607843137253" green="0.77647058823529413" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="0Fs-p7-cYs"/>
+                                    <constraint firstAttribute="height" constant="90" id="0Fs-p7-cYs"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-2f-tdq">
-                                <rect key="frame" x="300.5" y="30" width="299.5" height="70"/>
+                                <rect key="frame" x="300.5" y="30" width="299.5" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我要发布" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K30-w4-qWi">
                                         <rect key="frame" x="98" y="22" width="68" height="21"/>
@@ -64,7 +64,7 @@
                                 <color key="backgroundColor" red="0.49019607843137253" green="0.77647058823529413" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEY-BU-xXh">
-                                <rect key="frame" x="0.0" y="108" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="128" width="600" height="30"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" label="信息类别"/>
                                 <constraints>
@@ -76,7 +76,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sat-yv-ZGI">
-                                <rect key="frame" x="0.0" y="148" width="600" height="462"/>
+                                <rect key="frame" x="0.0" y="168" width="600" height="442"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.55686274509803924" green="0.5607843137254902" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="keU-Ey-pw3">

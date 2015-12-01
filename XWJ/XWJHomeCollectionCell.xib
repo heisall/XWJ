@@ -15,16 +15,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-aq-nHd">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="51"/>
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
                         <animations/>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuB-rO-Tbv">
-                        <rect key="frame" x="0.0" y="62" width="60" height="17"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -33,11 +26,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ISu-aq-nHd" firstAttribute="width" secondItem="2cM-KM-igJ" secondAttribute="width" id="5Tp-tz-xn0"/>
-                <constraint firstItem="nuB-rO-Tbv" firstAttribute="centerX" secondItem="2cM-KM-igJ" secondAttribute="centerX" id="7Ep-g2-aTm"/>
                 <constraint firstItem="ISu-aq-nHd" firstAttribute="top" secondItem="2cM-KM-igJ" secondAttribute="top" id="Gpu-He-IIP"/>
-                <constraint firstItem="nuB-rO-Tbv" firstAttribute="top" secondItem="ISu-aq-nHd" secondAttribute="bottom" constant="11" id="H7E-uB-Uow"/>
-                <constraint firstItem="nuB-rO-Tbv" firstAttribute="width" secondItem="2cM-KM-igJ" secondAttribute="width" id="qhl-vu-mqw"/>
-                <constraint firstAttribute="bottom" secondItem="nuB-rO-Tbv" secondAttribute="bottom" constant="1" id="wIf-OW-gGL"/>
+                <constraint firstItem="ISu-aq-nHd" firstAttribute="height" secondItem="2cM-KM-igJ" secondAttribute="height" id="Tnp-fX-Fvd"/>
                 <constraint firstItem="ISu-aq-nHd" firstAttribute="centerX" secondItem="2cM-KM-igJ" secondAttribute="centerX" id="xDL-rY-hl5"/>
             </constraints>
             <size key="customSize" width="60" height="80"/>

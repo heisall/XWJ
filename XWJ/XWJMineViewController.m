@@ -70,7 +70,9 @@ static NSString *kcellIdentifier = @"collectionCellID";
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
     UILabel *label = (UILabel *)[cell viewWithTag:2];
 //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
-    imageView.image = [UIImage imageNamed:@"mor_icon_default"];
+    
+    [imageView setImage:[UIImage imageNamed:@"mor_icon_default"]];
+//    imageView.image = [UIImage imageNamed:@"mor_icon_default"];
     label.textColor = XWJGRAYCOLOR;
     label.text = self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row];
     
