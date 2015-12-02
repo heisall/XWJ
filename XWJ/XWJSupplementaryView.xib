@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkJ-M3-GVS">
-                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
+                    <rect key="frame" x="20" y="0.0" width="0.0" height="45"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="highlightedColor"/>
@@ -24,11 +24,11 @@
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="rYQ-N3-33k" secondAttribute="trailing" constant="20" id="FeO-s3-aPj"/>
                 <constraint firstItem="rYQ-N3-33k" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FsH-j9-9gW"/>
-                <constraint firstItem="MkJ-M3-GVS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KWy-v0-X62"/>
+                <constraint firstItem="MkJ-M3-GVS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="KWy-v0-X62"/>
                 <constraint firstItem="MkJ-M3-GVS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gCU-or-U8f"/>
                 <constraint firstItem="MkJ-M3-GVS" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="lO0-tZ-52H"/>
             </constraints>

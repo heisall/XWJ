@@ -7,7 +7,8 @@
 //
 
 #import "XWJBaseViewController.h"
-
-@interface XWJLifeViewController : XWJBaseViewController
+#import "LCBannerView.h"
+@interface XWJLifeViewController : XWJBaseViewController<LCBannerViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *adScrollView;
 
 @end

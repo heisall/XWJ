@@ -31,7 +31,7 @@
     [UIApplication sharedApplication].statusBarHidden = YES;
 
     self.tFieldUserName.text = @"15092245487";
-    self.tFieldPassWord.text = @"1234";
+    self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
 //    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
 //    [controlView addTarget:self action:@selector(resiginTextFields) forControlEvents:UIControlEventTouchUpInside];

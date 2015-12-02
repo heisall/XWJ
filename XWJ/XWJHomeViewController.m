@@ -9,15 +9,18 @@
 #import "XWJHomeViewController.h"
 #import "XWJHeader.h"
 #import "XWJMyMessageController.h"
-
-#define  CELL_HEIGHT 30.0
+#import "LCBannerView.h"
+#define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
 #define  HEADER_HEIGHT 25.0
+
+#define TAG 100
 @implementation XWJHomeViewController
 CGFloat collectionCellHeight;
 CGFloat collectionCellWidth;
-static NSString *kcellIdentifier = @"homecollectionCellID";
+static NSString *kcellIdentifier = @"homecollectionCellID2";
+static NSString *kcellIdentifier1 = @"homecollectionCellID3";
 static NSString *kheaderIdentifier = @"headerIdentifier";
 NSArray *footer;
 -(void)viewDidLoad{
@@ -29,12 +32,54 @@ NSArray *footer;
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJSupplementaryView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kheaderIdentifier];
     footer = [NSArray arrayWithObjects:@"生活信息",@"商城信息",@"房屋信息", nil];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell2" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell3" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier1];
+    
+    /******************** internet ********************/
+    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181708260671.png",
+                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
+                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
+    
+    [self.adScrollView addSubview:({
+        
+        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                                                                200.0f)
+                                    
+                                                            delegate:self
+                                                           imageURLs:URLs
+                                                    placeholderImage:nil
+                                                       timerInterval:2.0f
+                                       currentPageIndicatorTintColor:[UIColor redColor]
+                                              pageIndicatorTintColor:[UIColor whiteColor]];
+        bannerView;
+    })];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+//    NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNavigationBar2];
+    NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
+    NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
+
+    CGFloat width = self.view.bounds.size.width/4;
+    CGFloat height = self.scrollView.bounds.size.height;
+    self.scrollView.contentSize = CGSizeMake(width*5, height);
+    for (int i=0; i<6; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(width*i, 0, width, height);
+        button.tag = TAG+i;
+        [button setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [self.scrollView addSubview:button];
+    }
+}
+- (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
+    
+    NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);
 }
 
 -(void)setNavigationBar2{
@@ -73,26 +118,39 @@ NSArray *footer;
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //重用cell
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
-    //赋值
-    UIButton *button1 = (UIButton *)[cell viewWithTag:1];
-    UIButton *button2 = (UIButton *)[cell viewWithTag:2];
-    UIButton *button3 = (UIButton *)[cell viewWithTag:3];
-    UIButton *button4 = (UIButton *)[cell viewWithTag:4];
-    UIButton *button5 = (UIButton *)[cell viewWithTag:5];
+    UICollectionViewCell *cell;
+    
+    if (indexPath.section == 2) {
+        cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier1 forIndexPath:indexPath];
+        UIButton *button1 = (UIButton *)[cell viewWithTag:1];
+        UIButton *button2 = (UIButton *)[cell viewWithTag:2];
+        UIButton *button3 = (UIButton *)[cell viewWithTag:3];
+        
+        //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
+        
+        [button1 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button2 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button3 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
 
-    //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
-     
-    [button1 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-    [button2 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-    [button3 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-    [button4 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-    [button5 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+    }else{
+        //重用cell
+        cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
+        //赋值
+        UIButton *button1 = (UIButton *)[cell viewWithTag:1];
+        UIButton *button2 = (UIButton *)[cell viewWithTag:2];
+        UIButton *button3 = (UIButton *)[cell viewWithTag:3];
+        UIButton *button4 = (UIButton *)[cell viewWithTag:4];
+        UIButton *button5 = (UIButton *)[cell viewWithTag:5];
+
+        //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
+         
+        [button1 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button2 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button3 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button4 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button5 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
     
-    
-//        cell.backgroundColor = [UIColor colorWithRed:68.0/255.0 green:70.0/255.0 blue:71.0/255.0 alpha:1.0];
-    
+    }
     return cell;
     
 }
@@ -129,7 +187,7 @@ NSArray *footer;
     CGFloat width,height;
     width = self.collectionView.frame.size.width;
 //    height = (self.collectionView.frame.size.height - HEADER_HEIGHT*COLLECTION_NUMSECTIONS)/3;
-    height = 120;
+    height = CELL_HEIGHT;
 //        if (indexPath.item == 0) {
 //            return CGSizeMake(width, height);
 //        }
@@ -181,6 +239,8 @@ NSArray *footer;
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 -(void)showList{
+//    UIStoryboard *wuyStory = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
+//    [self.navigationController showViewController:[wuyStory instantiateInitialViewController] sender:nil];
     UIViewController * con = [[XWJMyMessageController alloc] init];
     [self.navigationController showViewController:con sender:nil];
 }

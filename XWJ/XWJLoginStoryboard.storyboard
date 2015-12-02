@@ -307,7 +307,7 @@
                                             <constraint firstAttribute="width" constant="200" id="2nZ-Fa-t11"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <animations/>
@@ -380,6 +380,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnGetcode" destination="HrU-Ac-a0S" id="5pQ-ys-oic"/>
                         <outlet property="txtFieldIDCode" destination="ko7-L5-3xA" id="ceG-g2-8R1"/>
                         <outlet property="txtFieldPhoneNumber" destination="Hk2-XN-AOU" id="yO6-4i-Fc3"/>
                     </connections>
