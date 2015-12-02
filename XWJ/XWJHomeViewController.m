@@ -66,17 +66,26 @@ NSArray *footer;
     NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
+    NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
     CGFloat width = self.view.bounds.size.width/4;
     CGFloat height = self.scrollView.bounds.size.height;
     self.scrollView.contentSize = CGSizeMake(width*5, height);
-    for (int i=0; i<6; i++) {
+    for (int i=0; i<5; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(width*i, 0, width, height);
         button.tag = TAG+i;
-        [button setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        button.titleLabel.text= [arr objectAtIndex:i];
+        [button setBackgroundImage: [UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
     }
 }
+-(void)click:(UIButton*)sender{
+    UIStoryboard * wuy = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
+    UIViewController *wu = [wuy instantiateInitialViewController];
+    [self.navigationController showViewController:wu sender:nil];
+}
+
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
     NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);
@@ -237,6 +246,7 @@ NSArray *footer;
 {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor clearColor]];
+
 }
 -(void)showList{
 //    UIStoryboard *wuyStory = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];

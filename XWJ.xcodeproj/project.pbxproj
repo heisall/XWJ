@@ -39,7 +39,6 @@
 		A41255451C0F2AED0042D8CC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A412553D1C0F2AED0042D8CC /* UIView+MJExtension.m */; };
 		A41255491C0F33770042D8CC /* devAdv_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A41255471C0F33770042D8CC /* devAdv_red@2x.png */; };
 		A412554A1C0F33770042D8CC /* devAdv_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A41255481C0F33770042D8CC /* devAdv_white@2x.png */; };
-		A412554C1C0F35A40042D8CC /* WuyeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412554B1C0F35A40042D8CC /* WuyeStoryboard.storyboard */; };
 		A412554F1C0F38C70042D8CC /* WuyeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A412554E1C0F38C70042D8CC /* WuyeTableViewCell.m */; };
 		A41255711C0F39D20042D8CC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A41255511C0F39D20042D8CC /* LICENSE */; };
 		A41255721C0F39D20042D8CC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A41255521C0F39D20042D8CC /* README.md */; };
@@ -58,9 +57,10 @@
 		A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A412556E1C0F39D20042D8CC /* UIImageView+WebCache.m */; };
 		A41255801C0F39D20042D8CC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A41255701C0F39D20042D8CC /* UIView+WebCacheOperation.m */; };
 		A41255831C0F39EE0042D8CC /* LCBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A41255821C0F39EE0042D8CC /* LCBannerView.m */; };
-		A41255851C0F44D10042D8CC /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41255841C0F44D10042D8CC /* LifeStoryboard.storyboard */; };
 		A41255881C0F522E0042D8CC /* XWJjianduDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41255871C0F522E0042D8CC /* XWJjianduDetailViewController.m */; };
 		A412558A1C0F541E0042D8CC /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = A41255891C0F541E0042D8CC /* demo.png */; };
+		A412558C1C0F59120042D8CC /* WuyeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */; };
+		A412558E1C0F595B0042D8CC /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -199,7 +199,6 @@
 		A41255461C0F2B7D0042D8CC /* XWJdef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWJdef.h; sourceTree = "<group>"; };
 		A41255471C0F33770042D8CC /* devAdv_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devAdv_red@2x.png"; sourceTree = "<group>"; };
 		A41255481C0F33770042D8CC /* devAdv_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devAdv_white@2x.png"; sourceTree = "<group>"; };
-		A412554B1C0F35A40042D8CC /* WuyeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WuyeStoryboard.storyboard; sourceTree = "<group>"; };
 		A412554D1C0F38C70042D8CC /* WuyeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WuyeTableViewCell.h; sourceTree = "<group>"; };
 		A412554E1C0F38C70042D8CC /* WuyeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WuyeTableViewCell.m; sourceTree = "<group>"; };
 		A41255511C0F39D20042D8CC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -235,10 +234,11 @@
 		A41255701C0F39D20042D8CC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		A41255811C0F39EE0042D8CC /* LCBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBannerView.h; sourceTree = "<group>"; };
 		A41255821C0F39EE0042D8CC /* LCBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBannerView.m; sourceTree = "<group>"; };
-		A41255841C0F44D10042D8CC /* LifeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LifeStoryboard.storyboard; sourceTree = "<group>"; };
 		A41255861C0F522E0042D8CC /* XWJjianduDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJjianduDetailViewController.h; sourceTree = "<group>"; };
 		A41255871C0F522E0042D8CC /* XWJjianduDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJjianduDetailViewController.m; sourceTree = "<group>"; };
 		A41255891C0F541E0042D8CC /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo.png; sourceTree = "<group>"; };
+		A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WuyeStoryboard.storyboard; sourceTree = "<group>"; };
+		A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LifeStoryboard.storyboard; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -447,7 +447,7 @@
 			children = (
 				A412551E1C0F264E0042D8CC /* XWJjianduViewController.h */,
 				A412551F1C0F264E0042D8CC /* XWJjianduViewController.m */,
-				A412554B1C0F35A40042D8CC /* WuyeStoryboard.storyboard */,
+				A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */,
 				A412554D1C0F38C70042D8CC /* WuyeTableViewCell.h */,
 				A412554E1C0F38C70042D8CC /* WuyeTableViewCell.m */,
 				A41255861C0F522E0042D8CC /* XWJjianduDetailViewController.h */,
@@ -607,11 +607,11 @@
 		A48801D51C0B672F00714F5B /* Life */ = {
 			isa = PBXGroup;
 			children = (
+				A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */,
 				A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */,
 				A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */,
 				A48801921C09FB3800714F5B /* XWJLifeViewController.h */,
 				A48801931C09FB3800714F5B /* XWJLifeViewController.m */,
-				A41255841C0F44D10042D8CC /* LifeStoryboard.storyboard */,
 			);
 			name = Life;
 			sourceTree = "<group>";
@@ -840,11 +840,9 @@
 				A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */,
 				A4F5C17A1C0C7DE700513CD9 /* tab_more_select@2x.png in Resources */,
 				DAC4AF2A1BF0619700D66E76 /* LaunchScreen.xib in Resources */,
-				A412554C1C0F35A40042D8CC /* WuyeStoryboard.storyboard in Resources */,
 				A488017A1C09D2A400714F5B /* XWJBingHouseViewController.xib in Resources */,
 				DAC4AF271BF0619700D66E76 /* Images.xcassets in Resources */,
 				A41255491C0F33770042D8CC /* devAdv_red@2x.png in Resources */,
-				A41255851C0F44D10042D8CC /* LifeStoryboard.storyboard in Resources */,
 				A48801B41C0AE3D200714F5B /* mor_icon_default@2x.png in Resources */,
 				A41255711C0F39D20042D8CC /* LICENSE in Resources */,
 				A4F5C19C1C0DE4BC00513CD9 /* XWJHomeCollectionCell3.xib in Resources */,
@@ -855,7 +853,9 @@
 				A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */,
 				A412553E1C0F2AED0042D8CC /* MJRefresh.bundle in Resources */,
 				A48801AC1C0AB2DE00714F5B /* backIcon@2x.png in Resources */,
+				A412558C1C0F59120042D8CC /* WuyeStoryboard.storyboard in Resources */,
 				A48801DB1C0B789500714F5B /* XWJCollectionCell.xib in Resources */,
+				A412558E1C0F595B0042D8CC /* LifeStoryboard.storyboard in Resources */,
 				A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */,
 				A412550E1C0F22FC0042D8CC /* LICENSE in Resources */,
 				A4F5C19A1C0DC04300513CD9 /* XWJHomeCollectionCell2.xib in Resources */,
