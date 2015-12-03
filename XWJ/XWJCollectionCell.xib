@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="104" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-aq-nHd">
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-aq-nHd">
                         <rect key="frame" x="0.0" y="0.0" width="104" height="61"/>
                         <animations/>
                     </imageView>

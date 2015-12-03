@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *adView;
 @property(nonatomic)UIScrollView *scrollview;
 @end
-
+#define MJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 @implementation XWJjianduViewController
 
 - (void)viewDidLoad {
@@ -40,6 +40,15 @@
                                               pageIndicatorTintColor:[UIColor whiteColor]];
         bannerView;
     })];
+
+//    UIView *view =[[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40.0)];
+////    view.backgroundColor = [UIColor grayColor];
+//    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 30)];
+//    view.backgroundColor = [UIColor whiteColor];
+//    title.text = @"物业员工";
+//    title.textColor  = MJColor(0, 147, 141);
+//    [view addSubview:title];
+//    self.tableView.tableHeaderView = view;
 }
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
@@ -51,7 +60,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationItem.title = @"物业监督";
-    self.navigationItem.leftBarButtonItem = nil;
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +72,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 30.0;
+//}
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return @"物业员工";
+//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
@@ -81,7 +97,6 @@
     if (!cell) {
         cell = [[WuyeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"wuyecell"];
     }
-    
     // Configure the cell...
     cell.headImg.image = [UIImage imageNamed:@"mor_icon_default"];
     cell.nameLabel.text = @"王琳";

@@ -14,10 +14,9 @@
 #define  CELL_HEIGHT 30.0
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 4
-
 @implementation XWJMineViewController
 static NSString *kcellIdentifier = @"collectionCellID";
-
+NSArray *myImgs;
 -(void)viewDidLoad{
 
     self.tableData = [NSArray arrayWithObjects:@"关于信我家",@"邀请家人",@"修改密码",@"版本检查",@"修改建议",@"系统设置" ,nil];
@@ -25,7 +24,7 @@ static NSString *kcellIdentifier = @"collectionCellID";
     self.tableview.delegate = self;
     tableViewCellHeight = self.tableview.bounds.size.height/self.tableData.count;
 
-    
+    myImgs = [NSArray arrayWithObjects:@"mine1",@"mine2",@"mine3",@"mine4",@"mine5",@"mine6",@"mine7",@"mine8", nil];
     self.collectionData = [NSArray arrayWithObjects:@"我的消息",@"我的发现",@"我的租售",@"我的订单",@"我的保修投诉",@"我的收件地址",@"我的积分",@"我的余额",nil];
     self.collcitonView.dataSource = self;
     self.collcitonView.delegate = self;
@@ -71,7 +70,8 @@ static NSString *kcellIdentifier = @"collectionCellID";
     UILabel *label = (UILabel *)[cell viewWithTag:2];
 //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
     
-    [imageView setImage:[UIImage imageNamed:@"mor_icon_default"]];
+    NSString * imageStr = [myImgs objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+indexPath.row];
+    [imageView setImage:[UIImage imageNamed:imageStr]];
 //    imageView.image = [UIImage imageNamed:@"mor_icon_default"];
     label.textColor = XWJGRAYCOLOR;
     label.text = self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row];
