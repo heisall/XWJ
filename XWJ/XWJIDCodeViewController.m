@@ -9,6 +9,8 @@
 #import "XWJIDCodeViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import <SMS_SDK/SMSSDK.h>
+
+#define MESSAGE_CONTENT @"【信我家】您的信我家验证码为：%d，感谢您的使用！"
 @interface XWJIDCodeViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldIDCode;
 @property (weak, nonatomic) IBOutlet UIButton *btnGetcode;
@@ -49,7 +51,8 @@ int code;
 
     NSString *uid = @"2735";
     NSString *phone = self.txtFieldPhoneNumber.text;
-    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx?action=send&userid=%@&account=hisenseplus&password=hisenseplus&mobile=%@&content=【信我家】验证码是：%d&sendTime=&checkcontent=1",uid,phone,code];
+    NSString *content = [NSString stringWithFormat:MESSAGE_CONTENT,code];
+    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx?action=send&userid=%@&account=hisenseplus&password=hisenseplus&mobile=%@&content=%@&sendTime=&checkcontent=1",uid,phone,content];
 //    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx"];
 //
 //    NSString *contnt = [NSString stringWithFormat:@"【信我家】验证码是：%d",code];

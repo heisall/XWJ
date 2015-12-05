@@ -8,6 +8,15 @@
 
 #import "XWJBaseViewController.h"
 
-@interface XWJFindViewController : XWJBaseViewController
+@interface XWJFindViewController : XWJBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+    CGFloat collectionCellWidth;
+    CGFloat collectionCellHeight;
 
+}
+@property (weak, nonatomic) IBOutlet UIView *motionView;
+@property (weak, nonatomic) IBOutlet UIView *publicView;
+@property (weak, nonatomic) IBOutlet UIButton *mesBtn;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property(nonatomic)NSArray *array;
 @end
