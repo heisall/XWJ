@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *actTitle;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "XWJFindViewController.h"
+#import "XWJFindDetailViewController.h"
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 2
 #define  SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -30,7 +31,9 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationItem.title = @"发现";
+    
+    self.navigationItem.title = @"依云小镇";
+//    self.title = @"依云小镇";
     self.navigationItem.leftBarButtonItem = nil;
 }
 
@@ -100,18 +103,18 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //    UIViewController * con = [[XWJMyMessageController alloc] init];
-    //    [self.navigationController showViewController:con sender:nil];
-            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-            [cell setBackgroundColor:[UIColor greenColor]];
+        UIViewController * con = [self.storyboard instantiateViewControllerWithIdentifier:@"findDetail"];
+        [self.navigationController showViewController:con sender:nil];
+//            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//            [cell setBackgroundColor:[UIColor greenColor]];
     
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor clearColor]];
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    [cell setBackgroundColor:[UIColor clearColor]];
     
 }
 

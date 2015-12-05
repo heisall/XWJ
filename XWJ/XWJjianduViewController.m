@@ -35,7 +35,7 @@
                                                             delegate:self
                                                            imageURLs:URLs
                                                     placeholderImage:nil
-                                                       timerInterval:2.0f
+                                                       timerInterval:5.0f
                                        currentPageIndicatorTintColor:[UIColor redColor]
                                               pageIndicatorTintColor:[UIColor whiteColor]];
         bannerView;

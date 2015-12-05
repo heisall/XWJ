@@ -10,6 +10,13 @@
 
 @implementation XWJActivityViewController
 
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    [self.webView loadRequest:request];
+}
+
 - (IBAction)enroll:(UIButton *)sender {
     NSLog(@"baoming");
 }

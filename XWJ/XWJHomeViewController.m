@@ -61,14 +61,14 @@ NSArray *footer;
         bannerView;
     })];
     
-    NSArray *titls = [NSArray arrayWithObjects:@"元旦放假通知1",@"元旦放假通知2",@"元旦放假通知3", nil];
+    NSArray *titls = [NSArray arrayWithObjects:@"重要公告寒流来袭，快把装备上全1",@"重要公告寒流来袭，快把装备上全2",@"重要公告寒流来袭，快把装备上全3", nil];
     [self.mesScrollview addSubview:({
         
         LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
                                                                                 self.mesScrollview.bounds.size.height)
                                     
                                                             delegate:self
-                                                              titles:titls timerInterval:5.0
+                                                              titles:titls timerInterval:4.0
                                        currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
         bannerView;
     })];
@@ -143,6 +143,7 @@ NSArray *footer;
         button.titleLabel.text= [arr objectAtIndex:i];
         button.contentMode = UIViewContentModeCenter;
         [button setImage:[UIImage imageNamed:[business objectAtIndex:i] ] forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor whiteColor];
         [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
     }
@@ -151,9 +152,12 @@ NSArray *footer;
     UIStoryboard * wuy = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
     UIViewController *wu = [wuy instantiateInitialViewController];
     
-    UIStoryboard * noticeStory = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
-    XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"notice"];
+//    UIStoryboard * noticeStory = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+//    XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"notice"];
+    
+    XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
 
+    
     NSArray *jump = [NSArray arrayWithObjects:wu,notice,notice,notice,notice, nil];
 
     [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
@@ -166,10 +170,11 @@ NSArray *footer;
     NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);
     if (bannerView.titles) {
         
-        UIStoryboard *FindStory =[UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
-        UIViewController *mesCon = [FindStory instantiateViewControllerWithIdentifier:@"activityDetail"];
-        [self.navigationController showViewController:mesCon sender:nil];
-        NSLog(@"mes click");
+//        UIStoryboard *FindStory =[UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+//        UIViewController *mesCon = [FindStory instantiateViewControllerWithIdentifier:@"activityDetail"];
+        XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
+        [self.navigationController showViewController:notice sender:nil];
+        NSLog(@"notice click");
     }
 }
 

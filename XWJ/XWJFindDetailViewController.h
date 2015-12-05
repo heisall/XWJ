@@ -1,5 +1,5 @@
 //
-//  XWJNoticeViewController.h
+//  XWJFindDetailViewController.h
 //  XWJ
 //
 //  Created by Sun on 15/12/5.
@@ -8,7 +8,7 @@
 
 #import "XWJBaseViewController.h"
 
-@interface XWJNoticeViewController : XWJBaseViewController
+@interface XWJFindDetailViewController : XWJBaseViewController
 @property(nonatomic)NSArray *array;
 
 @end

@@ -44,7 +44,7 @@
 
 -(void)addTextView{
     // 自定义的view
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
     customView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1.0];
     
     

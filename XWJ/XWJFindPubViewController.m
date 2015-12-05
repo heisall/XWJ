@@ -14,10 +14,11 @@
 #define IMAGE_WIDTH 80
 #define spacing 5
 #define TAG 100
-@interface XWJFindPubViewController ()<LGPhotoPickerViewControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface XWJFindPubViewController ()<LGPhotoPickerViewControllerDelegate,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
 @property(nonatomic)UIImagePickerController *picker;
 @property (nonatomic, assign) LGShowImageType showType;
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScroll;
+@property (nonatomic)UIBarButtonItem *rightBarItem;
 @property (nonatomic)NSArray *imageArray;
 @property(nonatomic)NSArray *dataSource;
 @end
@@ -36,20 +37,21 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.dataSource = [NSArray arrayWithObjects:@"二手市场",@"帮帮忙",@"个人商店", nil];
+    
+    self.contentTextView.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 80, 40);
+    btn.frame = CGRectMake(0, 0, 40, 40);
     [btn setTitle:@"提交" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-//    btn.backgroundColor = [UIColor redColor];
     [btn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
 //    [btn setBackgroundImage:image forState:UIControlStateNormal];
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem  alloc] initWithCustomView:btn];
-    self.navigationItem.rightBarButtonItem = barButtonItem;
+    self.rightBarItem = [[UIBarButtonItem  alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = self.rightBarItem;
     
 }
 -(void)submit{
@@ -134,6 +136,29 @@
     [cell addSubview:view];
     return cell;
 }
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 40, 40);
+    [btn setTitle:@"完成" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    [btn addTarget:self action:@selector(leaveEditMode) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *done= [[UIBarButtonItem  alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = done;
+}
+
+
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    self.navigationItem.rightBarButtonItem = self.rightBarItem;
+}
+
+- (void)leaveEditMode {
+    [self.contentTextView resignFirstResponder];
+}
+
+
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.size.width, 40)];
 //    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];

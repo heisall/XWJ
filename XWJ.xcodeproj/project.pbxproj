@@ -104,6 +104,9 @@
 		A43C98001C129C68006A61EE /* xiang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A43C97ED1C129C68006A61EE /* xiang@2x.png */; };
 		A43C98061C12BFE4006A61EE /* XWJActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */; };
 		A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */; };
+		A43C980F1C1313D0006A61EE /* XWJFindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C980E1C1313D0006A61EE /* XWJFindDetailViewController.m */; };
+		A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */; };
+		A43C981B1C133914006A61EE /* XWJFindDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -344,6 +347,12 @@
 		A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJActivityViewController.m; sourceTree = "<group>"; };
 		A43C98071C12E95C006A61EE /* XWJNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJNoticeViewController.h; sourceTree = "<group>"; };
 		A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJNoticeViewController.m; sourceTree = "<group>"; };
+		A43C980D1C1313D0006A61EE /* XWJFindDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindDetailViewController.h; sourceTree = "<group>"; };
+		A43C980E1C1313D0006A61EE /* XWJFindDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindDetailViewController.m; sourceTree = "<group>"; };
+		A43C98131C132798006A61EE /* XWJNotcieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJNotcieTableViewCell.h; sourceTree = "<group>"; };
+		A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJNotcieTableViewCell.m; sourceTree = "<group>"; };
+		A43C98191C133914006A61EE /* XWJFindDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindDetailTableViewCell.h; sourceTree = "<group>"; };
+		A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindDetailTableViewCell.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -840,6 +849,8 @@
 				A4F5C17C1C0C86A800513CD9 /* XWJHomeViewController2.m */,
 				A43C98071C12E95C006A61EE /* XWJNoticeViewController.h */,
 				A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */,
+				A43C98131C132798006A61EE /* XWJNotcieTableViewCell.h */,
+				A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -857,6 +868,10 @@
 				A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */,
 				A43C98041C12BFE4006A61EE /* XWJActivityViewController.h */,
 				A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */,
+				A43C980D1C1313D0006A61EE /* XWJFindDetailViewController.h */,
+				A43C980E1C1313D0006A61EE /* XWJFindDetailViewController.m */,
+				A43C98191C133914006A61EE /* XWJFindDetailTableViewCell.h */,
+				A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */,
 			);
 			name = Find;
 			sourceTree = "<group>";
@@ -1185,6 +1200,7 @@
 				A41255171C0F22FC0042D8CC /* UIWebView+AFNetworking.m in Sources */,
 				A48801791C09D2A400714F5B /* XWJBingHouseViewController.m in Sources */,
 				A48801971C09FB4E00714F5B /* XWJFindViewController.m in Sources */,
+				A43C980F1C1313D0006A61EE /* XWJFindDetailViewController.m in Sources */,
 				A43C97AD1C1297E1006A61EE /* LGPhotoPickerImageView.m in Sources */,
 				DA8834731BFCB47F001B2862 /* XWJLoginViewController.m in Sources */,
 				A48801CD1C0B5C9500714F5B /* StyledPageControl.m in Sources */,
@@ -1201,6 +1217,7 @@
 				A412552C1C0F2A080042D8CC /* UIImage+ImageOrientaion.m in Sources */,
 				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
 				A41255121C0F22FC0042D8CC /* UIAlertView+AFNetworking.m in Sources */,
+				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
 				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
 				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
 				A43C97A61C1297E1006A61EE /* LGPhotoPickerAssetsViewController.m in Sources */,
@@ -1219,6 +1236,7 @@
 				A412550D1C0F22FC0042D8CC /* AFURLSessionManager.m in Sources */,
 				A41255111C0F22FC0042D8CC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A412557A1C0F39D20042D8CC /* SDWebImagePrefetcher.m in Sources */,
+				A43C981B1C133914006A61EE /* XWJFindDetailTableViewCell.m in Sources */,
 				A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */,
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
