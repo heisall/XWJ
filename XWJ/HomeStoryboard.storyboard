@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="btv-91-n2k">
-                                <rect key="frame" x="0.0" y="408" width="600" height="192"/>
+                                <rect key="frame" x="0.0" y="430" width="600" height="170"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DGW-YP-T0z">
@@ -43,7 +43,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHu-Hn-Kn7">
-                                <rect key="frame" x="0.0" y="228" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="250" width="600" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsP-QH-IU2">
                                         <rect key="frame" x="40" y="18" width="60" height="30"/>
@@ -77,14 +77,14 @@
                                         <rect key="frame" x="341" y="55" width="52" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日签到得" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUG-g3-XPv">
                                         <rect key="frame" x="40" y="58" width="65" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baritemSelectedIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="N20-Yx-lqU">
@@ -127,15 +127,15 @@
                                     <constraint firstItem="0fk-ld-Du1" firstAttribute="height" secondItem="zsP-QH-IU2" secondAttribute="height" id="wgN-Ib-vKw"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-T6-RtW">
-                                <rect key="frame" x="0.0" y="338" width="600" height="70"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-T6-RtW">
+                                <rect key="frame" x="0.0" y="363" width="600" height="67"/>
                                 <animations/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管家服务" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL0-s7-892">
-                                <rect key="frame" x="20" y="316" width="60" height="18"/>
+                                <rect key="frame" x="20" y="335" width="60" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Rn-dU-WCl">
@@ -145,37 +145,84 @@
                                     <constraint firstAttribute="height" constant="200" id="JTl-nD-Vij"/>
                                 </constraints>
                             </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyG-Tn-vFN">
+                                <rect key="frame" x="0.0" y="215" width="600" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="gGB-JR-9bl"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UHu-Hn-Kn7" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="43G-BI-VEC"/>
                             <constraint firstItem="3Rn-dU-WCl" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="4lE-UV-FTc"/>
-                            <constraint firstItem="UHu-Hn-Kn7" firstAttribute="top" secondItem="3Rn-dU-WCl" secondAttribute="bottom" constant="8" id="5cc-U4-ILs"/>
+                            <constraint firstItem="UHu-Hn-Kn7" firstAttribute="top" secondItem="3Rn-dU-WCl" secondAttribute="bottom" constant="30" id="5cc-U4-ILs"/>
                             <constraint firstItem="Qew-T6-RtW" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="75F-n5-Gc7"/>
                             <constraint firstItem="UHu-Hn-Kn7" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="ALj-jF-xr8"/>
                             <constraint firstItem="3Hm-Rq-EZe" firstAttribute="top" secondItem="btv-91-n2k" secondAttribute="bottom" id="Fc1-Fr-XYh"/>
                             <constraint firstItem="kL0-s7-892" firstAttribute="leading" secondItem="q9w-jQ-OpN" secondAttribute="leadingMargin" id="OOa-49-Ijr"/>
-                            <constraint firstItem="Qew-T6-RtW" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="30" id="QwT-VP-5xj"/>
+                            <constraint firstItem="UHu-Hn-Kn7" firstAttribute="top" secondItem="fyG-Tn-vFN" secondAttribute="bottom" id="TwP-kN-1xm"/>
+                            <constraint firstItem="fyG-Tn-vFN" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="XT1-bS-2UX"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="cn5-Rx-NT0"/>
+                            <constraint firstItem="Qew-T6-RtW" firstAttribute="top" secondItem="kL0-s7-892" secondAttribute="bottom" constant="10" id="dSU-8Y-qMV"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="top" secondItem="Qew-T6-RtW" secondAttribute="bottom" id="fkz-5M-JR9"/>
-                            <constraint firstItem="kL0-s7-892" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="8" id="gKA-1w-QCc"/>
                             <constraint firstItem="3Rn-dU-WCl" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="kyJ-82-Azl"/>
                             <constraint firstItem="3Rn-dU-WCl" firstAttribute="top" secondItem="npp-YY-3Zu" secondAttribute="bottom" id="oCB-KF-uEB"/>
+                            <constraint firstItem="kL0-s7-892" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="5" id="tIp-jb-B6Y"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="uUd-Wn-yCE"/>
                             <constraint firstItem="btv-91-n2k" firstAttribute="top" secondItem="UHu-Hn-Kn7" secondAttribute="bottom" constant="100" id="uVy-hw-Ga1"/>
                             <constraint firstItem="Qew-T6-RtW" firstAttribute="width" secondItem="q9w-jQ-OpN" secondAttribute="width" id="vxJ-D4-Qo3"/>
+                            <constraint firstItem="fyG-Tn-vFN" firstAttribute="centerX" secondItem="q9w-jQ-OpN" secondAttribute="centerX" id="zMB-11-fBs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adScrollView" destination="3Rn-dU-WCl" id="kQe-RS-kAL"/>
                         <outlet property="collectionView" destination="btv-91-n2k" id="aJ7-lV-URB"/>
+                        <outlet property="mesScrollview" destination="fyG-Tn-vFN" id="Der-Ua-aaf"/>
                         <outlet property="scrollView" destination="Qew-T6-RtW" id="TMW-LV-mNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjG-bf-pCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="172" y="327"/>
+        </scene>
+        <!--公告-->
+        <scene sceneID="huh-kn-S9O">
+            <objects>
+                <viewController storyboardIdentifier="notice" title="公告" automaticallyAdjustsScrollViewInsets="NO" id="Cp0-WC-Y5F" customClass="XWJNoticeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AY7-Zp-qog"/>
+                        <viewControllerLayoutGuide type="bottom" id="L1Z-gB-aEO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lCH-pr-0U0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-p4-UO7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9D3-p4-UO7" firstAttribute="centerX" secondItem="lCH-pr-0U0" secondAttribute="centerX" id="CP6-As-gbJ"/>
+                            <constraint firstItem="9D3-p4-UO7" firstAttribute="height" secondItem="lCH-pr-0U0" secondAttribute="height" id="TeE-DC-4Uc"/>
+                            <constraint firstItem="9D3-p4-UO7" firstAttribute="centerY" secondItem="lCH-pr-0U0" secondAttribute="centerY" id="URQ-tf-YQL"/>
+                            <constraint firstItem="9D3-p4-UO7" firstAttribute="width" secondItem="lCH-pr-0U0" secondAttribute="width" id="uBo-f9-0aj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="9D3-p4-UO7" id="AfV-80-pxq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zay-vM-fo1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="304"/>
         </scene>
     </scenes>
     <resources>

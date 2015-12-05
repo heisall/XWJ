@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *adScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *mesScrollview;
 
 @end

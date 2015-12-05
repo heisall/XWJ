@@ -102,7 +102,8 @@
 		A43C97FE1C129C68006A61EE /* X@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A43C97EB1C129C68006A61EE /* X@2x.png */; };
 		A43C97FF1C129C68006A61EE /* xiang.png in Resources */ = {isa = PBXBuildFile; fileRef = A43C97EC1C129C68006A61EE /* xiang.png */; };
 		A43C98001C129C68006A61EE /* xiang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A43C97ED1C129C68006A61EE /* xiang@2x.png */; };
-		A43C98031C12BBA1006A61EE /* XWJActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98021C12BBA1006A61EE /* XWJActivityViewController.m */; };
+		A43C98061C12BFE4006A61EE /* XWJActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */; };
+		A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -339,8 +340,10 @@
 		A43C97EB1C129C68006A61EE /* X@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X@2x.png"; sourceTree = "<group>"; };
 		A43C97EC1C129C68006A61EE /* xiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiang.png; sourceTree = "<group>"; };
 		A43C97ED1C129C68006A61EE /* xiang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiang@2x.png"; sourceTree = "<group>"; };
-		A43C98011C12BBA1006A61EE /* XWJActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJActivityViewController.h; sourceTree = "<group>"; };
-		A43C98021C12BBA1006A61EE /* XWJActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJActivityViewController.m; sourceTree = "<group>"; };
+		A43C98041C12BFE4006A61EE /* XWJActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJActivityViewController.h; sourceTree = "<group>"; };
+		A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJActivityViewController.m; sourceTree = "<group>"; };
+		A43C98071C12E95C006A61EE /* XWJNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJNoticeViewController.h; sourceTree = "<group>"; };
+		A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJNoticeViewController.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -835,6 +838,8 @@
 				A48801D31C0B66B800714F5B /* HomeStoryboard.storyboard */,
 				A4F5C17B1C0C86A800513CD9 /* XWJHomeViewController2.h */,
 				A4F5C17C1C0C86A800513CD9 /* XWJHomeViewController2.m */,
+				A43C98071C12E95C006A61EE /* XWJNoticeViewController.h */,
+				A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -850,8 +855,8 @@
 				A48801D11C0B5EC500714F5B /* FindStoryboard.storyboard */,
 				A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */,
 				A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */,
-				A43C98011C12BBA1006A61EE /* XWJActivityViewController.h */,
-				A43C98021C12BBA1006A61EE /* XWJActivityViewController.m */,
+				A43C98041C12BFE4006A61EE /* XWJActivityViewController.h */,
+				A43C98051C12BFE4006A61EE /* XWJActivityViewController.m */,
 			);
 			name = Find;
 			sourceTree = "<group>";
@@ -1208,6 +1213,7 @@
 				A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */,
 				A43C97B21C1298AF006A61EE /* UIView+Layout.m in Sources */,
 				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
+				A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */,
 				A41255061C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m in Sources */,
 				A4F40BD71C098887006E2F19 /* XWJBindHouseTableViewController.m in Sources */,
 				A412550D1C0F22FC0042D8CC /* AFURLSessionManager.m in Sources */,
@@ -1217,7 +1223,7 @@
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
 				A41255751C0F39D20042D8CC /* SDWebImageCompat.m in Sources */,
-				A43C98031C12BBA1006A61EE /* XWJActivityViewController.m in Sources */,
+				A43C98061C12BFE4006A61EE /* XWJActivityViewController.m in Sources */,
 				A412550C1C0F22FC0042D8CC /* AFURLResponseSerialization.m in Sources */,
 				A41255131C0F22FC0042D8CC /* UIButton+AFNetworking.m in Sources */,
 				A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */,

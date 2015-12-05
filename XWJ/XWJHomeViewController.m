@@ -9,6 +9,7 @@
 #import "XWJHomeViewController.h"
 #import "XWJHeader.h"
 #import "XWJMyMessageController.h"
+#import "XWJNoticeViewController.h"
 #import "LCBannerView.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
@@ -16,6 +17,12 @@
 #define  HEADER_HEIGHT 25.0
 
 #define TAG 100
+
+@interface XWJHomeViewController ()
+@property (nonatomic)NSTimer *timer;
+@property (nonatomic, assign) CGFloat timerInterval;
+@property NSInteger currentPage;
+@end
 @implementation XWJHomeViewController
 CGFloat collectionCellHeight;
 CGFloat collectionCellWidth;
@@ -53,6 +60,63 @@ NSArray *footer;
                                               pageIndicatorTintColor:[UIColor whiteColor]];
         bannerView;
     })];
+    
+    NSArray *titls = [NSArray arrayWithObjects:@"元旦放假通知1",@"元旦放假通知2",@"元旦放假通知3", nil];
+    [self.mesScrollview addSubview:({
+        
+        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                                                                self.mesScrollview.bounds.size.height)
+                                    
+                                                            delegate:self
+                                                              titles:titls timerInterval:5.0
+                                       currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
+        bannerView;
+    })];
+    
+    /*
+    self.timerInterval = 2.0;
+    CGFloat h = self.mesScrollview.bounds.size.height;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+
+    for (int i=0; i<3; i++) {
+        UIButton * btn  = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(i*w, 0, w,h);
+        btn.tag = i;
+        btn.titleLabel.text = [NSString stringWithFormat:@"元旦放假通知%d",i];
+        [btn addTarget:self action:@selector(msgClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.mesScrollview addSubview:btn];
+    }
+    self.mesScrollview.contentSize = CGSizeMake(w*3, h);
+    */
+}
+
+-(void)msgClick:(UIButton *)sender{
+    NSLog(@"click %ld",(long)sender.tag);
+}
+
+#pragma mark - Timer
+
+- (void)addTimer {
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.timerInterval target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)removeTimer {
+    
+    if (self.timer) {
+        
+        [self.timer invalidate];
+        
+        self.timer = nil;
+    }
+}
+
+- (void)nextImage {
+    
+    [self.mesScrollview setContentOffset:CGPointMake((_currentPage + 2) * self.mesScrollview.frame.size.width, 0)
+                             animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -67,6 +131,8 @@ NSArray *footer;
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
     NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
+    NSArray * business= [NSArray arrayWithObjects:@"mine1",@"mine2",@"mine3",@"mine4",@"mine5", nil];
+
     CGFloat width = self.view.bounds.size.width/4;
     CGFloat height = self.scrollView.bounds.size.height;
     self.scrollView.contentSize = CGSizeMake(width*5, height);
@@ -75,7 +141,8 @@ NSArray *footer;
         button.frame = CGRectMake(width*i, 0, width, height);
         button.tag = TAG+i;
         button.titleLabel.text= [arr objectAtIndex:i];
-        [button setBackgroundImage: [UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        button.contentMode = UIViewContentModeCenter;
+        [button setImage:[UIImage imageNamed:[business objectAtIndex:i] ] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
     }
@@ -83,12 +150,27 @@ NSArray *footer;
 -(void)click:(UIButton*)sender{
     UIStoryboard * wuy = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
     UIViewController *wu = [wuy instantiateInitialViewController];
-    [self.navigationController showViewController:wu sender:nil];
+    
+    UIStoryboard * noticeStory = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+    XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"notice"];
+
+    NSArray *jump = [NSArray arrayWithObjects:wu,notice,notice,notice,notice, nil];
+
+    [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
+
+
 }
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
     NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);
+    if (bannerView.titles) {
+        
+        UIStoryboard *FindStory =[UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+        UIViewController *mesCon = [FindStory instantiateViewControllerWithIdentifier:@"activityDetail"];
+        [self.navigationController showViewController:mesCon sender:nil];
+        NSLog(@"mes click");
+    }
 }
 
 -(void)setNavigationBar2{

@@ -9,5 +9,8 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJActivityViewController : XWJBaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *actTitle;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end

@@ -28,6 +28,7 @@ static CGFloat LCPageDistance = 10.0f;      // pageControl 到底部的距离
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) UIPageControl *pageControl;
 
+
 @end
 
 @implementation LCBannerView
@@ -39,6 +40,15 @@ static CGFloat LCPageDistance = 10.0f;      // pageControl 到底部的距离
                              imageName:imageName
                                  count:count
                          timerInterval:timeInterval
+         currentPageIndicatorTintColor:currentPageIndicatorTintColor
+                pageIndicatorTintColor:pageIndicatorTintColor];
+}
+
++ (instancetype)bannerViewWithFrame:(CGRect)frame delegate:(id<LCBannerViewDelegate>)delegate titles:(NSArray *)titles timerInterval:(NSInteger)timeInterval currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor{
+    return [[self alloc] initWithFrame:frame
+                              delegate:delegate
+                             titles:titles
+                      timerInterval:timeInterval
          currentPageIndicatorTintColor:currentPageIndicatorTintColor
                 pageIndicatorTintColor:pageIndicatorTintColor];
 }
@@ -70,6 +80,22 @@ static CGFloat LCPageDistance = 10.0f;      // pageControl 到底部的距离
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LCBannerViewDelegate>)delegate titles:(NSArray *)titles  timerInterval:(NSInteger)timeInterval currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
+    
+    if (self = [super initWithFrame:frame]) {
+        
+        self.delegate = delegate;
+        self.titles = titles;
+        self.count = titles.count;
+        self.timerInterval = timeInterval;
+        self.currentPageIndicatorTintColor = currentPageIndicatorTintColor;
+        self.pageIndicatorTintColor = pageIndicatorTintColor;
+        
+        [self setupMainView2];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame delegate:(id<LCBannerViewDelegate>)delegate imageURLs:(NSArray *)imageURLs placeholderImage:(NSString *)placeholderImage timerInterval:(NSInteger)timeInterval currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
     
     if (self = [super initWithFrame:frame]) {
@@ -85,6 +111,89 @@ static CGFloat LCPageDistance = 10.0f;      // pageControl 到底部的距离
         [self setupMainView];
     }
     return self;
+}
+
+- (void)setupMainView2 {
+    
+    CGFloat scrollW = self.frame.size.width;
+    CGFloat scrollH = self.frame.size.height;
+    
+    // set up scrollView
+    [self addSubview:({
+        
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollW, scrollH)];
+        
+        for (int i = 0; i < self.count + 2; i++) {
+            
+            NSInteger tag = 0;
+   
+            
+            if (i == 0) {
+                
+                tag = self.count;
+                
+
+                
+            } else if (i == self.count + 1) {
+                
+                tag = 1;
+                
+
+            } else {
+                
+                tag = i;
+                
+
+            }
+            
+            UIButton *btn = [[UIButton alloc] init];
+            btn.tag = tag;
+            
+            if (self.titles.count > 0) {    // from local
+                
+                [btn setTitle:[self.titles objectAtIndex:(tag - 1)] forState:UIControlStateNormal];
+
+                
+            }
+            
+            btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft ;
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 0)];
+            [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 40, 0, 0)];
+            
+            [btn setTitleColor:[UIColor colorWithRed:142.0/255.0 green:143.0/255.0 blue:145.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+//            btn.clipsToBounds = YES;
+            btn.frame = CGRectMake(scrollW * i, 0, scrollW, scrollH);
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            [btn setImage:[UIImage imageNamed:@"newMesIcon"] forState:UIControlStateNormal];
+            [scrollView addSubview:btn];
+            
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTaped:)];
+            [btn addGestureRecognizer:tap];
+        }
+        
+        scrollView.delegate = self;
+        scrollView.scrollsToTop = NO;
+        scrollView.pagingEnabled = YES;
+        scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.contentOffset = CGPointMake(scrollW, 0);
+        scrollView.contentSize = CGSizeMake((self.count + 2) * scrollW, 0);
+        
+        self.scrollView = scrollView;
+    })];
+    
+    [self addTimer];
+    
+    // set up pageControl
+    [self addSubview:({
+        
+        UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, scrollH - 10.0f - LCPageDistance, scrollW, 10.0f)];
+        pageControl.numberOfPages = self.count;
+        pageControl.userInteractionEnabled = NO;
+        pageControl.currentPageIndicatorTintColor = self.currentPageIndicatorTintColor ?: [UIColor orangeColor];
+        pageControl.pageIndicatorTintColor = self.pageIndicatorTintColor ?: [UIColor lightGrayColor];
+        
+        self.pageControl = pageControl;
+    })];
 }
 
 - (void)setupMainView {

@@ -26,6 +26,7 @@
 
 
 @interface LCBannerView : UIView
+@property (nonatomic, strong) NSArray *titles;
 
 #pragma mark - Class methods
 
@@ -49,6 +50,9 @@
                 timerInterval:(NSInteger)timeInterval
 currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
        pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
+
+
++ (instancetype)bannerViewWithFrame:(CGRect)frame delegate:(id<LCBannerViewDelegate>)delegate titles:(NSArray *)titles timerInterval:(NSInteger)timeInterval currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
 
 /**
  *  init a LCBannerView object from internet
