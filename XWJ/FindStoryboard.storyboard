@@ -373,12 +373,9 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A4X-Wm-hvP">
-                                <rect key="frame" x="0.0" y="353.5" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="353.5" width="600" height="190.5"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="37C-sg-qSZ"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="findDetailCell" rowHeight="91" id="rfo-EM-jrf" customClass="XWJFindDetailTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="91"/>
@@ -446,7 +443,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgO-hS-7wJ">
-                                <rect key="frame" x="0.0" y="559.5" width="600" height="40.5"/>
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXq-my-DZa">
                                         <rect key="frame" x="527" y="4" width="50" height="30"/>
@@ -463,7 +460,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="在此发表评论" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fxp-7a-cRg">
-                                        <rect key="frame" x="20" y="4" width="484" height="36.5"/>
+                                        <rect key="frame" x="20" y="4" width="484" height="46"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -473,6 +470,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VMo-Gb-rVZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Fxp-7a-cRg" secondAttribute="bottom" id="frQ-Ut-oq8"/>
                                     <constraint firstAttribute="trailing" secondItem="KXq-my-DZa" secondAttribute="trailing" constant="23" id="lp6-jr-sqt"/>
                                     <constraint firstItem="KXq-my-DZa" firstAttribute="leading" secondItem="Fxp-7a-cRg" secondAttribute="trailing" constant="23" id="uSj-BP-jn3"/>

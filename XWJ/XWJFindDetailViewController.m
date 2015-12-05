@@ -99,8 +99,8 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
-    [self.navigationController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"activityDetail"] sender:nil];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+//    [self.navigationController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"activityDetail"] sender:nil];
     
 }
 
@@ -132,7 +132,7 @@
     NSLog(@"hight_hitht:%f",kbSize.height);
     
     self.bottomRect = self.bottomView.frame ;
-    self.bottomView.frame = CGRectMake(self.bottomRect.origin.x, self.bottomRect.origin.y-kbSize.height, self.bottomRect.size.width, self.bottomRect.size.height);
+    self.bottomView.frame = CGRectMake(self.bottomRect.origin.x, self.bottomRect.origin.y-(kbSize.height-self.bottomRect.size.height), self.bottomRect.size.width, self.bottomRect.size.height);
     CGFloat keyboardhight;
     if(kbSize.height == 216)
     {

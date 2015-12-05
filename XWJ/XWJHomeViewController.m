@@ -11,6 +11,9 @@
 #import "XWJMyMessageController.h"
 #import "XWJNoticeViewController.h"
 #import "LCBannerView.h"
+#import "XWJBingHouseViewController.h"
+#import "XWJBindHouseTableViewController.h"
+
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -18,10 +21,11 @@
 
 #define TAG 100
 
-@interface XWJHomeViewController ()
+@interface XWJHomeViewController ()<XWJBindHouseDelegate>
 @property (nonatomic)NSTimer *timer;
 @property (nonatomic, assign) CGFloat timerInterval;
 @property NSInteger currentPage;
+@property BOOL isBind;
 @end
 @implementation XWJHomeViewController
 CGFloat collectionCellHeight;
@@ -55,7 +59,7 @@ NSArray *footer;
                                                             delegate:self
                                                            imageURLs:URLs
                                                     placeholderImage:nil
-                                                       timerInterval:2.0f
+                                                       timerInterval:3.0f
                                        currentPageIndicatorTintColor:[UIColor redColor]
                                               pageIndicatorTintColor:[UIColor whiteColor]];
         bannerView;
@@ -68,7 +72,7 @@ NSArray *footer;
                                                                                 self.mesScrollview.bounds.size.height)
                                     
                                                             delegate:self
-                                                              titles:titls timerInterval:4.0
+                                                              titles:titls timerInterval:2.0
                                        currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
         bannerView;
     })];
@@ -92,31 +96,6 @@ NSArray *footer;
 
 -(void)msgClick:(UIButton *)sender{
     NSLog(@"click %ld",(long)sender.tag);
-}
-
-#pragma mark - Timer
-
-- (void)addTimer {
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.timerInterval target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
-    
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-}
-
-- (void)removeTimer {
-    
-    if (self.timer) {
-        
-        [self.timer invalidate];
-        
-        self.timer = nil;
-    }
-}
-
-- (void)nextImage {
-    
-    [self.mesScrollview setContentOffset:CGPointMake((_currentPage + 2) * self.mesScrollview.frame.size.width, 0)
-                             animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -157,13 +136,71 @@ NSArray *footer;
     
     XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
 
-    
-    NSArray *jump = [NSArray arrayWithObjects:wu,notice,notice,notice,notice, nil];
+    if (sender.tag-TAG == 0 && !self.isBind) {
+        XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+        bind.title = @"城市选择";
+        bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市", nil];
+        bind.delegate = self;
+        bind->mode = HouseCity;
+        [self.navigationController showViewController:bind sender:nil];
+    }else{
+        NSArray *jump = [NSArray arrayWithObjects:wu,notice,notice,notice,notice, nil];
 
-    [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
+        [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
 
-
+    }
 }
+#pragma bindhouse delegate
+-(void)didSelectAtIndex:(NSInteger)index Type:(HouseMode)type{
+    switch (type) {
+        case HouseCity:{
+            XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+            bind.title = @"小区选择";
+            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇", nil];
+            bind.delegate = self;
+            bind->mode = HouseCommunity;
+            
+            self.navigationController.tabBarController.tabBar.hidden = YES;
+            [self.navigationController showViewController:bind sender:nil];
+        }
+            break;
+        case HouseCommunity:{
+            XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+            bind.title = @"楼座选择";
+            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", nil];
+            bind.delegate = self;
+            bind->mode = HouseFlour;
+            [self.navigationController showViewController:bind sender:nil];
+        }
+            break;
+        case HouseFlour:{
+            XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+            bind.title = @"房间选择";
+            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", nil];
+            bind.delegate = self;
+            bind->mode = HouseRoomNumber;
+            [self.navigationController showViewController:bind sender:nil];
+        }
+            break;
+        case HouseRoomNumber:{
+            self.tabBarController.tabBar.hidden = NO;
+
+//            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+//            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//            window.rootViewController = tab;
+            
+//                        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                        [UIApplication sharedApplication].keyWindow.rootViewController = [story instantiateInitialViewController];
+                XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
+                [self.navigationController showViewController:bind sender:nil];
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
