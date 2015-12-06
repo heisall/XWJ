@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -36,8 +35,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-1E-e8j">
-                                <rect key="frame" x="299" y="520" width="1" height="31"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBGroudImg" translatesAutoresizingMaskIntoConstraints="NO" id="tSb-oE-BiS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="loginBGroudImg" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-1E-e8j">
+                                <rect key="frame" x="300" y="520" width="1" height="31"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.80051537958115182" green="0.80051537958115182" blue="0.80051537958115182" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -46,7 +49,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-Qt-NIS">
-                                <rect key="frame" x="150" y="284" width="300" height="20"/>
+                                <rect key="frame" x="150" y="261" width="300" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,54 +78,38 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwm-XO-ijS">
-                                <rect key="frame" x="150" y="331" width="300" height="20"/>
+                                <rect key="frame" x="150" y="308" width="300" height="20"/>
                                 <animations/>
                                 <color key="textColor" red="0.3294117647" green="0.66274509800000003" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="163" y="235" width="74" height="17"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7L-as-Xt4">
-                                <rect key="frame" x="278" y="440" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7L-as-Xt4">
+                                <rect key="frame" x="268" y="417" width="63" height="63"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A1M-e2-oDp"/>
                                     <constraint firstAttribute="width" constant="44" id="hEe-YX-CSk"/>
                                 </constraints>
-                                <state key="normal" title="登录">
-                                    <color key="titleColor" red="0.1368211359" green="0.92940117799999999" blue="0.7109127891" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="loginBtnImg">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="loginBtnImgHighlight"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="A1M-e2-oDp"/>
+                                        <exclude reference="hEe-YX-CSk"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="login:" destination="uz7-WR-lTU" eventType="touchUpInside" id="8tz-Nv-y4v"/>
                                 </connections>
                             </button>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-gC-2Ay">
-                                <rect key="frame" x="0.0" y="64" width="600" height="450"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信我家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLd-pT-2ka">
-                                        <rect key="frame" x="0.0" y="203" width="600" height="43"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="gu2-xx-WYy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
-                                        <color key="textColor" red="0.094117647058823528" green="0.61568627450980395" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <animations/>
-                                <color key="backgroundColor" red="0.76470588235294112" green="0.92549019607843142" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="aLd-pT-2ka" firstAttribute="width" secondItem="qUc-gC-2Ay" secondAttribute="width" id="3O9-13-SYm"/>
-                                    <constraint firstItem="aLd-pT-2ka" firstAttribute="centerY" secondItem="qUc-gC-2Ay" secondAttribute="centerY" id="adG-qa-wfK"/>
-                                    <constraint firstItem="aLd-pT-2ka" firstAttribute="centerX" secondItem="qUc-gC-2Ay" secondAttribute="centerX" id="iXY-an-XHX"/>
-                                    <constraint firstAttribute="width" secondItem="qUc-gC-2Ay" secondAttribute="height" multiplier="4:3" id="k7R-me-KLJ"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-RR-PKk" userLabel="line2">
-                                <rect key="frame" x="150" y="304" width="300" height="1"/>
+                                <rect key="frame" x="150" y="281" width="300" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -130,7 +117,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-Ln-sCQ" userLabel="line1">
-                                <rect key="frame" x="150" y="351" width="300" height="1"/>
+                                <rect key="frame" x="150" y="328" width="300" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -150,28 +137,29 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.066666666666666666" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="136" id="1Dl-cb-dfY"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="3UL-We-ioe"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="4sV-NP-ZbX"/>
                             <constraint firstItem="YhC-cX-ZmF" firstAttribute="leading" secondItem="dMX-1E-e8j" secondAttribute="trailing" constant="36.5" id="87y-WV-jLv"/>
                             <constraint firstItem="dMX-1E-e8j" firstAttribute="leading" secondItem="sKa-sJ-jzq" secondAttribute="trailing" constant="29.5" id="BBM-os-2XO"/>
-                            <constraint firstItem="qUc-gC-2Ay" firstAttribute="width" secondItem="LzO-yJ-YPs" secondAttribute="width" id="D2E-lN-Vf5"/>
-                            <constraint firstItem="qUc-gC-2Ay" firstAttribute="top" secondItem="59Q-eX-jQI" secondAttribute="bottom" id="DWQ-hd-VFc"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" id="G1j-tD-Ja6"/>
+                            <constraint firstItem="tSb-oE-BiS" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="Grg-wu-ANr"/>
                             <constraint firstItem="wB3-Ln-sCQ" firstAttribute="top" secondItem="Xwm-XO-ijS" secondAttribute="bottom" id="ICl-a1-J1L"/>
                             <constraint firstItem="wB3-Ln-sCQ" firstAttribute="width" secondItem="Xwm-XO-ijS" secondAttribute="width" id="JI6-oz-TnU"/>
-                            <constraint firstItem="dMX-1E-e8j" firstAttribute="top" secondItem="t7L-as-Xt4" secondAttribute="bottom" constant="50" id="Kuf-hA-wIS"/>
+                            <constraint firstItem="dMX-1E-e8j" firstAttribute="top" secondItem="t7L-as-Xt4" secondAttribute="bottom" constant="40" id="Kuf-hA-wIS"/>
                             <constraint firstItem="Xwm-XO-ijS" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="MAF-Kr-7yZ"/>
                             <constraint firstItem="4dA-Kw-dZz" firstAttribute="top" secondItem="sKa-sJ-jzq" secondAttribute="bottom" constant="42" id="Oup-ny-6lw"/>
                             <constraint firstItem="4dA-Kw-dZz" firstAttribute="top" secondItem="dMX-1E-e8j" secondAttribute="bottom" constant="49" id="RfM-Mz-4vA"/>
-                            <constraint firstItem="qUc-gC-2Ay" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="V42-Pn-OFN"/>
                             <constraint firstItem="Xwm-XO-ijS" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="27" id="VL6-92-sSx"/>
                             <constraint firstItem="vCJ-Qt-NIS" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="XNs-cc-6Vh"/>
                             <constraint firstItem="Xwm-XO-ijS" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="Xxj-z0-b4R"/>
+                            <constraint firstItem="tSb-oE-BiS" firstAttribute="height" secondItem="LzO-yJ-YPs" secondAttribute="height" id="a74-Y3-Kam"/>
                             <constraint firstItem="4dA-Kw-dZz" firstAttribute="top" secondItem="YhC-cX-ZmF" secondAttribute="bottom" constant="43" id="cfM-Ah-obT"/>
+                            <constraint firstItem="tSb-oE-BiS" firstAttribute="width" secondItem="LzO-yJ-YPs" secondAttribute="width" id="egq-V2-8WX"/>
                             <constraint firstItem="wB3-Ln-sCQ" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="fdK-hf-Ys1"/>
+                            <constraint firstItem="tSb-oE-BiS" firstAttribute="centerY" secondItem="LzO-yJ-YPs" secondAttribute="centerY" id="pAf-L5-6Xi"/>
                             <constraint firstItem="t7L-as-Xt4" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="rYX-wd-1ch"/>
                             <constraint firstItem="dMX-1E-e8j" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="tfK-3v-psp"/>
                         </constraints>
@@ -512,5 +500,8 @@
     </scenes>
     <resources>
         <image name="arrow.png" width="110" height="33"/>
+        <image name="loginBGroudImg" width="320" height="569"/>
+        <image name="loginBtnImg" width="63" height="63"/>
+        <image name="loginBtnImgHighlight" width="63" height="63"/>
     </resources>
 </document>

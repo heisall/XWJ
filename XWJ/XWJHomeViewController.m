@@ -26,7 +26,9 @@
 @property (nonatomic, assign) CGFloat timerInterval;
 @property NSInteger currentPage;
 @property BOOL isBind;
+@property (nonatomic)NSInteger section;
 @end
+
 @implementation XWJHomeViewController
 CGFloat collectionCellHeight;
 CGFloat collectionCellWidth;
@@ -47,14 +49,14 @@ NSArray *footer;
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell3" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier1];
     
     /******************** internet ********************/
-    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181708260671.png",
+    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://img.guoluke.com/upload/201509091054250274.jpg"];
     
     [self.adScrollView addSubview:({
         
         LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-                                                                                200.0f)
+                                                                                self.adScrollView.bounds.size.height)
                                     
                                                             delegate:self
                                                            imageURLs:URLs
@@ -110,7 +112,7 @@ NSArray *footer;
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
     NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
-    NSArray * business= [NSArray arrayWithObjects:@"mine1",@"mine2",@"mine3",@"mine4",@"mine5", nil];
+    NSArray * business= [NSArray arrayWithObjects:@"homegz",@"homejf",@"homets",@"homewy",@"homewy", nil];
 
     CGFloat width = self.view.bounds.size.width/4;
     CGFloat height = self.scrollView.bounds.size.height;
@@ -216,8 +218,8 @@ NSArray *footer;
 }
 
 -(void)setNavigationBar2{
-    self.navigationItem.title = @"XX城";
-    UIImage *image = [UIImage imageNamed:@"liebiao"];
+    self.navigationItem.title = @"依云小镇";
+    UIImage *image = [UIImage imageNamed:@"homemes"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     [btn addTarget:self action:@selector(showList) forControlEvents:UIControlEventTouchUpInside];
@@ -252,7 +254,7 @@ NSArray *footer;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell;
-    
+    self.section = indexPath.section;
     if (indexPath.section == 2) {
         cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier1 forIndexPath:indexPath];
         UIButton *button1 = (UIButton *)[cell viewWithTag:1];
@@ -261,9 +263,9 @@ NSArray *footer;
         
         //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
         
-        [button1 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button2 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button3 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        [button1 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
+        [button2 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
+        [button3 setBackgroundImage:[UIImage imageNamed:@"house2"] forState:UIControlStateNormal];
 
     }else{
         //重用cell
@@ -276,15 +278,30 @@ NSArray *footer;
         UIButton *button5 = (UIButton *)[cell viewWithTag:5];
 
         //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
-         
-        [button1 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button2 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button3 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button4 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
-        [button5 setBackgroundImage:[UIImage imageNamed:@"mor_icon_default"] forState:UIControlStateNormal];
+        if (indexPath.section == 0) {
+            [button1 setBackgroundImage:[UIImage imageNamed:@"homess"] forState:UIControlStateNormal];
+            [button2 setBackgroundImage:[UIImage imageNamed:@"homejz"] forState:UIControlStateNormal];
+            [button3 setBackgroundImage:[UIImage imageNamed:@"homexy"] forState:UIControlStateNormal];
+            [button4 setBackgroundImage:[UIImage imageNamed:@"homexh"] forState:UIControlStateNormal];
+            [button5 setBackgroundImage:[UIImage imageNamed:@"homedg"] forState:UIControlStateNormal];
+            
+            [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        }else{
+            [button1 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
+            [button2 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
+            [button3 setBackgroundImage:[UIImage imageNamed:@"shangjia2"] forState:UIControlStateNormal];
+            [button4 setBackgroundImage:[UIImage imageNamed:@"shangjia3"] forState:UIControlStateNormal];
+            [button5 setBackgroundImage:[UIImage imageNamed:@"shangjia4"] forState:UIControlStateNormal];
+        }
     
     }
     return cell;
+    
+}
+
+-(void)colleciotnCellclick:(UIButton *)btn{
+    NSLog(@"%p %@",__FUNCTION__,btn);
+    
     
 }
 
@@ -357,6 +374,15 @@ NSArray *footer;
 //选择了某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%p %@",__FUNCTION__,indexPath);
+    
+    switch (indexPath.section) {
+        case 0:
+            break;
+            
+        default:
+            break;
+    }
     
 //    UIViewController * con = [[XWJMyMessageController alloc] init];
 //    [self.navigationController showViewController:con sender:nil];

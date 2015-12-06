@@ -61,11 +61,11 @@
     NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     
-    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
+//    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
         XWJTabViewController *tab = [[XWJTabViewController alloc] init];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         window.rootViewController = tab;
-    }
+//    }
 
 
     /*
