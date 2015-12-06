@@ -254,7 +254,6 @@ NSArray *footer;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell;
-    self.section = indexPath.section;
     if (indexPath.section == 2) {
         cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier1 forIndexPath:indexPath];
         UIButton *button1 = (UIButton *)[cell viewWithTag:1];
@@ -266,10 +265,16 @@ NSArray *footer;
         [button1 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
         [button2 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
         [button3 setBackgroundImage:[UIImage imageNamed:@"house2"] forState:UIControlStateNormal];
+        
+        [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button2 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button3 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
 
     }else{
         //重用cell
         cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
+        
+
         //赋值
         UIButton *button1 = (UIButton *)[cell viewWithTag:1];
         UIButton *button2 = (UIButton *)[cell viewWithTag:2];
@@ -285,7 +290,6 @@ NSArray *footer;
             [button4 setBackgroundImage:[UIImage imageNamed:@"homexh"] forState:UIControlStateNormal];
             [button5 setBackgroundImage:[UIImage imageNamed:@"homedg"] forState:UIControlStateNormal];
             
-            [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
         }else{
             [button1 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
             [button2 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
@@ -293,6 +297,12 @@ NSArray *footer;
             [button4 setBackgroundImage:[UIImage imageNamed:@"shangjia3"] forState:UIControlStateNormal];
             [button5 setBackgroundImage:[UIImage imageNamed:@"shangjia4"] forState:UIControlStateNormal];
         }
+        
+        [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button2 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button3 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button4 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        [button5 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
     
     }
     return cell;
@@ -302,7 +312,22 @@ NSArray *footer;
 -(void)colleciotnCellclick:(UIButton *)btn{
     NSLog(@"%p %@",__FUNCTION__,btn);
     
-    
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
+    [self.navigationController showViewController:[story instantiateInitialViewController] sender:nil];
+
+//    switch (self.section) {
+//        case 0:
+//            [self.tabBarController setSelectedIndex:2];
+//            break;
+//        case 1:
+//            [self.tabBarController setSelectedIndex:1];
+//            break;
+//        case 2:
+//            break;
+//        default:
+//            break;
+//    }
+ 
 }
 
 // The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
@@ -375,7 +400,8 @@ NSArray *footer;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%p %@",__FUNCTION__,indexPath);
-    
+    self.section = indexPath.section;
+
     switch (indexPath.section) {
         case 0:
             break;

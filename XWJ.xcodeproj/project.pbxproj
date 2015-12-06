@@ -106,6 +106,9 @@
 		A43C980F1C1313D0006A61EE /* XWJFindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C980E1C1313D0006A61EE /* XWJFindDetailViewController.m */; };
 		A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */; };
 		A43C981B1C133914006A61EE /* XWJFindDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */; };
+		A43C981E1C14073D006A61EE /* XWJZFStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C981D1C14073D006A61EE /* XWJZFStoryboard.storyboard */; };
+		A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */; };
+		A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98291C140D93006A61EE /* XWJZFViewController.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -351,6 +354,11 @@
 		A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJNotcieTableViewCell.m; sourceTree = "<group>"; };
 		A43C98191C133914006A61EE /* XWJFindDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindDetailTableViewCell.h; sourceTree = "<group>"; };
 		A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindDetailTableViewCell.m; sourceTree = "<group>"; };
+		A43C981D1C14073D006A61EE /* XWJZFStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XWJZFStoryboard.storyboard; sourceTree = "<group>"; };
+		A43C98221C140C16006A61EE /* XWJZFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFTableViewCell.h; sourceTree = "<group>"; };
+		A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFTableViewCell.m; sourceTree = "<group>"; };
+		A43C98281C140D93006A61EE /* XWJZFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFViewController.h; sourceTree = "<group>"; };
+		A43C98291C140D93006A61EE /* XWJZFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFViewController.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -782,6 +790,18 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		A43C981C1C140721006A61EE /* zufang */ = {
+			isa = PBXGroup;
+			children = (
+				A43C981D1C14073D006A61EE /* XWJZFStoryboard.storyboard */,
+				A43C98221C140C16006A61EE /* XWJZFTableViewCell.h */,
+				A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */,
+				A43C98281C140D93006A61EE /* XWJZFViewController.h */,
+				A43C98291C140D93006A61EE /* XWJZFViewController.m */,
+			);
+			name = zufang;
+			sourceTree = "<group>";
+		};
 		A46320741C00D7AD0062AA24 /* SMS_SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -949,6 +969,7 @@
 		DAC4AF181BF0619700D66E76 /* XWJ */ = {
 			isa = PBXGroup;
 			children = (
+				A43C981C1C140721006A61EE /* zufang */,
 				A43C97DA1C129C68006A61EE /* Images */,
 				A43C97AE1C1298AF006A61EE /* Utils */,
 				A41255471C0F33770042D8CC /* devAdv_red@2x.png */,
@@ -1117,6 +1138,7 @@
 				A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */,
 				A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */,
 				A43C97F61C129C68006A61EE /* checkbox_pic_non2@2x.png in Resources */,
+				A43C981E1C14073D006A61EE /* XWJZFStoryboard.storyboard in Resources */,
 				A43C97FE1C129C68006A61EE /* X@2x.png in Resources */,
 				A4093EF11C10AEF100F2F324 /* agreeButtonUnenbled@2x.png in Resources */,
 				A4F5C17A1C0C7DE700513CD9 /* tab_more_select@2x.png in Resources */,
@@ -1214,6 +1236,7 @@
 				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
 				A41255121C0F22FC0042D8CC /* UIAlertView+AFNetworking.m in Sources */,
 				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
+				A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */,
 				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
 				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
 				A43C97A61C1297E1006A61EE /* LGPhotoPickerAssetsViewController.m in Sources */,
@@ -1237,6 +1260,7 @@
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
 				A41255751C0F39D20042D8CC /* SDWebImageCompat.m in Sources */,
+				A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */,
 				A43C98061C12BFE4006A61EE /* XWJActivityViewController.m in Sources */,
 				A412550C1C0F22FC0042D8CC /* AFURLResponseSerialization.m in Sources */,
 				A41255131C0F22FC0042D8CC /* UIButton+AFNetworking.m in Sources */,

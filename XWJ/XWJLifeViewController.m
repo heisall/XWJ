@@ -14,14 +14,14 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     /******************** internet ********************/
-    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181708260671.png",
+    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://img.guoluke.com/upload/201509091054250274.jpg"];
     
     [self.adScrollView addSubview:({
         
         LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-                                                                                300.0f)
+                                                                                self.adScrollView.bounds.size.height)
                                     
                                                             delegate:self
                                                            imageURLs:URLs

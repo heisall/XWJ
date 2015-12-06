@@ -206,12 +206,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaobackImg" translatesAutoresizingMaskIntoConstraints="NO" id="Xpl-Uk-dYZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggaobackImg" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-gO-DEO">
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-Dz-hfU">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-Dz-hfU">
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.81568627449999997" green="0.81960784310000001" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -259,6 +259,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="contentLabel" destination="bMZ-v8-nPS" id="qCl-yL-rD0"/>
                                             <outlet property="timeLabel" destination="vMQ-hG-Da6" id="K4g-CN-vHU"/>
@@ -270,14 +271,14 @@
                         </subviews>
                         <animations/>
                         <constraints>
+                            <constraint firstItem="hdk-gO-DEO" firstAttribute="width" secondItem="lCH-pr-0U0" secondAttribute="width" id="0sX-3v-4SZ"/>
                             <constraint firstItem="0fI-Dz-hfU" firstAttribute="width" secondItem="lCH-pr-0U0" secondAttribute="width" id="6wN-Dr-4vt"/>
-                            <constraint firstItem="0fI-Dz-hfU" firstAttribute="centerY" secondItem="lCH-pr-0U0" secondAttribute="centerY" id="8iB-rU-COv"/>
-                            <constraint firstItem="Xpl-Uk-dYZ" firstAttribute="width" secondItem="lCH-pr-0U0" secondAttribute="width" id="9rp-Zq-fUM"/>
-                            <constraint firstItem="Xpl-Uk-dYZ" firstAttribute="centerY" secondItem="lCH-pr-0U0" secondAttribute="centerY" id="IFR-tD-Bln"/>
+                            <constraint firstItem="0fI-Dz-hfU" firstAttribute="top" secondItem="AY7-Zp-qog" secondAttribute="bottom" id="H4t-6c-lHM"/>
+                            <constraint firstItem="hdk-gO-DEO" firstAttribute="top" secondItem="AY7-Zp-qog" secondAttribute="bottom" id="HtP-Lm-aG6"/>
+                            <constraint firstItem="hdk-gO-DEO" firstAttribute="centerX" secondItem="lCH-pr-0U0" secondAttribute="centerX" id="QIX-2a-5fV"/>
                             <constraint firstItem="0fI-Dz-hfU" firstAttribute="height" secondItem="lCH-pr-0U0" secondAttribute="height" id="R8l-FJ-LUn"/>
-                            <constraint firstItem="Xpl-Uk-dYZ" firstAttribute="centerX" secondItem="lCH-pr-0U0" secondAttribute="centerX" id="STQ-Df-9mS"/>
                             <constraint firstItem="0fI-Dz-hfU" firstAttribute="centerX" secondItem="lCH-pr-0U0" secondAttribute="centerX" id="VvV-OX-fDI"/>
-                            <constraint firstItem="Xpl-Uk-dYZ" firstAttribute="height" secondItem="lCH-pr-0U0" secondAttribute="height" id="nOy-Fi-8V9"/>
+                            <constraint firstItem="hdk-gO-DEO" firstAttribute="height" secondItem="lCH-pr-0U0" secondAttribute="height" id="vqJ-Ah-eDb"/>
                         </constraints>
                     </view>
                     <connections>
