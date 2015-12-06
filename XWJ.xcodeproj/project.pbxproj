@@ -109,6 +109,7 @@
 		A43C981E1C14073D006A61EE /* XWJZFStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C981D1C14073D006A61EE /* XWJZFStoryboard.storyboard */; };
 		A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */; };
 		A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98291C140D93006A61EE /* XWJZFViewController.m */; };
+		A43C982D1C142C82006A61EE /* XWJBindHouseOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -359,6 +360,8 @@
 		A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFTableViewCell.m; sourceTree = "<group>"; };
 		A43C98281C140D93006A61EE /* XWJZFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFViewController.h; sourceTree = "<group>"; };
 		A43C98291C140D93006A61EE /* XWJZFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFViewController.m; sourceTree = "<group>"; };
+		A43C982B1C142C82006A61EE /* XWJBindHouseOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBindHouseOneViewController.h; sourceTree = "<group>"; };
+		A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBindHouseOneViewController.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -814,9 +817,15 @@
 		A488017B1C09F05300714F5B /* TabFactory */ = {
 			isa = PBXGroup;
 			children = (
+				A48801841C09F41000714F5B /* ITabFactory.h */,
+				A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */,
+				A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */,
+				A488019B1C09FBBB00714F5B /* XWJFindTabFactory.h */,
+				A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */,
+				A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */,
+				A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */,
 				A488017D1C09F13300714F5B /* XWJHomeTabFactory.h */,
 				A488017E1C09F13300714F5B /* XWJHomeTabFactory.m */,
-				A48801841C09F41000714F5B /* ITabFactory.h */,
 				A48801891C09F91100714F5B /* XWJButlerViewController.h */,
 				A488018A1C09F91100714F5B /* XWJButlerViewController.m */,
 				A488018C1C09F94600714F5B /* XWJButlerTabFactory.h */,
@@ -833,9 +842,7 @@
 				A48801981C09FB6F00714F5B /* XWJMineViewController.h */,
 				A48801991C09FB6F00714F5B /* XWJMineViewController.m */,
 				A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */,
-				A488019E1C09FBD100714F5B /* XWJMindTabFactory.h */,
 				A48801B31C0AE3D100714F5B /* mor_icon_default@2x.png */,
-				A488019F1C09FBD100714F5B /* XWJMindTabFactory.m */,
 				A48801B11C0AE15E00714F5B /* MineStoryboard.storyboard */,
 				A48801BA1C0B2EAD00714F5B /* XWJMyInfoViewController.h */,
 				A48801BB1C0B2EAD00714F5B /* XWJMyInfoViewController.m */,
@@ -878,8 +885,6 @@
 			children = (
 				A48801951C09FB4E00714F5B /* XWJFindViewController.h */,
 				A48801961C09FB4E00714F5B /* XWJFindViewController.m */,
-				A488019B1C09FBBB00714F5B /* XWJFindTabFactory.h */,
-				A488019C1C09FBBB00714F5B /* XWJFindTabFactory.m */,
 				A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */,
 				A48801D11C0B5EC500714F5B /* FindStoryboard.storyboard */,
 				A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */,
@@ -898,8 +903,6 @@
 			isa = PBXGroup;
 			children = (
 				A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */,
-				A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */,
-				A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */,
 				A48801921C09FB3800714F5B /* XWJLifeViewController.h */,
 				A48801931C09FB3800714F5B /* XWJLifeViewController.m */,
 			);
@@ -914,6 +917,8 @@
 				A48801761C09D2A400714F5B /* XWJBingHouseViewController.h */,
 				A48801771C09D2A400714F5B /* XWJBingHouseViewController.m */,
 				A48801781C09D2A400714F5B /* XWJBingHouseViewController.xib */,
+				A43C982B1C142C82006A61EE /* XWJBindHouseOneViewController.h */,
+				A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */,
 			);
 			name = BindHouse;
 			sourceTree = "<group>";
@@ -999,7 +1004,6 @@
 				A41255281C0F2A080042D8CC /* UIImage+BundlePath.m */,
 				A41255291C0F2A080042D8CC /* UIImage+ImageOrientaion.h */,
 				A412552A1C0F2A080042D8CC /* UIImage+ImageOrientaion.m */,
-				DAC4AF261BF0619700D66E76 /* Images.xcassets */,
 				DAC4AF281BF0619700D66E76 /* LaunchScreen.xib */,
 				DA20AE051BFB5AE3002032D1 /* XWJRegisterViewController.h */,
 				DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */,
@@ -1025,6 +1029,7 @@
 		DAC4AF191BF0619700D66E76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAC4AF261BF0619700D66E76 /* Images.xcassets */,
 				DAC4AF1A1BF0619700D66E76 /* Info.plist */,
 				DAC4AF1B1BF0619700D66E76 /* main.m */,
 			);
@@ -1203,6 +1208,7 @@
 				A41255781C0F39D20042D8CC /* SDWebImageDownloaderOperation.m in Sources */,
 				DAC4AF221BF0619700D66E76 /* ViewController.m in Sources */,
 				A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */,
+				A43C982D1C142C82006A61EE /* XWJBindHouseOneViewController.m in Sources */,
 				A43C97D01C129A79006A61EE /* LGPhotoPickerCustomToolBarView.m in Sources */,
 				A43C97D81C129B11006A61EE /* LICENSE.md in Sources */,
 				DAC4AF1F1BF0619700D66E76 /* AppDelegate.m in Sources */,

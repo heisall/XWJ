@@ -9,6 +9,7 @@
 #import "XWJHomeTabFactory.h"
 #import "XWJHomeViewController.h"
 #import "XWJTabBarItem.h"
+#import "XWJdef.h"
 @implementation XWJHomeTabFactory
 
 
@@ -35,14 +36,14 @@
     UITabBarItem * tabItem = [[XWJTabBarItem alloc] init];
     tabItem.title = @"首页";
     
-/*
+
     if (IOS8) {
-        tabItem.image = [[UIImage imageNamed:@"tab_device_unselect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        tabItem.selectedImage = [[UIImage imageNamed:@"tab_device_select.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        tabItem.image = [[UIImage imageNamed:@"tabbarimg1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        tabItem.selectedImage = [[UIImage imageNamed:@"tabbarimg1high"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }else{
-        [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_device_select.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_device_unselect.png"]];
+        [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tarbarimg1"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabbarimg1high"]];
     }
- */
+ 
  return tabItem;
 }
 

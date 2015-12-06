@@ -33,14 +33,13 @@
     UITabBarItem * tabItem = [[XWJTabBarItem alloc] init];
     tabItem.title = @"我的";
         
-    /*
      if (IOS8) {
-     tabItem.image = [[UIImage imageNamed:@"tab_device_unselect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-     tabItem.selectedImage = [[UIImage imageNamed:@"tab_device_select.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.image = [[UIImage imageNamed:@"tarbarimg5"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.selectedImage = [[UIImage imageNamed:@"tarbarimg5high"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      }else{
-     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_device_select.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_device_unselect.png"]];
+     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tarbarimg5"] withFinishedUnselectedImage:[UIImage imageNamed:@"tarbarimg5high"]];
      }
-     */
+
     return tabItem;
 }
 @end

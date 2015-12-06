@@ -193,8 +193,9 @@ NSArray *footer;
             
 //                        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //                        [UIApplication sharedApplication].keyWindow.rootViewController = [story instantiateInitialViewController];
-                XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
-                [self.navigationController showViewController:bind sender:nil];
+//                XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+            [self.navigationController showViewController:[story instantiateViewControllerWithIdentifier:@"bindhouse"] sender:nil];
             
         }
             break;

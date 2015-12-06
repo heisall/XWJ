@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "XWJdef.h"
 /**
  *  tab工厂接口，生产包括controller和底部tabitem的两类产品
  */

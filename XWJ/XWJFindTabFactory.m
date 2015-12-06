@@ -34,14 +34,14 @@
     UITabBarItem * tabItem = [[XWJTabBarItem alloc] init];
     tabItem.title = @"发现";
     
-    /*
+
      if (IOS8) {
-     tabItem.image = [[UIImage imageNamed:@"tab_device_unselect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-     tabItem.selectedImage = [[UIImage imageNamed:@"tab_device_select.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.image = [[UIImage imageNamed:@"tarbarimg4"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.selectedImage = [[UIImage imageNamed:@"tarbarimg4high"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      }else{
-     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_device_select.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_device_unselect.png"]];
+     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tarbarimg4"] withFinishedUnselectedImage:[UIImage imageNamed:@"tarbarimg4high"]];
      }
-     */
+
     return tabItem;
 }
 @end

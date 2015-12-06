@@ -7,9 +7,10 @@
 //
 
 #import "XWJBingHouseViewController.h"
-
+#import "XWJdef.h"
 @interface XWJBingHouseViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property NSArray *array;
 @end
 
 @implementation XWJBingHouseViewController
@@ -25,6 +26,61 @@
     self.txtField8.delegate = self;
     self.txtField9.delegate = self;
 
+    self.array = [NSArray arrayWithObjects:@"房产正在我名下",@"我是业主家属",@"我是租客", nil];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+
+    self.navigationItem.title = @"绑定房源";
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 30.0;
+//}
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return @"物业员工";
+//}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.array.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    // Configure the cell...
+    
+    cell.imageView.image = [UIImage imageNamed:@"jiaoseicon"];
+    cell.imageView.highlightedImage = [UIImage imageNamed:@"jiaoseiconselect"];
+    cell.textLabel.text = [self.array objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = XWJGRAYCOLOR;
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 4) {
+        
+        //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MineStoryboard" bundle:nil];
+        //        [self.navigationController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"suggestStory"] sender:nil];
+    }
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

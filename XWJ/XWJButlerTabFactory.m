@@ -31,14 +31,14 @@
     UITabBarItem * tabItem = [[XWJTabBarItem alloc] init];
     tabItem.title = @"管家";
     
-    /*
+
      if (IOS8) {
-     tabItem.image = [[UIImage imageNamed:@"tab_device_unselect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-     tabItem.selectedImage = [[UIImage imageNamed:@"tab_device_select.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.image = [[UIImage imageNamed:@"tarbarimg2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.selectedImage = [[UIImage imageNamed:@"tarbarimg2high"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      }else{
-     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_device_select.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_device_unselect.png"]];
+     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tarbarimg2"] withFinishedUnselectedImage:[UIImage imageNamed:@"tarbarimg2high"]];
      }
-     */
+
     return tabItem;
 }
 @end

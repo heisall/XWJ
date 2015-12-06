@@ -35,14 +35,14 @@
     UITabBarItem * tabItem = [[XWJTabBarItem alloc] init];
     tabItem.title = @"生活";
     
-    /*
+
      if (IOS8) {
-     tabItem.image = [[UIImage imageNamed:@"tab_device_unselect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-     tabItem.selectedImage = [[UIImage imageNamed:@"tab_device_select.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.image = [[UIImage imageNamed:@"tarbarimg3"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+     tabItem.selectedImage = [[UIImage imageNamed:@"tarbarimg3high"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
      }else{
-     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_device_select.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_device_unselect.png"]];
+     [tabItem setFinishedSelectedImage:[UIImage imageNamed:@"tarbarimg3"] withFinishedUnselectedImage:[UIImage imageNamed:@"tarbarimg3high"]];
      }
-     */
+
     return tabItem;
 }
 @end
