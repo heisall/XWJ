@@ -106,7 +106,7 @@
     label2.text = @"2000.10";
     label1.textColor = XWJGRAYCOLOR;
     label2.textColor = XWJGRAYCOLOR;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0 , self.height/2, view.bounds.size.width, 1.0)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0 , self.height/2, view.bounds.size.width, 0.5)];
     line.backgroundColor = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:201.0/255.0 alpha:1.0];
     
     
