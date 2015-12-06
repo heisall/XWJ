@@ -109,7 +109,11 @@
 		A43C981E1C14073D006A61EE /* XWJZFStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C981D1C14073D006A61EE /* XWJZFStoryboard.storyboard */; };
 		A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */; };
 		A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98291C140D93006A61EE /* XWJZFViewController.m */; };
-		A43C982D1C142C82006A61EE /* XWJBindHouseOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */; };
+		A43C98301C142D16006A61EE /* XWJBindHouseOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C982F1C142D16006A61EE /* XWJBindHouseOneViewController.m */; };
+		A43C98361C146A1C006A61EE /* XWJPay1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98351C146A1C006A61EE /* XWJPay1ViewController.m */; };
+		A43C98391C146ACE006A61EE /* XWJPay2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98381C146ACE006A61EE /* XWJPay2ViewController.m */; };
+		A43C983F1C146BDC006A61EE /* XWJPay3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */; };
+		A43C98451C14816E006A61EE /* XWJPay1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -360,8 +364,16 @@
 		A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFTableViewCell.m; sourceTree = "<group>"; };
 		A43C98281C140D93006A61EE /* XWJZFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFViewController.h; sourceTree = "<group>"; };
 		A43C98291C140D93006A61EE /* XWJZFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFViewController.m; sourceTree = "<group>"; };
-		A43C982B1C142C82006A61EE /* XWJBindHouseOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBindHouseOneViewController.h; sourceTree = "<group>"; };
-		A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBindHouseOneViewController.m; sourceTree = "<group>"; };
+		A43C982E1C142D16006A61EE /* XWJBindHouseOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBindHouseOneViewController.h; sourceTree = "<group>"; };
+		A43C982F1C142D16006A61EE /* XWJBindHouseOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBindHouseOneViewController.m; sourceTree = "<group>"; };
+		A43C98341C146A1C006A61EE /* XWJPay1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJPay1ViewController.h; sourceTree = "<group>"; };
+		A43C98351C146A1C006A61EE /* XWJPay1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay1ViewController.m; sourceTree = "<group>"; };
+		A43C98371C146ACE006A61EE /* XWJPay2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJPay2ViewController.h; sourceTree = "<group>"; };
+		A43C98381C146ACE006A61EE /* XWJPay2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay2ViewController.m; sourceTree = "<group>"; };
+		A43C983D1C146BDC006A61EE /* XWJPay3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJPay3ViewController.h; sourceTree = "<group>"; };
+		A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay3ViewController.m; sourceTree = "<group>"; };
+		A43C98431C14816E006A61EE /* XWJPay1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJPay1TableViewCell.h; sourceTree = "<group>"; };
+		A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay1TableViewCell.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -876,6 +888,14 @@
 				A43C98081C12E95C006A61EE /* XWJNoticeViewController.m */,
 				A43C98131C132798006A61EE /* XWJNotcieTableViewCell.h */,
 				A43C98141C132798006A61EE /* XWJNotcieTableViewCell.m */,
+				A43C98341C146A1C006A61EE /* XWJPay1ViewController.h */,
+				A43C98351C146A1C006A61EE /* XWJPay1ViewController.m */,
+				A43C98371C146ACE006A61EE /* XWJPay2ViewController.h */,
+				A43C98381C146ACE006A61EE /* XWJPay2ViewController.m */,
+				A43C983D1C146BDC006A61EE /* XWJPay3ViewController.h */,
+				A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */,
+				A43C98431C14816E006A61EE /* XWJPay1TableViewCell.h */,
+				A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -917,8 +937,8 @@
 				A48801761C09D2A400714F5B /* XWJBingHouseViewController.h */,
 				A48801771C09D2A400714F5B /* XWJBingHouseViewController.m */,
 				A48801781C09D2A400714F5B /* XWJBingHouseViewController.xib */,
-				A43C982B1C142C82006A61EE /* XWJBindHouseOneViewController.h */,
-				A43C982C1C142C82006A61EE /* XWJBindHouseOneViewController.m */,
+				A43C982E1C142D16006A61EE /* XWJBindHouseOneViewController.h */,
+				A43C982F1C142D16006A61EE /* XWJBindHouseOneViewController.m */,
 			);
 			name = BindHouse;
 			sourceTree = "<group>";
@@ -1208,7 +1228,7 @@
 				A41255781C0F39D20042D8CC /* SDWebImageDownloaderOperation.m in Sources */,
 				DAC4AF221BF0619700D66E76 /* ViewController.m in Sources */,
 				A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */,
-				A43C982D1C142C82006A61EE /* XWJBindHouseOneViewController.m in Sources */,
+				A43C98301C142D16006A61EE /* XWJBindHouseOneViewController.m in Sources */,
 				A43C97D01C129A79006A61EE /* LGPhotoPickerCustomToolBarView.m in Sources */,
 				A43C97D81C129B11006A61EE /* LICENSE.md in Sources */,
 				DAC4AF1F1BF0619700D66E76 /* AppDelegate.m in Sources */,
@@ -1230,11 +1250,13 @@
 				A48801CD1C0B5C9500714F5B /* StyledPageControl.m in Sources */,
 				A4093EEB1C10ACEB00F2F324 /* UIPlaceHolderTextView.m in Sources */,
 				A412557E1C0F39D20042D8CC /* UIImageView+HighlightedWebCache.m in Sources */,
+				A43C983F1C146BDC006A61EE /* XWJPay3ViewController.m in Sources */,
 				A43C97A81C1297E1006A61EE /* LGPhotoPickerViewController.m in Sources */,
 				A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */,
 				A43C97A51C1297E1006A61EE /* LGPhotoPickerGroup.m in Sources */,
 				A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */,
 				A41255091C0F22FC0042D8CC /* AFSecurityPolicy.m in Sources */,
+				A43C98391C146ACE006A61EE /* XWJPay2ViewController.m in Sources */,
 				A4F40BD01C08B5B4006E2F19 /* XWJResetPasswordViewController.m in Sources */,
 				A48801911C09FAE700714F5B /* XWJLifeTabFactory.m in Sources */,
 				A41255141C0F22FC0042D8CC /* UIImageView+AFNetworking.m in Sources */,
@@ -1257,6 +1279,7 @@
 				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
 				A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */,
 				A41255061C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m in Sources */,
+				A43C98451C14816E006A61EE /* XWJPay1TableViewCell.m in Sources */,
 				A4F40BD71C098887006E2F19 /* XWJBindHouseTableViewController.m in Sources */,
 				A412550D1C0F22FC0042D8CC /* AFURLSessionManager.m in Sources */,
 				A41255111C0F22FC0042D8CC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -1272,6 +1295,7 @@
 				A41255131C0F22FC0042D8CC /* UIButton+AFNetworking.m in Sources */,
 				A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */,
 				A43C97D91C129B11006A61EE /* README.md in Sources */,
+				A43C98361C146A1C006A61EE /* XWJPay1ViewController.m in Sources */,
 				A41255721C0F39D20042D8CC /* README.md in Sources */,
 				A48801C61C0B451300714F5B /* XWJMyHouseController.m in Sources */,
 				DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */,

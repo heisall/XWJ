@@ -303,7 +303,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fet-J3-SlY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="Fet-J3-SlY">
                                 <rect key="frame" x="20" y="171" width="560" height="145"/>
                                 <animations/>
                                 <constraints>
@@ -600,7 +600,7 @@
     </scenes>
     <resources>
         <image name="addImage" width="45" height="45"/>
-        <image name="demo.png" width="688" height="218"/>
+        <image name="demo" width="213" height="53"/>
         <image name="findfabu" width="160" height="54"/>
         <image name="findfx" width="23" height="23"/>
         <image name="findhuodong" width="160" height="54"/>

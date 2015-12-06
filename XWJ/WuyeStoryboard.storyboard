@@ -175,7 +175,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo.png" translatesAutoresizingMaskIntoConstraints="NO" id="sWF-Ui-haW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="sWF-Ui-haW">
                                 <rect key="frame" x="20" y="97" width="560" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -190,29 +190,29 @@
                                     <constraint firstAttribute="height" constant="1" id="BOr-37-SKC"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMZ-ek-1MF">
-                                <rect key="frame" x="50" y="245" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMZ-ek-1MF">
+                                <rect key="frame" x="50" y="245" width="59" height="23"/>
                                 <animations/>
-                                <state key="normal" title="评论">
+                                <state key="normal" title="评论" image="findpinglun">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07i-Of-1QE">
-                                <rect key="frame" x="520" y="245" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07i-Of-1QE">
+                                <rect key="frame" x="491" y="245" width="59" height="23"/>
                                 <animations/>
-                                <state key="normal" title="分享">
+                                <state key="normal" title="分享" image="findfx">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbB-Rd-4KU">
-                                <rect key="frame" x="285" y="245" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbB-Rd-4KU">
+                                <rect key="frame" x="279" y="245" width="42" height="23"/>
                                 <animations/>
-                                <state key="normal" title="赞">
+                                <state key="normal" title="赞" image="findzan">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="sa3-JM-4gk">
-                                <rect key="frame" x="0.0" y="295" width="600" height="251"/>
+                                <rect key="frame" x="0.0" y="288" width="600" height="258"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.81960784310000001" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -277,7 +277,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdZ-OJ-MUO">
-                                <rect key="frame" x="0.0" y="294" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="287" width="600" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -364,6 +364,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="demo.png" width="688" height="218"/>
+        <image name="demo" width="213" height="53"/>
+        <image name="findfx" width="23" height="23"/>
+        <image name="findpinglun" width="23" height="23"/>
+        <image name="findzan" width="24" height="23"/>
     </resources>
 </document>

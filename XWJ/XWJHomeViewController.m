@@ -13,7 +13,7 @@
 #import "LCBannerView.h"
 #import "XWJBingHouseViewController.h"
 #import "XWJBindHouseTableViewController.h"
-
+#import "XWJPay1ViewController.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -107,6 +107,8 @@ NSArray *footer;
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+
     [self setNavigationBar2];
     NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
@@ -121,10 +123,20 @@ NSArray *footer;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(width*i, 0, width, height);
         button.tag = TAG+i;
-        button.titleLabel.text= [arr objectAtIndex:i];
+        
+        [button setTitle:[arr objectAtIndex:i] forState:UIControlStateNormal];
+//        button.titleLabel.text= [arr objectAtIndex:i];
         button.contentMode = UIViewContentModeCenter;
         [button setImage:[UIImage imageNamed:[business objectAtIndex:i] ] forState:UIControlStateNormal];
+        
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+        button.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(5, 20, 0, 0)];
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(45, -25, 0, 0)];
         button.backgroundColor = [UIColor whiteColor];
+        
         [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
     }
@@ -137,17 +149,20 @@ NSArray *footer;
 //    XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"notice"];
     
     XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
+    
+    XWJPay1ViewController *pay = [self.storyboard instantiateViewControllerWithIdentifier:@"pay1"];
 
-    if (sender.tag-TAG == 0 && !self.isBind) {
+    if (!self.isBind&&((sender.tag-TAG == 0)||(sender.tag - TAG) == 1)) {
         XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
         bind.title = @"城市选择";
-        bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市", nil];
+        bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
         bind.delegate = self;
         bind->mode = HouseCity;
         [self.navigationController showViewController:bind sender:nil];
     }else{
-        NSArray *jump = [NSArray arrayWithObjects:wu,notice,notice,notice,notice, nil];
-
+        if(sender.tag -TAG >1)
+            return;
+        NSArray *jump = [NSArray arrayWithObjects:wu,pay,notice,notice,notice, nil];
         [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
 
     }
@@ -158,18 +173,17 @@ NSArray *footer;
         case HouseCity:{
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"小区选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇", nil];
+            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇", nil];
             bind.delegate = self;
             bind->mode = HouseCommunity;
             
-            self.navigationController.tabBarController.tabBar.hidden = YES;
             [self.navigationController showViewController:bind sender:nil];
         }
             break;
         case HouseCommunity:{
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"楼座选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", nil];
+            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", @"四号楼",@"五号楼",@"六号楼", @"七号楼",@"八号楼",@"九号楼", @"十号楼",@"十一号楼",@"十二号楼", nil];
             bind.delegate = self;
             bind->mode = HouseFlour;
             [self.navigationController showViewController:bind sender:nil];
@@ -178,14 +192,14 @@ NSArray *footer;
         case HouseFlour:{
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"房间选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", nil];
+            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", @"01单元004",@"01单元005",@"01单元006",@"01单元007",@"01单元008",@"01单元009",@"01单元010",@"01单元011",@"01单元012",nil];
             bind.delegate = self;
             bind->mode = HouseRoomNumber;
             [self.navigationController showViewController:bind sender:nil];
         }
             break;
         case HouseRoomNumber:{
-            self.tabBarController.tabBar.hidden = NO;
+//            self.tabBarController.tabBar.hidden = NO;
 
 //            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
 //            UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -194,8 +208,10 @@ NSArray *footer;
 //                        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //                        [UIApplication sharedApplication].keyWindow.rootViewController = [story instantiateInitialViewController];
 //                XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
+            
+            self.isBind = TRUE;
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
-            [self.navigationController showViewController:[story instantiateViewControllerWithIdentifier:@"bindhouse"] sender:nil];
+            [self.navigationController showViewController:[story instantiateViewControllerWithIdentifier:@"bindhouse1"] sender:nil];
             
         }
             break;
@@ -257,77 +273,70 @@ NSArray *footer;
     UICollectionViewCell *cell;
     if (indexPath.section == 2) {
         cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier1 forIndexPath:indexPath];
-        UIButton *button1 = (UIButton *)[cell viewWithTag:1];
-        UIButton *button2 = (UIButton *)[cell viewWithTag:2];
-        UIButton *button3 = (UIButton *)[cell viewWithTag:3];
         
-        //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
-        
-        [button1 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
-        [button2 setBackgroundImage:[UIImage imageNamed:@"house1"] forState:UIControlStateNormal];
-        [button3 setBackgroundImage:[UIImage imageNamed:@"house2"] forState:UIControlStateNormal];
-        
-        [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button2 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button3 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+        NSArray *array1 = [NSArray arrayWithObjects: @"house0",@"house1",@"house2",nil];
 
+        for (int i= 0; i<3; i++) {
+            UIButton *button = (UIButton *)[cell viewWithTag:i+1];
+            
+            [button setBackgroundImage:[UIImage imageNamed:[array1 objectAtIndex:i]] forState:UIControlStateNormal];
+            button.titleLabel.text = @"2";
+            [button addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+            
+        }
+        
     }else{
         //重用cell
         cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
-        
+      
+        NSArray *array1 = [NSArray arrayWithObjects:@"homess",@"homejz", @"homexy",@"homexh",@"homedg",nil];
+        NSArray *array2 = [NSArray arrayWithObjects:@"shangjia0",@"shangjia1",@"shangjia2", @"shangjia3",@"shangjia4",nil];
+        for (int i= 0; i<5; i++) {
+            UIButton *button = (UIButton *)[cell viewWithTag:i+1];
+            if (indexPath.section == 0) {
+                [button setBackgroundImage:[UIImage imageNamed:[array1 objectAtIndex:i]] forState:UIControlStateNormal];
+                button.titleLabel.text = @"0";
 
-        //赋值
-        UIButton *button1 = (UIButton *)[cell viewWithTag:1];
-        UIButton *button2 = (UIButton *)[cell viewWithTag:2];
-        UIButton *button3 = (UIButton *)[cell viewWithTag:3];
-        UIButton *button4 = (UIButton *)[cell viewWithTag:4];
-        UIButton *button5 = (UIButton *)[cell viewWithTag:5];
+            }else{
+                [button setBackgroundImage:[UIImage imageNamed:[array2 objectAtIndex:i]] forState:UIControlStateNormal];
+                    button.titleLabel.text = @"1";
 
-        //    NSString *imageName = [NSString stringWithFormat:@"mor_icon_default"];
-        if (indexPath.section == 0) {
-            [button1 setBackgroundImage:[UIImage imageNamed:@"homess"] forState:UIControlStateNormal];
-            [button2 setBackgroundImage:[UIImage imageNamed:@"homejz"] forState:UIControlStateNormal];
-            [button3 setBackgroundImage:[UIImage imageNamed:@"homexy"] forState:UIControlStateNormal];
-            [button4 setBackgroundImage:[UIImage imageNamed:@"homexh"] forState:UIControlStateNormal];
-            [button5 setBackgroundImage:[UIImage imageNamed:@"homedg"] forState:UIControlStateNormal];
-            
-        }else{
-            [button1 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
-            [button2 setBackgroundImage:[UIImage imageNamed:@"shangjia1"] forState:UIControlStateNormal];
-            [button3 setBackgroundImage:[UIImage imageNamed:@"shangjia2"] forState:UIControlStateNormal];
-            [button4 setBackgroundImage:[UIImage imageNamed:@"shangjia3"] forState:UIControlStateNormal];
-            [button5 setBackgroundImage:[UIImage imageNamed:@"shangjia4"] forState:UIControlStateNormal];
+            }
+            [button addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
+
         }
-        
-        [button1 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button2 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button3 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button4 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-        [button5 addTarget:self action:@selector(colleciotnCellclick:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     }
     return cell;
     
 }
 
 -(void)colleciotnCellclick:(UIButton *)btn{
-    NSLog(@"%p %@",__FUNCTION__,btn);
+//    NSLog(@"%p %@",__FUNCTION__,btn);
+    NSLog(@"title %@ tag %lu",btn.titleLabel.text,btn.tag);
     
-    UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
-    [self.navigationController showViewController:[story instantiateInitialViewController] sender:nil];
+    int section = [btn.titleLabel.text intValue];
+    switch (section) {
+        case 0:
+        {
+            [self.tabBarController setSelectedIndex:2];
+        }
+            break;
+        case 1:
+        {
+            [self.tabBarController setSelectedIndex:1];
 
-//    switch (self.section) {
-//        case 0:
-//            [self.tabBarController setSelectedIndex:2];
-//            break;
-//        case 1:
-//            [self.tabBarController setSelectedIndex:1];
-//            break;
-//        case 2:
-//            break;
-//        default:
-//            break;
-//    }
+        }
+            break;
+        case 2:{
+            UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
+            [self.navigationController showViewController:[story instantiateInitialViewController] sender:nil];
+        }
+            break;
+        default:
+            break;
+    }
+
  
 }
 

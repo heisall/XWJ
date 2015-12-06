@@ -8,12 +8,12 @@
 
 #import "XWJjianduViewController.h"
 #import "WuyeTableViewCell.h"
+#import "XWJdef.h"
 @interface XWJjianduViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *adView;
 @property(nonatomic)UIScrollView *scrollview;
 @end
-#define MJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 @implementation XWJjianduViewController
 
 - (void)viewDidLoad {

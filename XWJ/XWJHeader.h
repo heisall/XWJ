@@ -10,6 +10,7 @@
 #define XWJHeader_h
 
 #define XWJGRAYCOLOR [UIColor colorWithRed:142.0/255.0 green:143.0/255.0 blue:145.0/255.0 alpha:1.0]
+#define XWJGREENCOLOR [UIColor colorWithRed:0.0/255.0 green:145.0/255.0 blue:134.0/255.0 alpha:1.0]
 
 #define KEY_HEADIMG @"headimg"
 #define KEY_TITLE @"title"

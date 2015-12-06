@@ -99,6 +99,7 @@
 
 
 - (IBAction)sure:(UIButton *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)bind:(UIButton *)sender {

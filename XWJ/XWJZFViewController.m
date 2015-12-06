@@ -8,8 +8,7 @@
 
 #import "XWJZFViewController.h"
 #import "XWJZFTableViewCell.h"
-
-#define XWJGREENCOLOR [UIColor colorWithRed:0.0/255.0 green:145.0/255.0 blue:134.0/255.0 alpha:1.0]
+#import "XWJdef.h"
 
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate>
 

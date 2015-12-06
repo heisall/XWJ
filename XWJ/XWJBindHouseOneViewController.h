@@ -9,5 +9,6 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJBindHouseOneViewController : XWJBaseViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
