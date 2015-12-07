@@ -8,7 +8,7 @@
 
 #import "XWJResetPasswordViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-
+#import "XWJUrl.h"
 @interface XWJResetPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPwd;
 
@@ -32,14 +32,9 @@
 
 -(int)regist:(NSString *) user Pass:(NSString *)pwd{
     __block int ret = 0;
-    
-    NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/register";
-//    account=qwe&password=123&type=iPhone&ip=168.0.0.1
-//    NSString *account = @"2735";
-//    NSString *password = self.txtFieldPhoneNumber.text;
-//    NSString *content = [
-//    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx?action=send&userid=%@&account=hisenseplus&password=hisenseplus&mobile=%@&content=%@&sendTime=&checkcontent=1",uid,phone,content];
-    
+
+    NSString *url = REGISTER_URL;
+    NSLog(@"%p url %@",__FUNCTION__,url);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:user forKey:@"account"];
@@ -51,23 +46,14 @@
         NSLog(@"res success ");
 
         ret = 1;
-        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-        
-            [self.navigationController popToRootViewControllerAnimated:YES];
-//        });
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"res fail ");
         ret = 0;
-//        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController popToRootViewControllerAnimated:YES];
-//        });
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-//    [manager Po:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"success");
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"failure");
-//    }];
+
     return ret;
 }
 -(void)viewWillAppear:(BOOL)animated{

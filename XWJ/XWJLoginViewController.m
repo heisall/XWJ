@@ -11,7 +11,7 @@
 #import "XWJBingHouseViewController.h"
 #import "XWJTabViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-
+#import "XWJHeader.h"
 @interface XWJLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *tFieldUserName;
@@ -83,9 +83,8 @@
     
     if (username&&pwd) {
         
-        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
-        
-        
+//        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
+        NSString *url = LOGIN_URL;
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:username forKey:@"account"];

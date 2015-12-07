@@ -116,6 +116,9 @@
 		A43C98451C14816E006A61EE /* XWJPay1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */; };
 		A43C984B1C1516CC006A61EE /* XWJGuanjiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */; };
 		A43C984D1C1516DF006A61EE /* XWJGJStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */; };
+		A43C98501C15CBEB006A61EE /* XWJForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C984F1C15CBEB006A61EE /* XWJForgetPwdViewController.m */; };
+		A43C98531C15CC15006A61EE /* XWJForgetPwd2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98521C15CC15006A61EE /* XWJForgetPwd2ViewController.m */; };
+		A43C98591C15E07D006A61EE /* XWJAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98581C15E07D006A61EE /* XWJAccount.m */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -379,6 +382,13 @@
 		A43C98491C1516CC006A61EE /* XWJGuanjiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJGuanjiaViewController.h; sourceTree = "<group>"; };
 		A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJGuanjiaViewController.m; sourceTree = "<group>"; };
 		A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XWJGJStoryboard.storyboard; sourceTree = "<group>"; };
+		A43C984E1C15CBEB006A61EE /* XWJForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJForgetPwdViewController.h; sourceTree = "<group>"; };
+		A43C984F1C15CBEB006A61EE /* XWJForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJForgetPwdViewController.m; sourceTree = "<group>"; };
+		A43C98511C15CC15006A61EE /* XWJForgetPwd2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJForgetPwd2ViewController.h; sourceTree = "<group>"; };
+		A43C98521C15CC15006A61EE /* XWJForgetPwd2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJForgetPwd2ViewController.m; sourceTree = "<group>"; };
+		A43C98541C15CF0E006A61EE /* XWJUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWJUrl.h; sourceTree = "<group>"; };
+		A43C98571C15E07D006A61EE /* XWJAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJAccount.h; sourceTree = "<group>"; };
+		A43C98581C15E07D006A61EE /* XWJAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJAccount.m; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -1058,6 +1068,13 @@
 				A48801A21C09FDAD00714F5B /* XWJTabViewController.m */,
 				A48801BD1C0B30DF00714F5B /* XWJHeader.h */,
 				A41255461C0F2B7D0042D8CC /* XWJdef.h */,
+				A43C984E1C15CBEB006A61EE /* XWJForgetPwdViewController.h */,
+				A43C984F1C15CBEB006A61EE /* XWJForgetPwdViewController.m */,
+				A43C98511C15CC15006A61EE /* XWJForgetPwd2ViewController.h */,
+				A43C98521C15CC15006A61EE /* XWJForgetPwd2ViewController.m */,
+				A43C98541C15CF0E006A61EE /* XWJUrl.h */,
+				A43C98571C15E07D006A61EE /* XWJAccount.h */,
+				A43C98581C15E07D006A61EE /* XWJAccount.m */,
 			);
 			path = XWJ;
 			sourceTree = "<group>";
@@ -1295,6 +1312,7 @@
 				A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */,
 				A43C97B21C1298AF006A61EE /* UIView+Layout.m in Sources */,
 				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
+				A43C98591C15E07D006A61EE /* XWJAccount.m in Sources */,
 				A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */,
 				A41255061C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m in Sources */,
 				A43C98451C14816E006A61EE /* XWJPay1TableViewCell.m in Sources */,
@@ -1315,6 +1333,7 @@
 				A43C97D91C129B11006A61EE /* README.md in Sources */,
 				A43C98361C146A1C006A61EE /* XWJPay1ViewController.m in Sources */,
 				A41255721C0F39D20042D8CC /* README.md in Sources */,
+				A43C98531C15CC15006A61EE /* XWJForgetPwd2ViewController.m in Sources */,
 				A48801C61C0B451300714F5B /* XWJMyHouseController.m in Sources */,
 				DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */,
 				A41255201C0F264E0042D8CC /* XWJjianduViewController.m in Sources */,
@@ -1323,6 +1342,7 @@
 				A43C97AB1C1297E1006A61EE /* LGPhotoPickerFooterCollectionReusableView.m in Sources */,
 				A48801A61C0A16FF00714F5B /* XWJTabBarItem.m in Sources */,
 				A43C97D71C129B11006A61EE /* DACircularProgressView.m in Sources */,
+				A43C98501C15CBEB006A61EE /* XWJForgetPwdViewController.m in Sources */,
 				A41255051C0F22FC0042D8CC /* AFHTTPRequestOperation.m in Sources */,
 				A41255151C0F22FC0042D8CC /* UIProgressView+AFNetworking.m in Sources */,
 				A412550B1C0F22FC0042D8CC /* AFURLRequestSerialization.m in Sources */,

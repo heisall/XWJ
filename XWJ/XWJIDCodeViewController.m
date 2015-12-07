@@ -8,11 +8,13 @@
 
 #import "XWJIDCodeViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "AFURLResponseSerialization.h"
 #import "XWJResetPasswordViewController.h"
 #import <SMS_SDK/SMSSDK.h>
-
-#define MESSAGE_CONTENT @"【信我家】您的信我家验证码为：%d，感谢您的使用！"
-@interface XWJIDCodeViewController ()
+#import "XWJUrl.h"
+@interface XWJIDCodeViewController (){
+    int code;
+}
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldIDCode;
 @property (weak, nonatomic) IBOutlet UIButton *btnGetcode;
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPhoneNumber;
@@ -20,7 +22,6 @@
 
 @implementation XWJIDCodeViewController
 
-int code;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -53,28 +54,12 @@ int code;
     NSString *uid = @"2735";
     NSString *phone = self.txtFieldPhoneNumber.text;
     NSString *content = [NSString stringWithFormat:MESSAGE_CONTENT,code];
-    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx?action=send&userid=%@&account=hisenseplus&password=hisenseplus&mobile=%@&content=%@&sendTime=&checkcontent=1",uid,phone,content];
-//    NSString *urlStr = [NSString stringWithFormat:@"http://dx.qxtsms.cn/sms.aspx"];
-//
-//    NSString *contnt = [NSString stringWithFormat:@"【信我家】验证码是：%d",code];
-//    NSMutableDictionary  *dic = [NSMutableDictionary dictionary];
-//    [dic setValue:@"send" forKey:@"action"];
-//    [dic setValue:uid forKey:@"userid" ];
-//    [dic setValue:@"hisenseplus" forKey:@"account" ];
-//    [dic setValue:@"hisenseplus" forKey:@"password" ];
-//    [dic setValue:phone forKey:@"mobile" ];
-//    [dic setValue:contnt forKey:@"content" ];
-//    [dic setValue:@"" forKey:@"sendTime" ];
-//    [dic setValue:@"1" forKey:@"checkcontent" ];
-
-//    NSDictionary *dic = @{action=send&userid=%@&account=hisenseplus&password=hisenseplus&mobile=%@&content=【信我家】验证码是：%d&sendTime=&checkcontent=1",uid,phone,code};
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSString *urlStr = [NSString stringWithFormat:IDCODE_URL,uid,phone,content];
     
     NSLog(@"url %@",urlStr);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *dict = @{@"format": @"xml"};
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer new];
 
     [manager GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");

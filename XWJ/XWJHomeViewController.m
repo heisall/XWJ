@@ -48,6 +48,7 @@ NSArray *footer;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell3" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier1];
     
+    [self getAds];
     /******************** internet ********************/
     NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
@@ -98,6 +99,35 @@ NSArray *footer;
 
 -(void)msgClick:(UIButton *)sender{
     NSLog(@"click %ld",(long)sender.tag);
+}
+
+-(void)getAds{
+    
+    NSString *url = AD_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+//    [dict setValue:username forKey:@"account"];
+//    [dict setValue:pwd forKey:@"password"];
+    manager.responseSerializer = [AFHTTPResponseSerializer new];
+
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%p success %@ ",__FUNCTION__,(NSData*)responseObject);
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%p fail error %@",__FUNCTION__,error);
+        /*
+        NSString *message = @"重置失败";
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertview show];
+        */
+
+    }];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
