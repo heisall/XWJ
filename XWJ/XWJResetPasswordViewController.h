@@ -10,4 +10,5 @@
 #import "XWJBaseViewController.h"
 @interface XWJResetPasswordViewController : XWJBaseViewController
 
+@property NSString* user;
 @end

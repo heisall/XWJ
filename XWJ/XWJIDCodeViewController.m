@@ -8,6 +8,7 @@
 
 #import "XWJIDCodeViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "XWJResetPasswordViewController.h"
 #import <SMS_SDK/SMSSDK.h>
 
 #define MESSAGE_CONTENT @"【信我家】您的信我家验证码为：%d，感谢您的使用！"
@@ -72,8 +73,10 @@ int code;
     
     NSLog(@"url %@",urlStr);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *dict = @{@"format": @"xml"};
-    [manager GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    NSDictionary *dict = @{@"format": @"xml"};
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+
+    [manager GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure");
@@ -135,8 +138,9 @@ int code;
         [defaults synchronize];
         
         UIStoryboard *storyboard = [UIStoryboard  storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
-        UIViewController *resetPassword = [storyboard instantiateViewControllerWithIdentifier:@"resetpwd"];
+        XWJResetPasswordViewController *resetPassword = [storyboard instantiateViewControllerWithIdentifier:@"resetpwd"];
         //             UIViewController *resetPassword = [[UIViewController alloc] initWithNibName:@"XWJResetPasswordViewController" bundle:nil];
+        resetPassword.user = self.txtFieldPhoneNumber.text;
         [self.navigationController pushViewController:resetPassword animated:YES];
         
     }else{

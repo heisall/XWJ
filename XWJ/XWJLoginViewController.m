@@ -10,6 +10,8 @@
 #import "XWJBindHouseTableViewController.h"
 #import "XWJBingHouseViewController.h"
 #import "XWJTabViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+
 @interface XWJLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *tFieldUserName;
@@ -30,7 +32,21 @@
     [_tFieldPassWord setValue:[UIColor colorWithRed:88.0/255.0 green:176.0/255.0 blue:176.0/255.0 alpha:1.0] forKeyPath:@"_placeholderLabel.textColor"];
     [UIApplication sharedApplication].statusBarHidden = YES;
 
-    self.tFieldUserName.text = @"15092245487";
+    
+    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+
+    if (username) {
+        
+        self.tFieldUserName.text = username;
+    }else{
+        
+            self.tFieldUserName.text = @"15092245487";
+    }
+    if (pwd) {
+        
+        self.tFieldPassWord.text = pwd;
+    }else
     self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
 //    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
@@ -45,7 +61,9 @@
     }
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+}
 - (BOOL)prefersStatusBarHidden
 {
     return YES;//隐藏为YES，显示为NO
@@ -55,18 +73,49 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)login:(id)sender {
     
     
     NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     
+    
+    if (username&&pwd) {
+        
+        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setValue:username forKey:@"account"];
+        [dict setValue:pwd forKey:@"password"];
+        
+        
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+        [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"log success ");
+            
+            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            window.rootViewController = tab;
+            
+
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"log fail ");
+            //        dispatch_async(dispatch_get_main_queue(), ^{
+            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            window.rootViewController = tab;            //        });
+        }];
+    }else{
+    
 //    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
         XWJTabViewController *tab = [[XWJTabViewController alloc] init];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         window.rootViewController = tab;
 //    }
-
+    }
 
     /*
     XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
