@@ -50,7 +50,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-Qt-NIS">
-                                <rect key="frame" x="150" y="261" width="300" height="20"/>
+                                <rect key="frame" x="150" y="317" width="300" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwm-XO-ijS">
-                                <rect key="frame" x="150" y="308" width="300" height="20"/>
+                                <rect key="frame" x="150" y="364" width="300" height="20"/>
                                 <animations/>
                                 <color key="textColor" red="0.3294117647" green="0.66274509800000003" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-RR-PKk" userLabel="line2">
-                                <rect key="frame" x="150" y="281" width="300" height="1"/>
+                                <rect key="frame" x="150" y="337" width="300" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -118,7 +118,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-Ln-sCQ" userLabel="line1">
-                                <rect key="frame" x="150" y="328" width="300" height="1"/>
+                                <rect key="frame" x="150" y="384" width="300" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -140,7 +140,7 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="136" id="1Dl-cb-dfY"/>
+                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="80" id="1Dl-cb-dfY"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="3UL-We-ioe"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="4sV-NP-ZbX"/>
                             <constraint firstItem="YhC-cX-ZmF" firstAttribute="leading" secondItem="dMX-1E-e8j" secondAttribute="trailing" constant="36.5" id="87y-WV-jLv"/>

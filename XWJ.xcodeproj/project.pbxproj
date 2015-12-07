@@ -114,6 +114,8 @@
 		A43C98391C146ACE006A61EE /* XWJPay2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98381C146ACE006A61EE /* XWJPay2ViewController.m */; };
 		A43C983F1C146BDC006A61EE /* XWJPay3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */; };
 		A43C98451C14816E006A61EE /* XWJPay1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */; };
+		A43C984B1C1516CC006A61EE /* XWJGuanjiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */; };
+		A43C984D1C1516DF006A61EE /* XWJGJStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */; };
 		A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320701C00D6990062AA24 /* AddressBook.framework */; };
 		A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46320711C00D6990062AA24 /* AddressBookUI.framework */; };
 		A467B0F91C0BE0FA00394B75 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */; };
@@ -374,6 +376,9 @@
 		A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay3ViewController.m; sourceTree = "<group>"; };
 		A43C98431C14816E006A61EE /* XWJPay1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJPay1TableViewCell.h; sourceTree = "<group>"; };
 		A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJPay1TableViewCell.m; sourceTree = "<group>"; };
+		A43C98491C1516CC006A61EE /* XWJGuanjiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJGuanjiaViewController.h; sourceTree = "<group>"; };
+		A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJGuanjiaViewController.m; sourceTree = "<group>"; };
+		A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XWJGJStoryboard.storyboard; sourceTree = "<group>"; };
 		A46320701C00D6990062AA24 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A46320711C00D6990062AA24 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -817,6 +822,16 @@
 			name = zufang;
 			sourceTree = "<group>";
 		};
+		A43C98481C1516AF006A61EE /* guanjia */ = {
+			isa = PBXGroup;
+			children = (
+				A43C98491C1516CC006A61EE /* XWJGuanjiaViewController.h */,
+				A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */,
+				A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */,
+			);
+			name = guanjia;
+			sourceTree = "<group>";
+		};
 		A46320741C00D7AD0062AA24 /* SMS_SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1009,7 @@
 		DAC4AF181BF0619700D66E76 /* XWJ */ = {
 			isa = PBXGroup;
 			children = (
+				A43C98481C1516AF006A61EE /* guanjia */,
 				A43C981C1C140721006A61EE /* zufang */,
 				A43C97DA1C129C68006A61EE /* Images */,
 				A43C97AE1C1298AF006A61EE /* Utils */,
@@ -1182,6 +1198,7 @@
 				A48801CF1C0B5D1800714F5B /* devAdv_default@2x.png in Resources */,
 				A48801D21C0B5EC500714F5B /* FindStoryboard.storyboard in Resources */,
 				A48801B21C0AE15E00714F5B /* MineStoryboard.storyboard in Resources */,
+				A43C984D1C1516DF006A61EE /* XWJGJStoryboard.storyboard in Resources */,
 				A43C97F11C129C68006A61EE /* broswerPic3.jpg in Resources */,
 				A4093EEF1C10AEF100F2F324 /* agreeButtonBg@2x.png in Resources */,
 				A48801AA1C0AB22A00714F5B /* baritemSelectedIndicator@2x.png in Resources */,
@@ -1266,6 +1283,7 @@
 				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
 				A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */,
 				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
+				A43C984B1C1516CC006A61EE /* XWJGuanjiaViewController.m in Sources */,
 				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
 				A43C97A61C1297E1006A61EE /* LGPhotoPickerAssetsViewController.m in Sources */,
 				A43C97CB1C129A79006A61EE /* LGPhotoPickerBrowserViewController.m in Sources */,

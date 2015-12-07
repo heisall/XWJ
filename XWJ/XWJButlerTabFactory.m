@@ -9,6 +9,7 @@
 #import "XWJButlerTabFactory.h"
 #import "XWJButlerViewController.h"
 #import "XWJTabBarItem.h"
+
 @implementation XWJButlerTabFactory
 
 /**
@@ -17,7 +18,11 @@
  *  @return <#return value description#>
  */
 -(UIViewController *)createControllerInstance{
-    UIViewController * butler = [[XWJButlerViewController alloc] init];
+//    UIViewController * butler = [[XWJButlerViewController alloc] init];
+    
+//        UIViewController * butler = [[XWJButlerViewController alloc] init];
+    UIStoryboard * s = [UIStoryboard storyboardWithName:@"XWJGJStoryboard" bundle:nil];
+    UIViewController * butler = [s instantiateInitialViewController];
     return butler;
 }
 

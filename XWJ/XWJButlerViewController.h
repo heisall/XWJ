@@ -7,7 +7,8 @@
 //
 
 #import "XWJBaseViewController.h"
-
-@interface XWJButlerViewController : XWJBaseViewController
+#import "LCBannerView.h"
+@interface XWJButlerViewController : XWJBaseViewController<LCBannerViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
 @end
