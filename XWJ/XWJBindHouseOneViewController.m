@@ -79,7 +79,7 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame = CGRectMake(150, 0, 200, 40);
             [btn setTitle:@"许可及服务协议" forState:UIControlStateNormal];
-            [btn setTitleColor:MJColor(249, 62, 0) forState:UIControlStateNormal];
+            [btn setTitleColor:XWJColor(249, 62, 0) forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"agreeline"] forState:UIControlStateNormal];
 //            btn.backgroundColor = [UIColor redColor];
             btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

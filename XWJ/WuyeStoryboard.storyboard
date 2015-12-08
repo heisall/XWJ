@@ -47,16 +47,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W25-2J-s08">
-                                                    <rect key="frame" x="457" y="50" width="42" height="20.5"/>
+                                                    <rect key="frame" x="488" y="50" width="42" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.29019607843137252" green="0.66666666666666663" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgi-xC-FGz">
-                                                    <rect key="frame" x="519" y="44" width="54" height="34"/>
+                                                    <rect key="frame" x="550" y="49" width="23" height="23"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" image="dial"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-GK-A1O">
                                                     <rect key="frame" x="99" y="35" width="42" height="20.5"/>
@@ -365,6 +365,7 @@
     </scenes>
     <resources>
         <image name="demo" width="213" height="53"/>
+        <image name="dial" width="23" height="23"/>
         <image name="findfx" width="23" height="23"/>
         <image name="findpinglun" width="23" height="23"/>
         <image name="findzan" width="24" height="23"/>

@@ -11,7 +11,7 @@
 @interface XWJPay3ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property NSArray *array;
 @property NSArray *payarray;
-
+@property NSArray *zhifuIconArr;
 @property CGFloat height;
 @end
 
@@ -33,7 +33,7 @@
     
     self.array = [NSArray arrayWithObjects:@"青岛市",@"海信花园",@"1号楼1单元101户", nil];
     self.payarray = [NSArray arrayWithObjects:@"微信支付",@"支付宝", nil];
-    
+    self.zhifuIconArr = [NSArray arrayWithObjects:@"zhifuweixin",@"zhifubao", nil];
     self.height = 80;
 }
 
@@ -78,6 +78,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pay3cell2"];
         }
+        cell.imageView.image = [UIImage imageNamed:self.zhifuIconArr[indexPath.row]];
         cell.textLabel.text = self.payarray[indexPath.row];
         return cell;
     }
@@ -90,6 +91,9 @@
     // Configure the cell...
 
     
+    if(indexPath.row){
+        
+    }
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
 
     CGFloat contentWidth = width - 100;

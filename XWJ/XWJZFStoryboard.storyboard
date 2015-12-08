@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" backgroundImage="searchbackImg" translatesAutoresizingMaskIntoConstraints="NO" id="Smn-oZ-0dP">
+                            <searchBar contentMode="redraw" text="" backgroundImage="searchbackImg" translatesAutoresizingMaskIntoConstraints="NO" id="Smn-oZ-0dP">
                                 <rect key="frame" x="20" y="34" width="560" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>

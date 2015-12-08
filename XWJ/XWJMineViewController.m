@@ -14,6 +14,11 @@
 #define  CELL_HEIGHT 30.0
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 4
+
+@interface XWJMineViewController()
+@property NSArray *mine;
+
+@end
 @implementation XWJMineViewController
 static NSString *kcellIdentifier = @"collectionCellID";
 NSArray *myImgs;
@@ -30,7 +35,11 @@ NSArray *myImgs;
     self.collcitonView.delegate = self;
     [self.collcitonView registerNib:[UINib nibWithNibName:@"XWJCollectionCell" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
 
-
+    UIViewController *m1 = [[XWJMyMessageController alloc] init];
+    UIViewController *m2 = [[XWJMyMessageController alloc] init];
+    UIViewController *m3 = [[XWJMyMessageController alloc] init];
+    
+    _mine = [NSArray arrayWithObjects:m1,m2,m3, nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -137,9 +146,19 @@ NSArray *myImgs;
 //选择了某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.row) {
+        case 1:
+            [self.tabBarController setSelectedIndex:3];
+            break;
+            
+        default:{
+            UIViewController * con = [_mine objectAtIndex:indexPath.row];
+            [self.navigationController showViewController:con sender:nil];
+        }
+            break;
+    }
     
-    UIViewController * con = [[XWJMyMessageController alloc] init];
-    [self.navigationController showViewController:con sender:nil];
+
 //    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //    [cell setBackgroundColor:[UIColor greenColor]];
     

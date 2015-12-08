@@ -246,22 +246,33 @@
                                                     <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-m9-JhR">
+                                                    <rect key="frame" x="548" y="18" width="34" height="23"/>
+                                                    <animations/>
+                                                    <state key="normal" title="2" image="findpinglun">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="disabled" image="findpinglun"/>
+                                                </button>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="bMZ-v8-nPS" firstAttribute="leading" secondItem="vMQ-hG-Da6" secondAttribute="leading" id="Bch-6G-OsF"/>
                                                 <constraint firstItem="vMQ-hG-Da6" firstAttribute="top" secondItem="Eyw-dR-zST" secondAttribute="bottom" constant="5" id="JAy-id-AhJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="VSu-m9-JhR" secondAttribute="trailing" constant="10" id="LQS-dL-gX6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bMZ-v8-nPS" secondAttribute="trailing" constant="20" id="MGO-RO-rZ0"/>
                                                 <constraint firstItem="Eyw-dR-zST" firstAttribute="top" secondItem="tWT-1N-ZVl" secondAttribute="topMargin" constant="7" id="TWj-Dx-YQF"/>
                                                 <constraint firstItem="bMZ-v8-nPS" firstAttribute="top" secondItem="vMQ-hG-Da6" secondAttribute="bottom" constant="10" id="X9m-Xa-NDb"/>
                                                 <constraint firstItem="Eyw-dR-zST" firstAttribute="leading" secondItem="tWT-1N-ZVl" secondAttribute="leadingMargin" constant="20" id="aBK-6m-hej"/>
                                                 <constraint firstItem="vMQ-hG-Da6" firstAttribute="leading" secondItem="Eyw-dR-zST" secondAttribute="leading" id="aRO-cA-Ux6"/>
+                                                <constraint firstItem="VSu-m9-JhR" firstAttribute="top" secondItem="tWT-1N-ZVl" secondAttribute="topMargin" constant="10" id="uTY-qn-fhR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="comBtn" destination="tWT-1N-ZVl" id="ryp-Yk-AsA"/>
                                             <outlet property="contentLabel" destination="bMZ-v8-nPS" id="qCl-yL-rD0"/>
                                             <outlet property="timeLabel" destination="vMQ-hG-Da6" id="K4g-CN-vHU"/>
                                             <outlet property="titleLabel" destination="Eyw-dR-zST" id="2yd-1p-niI"/>
@@ -332,7 +343,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goR-ee-0cM">
-                                <rect key="frame" x="0.0" y="153" width="300" height="33"/>
+                                <rect key="frame" x="0.0" y="153" width="299.5" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="未缴账单">
@@ -340,7 +351,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuv-Sq-ZZf">
-                                <rect key="frame" x="300.5" y="153" width="299.5" height="33"/>
+                                <rect key="frame" x="300" y="153" width="299.5" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="全部账单">
@@ -485,27 +496,28 @@
                                 <rect key="frame" x="0.0" y="187" width="600" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账单月份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v87-nn-QS1">
-                                        <rect key="frame" x="64" y="10" width="68" height="20.5"/>
+                                        <rect key="frame" x="76" y="10" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应缴金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNv-K8-C8K">
-                                        <rect key="frame" x="280" y="10" width="68" height="20.5"/>
+                                        <rect key="frame" x="292" y="10" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-45-C6l">
-                                        <rect key="frame" x="20" y="7" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-45-C6l">
+                                        <rect key="frame" x="20" y="1" width="37" height="37"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="jiaoseicon"/>
+                                        <state key="normal" image="wuyezhangdan1"/>
+                                        <state key="disabled" image="wuyezhangdan1"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="费用名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpY-AQ-bOU">
-                                        <rect key="frame" x="172" y="10" width="68" height="20.5"/>
+                                        <rect key="frame" x="184" y="10" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -950,6 +962,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="findpinglun" width="23" height="23"/>
         <image name="gonggaobackImg" width="320" height="517"/>
         <image name="headDefaultImg" width="65" height="65"/>
         <image name="headerimg" width="319" height="91"/>
@@ -957,7 +970,7 @@
         <image name="homeliwu" width="50" height="46"/>
         <image name="homemoney" width="76" height="46"/>
         <image name="homeqiandao" width="73" height="22"/>
-        <image name="jiaoseicon" width="25" height="25"/>
         <image name="loginnext" width="257" height="36"/>
+        <image name="wuyezhangdan1" width="37" height="37"/>
     </resources>
 </document>

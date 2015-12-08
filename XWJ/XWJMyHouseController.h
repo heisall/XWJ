@@ -9,5 +9,5 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJMyHouseController : XWJBaseViewController
-
+@property NSArray *array;
 @end

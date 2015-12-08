@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XWJdef.h"
 @interface XWJBaseViewController : UIViewController
 
 @end

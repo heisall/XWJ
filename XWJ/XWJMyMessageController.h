@@ -9,5 +9,5 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJMyMessageController : XWJBaseViewController
-
+@property NSArray *array;
 @end

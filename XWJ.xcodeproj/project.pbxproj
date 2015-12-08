@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4093EAC1C108DFE00F2F324 /* test@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4093EAB1C108DFE00F2F324 /* test@3x.png */; };
 		A4093EEB1C10ACEB00F2F324 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4093EEA1C10ACEB00F2F324 /* UIPlaceHolderTextView.m */; };
 		A4093EEF1C10AEF100F2F324 /* agreeButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4093EEC1C10AEF100F2F324 /* agreeButtonBg@2x.png */; };
 		A4093EF01C10AEF100F2F324 /* agreeButtonSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4093EED1C10AEF100F2F324 /* agreeButtonSelected@2x.png */; };
 		A4093EF11C10AEF100F2F324 /* agreeButtonUnenbled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4093EEE1C10AEF100F2F324 /* agreeButtonUnenbled@2x.png */; };
+		A40CD5C41C17137000E4D520 /* XWJlifeCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A40CD5C31C17137000E4D520 /* XWJlifeCollectionView.xib */; };
 		A41255051C0F22FC0042D8CC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A41254DF1C0F22FC0042D8CC /* AFHTTPRequestOperation.m */; };
 		A41255061C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41254E11C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m */; };
 		A41255071C0F22FC0042D8CC /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41254E31C0F22FC0042D8CC /* AFHTTPSessionManager.m */; };
@@ -155,6 +155,7 @@
 		A48801DB1C0B789500714F5B /* XWJCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */; };
 		A48801DD1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DC1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib */; };
 		A48801DF1C0B7DC500714F5B /* XWJSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DE1C0B7DC500714F5B /* XWJSupplementaryView.xib */; };
+		A4DC3C2A1C171C7A003D4D18 /* XWJMyhouseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
@@ -194,12 +195,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A4093EAB1C108DFE00F2F324 /* test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test@3x.png"; path = "Images.xcassets/mine1.imageset/test@3x.png"; sourceTree = "<group>"; };
 		A4093EE91C10ACEB00F2F324 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		A4093EEA1C10ACEB00F2F324 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		A4093EEC1C10AEF100F2F324 /* agreeButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "agreeButtonBg@2x.png"; sourceTree = "<group>"; };
 		A4093EED1C10AEF100F2F324 /* agreeButtonSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "agreeButtonSelected@2x.png"; sourceTree = "<group>"; };
 		A4093EEE1C10AEF100F2F324 /* agreeButtonUnenbled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "agreeButtonUnenbled@2x.png"; sourceTree = "<group>"; };
+		A40CD5C31C17137000E4D520 /* XWJlifeCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJlifeCollectionView.xib; sourceTree = "<group>"; };
 		A41254DE1C0F22FC0042D8CC /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		A41254DF1C0F22FC0042D8CC /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		A41254E01C0F22FC0042D8CC /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -444,6 +445,7 @@
 		A48801DA1C0B789500714F5B /* XWJCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJCollectionCell.xib; sourceTree = "<group>"; };
 		A48801DC1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJHomeCollectionCell.xib; sourceTree = "<group>"; };
 		A48801DE1C0B7DC500714F5B /* XWJSupplementaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJSupplementaryView.xib; sourceTree = "<group>"; };
+		A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJMyhouseTableCell.xib; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				A48801C21C0B41EF00714F5B /* XWJMyMessageController.m */,
 				A48801C41C0B451300714F5B /* XWJMyHouseController.h */,
 				A48801C51C0B451300714F5B /* XWJMyHouseController.m */,
+				A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */,
 				A48801921C09FB3800714F5B /* XWJLifeViewController.h */,
 				A48801931C09FB3800714F5B /* XWJLifeViewController.m */,
+				A40CD5C31C17137000E4D520 /* XWJlifeCollectionView.xib */,
 			);
 			name = Life;
 			sourceTree = "<group>";
@@ -1040,7 +1044,6 @@
 				DAC4AF191BF0619700D66E76 /* Supporting Files */,
 				DAC4AF1D1BF0619700D66E76 /* AppDelegate.h */,
 				DAC4AF1E1BF0619700D66E76 /* AppDelegate.m */,
-				A4093EAB1C108DFE00F2F324 /* test@3x.png */,
 				DAC4AF201BF0619700D66E76 /* ViewController.h */,
 				DAC4AF211BF0619700D66E76 /* ViewController.m */,
 				DAC4AF231BF0619700D66E76 /* Main.storyboard */,
@@ -1192,7 +1195,6 @@
 				A43C97EF1C129C68006A61EE /* broswerPic1.jpg in Resources */,
 				A43C97FB1C129C68006A61EE /* shanguangdeng2.png in Resources */,
 				DAC4AF251BF0619700D66E76 /* Main.storyboard in Resources */,
-				A4093EAC1C108DFE00F2F324 /* test@3x.png in Resources */,
 				A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */,
 				A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */,
 				A43C97F61C129C68006A61EE /* checkbox_pic_non2@2x.png in Resources */,
@@ -1215,6 +1217,7 @@
 				A48801CF1C0B5D1800714F5B /* devAdv_default@2x.png in Resources */,
 				A48801D21C0B5EC500714F5B /* FindStoryboard.storyboard in Resources */,
 				A48801B21C0AE15E00714F5B /* MineStoryboard.storyboard in Resources */,
+				A40CD5C41C17137000E4D520 /* XWJlifeCollectionView.xib in Resources */,
 				A43C984D1C1516DF006A61EE /* XWJGJStoryboard.storyboard in Resources */,
 				A43C97F11C129C68006A61EE /* broswerPic3.jpg in Resources */,
 				A4093EEF1C10AEF100F2F324 /* agreeButtonBg@2x.png in Resources */,
@@ -1237,6 +1240,7 @@
 				A48801DF1C0B7DC500714F5B /* XWJSupplementaryView.xib in Resources */,
 				A43C97FF1C129C68006A61EE /* xiang.png in Resources */,
 				A43C97F71C129C68006A61EE /* checkbox_pic_non@2x.png in Resources */,
+				A4DC3C2A1C171C7A003D4D18 /* XWJMyhouseTableCell.xib in Resources */,
 				A412554A1C0F33770042D8CC /* devAdv_white@2x.png in Resources */,
 				A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */,
 				A43C97FD1C129C68006A61EE /* X.png in Resources */,
@@ -1496,7 +1500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ning zhang (J7U23VP8F7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1519,7 +1523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ning zhang (J7U23VP8F7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

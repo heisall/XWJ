@@ -66,8 +66,8 @@
 //    cell.headImageView.image = [UIImage imageNamed:@"xinfangbackImg"];
     
     
-    cell.imageView.image = [UIImage imageNamed:@"jiaoseicon"];
-    cell.imageView.highlightedImage = [UIImage imageNamed:@"jiaoseiconselect"];
+    cell.imageView.image = [UIImage imageNamed:@"wuyezhangdan1"];
+    cell.imageView.highlightedImage = [UIImage imageNamed:@"wuyezhangdan2"];
     cell.label1.text = @"2015.12";
     cell.label2.text = @"物业费";
     cell.label3.text = @"2000.10";
