@@ -30,8 +30,26 @@ static NSString *kcellIdentifier = @"cell";
     _titles =[NSArray arrayWithObjects:@"湖岛世家",@"湖岛世家", nil];
     _subTitles =[NSArray arrayWithObjects:@"1号楼1单元101",@"2号楼1单元201", nil];
 
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 50)];
+    view.backgroundColor = XWJColor(235, 235, 234);
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"bindfy"];
+    [btn setImage:image forState:UIControlStateNormal];
+    [btn setTitle:@"继续绑定房源" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0, 0, 200, image.size.height);
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+    [btn addTarget:self action:@selector(bind) forControlEvents:UIControlEventTouchUpInside];
+    btn.center = view.center;
+    [view addSubview:btn];
+    _tableView.tableHeaderView = view;
+    
     [_tableView registerNib:[UINib nibWithNibName:@"XWJMyhouseTableCell" bundle:nil] forCellReuseIdentifier:kcellIdentifier];
     [self.view addSubview:_tableView];
+}
+
+-(void)bind{
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
