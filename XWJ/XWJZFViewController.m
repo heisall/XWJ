@@ -9,6 +9,7 @@
 #import "XWJZFViewController.h"
 #import "XWJZFTableViewCell.h"
 #import "XWJdef.h"
+#import "XWJZFDetailViewController.h"
 
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -17,30 +18,50 @@
 @implementation XWJZFViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSArray *array = [NSArray arrayWithObjects:@"区域",@"总价",@"户型",@"面积", nil];
     
-    CGFloat width = [UIScreen mainScreen].bounds.size.width/4;
-    CGFloat height  = self.selectView.bounds.size.height;
-    for (int i = 0 ; i<4; i++) {
-        
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
-        [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
-        btn.frame = CGRectMake(i*width, 0, width, height);
-        [btn setImage:[UIImage imageNamed:@"xinfangarrow"] forState:UIControlStateNormal];
-//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft ;
-        [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.bounds.size.width-20, 0, 0)];
-        btn.tag = i;
-        [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-        [self.selectView addSubview:btn];
-    }
+//    if (self.type != HOUSENEW) {
+//        
+//        NSArray *array = [NSArray arrayWithObjects:@"区域",@"总价",@"户型",@"面积", nil];
+//        CGFloat width = [UIScreen mainScreen].bounds.size.width/4;
+//        CGFloat height  = self.selectView.bounds.size.height;
+//        for (int i = 0 ; i<4; i++) {
+//            
+//            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//            [btn setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
+//            [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
+//            btn.frame = CGRectMake(i*width, 0, width, height);
+//            [btn setImage:[UIImage imageNamed:@"xinfangarrow"] forState:UIControlStateNormal];
+//        //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft ;
+//            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.bounds.size.width-20, 0, 0)];
+//            btn.tag = i;
+//            [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+//            [self.selectView addSubview:btn];
+//        }
+//    }
+    self.selectView.frame = CGRectZero;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.navigationItem.title = @"新房";
+    NSString *title ;
+    switch (self.type) {
+        case HOUSENEW:
+            title = @"新房";
+            break;
+        case HOUSE2:
+            title = @"二手房";
+            break;
+        case HOUSEZU:
+            title = @"租房";
+            break;
+        default:
+            break;
+    }
+    self.navigationItem.title = title;
 }
 
 -(void)click:(UIButton *)btn{
@@ -95,11 +116,16 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 4) {
-        
-        //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MineStoryboard" bundle:nil];
-        //        [self.navigationController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"suggestStory"] sender:nil];
-    }
+    
+//    if (self.type == HOUSE2||self.type==HOUSEZU) {
+        XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"zfdatail"];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setValue:@"" forKey:@""];
+        detail.dic = dic;
+        detail.type = self.type;
+        [self.navigationController showViewController: detail sender:self];
+//    }
+
 }
 
 - (void)didReceiveMemoryWarning {

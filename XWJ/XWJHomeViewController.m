@@ -14,6 +14,7 @@
 #import "XWJBingHouseViewController.h"
 #import "XWJBindHouseTableViewController.h"
 #import "XWJPay1ViewController.h"
+#import "XWJZFViewController.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -359,8 +360,32 @@ NSArray *footer;
         }
             break;
         case 2:{
+            
             UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
-            [self.navigationController showViewController:[story instantiateInitialViewController] sender:nil];
+            switch (btn.tag) {
+                case 1:
+                {
+                    XWJZFViewController *view = [story instantiateInitialViewController];
+                    view.type = 0;
+                    [self.navigationController showViewController:view sender:nil];
+                }
+                    break;
+                case 2:{
+                    XWJZFViewController *view = [story instantiateInitialViewController];
+                    view.type = 1;
+                    [self.navigationController showViewController:view sender:nil];
+                }
+                    break;
+                case 3:{
+                    XWJZFViewController *view = [story instantiateInitialViewController];
+                    view.type = 2;
+                    [self.navigationController showViewController:view sender:nil];
+                }
+                    break;
+                default:
+                    break;
+            }
+
         }
             break;
         default:

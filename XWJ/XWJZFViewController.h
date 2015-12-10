@@ -8,9 +8,16 @@
 
 #import "XWJBaseViewController.h"
 
+
+typedef enum : NSUInteger {
+    HOUSENEW,
+    HOUSE2,
+    HOUSEZU
+} HOUSETYPE ;
+
 @interface XWJZFViewController : XWJBaseViewController
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property HOUSETYPE type;
 @end

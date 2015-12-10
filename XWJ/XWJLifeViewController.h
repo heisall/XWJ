@@ -8,7 +8,12 @@
 
 #import "XWJBaseViewController.h"
 #import "LCBannerView.h"
-@interface XWJLifeViewController : XWJBaseViewController<LCBannerViewDelegate>
+@interface XWJLifeViewController : XWJBaseViewController<LCBannerViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
+    CGFloat collectionCellHeight;
+    CGFloat collectionCellWidth;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *adScrollView;
+@property (nonatomic) NSArray *collectionData;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

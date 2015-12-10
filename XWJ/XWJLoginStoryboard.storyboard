@@ -580,7 +580,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tqf-wD-Tg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="158"/>
+            <point key="canvasLocation" x="2376" y="177"/>
         </scene>
         <!--Forget Pwd2 View Controller-->
         <scene sceneID="2qv-lk-4yU">
@@ -745,7 +745,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDb-kC-NPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="177"/>
+            <point key="canvasLocation" x="1726" y="177"/>
+        </scene>
+        <!--Xuan Ze View Controller-->
+        <scene sceneID="kaY-vm-L9V">
+            <objects>
+                <viewController id="ZBv-P2-K99" customClass="XWJXuanZeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f2t-VU-Sfg"/>
+                        <viewControllerLayoutGuide type="bottom" id="VSZ-mE-eA2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0js-nt-O8r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8U-CS-kX7">
+                                <rect key="frame" x="150" y="62" width="300" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1AU-Bo-fIt"/>
+                                    <constraint firstAttribute="height" constant="40" id="gYc-N4-Gbl"/>
+                                </constraints>
+                                <state key="normal" title="继续绑定房间" backgroundImage="yuyuekanfang">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bind:" destination="ZBv-P2-K99" eventType="touchUpInside" id="kay-VB-LSo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXq-5C-ada">
+                                <rect key="frame" x="150" y="137" width="300" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="LMm-XN-2c8"/>
+                                    <constraint firstAttribute="height" constant="40" id="RNa-ix-uby"/>
+                                </constraints>
+                                <state key="normal" title="先不绑定，选择一个小区看看" backgroundImage="yuyuekanfang">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="xuanze:" destination="ZBv-P2-K99" eventType="touchUpInside" id="Ksc-r6-hKx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k8U-CS-kX7" firstAttribute="centerX" secondItem="0js-nt-O8r" secondAttribute="centerX" id="0To-jm-uJ9"/>
+                            <constraint firstItem="fXq-5C-ada" firstAttribute="top" secondItem="k8U-CS-kX7" secondAttribute="bottom" constant="35" id="3wm-dh-iH9"/>
+                            <constraint firstItem="fXq-5C-ada" firstAttribute="leading" secondItem="k8U-CS-kX7" secondAttribute="leading" id="66W-wB-qIL"/>
+                            <constraint firstItem="k8U-CS-kX7" firstAttribute="top" secondItem="f2t-VU-Sfg" secondAttribute="bottom" constant="42" id="MvR-Ja-svu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2q-cy-EoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="1033"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="BBj-Cd-lIx">
@@ -1003,5 +1058,6 @@
         <image name="resetpwdicon" width="20" height="20"/>
         <image name="showpwd1" width="43" height="20"/>
         <image name="showpwd2" width="43" height="20"/>
+        <image name="yuyuekanfang" width="82" height="27"/>
     </resources>
 </document>

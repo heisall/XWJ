@@ -156,6 +156,11 @@
 		A48801DD1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DC1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib */; };
 		A48801DF1C0B7DC500714F5B /* XWJSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48801DE1C0B7DC500714F5B /* XWJSupplementaryView.xib */; };
 		A4DC3C2A1C171C7A003D4D18 /* XWJMyhouseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */; };
+		A4DC3C341C1879C9003D4D18 /* XWJZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */; };
+		A4DC3C361C1881ED003D4D18 /* XWJZFTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */; };
+		A4DC3C531C19BC34003D4D18 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */; };
+		A4DC3C561C19C808003D4D18 /* XWJXuanZeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */; };
+		A4DC3C581C19CF57003D4D18 /* ZFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
@@ -446,6 +451,14 @@
 		A48801DC1C0B7B1C00714F5B /* XWJHomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJHomeCollectionCell.xib; sourceTree = "<group>"; };
 		A48801DE1C0B7DC500714F5B /* XWJSupplementaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJSupplementaryView.xib; sourceTree = "<group>"; };
 		A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJMyhouseTableCell.xib; sourceTree = "<group>"; };
+		A4DC3C321C1879C9003D4D18 /* XWJZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFDetailViewController.h; sourceTree = "<group>"; };
+		A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFDetailViewController.m; sourceTree = "<group>"; };
+		A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJZFTableCell.xib; sourceTree = "<group>"; };
+		A4DC3C511C19BC34003D4D18 /* XWJMFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMFViewController.h; sourceTree = "<group>"; };
+		A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
+		A4DC3C541C19C808003D4D18 /* XWJXuanZeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJXuanZeViewController.h; sourceTree = "<group>"; };
+		A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJXuanZeViewController.m; sourceTree = "<group>"; };
+		A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFCollectionCell.xib; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
@@ -532,6 +545,8 @@
 		A41254A91C0F14260042D8CC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A4DC3C541C19C808003D4D18 /* XWJXuanZeViewController.h */,
+				A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -830,6 +845,12 @@
 				A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */,
 				A43C98281C140D93006A61EE /* XWJZFViewController.h */,
 				A43C98291C140D93006A61EE /* XWJZFViewController.m */,
+				A4DC3C321C1879C9003D4D18 /* XWJZFDetailViewController.h */,
+				A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */,
+				A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */,
+				A4DC3C511C19BC34003D4D18 /* XWJMFViewController.h */,
+				A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */,
+				A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */,
 			);
 			name = zufang;
 			sourceTree = "<group>";
@@ -1235,7 +1256,9 @@
 				A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */,
 				A412550E1C0F22FC0042D8CC /* LICENSE in Resources */,
 				A4F5C19A1C0DC04300513CD9 /* XWJHomeCollectionCell2.xib in Resources */,
+				A4DC3C581C19CF57003D4D18 /* ZFCollectionCell.xib in Resources */,
 				A43C97F91C129C68006A61EE /* paizhao.png in Resources */,
+				A4DC3C361C1881ED003D4D18 /* XWJZFTableCell.xib in Resources */,
 				A43C97EE1C129C68006A61EE /* broswerPic0.jpg in Resources */,
 				A48801DF1C0B7DC500714F5B /* XWJSupplementaryView.xib in Resources */,
 				A43C97FF1C129C68006A61EE /* xiang.png in Resources */,
@@ -1290,6 +1313,7 @@
 				A412557E1C0F39D20042D8CC /* UIImageView+HighlightedWebCache.m in Sources */,
 				A43C983F1C146BDC006A61EE /* XWJPay3ViewController.m in Sources */,
 				A43C97A81C1297E1006A61EE /* LGPhotoPickerViewController.m in Sources */,
+				A4DC3C531C19BC34003D4D18 /* XWJMFViewController.m in Sources */,
 				A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */,
 				A43C97A51C1297E1006A61EE /* LGPhotoPickerGroup.m in Sources */,
 				A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */,
@@ -1309,6 +1333,7 @@
 				A43C97A61C1297E1006A61EE /* LGPhotoPickerAssetsViewController.m in Sources */,
 				A43C97CB1C129A79006A61EE /* LGPhotoPickerBrowserViewController.m in Sources */,
 				A412554F1C0F38C70042D8CC /* WuyeTableViewCell.m in Sources */,
+				A4DC3C561C19C808003D4D18 /* XWJXuanZeViewController.m in Sources */,
 				A41255791C0F39D20042D8CC /* SDWebImageManager.m in Sources */,
 				A43C97AA1C1297E1006A61EE /* LGPhotoPickerCollectionViewCell.m in Sources */,
 				A41255801C0F39D20042D8CC /* UIView+WebCacheOperation.m in Sources */,
@@ -1332,6 +1357,7 @@
 				A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */,
 				A43C98061C12BFE4006A61EE /* XWJActivityViewController.m in Sources */,
 				A412550C1C0F22FC0042D8CC /* AFURLResponseSerialization.m in Sources */,
+				A4DC3C341C1879C9003D4D18 /* XWJZFDetailViewController.m in Sources */,
 				A41255131C0F22FC0042D8CC /* UIButton+AFNetworking.m in Sources */,
 				A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */,
 				A43C97D91C129B11006A61EE /* README.md in Sources */,
