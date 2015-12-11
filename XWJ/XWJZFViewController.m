@@ -12,6 +12,7 @@
 #import "XWJZFDetailViewController.h"
 
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightcontraint;
 
 @end
 
@@ -23,25 +24,38 @@
     // Do any additional setup after loading the view.
     
     
-//    if (self.type != HOUSENEW) {
-//        
-//        NSArray *array = [NSArray arrayWithObjects:@"区域",@"总价",@"户型",@"面积", nil];
-//        CGFloat width = [UIScreen mainScreen].bounds.size.width/4;
-//        CGFloat height  = self.selectView.bounds.size.height;
-//        for (int i = 0 ; i<4; i++) {
-//            
-//            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//            [btn setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
-//            [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
-//            btn.frame = CGRectMake(i*width, 0, width, height);
-//            [btn setImage:[UIImage imageNamed:@"xinfangarrow"] forState:UIControlStateNormal];
-//        //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft ;
-//            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.bounds.size.width-20, 0, 0)];
-//            btn.tag = i;
-//            [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-//            [self.selectView addSubview:btn];
-//        }
-//    }
+    if (self.type != HOUSENEW) {
+    
+        NSArray *array = [NSArray arrayWithObjects:@"区域",@"总价",@"户型",@"面积", nil];
+        CGFloat width = [UIScreen mainScreen].bounds.size.width/4;
+        CGFloat height  = self.selectView.bounds.size.height;
+        for (int i = 0 ; i<4; i++) {
+            
+            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
+            [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
+            btn.frame = CGRectMake(i*width, 0, width, 40);
+            [btn setImage:[UIImage imageNamed:@"xinfangarrow"] forState:UIControlStateNormal];
+            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.bounds.size.width-20, 0, 0)];
+            btn.tag = i;
+            [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            [self.selectView addSubview:btn];
+        }
+    }else{
+        
+        NSLayoutConstraint *conStr= [NSLayoutConstraint constraintWithItem:_selectView
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_selectView
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                multiplier:0
+                                                                  constant:0];
+        
+        [_selectView removeConstraint:_heightcontraint];
+        [_selectView addConstraint:conStr];
+     
+     
+    }
     self.selectView.frame = CGRectZero;
     
     self.tableView.delegate = self;
@@ -65,7 +79,7 @@
 }
 
 -(void)click:(UIButton *)btn{
-    
+    NSLog(@"click");
 }
 
 

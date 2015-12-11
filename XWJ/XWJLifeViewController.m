@@ -9,7 +9,7 @@
 #import "XWJLifeViewController.h"
 
 @implementation XWJLifeViewController
-#define  CELL_HEIGHT 50.0
+#define  CELL_HEIGHT 60.0
 #define  COLLECTION_NUMSECTIONS 6
 #define  COLLECTION_NUMITEMS 2
 static NSString *kcellIdentifier = @"collectionCellID";

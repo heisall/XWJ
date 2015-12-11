@@ -161,6 +161,7 @@
 		A4DC3C531C19BC34003D4D18 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */; };
 		A4DC3C561C19C808003D4D18 /* XWJXuanZeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */; };
 		A4DC3C581C19CF57003D4D18 /* ZFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */; };
+		A4DC3C7E1C1B2F9C003D4D18 /* XWJMyZSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C7D1C1B2F9C003D4D18 /* XWJMyZSViewController.m */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
@@ -459,6 +460,8 @@
 		A4DC3C541C19C808003D4D18 /* XWJXuanZeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJXuanZeViewController.h; sourceTree = "<group>"; };
 		A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJXuanZeViewController.m; sourceTree = "<group>"; };
 		A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFCollectionCell.xib; sourceTree = "<group>"; };
+		A4DC3C7C1C1B2F9C003D4D18 /* XWJMyZSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMyZSViewController.h; sourceTree = "<group>"; };
+		A4DC3C7D1C1B2F9C003D4D18 /* XWJMyZSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMyZSViewController.m; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
@@ -913,6 +916,8 @@
 				A48801C41C0B451300714F5B /* XWJMyHouseController.h */,
 				A48801C51C0B451300714F5B /* XWJMyHouseController.m */,
 				A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */,
+				A4DC3C7C1C1B2F9C003D4D18 /* XWJMyZSViewController.h */,
+				A4DC3C7D1C1B2F9C003D4D18 /* XWJMyZSViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1333,6 +1338,7 @@
 				A43C97A61C1297E1006A61EE /* LGPhotoPickerAssetsViewController.m in Sources */,
 				A43C97CB1C129A79006A61EE /* LGPhotoPickerBrowserViewController.m in Sources */,
 				A412554F1C0F38C70042D8CC /* WuyeTableViewCell.m in Sources */,
+				A4DC3C7E1C1B2F9C003D4D18 /* XWJMyZSViewController.m in Sources */,
 				A4DC3C561C19C808003D4D18 /* XWJXuanZeViewController.m in Sources */,
 				A41255791C0F39D20042D8CC /* SDWebImageManager.m in Sources */,
 				A43C97AA1C1297E1006A61EE /* LGPhotoPickerCollectionViewCell.m in Sources */,

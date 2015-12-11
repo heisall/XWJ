@@ -9,6 +9,9 @@
 #import "XWJZFDetailViewController.h"
 #import "LCBannerView.h"
 
+#define  CELL_HEIGHT 30.0
+#define  COLLECTION_NUMSECTIONS 2
+#define  COLLECTION_NUMITEMS 5
 @interface XWJZFDetailViewController ()<LCBannerViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
     CGFloat collectionCellHeight;
     CGFloat collectionCellWidth;
@@ -36,9 +39,7 @@
 @property (nonatomic) NSArray *collectionData;
 
 @end
-#define  CELL_HEIGHT 30.0
-#define  COLLECTION_NUMSECTIONS 2
-#define  COLLECTION_NUMITEMS 5
+
 @implementation XWJZFDetailViewController
 static NSString *kcellIdentifier = @"collectionCellID";
 static NSString *kheaderIdentifier = @"headerIdentifier";
@@ -145,9 +146,10 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     UIButton *btn = (UIButton *)[cell viewWithTag:1];
    
     [btn setTitle:self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row] forState:UIControlStateNormal];
-
+    if (indexPath.row%2==0) {
+        btn.selected = YES;
+    }
     //    cell.backgroundColor = [UIColor colorWithRed:68.0/255.0 green:70.0/255.0 blue:71.0/255.0 alpha:1.0];
-    ;
     return cell;
     
 }

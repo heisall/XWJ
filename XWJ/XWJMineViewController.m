@@ -10,7 +10,7 @@
 #import "XWJHeader.h"
 #import "XWJMyMessageController.h"
 #import "XWJMyHouseController.h"
-
+#import "XWJMyZSViewController.h"
 #define  CELL_HEIGHT 30.0
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 4
@@ -37,7 +37,8 @@ NSArray *myImgs;
 
     UIViewController *m1 = [[XWJMyMessageController alloc] init];
     UIViewController *m2 = [[XWJMyMessageController alloc] init];
-    UIViewController *m3 = [[XWJMyMessageController alloc] init];
+//    UIViewController *m3 = [[XWJMyMessageController alloc] init];
+    UIViewController *m3 = [self.storyboard instantiateViewControllerWithIdentifier:@"zscontroller"];
     
     _mine = [NSArray arrayWithObjects:m1,m2,m3, nil];
 }
