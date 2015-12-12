@@ -10,7 +10,9 @@
 #import "XWJZFTableViewCell.h"
 #import "XWJdef.h"
 #import "XWJZFDetailViewController.h"
-
+#import "XWJMFViewController.h"
+#import "XWJCZViewController.h"
+#import "XWJNewHouseDetailViewController.h"
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightcontraint;
 
@@ -66,16 +68,52 @@
         case HOUSENEW:
             title = @"新房";
             break;
-        case HOUSE2:
+        case HOUSE2:{
             title = @"二手房";
+            [self setRigthNavItem:0];
+        }
             break;
-        case HOUSEZU:
+        case HOUSEZU:{
             title = @"租房";
+            [self setRigthNavItem:1];
+        }
             break;
         default:
             break;
     }
+    
+
+    
     self.navigationItem.title = title;
+}
+
+-(void)setRigthNavItem:(int)d{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 100, 40);
+    NSArray *array = [NSArray arrayWithObjects:@"我要卖房",@"我要出租", nil];
+    [btn setTitle:[array objectAtIndex:d] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    [btn addTarget:self action:@selector(woyao) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *done= [[UIBarButtonItem  alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = done;
+}
+
+-(void)woyao{
+    switch (self.type) {
+        case HOUSE2:{
+            XWJMFViewController *view = [self.storyboard instantiateViewControllerWithIdentifier:@"sell2house"];
+            [self.navigationController showViewController:view sender:nil];
+        }
+            break;
+        case HOUSEZU:{
+            XWJCZViewController  *view = [self.storyboard instantiateViewControllerWithIdentifier:@"mychuzu"];
+            [self.navigationController showViewController:view sender:nil];
+
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 -(void)click:(UIButton *)btn{
@@ -131,14 +169,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    if (self.type == HOUSE2||self.type==HOUSEZU) {
+    if (self.type == HOUSE2||self.type==HOUSEZU) {
         XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"zfdatail"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         [dic setValue:@"" forKey:@""];
         detail.dic = dic;
         detail.type = self.type;
         [self.navigationController showViewController: detail sender:self];
-//    }
+    }else{
+        
+        XWJNewHouseDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"newhousedetail"];
+        [self.navigationController showViewController:detail sender:self];
+    }
 
 }
 

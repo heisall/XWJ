@@ -30,6 +30,12 @@ static NSString *cellid = @"zftablecell";
     self.tablView.dataSource = self;
     _type = HOUSE2;
     [self.tablView registerNib:[UINib nibWithNibName:@"XWJZFTableCell" bundle:nil] forCellReuseIdentifier:cellid];
+    _chuzuBtn.selected  = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +57,7 @@ static NSString *cellid = @"zftablecell";
 }
 - (IBAction)back:(UIButton *)sender {
     
+    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
 }
 

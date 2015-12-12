@@ -15,6 +15,7 @@
 #import "XWJBindHouseTableViewController.h"
 #import "XWJPay1ViewController.h"
 #import "XWJZFViewController.h"
+#import "XWJGuzhangViewController.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -183,6 +184,9 @@ NSArray *footer;
     
     XWJPay1ViewController *pay = [self.storyboard instantiateViewControllerWithIdentifier:@"pay1"];
 
+    UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
+    XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
+    self.isBind = YES;
     if (!self.isBind&&((sender.tag-TAG == 0)||(sender.tag - TAG) == 1)) {
         XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
         bind.title = @"城市选择";
@@ -193,7 +197,7 @@ NSArray *footer;
     }else{
         if(sender.tag -TAG >1)
             return;
-        NSArray *jump = [NSArray arrayWithObjects:wu,pay,notice,notice,notice, nil];
+        NSArray *jump = [NSArray arrayWithObjects:gz,pay,notice,wu,notice, nil];
         [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
 
     }

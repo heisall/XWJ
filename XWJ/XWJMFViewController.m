@@ -12,7 +12,7 @@
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 5
 
-@interface XWJMFViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface XWJMFViewController ()<UICollectionViewDataSource,UICollectionViewDelegate ,UITextFieldDelegate>{
     CGFloat collectionCellHeight;
     CGFloat collectionCellWidth;
 }
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *chaoxiangLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zhuangxiuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+@property (weak, nonatomic) IBOutlet UITextField *niandaiTF;
 @property (nonatomic) NSArray *collectionData;
 @property (weak, nonatomic) IBOutlet UITextField *niandaiLabel;
 
@@ -43,7 +44,17 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.navigationItem.title = @"我要卖房";
+
     // Do any additional setup after loading the view.
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,9 +94,6 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     }
     UIButton *button  = (UIButton*)[view viewWithTag:2];
     button.hidden = YES;
-    
-    
-    
     return view;
 }
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -95,7 +103,7 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
     //赋值
     UIButton *btn = (UIButton *)[cell viewWithTag:1];
-    
+
     [btn setTitle:self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row] forState:UIControlStateNormal];
     if (indexPath.row%2==0) {
         btn.selected = YES;
@@ -151,9 +159,18 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     UIButton *btn = (UIButton *)[cell viewWithTag:1];
-    btn.selected = YES;
+    btn.selected = !btn.selected;
     //    [cell setBackgroundColor:[UIColor greenColor]];
     
+}
+
+//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    UIButton *btn = (UIButton *)[cell viewWithTag:1];
+//    btn.selected = NO;
+//}
+
+- (IBAction)ad:(id)sender {
 }
 
 - (IBAction)select:(UIButton *)sender {
