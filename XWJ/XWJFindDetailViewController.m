@@ -8,7 +8,6 @@
 
 #import "XWJFindDetailViewController.h"
 #import "XWJFindDetailTableViewCell.h"
-
 #define KEY_HEADIMG @"headimg"
 #define KEY_TITLE @"title"
 #define KEY_TIME  @"time"
@@ -43,6 +42,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [self initView];
     NSMutableDictionary  *dic = [NSMutableDictionary dictionary];
     
     UIImage *image = [UIImage imageNamed:@"mor_icon_default"];
@@ -55,7 +55,42 @@
     self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
 
 }
+-(void)initView{
 
+    NSString * zanCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"clickPraiseCount"]];
+    NSString *  leaveCount= [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"leaveWordCount"]];
+    NSString * qqCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareQQCount"]];
+    NSString * wxCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareWXCount"]];
+
+    [_phraseBtn setTitle:zanCount forState:UIControlStateNormal];
+    [_CommentBtn setTitle:leaveCount forState:UIControlStateNormal];
+    [_shareBtn setTitle:qqCount forState:UIControlStateNormal];
+    [_phraseBtn setTitle:zanCount forState:UIControlStateNormal];
+
+    _timelabel.text = [self.dic objectForKey:@"releaseTime"];
+    _titleLabel.text=[self.dic objectForKey:@"content"];
+    _typeLabel.text = [self.dic objectForKey:@"types"];
+    
+    NSString *urls = [self.dic objectForKey:@"photo"];
+    NSURL *url = [NSURL URLWithString:[[urls componentsSeparatedByString:@","] objectAtIndex:0]];
+
+    [_imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed: @"demo"]];
+}
+
+/*
+ "a_id" = "<null>";
+ appID = 12;
+ clickPraiseCount = 0;
+ content = "\U661f\U5df4\U514b\U4e4b\U9ebb\U8fa3\U706b\U9505";
+ id = 10;
+ leaveWordCount = 0;
+ nickName = "<null>";
+ photo = "http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535403.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535601.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535471.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535433.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535420.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535552.jpg";
+ releaseTime = "12-08 20:13";
+ shareQQCount = 0;
+ shareWXCount = 0;
+ types = "\U597d\U4eba\U597d\U4e8b";
+ */
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;

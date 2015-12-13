@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIView *motionView;
 @property (weak, nonatomic) IBOutlet UIView *publicView;
 @property (weak, nonatomic) IBOutlet UIButton *mesBtn;
+@property NSMutableArray *findlistArr;
+@property NSMutableArray *finddetailArr;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic)NSArray *array;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "XWJdef.h"
+#import "UIImageView+WebCache.h"
+
 @interface XWJBaseViewController : UIViewController
 
 @end

@@ -25,6 +25,8 @@
 //find
 
 #define GETFIND_URL XWJBASEURL"find/findDetail"
+
+#define GETFINDLIST_URL XWJBASEURL"find/findIndex"
 //ad
 #define GETACTIVE_URL XWJBASEURL"act/findActPage"
 #define GETAD_URL  XWJBASEURL"index/ads"
