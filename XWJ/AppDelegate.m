@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "XWJdef.h"
+#import "AFNetworking.h"
 #import <SMS_SDK/SMSSDK.h>
-
+#import "XWJCity.h"
 #define mobAppKey @"c647ba762dc0"
 #define mobAppSecret @"76e6d7422f5d958e9a882675d0ffbd29"
 
@@ -24,6 +26,10 @@
     
     [SMSSDK registerApp:mobAppKey withSecret:mobAppSecret];
     
+    
+//    __strong NSMutableArray *arr = [NSMutableArray array];
+
+//    [self getCity];
 //
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
@@ -37,6 +43,47 @@
     }
     
     return YES;
+}
+
+-(void)getCity{
+    
+    NSString *url = GETCITY_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    //    [dict setValue:username forKey:@"account"];
+    //    [dict setValue:pwd forKey:@"password"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+//            NSMutableArray * array = [NSMutableArray array];
+//            XWJCity *city  = [[XWJCity alloc] init];
+            
+            NSArray *arr  = [dic objectForKey:@"data"];
+            for (NSDictionary *d in arr) {
+                NSLog(@"dic %@",d);
+            }
+            
+            
+            NSLog(@"dic %@",dic);
+        }
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail ",__FUNCTION__);
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;            //        });
+    }];
 }
 
 -(BOOL)checkAutoLogin{

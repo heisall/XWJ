@@ -16,6 +16,8 @@
 #import "XWJPay1ViewController.h"
 #import "XWJZFViewController.h"
 #import "XWJGuzhangViewController.h"
+
+#import "XWJCity.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -186,14 +188,33 @@ NSArray *footer;
 
     UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
     XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
-    self.isBind = YES;
+    
+    self.isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+//    self.isBind = YES;
+    
     if (!self.isBind&&((sender.tag-TAG == 0)||(sender.tag - TAG) == 1)) {
-        XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
-        bind.title = @"城市选择";
-        bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
-        bind.delegate = self;
-        bind->mode = HouseCity;
-        [self.navigationController showViewController:bind sender:nil];
+        
+        XWJCity *city = [XWJCity instance];
+
+        [city getCity:^(NSArray *arr) {
+
+            NSLog(@"arr %@",arr);
+            NSMutableArray *arr2 = [NSMutableArray array];
+            
+            for (NSDictionary *dic in arr) {
+                [arr2 addObject:[dic valueForKey:@"CityName"]];
+            }
+            
+            XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+            bind.title = @"城市选择";
+//            bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
+            
+            bind.dataSource = arr2;
+            bind.delegate = self;
+            bind->mode = HouseCity;
+            [self.navigationController showViewController:bind sender:nil];
+        }];
+ 
     }else{
         if(sender.tag -TAG >1)
             return;
@@ -204,36 +225,61 @@ NSArray *footer;
 }
 #pragma bindhouse delegate
 -(void)didSelectAtIndex:(NSInteger)index Type:(HouseMode)type{
+    XWJCity *city = [XWJCity instance];
     switch (type) {
         case HouseCity:{
+            
+            [city selectCity:index];
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"小区选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇", nil];
+            //            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇",@"湖岛世家",@"花瓣里",@"依云小镇", nil];
+//            bind.dataSource = arr2;
             bind.delegate = self;
             bind->mode = HouseCommunity;
             
             [self.navigationController showViewController:bind sender:nil];
+            
+//            [city getDistrct:^(NSArray *arr) {
+//                NSLog(@"district  %@",arr);
+//                NSMutableArray *arr2 = [NSMutableArray array];
+//                
+//                for (NSDictionary *dic in arr) {
+//                    [arr2 addObject:[dic valueForKey:@"a_name"]];
+//                }
+//                
+//            }];
+            
+
         }
             break;
         case HouseCommunity:{
+            
+            [city selectDistrict:index];
+
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"楼座选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", @"四号楼",@"五号楼",@"六号楼", @"七号楼",@"八号楼",@"九号楼", @"十号楼",@"十一号楼",@"十二号楼", nil];
+//            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", @"四号楼",@"五号楼",@"六号楼", @"七号楼",@"八号楼",@"九号楼", @"十号楼",@"十一号楼",@"十二号楼", nil];
             bind.delegate = self;
             bind->mode = HouseFlour;
             [self.navigationController showViewController:bind sender:nil];
         }
             break;
         case HouseFlour:{
+            
+            [city selectBuilding:index];
+
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"房间选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", @"01单元004",@"01单元005",@"01单元006",@"01单元007",@"01单元008",@"01单元009",@"01单元010",@"01单元011",@"01单元012",nil];
+//            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", @"01单元004",@"01单元005",@"01单元006",@"01单元007",@"01单元008",@"01单元009",@"01单元010",@"01单元011",@"01单元012",nil];
             bind.delegate = self;
             bind->mode = HouseRoomNumber;
             [self.navigationController showViewController:bind sender:nil];
         }
             break;
         case HouseRoomNumber:{
+            
+            [city selectRoom:index];
+
 //            self.tabBarController.tabBar.hidden = NO;
 
 //            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
@@ -359,8 +405,10 @@ NSArray *footer;
             break;
         case 1:
         {
-            [self.tabBarController setSelectedIndex:1];
+//            [self.tabBarController setSelectedIndex:1];
 
+            
+            [self.navigationController showViewController:[[UIStoryboard storyboardWithName:@"XWJShangchengStoryboard" bundle:nil] instantiateInitialViewController]sender:nil];
         }
             break;
         case 2:{

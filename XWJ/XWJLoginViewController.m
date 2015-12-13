@@ -12,6 +12,7 @@
 #import "XWJTabViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "XWJHeader.h"
+#import "XWJAccount.h"
 @interface XWJLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *tFieldUserName;
@@ -47,8 +48,9 @@
         
         self.tFieldPassWord.text = pwd;
     }else
-    self.tFieldPassWord.text = @"123456";
+        self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
+    
 //    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
 //    [controlView addTarget:self action:@selector(resiginTextFields) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:controlView];
@@ -95,9 +97,25 @@
         [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"log success ");
             
-            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            window.rootViewController = tab;
+            
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+            NSNumber * result = [dic valueForKey:@"result"];
+            
+            if ([result intValue]== 1) {
+                NSString *sid = [[[dic objectForKey:@"data"] objectForKey:@"user"] valueForKey:@"id"];
+                NSLog(@"sid %@",sid);
+                [XWJAccount instance].uid = sid;
+                
+                XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+                UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                window.rootViewController = tab;
+            }else{
+                NSString *errCode = [dic objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+            }
             
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

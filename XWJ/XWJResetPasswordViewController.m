@@ -9,7 +9,8 @@
 #import "XWJResetPasswordViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "XWJUrl.h"
-@interface XWJResetPasswordViewController ()
+#import "XWJAccount.h"
+@interface XWJResetPasswordViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPwd;
 
 @end
@@ -25,6 +26,8 @@
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     [defaults setValue:self.txtFieldPwd.text forKey:@"password"];
     [defaults synchronize];
+    
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     [self regist:self.user Pass:self.txtFieldPwd.text];
     
@@ -42,19 +45,64 @@
     [dict setValue:@"iPhone" forKey:@"type"];
     [dict setValue:@"168.0.0.1" forKey:@"ip"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager PUT:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"res success ");
-
+        
+        if(responseObject){
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSLog(@"zhu ce res %@",dic);
+        
+        NSNumber * result = [dic valueForKey:@"result"];
+        
+        if ([result intValue]== 1) {
+            NSString *sid = [[[dic valueForKey:@"data"] valueForKey:@"user"] valueForKey:@"U_id"];
+            NSLog(@"sid %@",sid);
+            [XWJAccount instance].uid = sid;
+        }
+         
+//        [_txtFieldPwd resignFirstResponder];
+            NSString *errCode = [dic objectForKey:@"errorCode"];
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertview.delegate = self;
+        [alertview show];
+        }
+//        id jsonObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+//        
+//        if ([jsonObject isKindOfClass:[NSDictionary class]]){
+//            
+//            NSDictionary *dictionary = (NSDictionary *)responseObject;
+//            
+//            NSLog(@"Dersialized JSON Dictionary = %@", dictionary);
+////            
+//        }else if ([jsonObject isKindOfClass:[NSArray class]]){
+//            
+//            NSArray *nsArray = (NSArray *)jsonObject;
+//            
+//            NSLog(@"Dersialized JSON Array = %@", nsArray);
+//            
+//        } else {
+//            
+//            NSLog(@"An error happened while deserializing the JSON data.");
+//            
+//        }
         ret = 1;
-        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"res fail ");
         ret = 0;
-        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 
     return ret;
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
+    
+    [self.navigationController showViewController:view sender:nil];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

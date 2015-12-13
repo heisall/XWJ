@@ -40,7 +40,7 @@ NSArray *myImgs;
 //    UIViewController *m3 = [[XWJMyMessageController alloc] init];
     UIViewController *m3 = [self.storyboard instantiateViewControllerWithIdentifier:@"zscontroller"];
     
-    _mine = [NSArray arrayWithObjects:m1,m2,m3, nil];
+    _mine = [NSArray arrayWithObjects:m1,m2,m3, m2,nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

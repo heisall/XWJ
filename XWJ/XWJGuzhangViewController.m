@@ -10,6 +10,7 @@
 #import "XWJGZmiaoshuViewController.h"
 #import "RatingBar/RatingBar.h"
 #import "XWJGZTableViewCell.h"
+#define TAG 100
 @interface XWJGuzhangViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [self.tableView registerNib:[UINib nibWithNibName:@"gztablecell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"gztablecell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -62,12 +63,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    NSLog(@"index path %ld",(long)indexPath.row);
     XWJGZTableViewCell *cell;
     
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -75,24 +76,29 @@
         cell = [[XWJGZTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
 
-    UILabel *label1 = [cell viewWithTag:1];
-    UILabel *label2 = [cell viewWithTag:2];
-    UILabel *label3 = [cell viewWithTag:3];
-    UILabel *label4 = [cell viewWithTag:4];
-    UIView *rate = [cell viewWithTag:5];
-    UIButton *btn  = [cell viewWithTag:6];
+//    UILabel *label1 = [cell viewWithTag:1];
+//    UILabel *label2 = [cell viewWithTag:2];
+//    UILabel *label3 = [cell viewWithTag:3];
+//    UILabel *label4 = [cell viewWithTag:4];
+//    UIView *rate = [cell viewWithTag:5];
+//    UIButton *btn  = [cell viewWithTag:6];
+    cell.timelabel.text = @"提交时间";
+    cell.time.text =@"12-12 12:00";
     
+    cell.pingjiaBtn.tag = TAG + indexPath.row;
     if (indexPath.row%2==0) {
-        if (!btn.hidden) {
+        
+        if (!cell.pingjiaBtn.hidden) {
             RatingBar * _bar = [[RatingBar alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width-150, 0, 180, 30)];
             _bar.enable = NO;
             _bar.starNumber = 2;
-            [rate addSubview:_bar];
-            btn.hidden = YES;
+            [cell.rateView addSubview:_bar];
+            cell.pingjiaBtn.hidden = YES;
         }
     }else{
-        btn.tag = indexPath.row;
-        [btn addTarget:self action:@selector(pingjia:) forControlEvents:UIControlEventTouchUpInside];
+//        cell.pingjiaBtn.hidden = NO;
+        cell.pingjiaBtn.tag = indexPath.row;
+        [cell.pingjiaBtn addTarget:self action:@selector(pingjia:) forControlEvents:UIControlEventTouchUpInside];
     }
         // Configure the cell...
     
@@ -109,7 +115,7 @@
 
 -(void)pingjia:(UIButton *)btn{
     NSLog(@"btn %ld",(long)btn.tag);
-    
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"gzpingjia"] animated:YES ];
 }
 
 #pragma mark - Table view delegate

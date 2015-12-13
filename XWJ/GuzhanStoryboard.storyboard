@@ -268,7 +268,7 @@
         <!--Judge View Controller-->
         <scene sceneID="Nzw-24-n3W">
             <objects>
-                <viewController id="kka-So-orv" customClass="XWJGZJudgeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gzpingjia" id="kka-So-orv" customClass="XWJGZJudgeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RPG-NO-sjs"/>
                         <viewControllerLayoutGuide type="bottom" id="rQT-vM-MqP"/>

@@ -50,7 +50,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-Qt-NIS">
-                                <rect key="frame" x="80" y="317" width="440" height="20"/>
+                                <rect key="frame" x="80" y="277" width="440" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwm-XO-ijS">
-                                <rect key="frame" x="80" y="364" width="440" height="20"/>
+                                <rect key="frame" x="80" y="324" width="440" height="20"/>
                                 <animations/>
                                 <color key="textColor" red="0.3294117647" green="0.66274509800000003" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -115,7 +115,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-RR-PKk" userLabel="line2">
-                                <rect key="frame" x="80" y="337" width="440" height="1"/>
+                                <rect key="frame" x="80" y="297" width="440" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -123,7 +123,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-Ln-sCQ" userLabel="line1">
-                                <rect key="frame" x="80" y="384" width="440" height="1"/>
+                                <rect key="frame" x="80" y="344" width="440" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -149,7 +149,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vCJ-Qt-NIS" firstAttribute="leading" secondItem="LzO-yJ-YPs" secondAttribute="leadingMargin" constant="60" id="12G-QW-Urq"/>
-                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="80" id="1Dl-cb-dfY"/>
+                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="120" id="1Dl-cb-dfY"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="3UL-We-ioe"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="4sV-NP-ZbX"/>
                             <constraint firstItem="YhC-cX-ZmF" firstAttribute="leading" secondItem="dMX-1E-e8j" secondAttribute="trailing" constant="36.5" id="87y-WV-jLv"/>
@@ -693,7 +693,7 @@
                                 <animations/>
                                 <state key="disabled" backgroundImage="loginbindhouseimg1"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-50-pgQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-50-pgQ">
                                 <rect key="frame" x="0.0" y="146" width="600" height="200"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -750,7 +750,7 @@
         <!--Xuan Ze View Controller-->
         <scene sceneID="kaY-vm-L9V">
             <objects>
-                <viewController id="ZBv-P2-K99" customClass="XWJXuanZeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="xuanzefangshi" id="ZBv-P2-K99" customClass="XWJXuanZeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f2t-VU-Sfg"/>
                         <viewControllerLayoutGuide type="bottom" id="VSZ-mE-eA2"/>
@@ -759,48 +759,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8U-CS-kX7">
-                                <rect key="frame" x="150" y="62" width="300" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciX-Ev-Bao">
+                                <rect key="frame" x="0.0" y="50" width="600" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先不绑定房间，选择一个小区看看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9k-Gq-sBG">
+                                        <rect key="frame" x="8" y="59" width="255" height="20.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4431372549" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续绑定房间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-Ul-qeF">
+                                        <rect key="frame" x="8" y="19" width="102" height="20.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4431372549" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EA-PD-6Xj">
+                                        <rect key="frame" x="302" y="14" width="255" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="255" id="fAe-F0-zBx"/>
+                                        </constraints>
+                                        <state key="normal" image="next"/>
+                                        <connections>
+                                            <action selector="bind:" destination="ZBv-P2-K99" eventType="touchUpInside" id="wic-PH-JhI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddc-Vx-hyT">
+                                        <rect key="frame" x="302" y="55" width="255" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="255" id="fMT-yD-0mw"/>
+                                        </constraints>
+                                        <state key="normal" image="next"/>
+                                        <connections>
+                                            <action selector="xuanze:" destination="ZBv-P2-K99" eventType="touchUpInside" id="EZ9-jy-tGa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="1AU-Bo-fIt"/>
-                                    <constraint firstAttribute="height" constant="40" id="gYc-N4-Gbl"/>
+                                    <constraint firstItem="V9k-Gq-sBG" firstAttribute="top" secondItem="HkP-Ul-qeF" secondAttribute="bottom" constant="20" id="85P-Np-wI2"/>
+                                    <constraint firstItem="HkP-Ul-qeF" firstAttribute="top" secondItem="ciX-Ev-Bao" secondAttribute="top" constant="19" id="GlS-hu-WGM"/>
+                                    <constraint firstItem="V9k-Gq-sBG" firstAttribute="leading" secondItem="HkP-Ul-qeF" secondAttribute="leading" id="enx-yC-isE"/>
+                                    <constraint firstAttribute="trailing" secondItem="6EA-PD-6Xj" secondAttribute="trailing" constant="43" id="fV5-5Y-DQZ"/>
+                                    <constraint firstItem="Ddc-Vx-hyT" firstAttribute="leading" secondItem="6EA-PD-6Xj" secondAttribute="leading" id="g8x-8F-obU"/>
+                                    <constraint firstItem="Ddc-Vx-hyT" firstAttribute="centerY" secondItem="V9k-Gq-sBG" secondAttribute="centerY" id="kcM-RV-mDa"/>
+                                    <constraint firstItem="6EA-PD-6Xj" firstAttribute="centerY" secondItem="HkP-Ul-qeF" secondAttribute="centerY" id="r9O-1Y-kZa"/>
+                                    <constraint firstAttribute="height" constant="100" id="vcd-2K-dlR"/>
+                                    <constraint firstItem="HkP-Ul-qeF" firstAttribute="leading" secondItem="ciX-Ev-Bao" secondAttribute="leading" constant="8" id="xOD-6X-wbm"/>
                                 </constraints>
-                                <state key="normal" title="继续绑定房间" backgroundImage="yuyuekanfang">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="bind:" destination="ZBv-P2-K99" eventType="touchUpInside" id="kay-VB-LSo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXq-5C-ada">
-                                <rect key="frame" x="150" y="137" width="300" height="40"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="LMm-XN-2c8"/>
-                                    <constraint firstAttribute="height" constant="40" id="RNa-ix-uby"/>
-                                </constraints>
-                                <state key="normal" title="先不绑定，选择一个小区看看" backgroundImage="yuyuekanfang">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="xuanze:" destination="ZBv-P2-K99" eventType="touchUpInside" id="Ksc-r6-hKx"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="k8U-CS-kX7" firstAttribute="centerX" secondItem="0js-nt-O8r" secondAttribute="centerX" id="0To-jm-uJ9"/>
-                            <constraint firstItem="fXq-5C-ada" firstAttribute="top" secondItem="k8U-CS-kX7" secondAttribute="bottom" constant="35" id="3wm-dh-iH9"/>
-                            <constraint firstItem="fXq-5C-ada" firstAttribute="leading" secondItem="k8U-CS-kX7" secondAttribute="leading" id="66W-wB-qIL"/>
-                            <constraint firstItem="k8U-CS-kX7" firstAttribute="top" secondItem="f2t-VU-Sfg" secondAttribute="bottom" constant="42" id="MvR-Ja-svu"/>
+                            <constraint firstItem="ciX-Ev-Bao" firstAttribute="centerX" secondItem="0js-nt-O8r" secondAttribute="centerX" id="QXd-5Z-w94"/>
+                            <constraint firstItem="ciX-Ev-Bao" firstAttribute="width" secondItem="0js-nt-O8r" secondAttribute="width" id="tug-sp-EKN"/>
+                            <constraint firstItem="ciX-Ev-Bao" firstAttribute="top" secondItem="f2t-VU-Sfg" secondAttribute="bottom" constant="30" id="z3R-bJ-cE7"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2q-cy-EoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="1033"/>
+            <point key="canvasLocation" x="2002" y="1049"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="BBj-Cd-lIx">
@@ -1052,12 +1077,12 @@
         <image name="loginbindhouseimg1" width="198" height="36"/>
         <image name="loginbindhouseimg2" width="197" height="36"/>
         <image name="loginnext" width="257" height="36"/>
+        <image name="next" width="30" height="30"/>
         <image name="phonenum" width="11" height="21"/>
         <image name="resetpwd1" width="168" height="36"/>
         <image name="resetpwd2" width="168" height="36"/>
         <image name="resetpwdicon" width="20" height="20"/>
         <image name="showpwd1" width="43" height="20"/>
         <image name="showpwd2" width="43" height="20"/>
-        <image name="yuyuekanfang" width="82" height="27"/>
     </resources>
 </document>

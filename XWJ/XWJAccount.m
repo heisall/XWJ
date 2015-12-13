@@ -30,7 +30,7 @@
     NSString *url = LOGIN_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:self.uname forKey:@"account"];
+    [dict setValue:self.account forKey:@"account"];
     [dict setValue:self.password forKey:@"password"];
     
     

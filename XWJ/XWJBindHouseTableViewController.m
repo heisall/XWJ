@@ -7,7 +7,7 @@
 //
 
 #import "XWJBindHouseTableViewController.h"
-
+#import "XWJCity.h"
 @interface XWJBindHouseTableViewController ()
 @property (nonatomic)CLLocationManager  *locationManager;
 @property (nonatomic)NSString *city;
@@ -20,12 +20,59 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    
+    
     if (mode == HouseCity) {
         self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         self.city = @"GPS定位中...";
     }else{
         self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     }
+    XWJCity *city = [XWJCity instance];
+    switch (mode) {
+        case HouseCommunity:
+        {
+            [city getDistrct:^(NSArray *arr) {
+                NSLog(@"district  %@",arr);
+                NSMutableArray *arr2 = [NSMutableArray array];
+                
+                for (NSDictionary *dic in arr) {
+                    [arr2 addObject:[dic valueForKey:@"a_name"]];
+                }
+                self.dataSource = arr2;
+
+            }];
+        }
+            break;
+        case HouseFlour:{
+            [city getBuiding:^(NSArray *arr) {
+                NSLog(@"buiding  %@",arr);
+                NSMutableArray *arr2 = [NSMutableArray array];
+                
+                for (NSDictionary *dic in arr) {
+                    [arr2 addObject:[dic valueForKey:@"b_name"]];
+                }
+                self.dataSource = arr2;
+            }];
+        }
+            break;
+            case HouseRoomNumber:
+        {
+            [city getRoom:^(NSArray *arr) {
+                NSLog(@"room  %@",arr);
+                NSMutableArray *arr2 = [NSMutableArray array];
+                
+                for (NSDictionary *dic in arr) {
+                    [arr2 addObject:[dic valueForKey:@"JU_RID"]];
+                }
+                self.dataSource = arr2;
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:235/255.0 blue:236/255.0 alpha:1.0];
@@ -36,6 +83,40 @@
     [self location];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)getCity{
+    
+    NSString *url = GETCITY_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    //    [dict setValue:username forKey:@"account"];
+    //    [dict setValue:pwd forKey:@"password"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"log success ");
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+        }
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"log fail ");
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;            //        });
+    }];
+}
+
+-(void)getDistrict{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +160,7 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0) __TVOS_PROHIBITED __WATCHOS_PROHIBITED{
     CLLocationCoordinate2D oldCoordinate = newLocation.coordinate;
-    NSLog(@"旧的经度：%f,旧的纬度：%f",oldCoordinate.longitude,oldCoordinate.latitude);
+//    NSLog(@"旧的经度：%f,旧的纬度：%f",oldCoordinate.longitude,oldCoordinate.latitude);
 
     //    CLLocation *newLocation = locations[1];
     //    CLLocationCoordinate2D newCoordinate = newLocation.coordinate;
@@ -100,7 +181,7 @@
                            for (CLPlacemark *place in placemarks) {
                                //                           UILabel *label = (UILabel *)[self.view viewWithTag:101];
                                //                           label.text = place.name;
-                               NSLog(@"name,%@",place.locality);                       // 位置名
+//                               NSLog(@"name,%@",place.locality);                       // 位置名
                                self.city = place.locality;
                                [self.tableView reloadData];
                                //                           NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道

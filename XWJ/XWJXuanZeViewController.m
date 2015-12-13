@@ -88,6 +88,7 @@
     [self.navigationController showViewController:bind sender:nil];
 }
 - (IBAction)xuanze:(UIButton *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*

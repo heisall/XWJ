@@ -8,6 +8,7 @@
 
 #import "XWJBindHouseOneViewController.h"
 #import "XWJdef.h"
+#import "XWJCity.h"
 @interface XWJBindHouseOneViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property NSArray *array;
 @property NSArray *typearray;
@@ -22,7 +23,14 @@
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.array = [NSArray arrayWithObjects:@"青岛市",@"海信花园",@"1号楼1单元101户", nil];
+    
+    XWJCity *cityinstance = [XWJCity instance];
+    NSString *city  = [cityinstance.city valueForKey:CityName];
+    NSString *dis = [cityinstance.district valueForKey:a_name];
+    NSString *build = [cityinstance.buiding valueForKey:b_name];
+    NSString *room = [cityinstance.room valueForKey:JU_RID];
+    
+    self.array = [NSArray arrayWithObjects:city,dis,[NSString stringWithFormat:@"%@%@",build,room], nil];
     self.typearray = [NSArray arrayWithObjects:@"城市",@"小区",@"房号", nil];
     self.navigationItem.title = @"绑定房源";
 }
