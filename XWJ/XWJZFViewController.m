@@ -15,7 +15,7 @@
 #import "XWJNewHouseDetailViewController.h"
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightcontraint;
-
+@property NSMutableArray *houseArr;
 @end
 
 @implementation XWJZFViewController
@@ -82,9 +82,42 @@
             break;
     }
     
-
+    self.houseArr = [NSMutableArray array];
     
+    [self getXinFang];
     self.navigationItem.title = title;
+}
+
+-(void)getXinFang{
+    NSString *url = GETXINFANG_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:@"1"  forKey:@"a_id"];
+    [dict setValue:@"0" forKey:@"pageindex"];
+    [dict setValue:@"20"  forKey:@"countperpage"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+            //            NSMutableArray * array = [NSMutableArray array];
+            //            XWJCity *city  = [[XWJCity alloc] init];
+            
+            NSArray *arr  = [dic objectForKey:@"data"];
+            [self.houseArr addObjectsFromArray:arr];
+            
+            NSLog(@"dic %@",dic);
+        }
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
 -(void)setRigthNavItem:(int)d{
@@ -121,6 +154,7 @@
 }
 
 
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -139,7 +173,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+//    return self.houseArr.count;
     return 10;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -440,6 +440,28 @@ NSArray *footer;
         
 //        [self.navigationController showViewController:notice sender:nil];
         NSLog(@"notice click");
+    }else{
+        
+        
+//#define KEY_AD_TITLE @"Title"
+//#define KEY_AD_TIME  @"addTime"
+//#define KEY_AD_CONTENT @"description"
+//#define KEY_AD_CLICKCOUNT @"ClickCount"
+//#define KEY_AD_URL @"content"
+//#define KEY_AD_ID  @"id"
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+        XWJActivityViewController * acti = [storyboard instantiateViewControllerWithIdentifier:@"activityDetail"];
+        NSMutableDictionary *dic  = [NSMutableDictionary dictionary];
+        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Content"] forKey:KEY_AD_TITLE];
+        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Description"] forKey:KEY_AD_CONTENT];
+        
+        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"url"] forKey:KEY_AD_URL];
+        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Types"] forKey:@"Types"];
+        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"ID"] forKey:KEY_AD_ID];
+
+        acti.dic  = dic;
+        acti.type = [acti.dic valueForKey:@"Types"];
+        [self.navigationController showViewController:acti sender:nil];
     }
 }
 

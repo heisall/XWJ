@@ -22,14 +22,35 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.actTitle.text = [self.dic valueForKey:KEY_AD_TITLE];
-    self.time.text = [self.dic valueForKey:KEY_AD_TIME];
-    NSString *count = [NSString stringWithFormat:@"%@",[self.dic objectForKey:KEY_AD_CLICKCOUNT] ];
-    [self.clickBtn setTitle:count forState:UIControlStateNormal];
+    if ((NSNull *)[self.dic valueForKey:KEY_AD_TITLE]!=[NSNull null]) {
+        
+        self.actTitle.text = [self.dic valueForKey:KEY_AD_TITLE];
+    }else{
+        self.actTitle.text = @"";
+
+    }
+    
+    if ([self.dic valueForKey:KEY_AD_TIME]!=[NSNull null]) {
+        
+        self.time.text = [self.dic valueForKey:KEY_AD_TIME];
+    }else{
+        self.time.text = @"";
+
+    }
+    if ([self.dic objectForKey:KEY_AD_CLICKCOUNT]!=[NSNull null]) {
+        
+        NSString *count = [NSString stringWithFormat:@"%@",[self.dic objectForKey:KEY_AD_CLICKCOUNT] ];
+        [self.clickBtn setTitle:count forState:UIControlStateNormal];
+    }else{
+        self.clickBtn.hidden = YES;
+    }
     NSString *url = [self.dic valueForKey:KEY_AD_URL];
-    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [self.webView loadRequest:request];
-    if ([self.type integerValue]==0) {
+    if (url&&(NSNull *)url != [NSNull null]) {
+
+        NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        [self.webView loadRequest:request];
+    }
+    if (![self.type isEqualToString:@"1"]) {
         self.btn.hidden = YES;
     }
 }

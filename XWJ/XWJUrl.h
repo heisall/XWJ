@@ -24,9 +24,12 @@
 
 //find
 
+#define GETFINDLIST_URL XWJBASEURL"find/findIndex"
 #define GETFIND_URL XWJBASEURL"find/findDetail"
 
-#define GETFINDLIST_URL XWJBASEURL"find/findIndex"
+#define GETWUYE_URL XWJBASEURL"sup/supIndex"
+
+#define GETXINFANG_URL XWJBASEURL"sale/newHouseIndex"
 //ad
 #define GETACTIVE_URL XWJBASEURL"act/findActPage"
 #define GETAD_URL  XWJBASEURL"index/ads"

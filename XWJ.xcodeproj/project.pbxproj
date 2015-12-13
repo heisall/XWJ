@@ -177,6 +177,7 @@
 		A4DC3CAA1C1D0A67003D4D18 /* XWJShangchengStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3CA91C1D0A67003D4D18 /* XWJShangchengStoryboard.storyboard */; };
 		A4DC3CAE1C1D0FF9003D4D18 /* XWJCity.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CAD1C1D0FF9003D4D18 /* XWJCity.m */; };
 		A4DC3CB11C1D1ED7003D4D18 /* XWJMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */; };
+		A4DC3CB41C1DFC8B003D4D18 /* XWJADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
@@ -503,6 +504,8 @@
 		A4DC3CAD1C1D0FF9003D4D18 /* XWJCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCity.m; sourceTree = "<group>"; };
 		A4DC3CAF1C1D1ED7003D4D18 /* XWJMallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMallViewController.h; sourceTree = "<group>"; };
 		A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMallViewController.m; sourceTree = "<group>"; };
+		A4DC3CB21C1DFC8A003D4D18 /* XWJADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJADViewController.h; sourceTree = "<group>"; };
+		A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJADViewController.m; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
@@ -998,6 +1001,8 @@
 				A43C983E1C146BDC006A61EE /* XWJPay3ViewController.m */,
 				A43C98431C14816E006A61EE /* XWJPay1TableViewCell.h */,
 				A43C98441C14816E006A61EE /* XWJPay1TableViewCell.m */,
+				A4DC3CB21C1DFC8A003D4D18 /* XWJADViewController.h */,
+				A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1409,6 +1414,7 @@
 				A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */,
 				A41255741C0F39D20042D8CC /* SDImageCache.m in Sources */,
 				A41255071C0F22FC0042D8CC /* AFHTTPSessionManager.m in Sources */,
+				A4DC3CB41C1DFC8B003D4D18 /* XWJADViewController.m in Sources */,
 				A412550A1C0F22FC0042D8CC /* AFURLConnectionOperation.m in Sources */,
 				A41255171C0F22FC0042D8CC /* UIWebView+AFNetworking.m in Sources */,
 				A48801791C09D2A400714F5B /* XWJBingHouseViewController.m in Sources */,

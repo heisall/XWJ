@@ -11,7 +11,7 @@
 #import "UIPlaceHolderTextView.h"
 #import "XWJFindDetailTableViewCell.h"
 
-#define MYTV_MESSAGE_COMMANTS_FONT [UIFont boldSystemFontOfSize:14.0f] // 我的电视页面信息内容中回复内容字体大小
+#define MYTV_MESSAGE_COMMANTS_FONT [UIFont boldSystemFontOfSize:14.0f] // 
 #define LONGIN_TEXTVIEW_SELECTED_BORDER_COLOR [UIColor colorWithRed:50/255.0 green:176/255.0 blue:178/255.0 alpha:1].CGColor // 用户名和密码框选中的时候边框颜色
 #define TEXT_VIEW_MIN_HEIGH 44
 
@@ -42,9 +42,33 @@
     [dic setValue:@"2015-11-11" forKey:KEY_TIME];
     [dic setValue:@"保养几次了什么时候方便看车" forKey:KEY_CONTENT];
     
-    
+    [self initView];
     self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
+    
 }
+
+-(void)initView{
+    
+    NSString * zanCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"ClickPraiseCount"]];
+    NSString *  leaveCount= [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"LeaveWordCount"]];
+    NSString * qqCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"ShareQQCount"]];
+    NSString * wxCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"ShareQQCount"]];
+    
+    [_zanBtn setTitle:zanCount forState:UIControlStateNormal];
+    [_comBtn setTitle:leaveCount forState:UIControlStateNormal];
+    [_shareBtn setTitle:qqCount forState:UIControlStateNormal];
+//    [_zanBtn setTitle:zanCount forState:UIControlStateNormal];
+    
+    _timeLabel.text = [self.dic objectForKey:@"ReleaseTime"];
+    _titleLabel.text=[self.dic objectForKey:@"Content"];
+    _typeLabel.text = [self.dic objectForKey:@"Types"];
+    
+    NSString *urls = [self.dic objectForKey:@"photo"];
+    NSURL *url = [NSURL URLWithString:urls];
+    
+    [_imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed: @"demo"]];
+}
+
 - (IBAction)click:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

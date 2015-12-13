@@ -9,5 +9,12 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJjianduDetailViewController : XWJBaseViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIButton *comBtn;
+@property NSDictionary *dic;
+@property (weak, nonatomic) IBOutlet UIButton *zanBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @end
