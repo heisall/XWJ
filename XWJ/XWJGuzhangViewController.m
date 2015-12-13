@@ -34,7 +34,7 @@
 -(void)setNavRightItem{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 40);
-    [btn setTitle:@"保修" forState:UIControlStateNormal];
+    [btn setTitle:@"报修" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     [btn addTarget:self action:@selector(baoxiu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *done= [[UIBarButtonItem  alloc] initWithCustomView:btn];
@@ -43,6 +43,8 @@
 
 -(void)baoxiu{
     
+        UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"guzhangbaoxiu"];
+    [self.navigationController showViewController:view sender:nil];
 }
 
 #pragma mark - Table view data source

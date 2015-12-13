@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -240,7 +241,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-dR-zST">
-                                                    <rect key="frame" x="28" y="15" width="42" height="20.5"/>
+                                                    <rect key="frame" x="28" y="15" width="480" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -258,6 +259,7 @@
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="Eyw-dR-zST" firstAttribute="width" secondItem="tWT-1N-ZVl" secondAttribute="width" multiplier="4:5" id="2V4-yF-Ecr"/>
                                                 <constraint firstItem="bMZ-v8-nPS" firstAttribute="leading" secondItem="vMQ-hG-Da6" secondAttribute="leading" id="Bch-6G-OsF"/>
                                                 <constraint firstItem="vMQ-hG-Da6" firstAttribute="top" secondItem="Eyw-dR-zST" secondAttribute="bottom" constant="5" id="JAy-id-AhJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VSu-m9-JhR" secondAttribute="trailing" constant="10" id="LQS-dL-gX6"/>
@@ -272,7 +274,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="comBtn" destination="tWT-1N-ZVl" id="ryp-Yk-AsA"/>
+                                            <outlet property="clickBtn" destination="VSu-m9-JhR" id="Sm9-4S-b8B"/>
                                             <outlet property="contentLabel" destination="bMZ-v8-nPS" id="qCl-yL-rD0"/>
                                             <outlet property="timeLabel" destination="vMQ-hG-Da6" id="K4g-CN-vHU"/>
                                             <outlet property="titleLabel" destination="Eyw-dR-zST" id="2yd-1p-niI"/>

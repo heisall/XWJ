@@ -79,11 +79,12 @@
 - (IBAction)login:(id)sender {
     
     
-    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     
-    
-    if (username&&pwd) {
+    NSString *username = self.tFieldUserName.text;
+    NSString *pwd = self.tFieldPassWord.text;
+    if (username.length>0&&pwd.length>0) {
         
 //        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
         NSString *url = LOGIN_URL;
@@ -97,16 +98,56 @@
         [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"log success ");
             
+            NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+            NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+            
+            if (![username isEqualToString:uname]||![pwd isEqualToString:pass]) {
+                [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
+                [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"bind"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
             
             NSDictionary *dic = (NSDictionary *)responseObject;
             
             NSNumber * result = [dic valueForKey:@"result"];
             
+            /*
+             Account = 15092245487;
+             AccountCount = 0;
+             DictValue = "<null>";
+             LastLoginIP = "<null>";
+             LastLoginTime = "<null>";
+             NAME = "<null>";
+             NickName = "<null>";
+             PhoneType = iPhone;
+             Photo = "<null>";
+             "R_id" = 24215;
+             RegisterIP = "168.0.0.1";
+             RegisterTime = "2015-12-07";
+             TEL = "<null>";
+             Types = 1;
+             "U_id" = 1;
+             gxqm = "<null>";
+             id = 13;
+             sex = "<null>";
+             */
             if ([result intValue]== 1) {
-                NSString *sid = [[[dic objectForKey:@"data"] objectForKey:@"user"] valueForKey:@"id"];
+                
+                NSDictionary *userDic = [[dic objectForKey:@"data"] objectForKey:@"user"];
+                NSString *sid = [userDic valueForKey:@"id"];
                 NSLog(@"sid %@",sid);
                 [XWJAccount instance].uid = sid;
-                
+                [XWJAccount instance].account = [userDic valueForKey:@"Account"];
+                [XWJAccount instance].password = pass;
+                [XWJAccount instance].NickName =[userDic valueForKey:@"NickName"];
+                [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
+                [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
+                [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
+//                [XWJAccount instance].money =[userDic valueForKey:@"id"];
+//                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
+//                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];
+//                [XWJAccount instance].qianming =[userDic valueForKey:@"id"];
                 XWJTabViewController *tab = [[XWJTabViewController alloc] init];
                 UIWindow *window = [UIApplication sharedApplication].keyWindow;
                 window.rootViewController = tab;
@@ -121,16 +162,22 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"log fail ");
             //        dispatch_async(dispatch_get_main_queue(), ^{
-            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            window.rootViewController = tab;            //        });
+//            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+//            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//            window.rootViewController = tab;            //        });
+            
+            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            alertview.delegate = self;
+            [alertview show];
         }];
     }else{
-    
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"请输入用户名和密码" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertview.delegate = self;
+        [alertview show];
 //    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
-        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        window.rootViewController = tab;
+//        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//        window.rootViewController = tab;
 //    }
     }
 

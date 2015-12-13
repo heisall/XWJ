@@ -33,6 +33,7 @@
     self.array = [NSArray arrayWithObjects:city,dis,[NSString stringWithFormat:@"%@%@",build,room], nil];
     self.typearray = [NSArray arrayWithObjects:@"城市",@"小区",@"房号", nil];
     self.navigationItem.title = @"绑定房源";
+    
 }
 - (IBAction)next:(UIButton *)sender {
 }

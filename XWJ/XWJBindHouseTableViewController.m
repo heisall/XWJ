@@ -11,6 +11,7 @@
 @interface XWJBindHouseTableViewController ()
 @property (nonatomic)CLLocationManager  *locationManager;
 @property (nonatomic)NSString *city;
+@property UIActivityIndicatorView *activityIndicatorView;
 @end
 
 @implementation XWJBindHouseTableViewController
@@ -22,13 +23,32 @@
     
     
     
+    XWJCity *city = [XWJCity instance];
     if (mode == HouseCity) {
+        
+        
+        
+        [city getCity:^(NSArray *arr) {
+            
+            NSLog(@"arr %@",arr);
+            NSMutableArray *arr2 = [NSMutableArray array];
+            
+            for (NSDictionary *dic in arr) {
+                [arr2 addObject:[dic valueForKey:@"CityName"]];
+            }
+            self.dataSource = arr2;
+            [self.tableView reloadData];
+            [self.activityIndicatorView stopAnimating];
+        }];
+        
         self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         self.city = @"GPS定位中...";
+//        [self.activityIndicatorView stopAnimating];
+
     }else{
         self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     }
-    XWJCity *city = [XWJCity instance];
+//    XWJCity *city = [XWJCity instance];
     switch (mode) {
         case HouseCommunity:
         {
@@ -40,7 +60,9 @@
                     [arr2 addObject:[dic valueForKey:@"a_name"]];
                 }
                 self.dataSource = arr2;
+                [self.tableView reloadData];
 
+                [self.activityIndicatorView stopAnimating];
             }];
         }
             break;
@@ -53,10 +75,13 @@
                     [arr2 addObject:[dic valueForKey:@"b_name"]];
                 }
                 self.dataSource = arr2;
+                [self.tableView reloadData];
+
+                [self.activityIndicatorView stopAnimating];
             }];
         }
             break;
-            case HouseRoomNumber:
+        case HouseRoomNumber:
         {
             [city getRoom:^(NSArray *arr) {
                 NSLog(@"room  %@",arr);
@@ -66,6 +91,10 @@
                     [arr2 addObject:[dic valueForKey:@"JU_RID"]];
                 }
                 self.dataSource = arr2;
+                [self.tableView reloadData];
+
+                [self.activityIndicatorView stopAnimating];
+
             }];
         }
             break;
@@ -80,6 +109,12 @@
     [self.view addSubview:self.tableView];
     self.navigationController.tabBarController.tabBar.hidden = YES;
 
+    self.activityIndicatorView=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self.activityIndicatorView.center=self.view.center;
+    [self.activityIndicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+//    [self.activityIndicatorView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view addSubview:self.activityIndicatorView];
+    [self.activityIndicatorView startAnimating];
     [self location];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;

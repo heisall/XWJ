@@ -52,7 +52,7 @@
 }
 
 //userid 用户id A_id 小区a_id,B_id楼座b_id R_dy房间r_dr U_id业主u_id JU_RID房间ju_rid, Types类型角色（1，2，3）
--(void)bindRoom:(NSString *)index :(void (^)(NSArray *arr))success{
+-(void)bindRoom:(NSString *)index :(void (^)(NSInteger arr))success{
     NSString *url = LOCKROOM_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -85,13 +85,18 @@
             NSNumber * result = [dic valueForKey:@"result"];
             NSString *errCode ;
             if ([result intValue]== 1) {
+                
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"bind"];
+                [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"a_id"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 errCode = @"绑定成功";
+                success(1);
             }else{
-            errCode = [dic objectForKey:@"errorCode"];
+                errCode = [dic objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertview show];
+                NSLog(@"dic %@",dic);
             }
-            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alertview show];
-            NSLog(@"dic %@",dic);
         }
         //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
         //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -106,6 +111,7 @@
         //        window.rootViewController = tab;            //        });
     }];
 }
+
 
 //参数：a_id:小区id,b_id：楼号id,r_dy：单元,r_id:房间号
 -(void)getInfoValidate:(void (^)(NSDictionary *diction ))success{
@@ -276,6 +282,47 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%s fail ",__FUNCTION__);
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;            //        });
+    }];
+}
+
+-(void)getActive:(NSString *)type :(void (^)(NSArray *arr))success{
+    NSString *url = GETACTIVE_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:_aid  forKey:@"a_id"];
+    [dict setValue:type  forKey:@"types"];
+    [dict setValue:@"0" forKey:@"pageindex"];
+    [dict setValue:@"20"  forKey:@"countperpage"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+            //            NSMutableArray * array = [NSMutableArray array];
+            //            XWJCity *city  = [[XWJCity alloc] init];
+            
+            NSArray *arr  = [dic objectForKey:@"data"];
+            for (NSDictionary *d in arr) {
+                NSLog(@"dic %@",d);
+            }
+
+            success(arr);
+            NSLog(@"dic %@",dic);
+        }
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
         //        dispatch_async(dispatch_get_main_queue(), ^{
         //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
         //        UIWindow *window = [UIApplication sharedApplication].keyWindow;

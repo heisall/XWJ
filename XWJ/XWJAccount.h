@@ -14,6 +14,8 @@
 @property NSString *account;
 @property NSString *password;
 @property NSString *NickName;
+@property NSString *phone;
+@property NSString *name;
 @property NSString *Sex;
 @property NSString *jifen;
 @property NSString *money;

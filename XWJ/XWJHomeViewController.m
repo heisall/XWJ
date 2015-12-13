@@ -16,8 +16,9 @@
 #import "XWJPay1ViewController.h"
 #import "XWJZFViewController.h"
 #import "XWJGuzhangViewController.h"
-
+#import "XWJActivityViewController.h"
 #import "XWJCity.h"
+#import "XWJAccount.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -31,6 +32,8 @@
 @property NSInteger currentPage;
 @property BOOL isBind;
 @property (nonatomic)NSInteger section;
+@property NSMutableArray *notices;
+@property NSMutableArray *shows ;
 @end
 
 @implementation XWJHomeViewController
@@ -46,43 +49,47 @@ NSArray *footer;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+   
+     [XWJCity instance].aid = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_id"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJSupplementaryView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kheaderIdentifier];
     footer = [NSArray arrayWithObjects:@"生活信息",@"商城信息",@"房屋信息", nil];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell2" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell3" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier1];
     
-    [self getAds];
+    self.shows = [NSMutableArray array];
+    self.notices = [NSMutableArray array];
+    [self getAd];
     /******************** internet ********************/
-    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
-                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
-                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
+//    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
+//                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
+//                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
+//    
+//    [self.adScrollView addSubview:({
+//        
+//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+//                                                                                self.adScrollView.bounds.size.height)
+//                                    
+//                                                            delegate:self
+//                                                           imageURLs:URLs
+//                                                    placeholderImage:nil
+//                                                       timerInterval:3.0f
+//                                       currentPageIndicatorTintColor:[UIColor redColor]
+//                                              pageIndicatorTintColor:[UIColor whiteColor]];
+//        bannerView;
+//    })];
     
-    [self.adScrollView addSubview:({
-        
-        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-                                                                                self.adScrollView.bounds.size.height)
-                                    
-                                                            delegate:self
-                                                           imageURLs:URLs
-                                                    placeholderImage:nil
-                                                       timerInterval:3.0f
-                                       currentPageIndicatorTintColor:[UIColor redColor]
-                                              pageIndicatorTintColor:[UIColor whiteColor]];
-        bannerView;
-    })];
-    
-    NSArray *titls = [NSArray arrayWithObjects:@"重要公告寒流来袭，快把装备上全1",@"重要公告寒流来袭，快把装备上全2",@"重要公告寒流来袭，快把装备上全3", nil];
-    [self.mesScrollview addSubview:({
-        
-        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-                                                                                self.mesScrollview.bounds.size.height)
-                                    
-                                                            delegate:self
-                                                              titles:titls timerInterval:2.0
-                                       currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
-        bannerView;
-    })];
+//    NSArray *titls = [NSArray arrayWithObjects:@"重要公告寒流来袭，快把装备上全1",@"重要公告寒流来袭，快把装备上全2",@"重要公告寒流来袭，快把装备上全3", nil];
+//    [self.mesScrollview addSubview:({
+//        
+//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+//                                                                                self.mesScrollview.bounds.size.height)
+//                                    
+//                                                            delegate:self
+//                                                              titles:titls timerInterval:2.0
+//                                       currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
+//        bannerView;
+//    })];
     
     /*
     self.timerInterval = 2.0;
@@ -105,35 +112,6 @@ NSArray *footer;
     NSLog(@"click %ld",(long)sender.tag);
 }
 
--(void)getAds{
-    
-    NSString *url = AD_URL;
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-//    [dict setValue:username forKey:@"account"];
-//    [dict setValue:pwd forKey:@"password"];
-    manager.responseSerializer = [AFHTTPResponseSerializer new];
-
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%p success %@ ",__FUNCTION__,(NSData*)responseObject);
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%p fail error %@",__FUNCTION__,error);
-        /*
-        NSString *message = @"重置失败";
-        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alertview show];
-        */
-
-    }];
-    
-}
-
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 //    NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
@@ -147,13 +125,16 @@ NSArray *footer;
     NSLog(@"scrolview width %f height %f",self.scrollView.bounds.size.width,self.scrollView.bounds.size.height);
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
-    NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
-    NSArray * business= [NSArray arrayWithObjects:@"homegz",@"homejf",@"homets",@"homewy",@"homewy", nil];
+//    NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
+    NSArray * arr= [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"物业监督",@"故障报修",@"物业投诉", @"物业账单",nil];
 
+    NSArray * business= [NSArray arrayWithObjects:@"hometongzhi",@"homehuodong",@"homewy",@"homegz",@"homets",@"homejf", nil];
+
+    NSInteger count = arr.count;
     CGFloat width = self.view.bounds.size.width/4;
     CGFloat height = self.scrollView.bounds.size.height;
-    self.scrollView.contentSize = CGSizeMake(width*5, height);
-    for (int i=0; i<5; i++) {
+    self.scrollView.contentSize = CGSizeMake(width*count, height);
+    for (int i=0; i<count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(width*i, 0, width, height);
         button.tag = TAG+i;
@@ -175,6 +156,117 @@ NSArray *footer;
         [self.scrollView addSubview:button];
     }
 }
+
+
+/*
+ errorCode = "";
+ hoursead =     (
+ );
+ lifad =     (
+ );
+ notices =     (
+ {
+ id = 10;
+ title = "\U65b0\U95fb\U64ad\U62a5\U2014\U2014\U6d77\U4fe1\U5730\U4ea7\U7b2c\U4e00\U5c4a\U7279\U79cd\U5175\U8bad\U7ec3\U8425\U6b63\U5f0f\U5f00\U8425\U5566\Uff01";
+ types = 1;
+ },
+ {
+ id = 5;
+ title = "\U6d77\U4fe1\U201c\U4fe1\U6211\U5bb6\U201d\U667a\U6167\U793e\U533aAPP\U5f00\U59cb\U6d4b\U8bd5\U4e86\U3002";
+ types = 0;
+ }
+ );
+ result = 1;
+ shopad =     (
+ );
+ topad =     (
+ {
+ "A_id" = 1;
+ Content = "<null>";
+ Description = "<null>";
+ ID = 1;
+ Photo = "http://www.hisenseplus.com/HisenseUpload/ad_photo/W020151201665410133194.jpg";
+ Types = "\U5916\U94fe";
+ url = "http://shop.hisense.com/ad/kongtiao20151127.html";
+ },
+ {
+ "A_id" = 1;
+ Content = "<null>";
+ Description = "<null>";
+ ID = 2;
+ Photo = "http://www.hisenseplus.com/HisenseUpload/ad_photo/banner_yyxz_qd.jpg";
+ Types = "\U5916\U94fe";
+ url = "http://www.haixindichan.com/yiyunxiaozhenQD/index.html";
+ }
+ );
+ */
+///index/ads
+-(void)getAd{
+    NSString *url = GETAD_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[XWJCity instance].aid  forKey:@"a_id"];
+//        [dict setValue:@"1"  forKey:@"a_id"];
+
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dic);
+            
+            self.notices = [dic objectForKey:@"notices"];
+            self.shows = [dic objectForKey:@"topad"];
+            
+            NSMutableArray *titls = [NSMutableArray array];
+            for (NSDictionary *dic in self.notices) {
+                [titls addObject:[dic valueForKey:@"title"]];
+            }
+            
+            NSMutableArray *URLs = [NSMutableArray array];
+            for (NSDictionary
+                  *dic in self.shows) {
+                [URLs addObject:[dic valueForKey:@"Photo"]];
+
+            }
+            
+            [self.adScrollView addSubview:({
+                
+                LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                                                                        self.adScrollView.bounds.size.height)
+                                            
+                                                                    delegate:self
+                                                                   imageURLs:URLs
+                                                            placeholderImage:@"devAdv_default"
+                                                               timerInterval:3.0f
+                                               currentPageIndicatorTintColor:[UIColor redColor]
+                                                      pageIndicatorTintColor:[UIColor whiteColor]];
+                bannerView;
+            })];
+            
+            [self.mesScrollview addSubview:({
+                
+                LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                                                                        self.mesScrollview.bounds.size.height)
+                                            
+                                                                    delegate:self
+                                                                      titles:titls timerInterval:2.0
+                                               currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
+                bannerView;
+            })];
+            
+        }
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+
+    }];
+    
+    
+}
 -(void)click:(UIButton*)sender{
     UIStoryboard * wuy = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
     UIViewController *wu = [wuy instantiateInitialViewController];
@@ -183,7 +275,9 @@ NSArray *footer;
 //    XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"notice"];
     
     XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
-    
+    XWJNoticeViewController *notice2 = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
+    notice.type  = @"0";
+    notice2.type  = @"1";
     XWJPay1ViewController *pay = [self.storyboard instantiateViewControllerWithIdentifier:@"pay1"];
 
     UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
@@ -191,34 +285,36 @@ NSArray *footer;
     
     self.isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
 //    self.isBind = YES;
-    
-    if (!self.isBind&&((sender.tag-TAG == 0)||(sender.tag - TAG) == 1)) {
+    NSArray *jump = [NSArray arrayWithObjects:notice,notice2,wu,gz,notice,pay, nil];
+
+    if (!self.isBind&&((sender.tag-TAG == 3)||(sender.tag - TAG) == 5)) {
+//        
+//        XWJCity *city = [XWJCity instance];
+//
+//        [city getCity:^(NSArray *arr) {
+//
+//            NSLog(@"arr %@",arr);
+//            NSMutableArray *arr2 = [NSMutableArray array];
+//            
+//            for (NSDictionary *dic in arr) {
+//                [arr2 addObject:[dic valueForKey:@"CityName"]];
+//            }
+//        }];
         
-        XWJCity *city = [XWJCity instance];
-
-        [city getCity:^(NSArray *arr) {
-
-            NSLog(@"arr %@",arr);
-            NSMutableArray *arr2 = [NSMutableArray array];
-            
-            for (NSDictionary *dic in arr) {
-                [arr2 addObject:[dic valueForKey:@"CityName"]];
-            }
-            
-            XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
-            bind.title = @"城市选择";
-//            bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
-            
-            bind.dataSource = arr2;
-            bind.delegate = self;
-            bind->mode = HouseCity;
-            [self.navigationController showViewController:bind sender:nil];
-        }];
+        XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+        bind.title = @"城市选择";
+        //            bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
+        
+//        bind.dataSource = arr2;
+        bind.delegate = self;
+        bind->mode = HouseCity;
+        [self.navigationController showViewController:bind sender:nil];
  
     }else{
-        if(sender.tag -TAG >1)
-            return;
-        NSArray *jump = [NSArray arrayWithObjects:gz,pay,notice,wu,notice, nil];
+//        if(sender.tag -TAG >1)
+//            return;
+        
+        
         [self.navigationController showViewController:[jump objectAtIndex:sender.tag-TAG] sender:nil];
 
     }
@@ -290,7 +386,7 @@ NSArray *footer;
 //                        [UIApplication sharedApplication].keyWindow.rootViewController = [story instantiateInitialViewController];
 //                XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
             
-            self.isBind = TRUE;
+//            self.isBind = TRUE;
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
             [self.navigationController showViewController:[story instantiateViewControllerWithIdentifier:@"bindhouse1"] sender:nil];
             
@@ -301,16 +397,48 @@ NSArray *footer;
     }
 }
 
+-(void)getDetailAD:(NSInteger)index{
+    NSString *url = GETDETAILAD_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[[self.notices objectAtIndex:index] valueForKey:@"id"]  forKey:@"id"];
+    [dict setValue:[XWJAccount instance].account  forKey:@"account"];
+
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager PUT:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dic);
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+            XWJActivityViewController * acti = [storyboard instantiateViewControllerWithIdentifier:@"activityDetail"];
+            acti.dic  = [dic objectForKey:@"data"];
+            acti.type = [acti.dic valueForKey:@"Types"];
+            [self.navigationController showViewController:acti sender:nil];
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+}
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
     NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);
     if (bannerView.titles) {
         
-//        UIStoryboard *FindStory =[UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
-//        UIViewController *mesCon = [FindStory instantiateViewControllerWithIdentifier:@"activityDetail"];
-        XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
-        [self.navigationController showViewController:notice sender:nil];
+        [self getDetailAD:index];
+        
+
+//        XWJNoticeViewController *notice = [self.storyboard instantiateViewControllerWithIdentifier:@"noticeController"];
+        
+//        [self.navigationController showViewController:notice sender:nil];
         NSLog(@"notice click");
     }
 }

@@ -11,7 +11,7 @@
 #import "XWJCity.h"
 
 //#define 1000000000
-@interface XWJBingHouseViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface XWJBingHouseViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 @property NSInteger typeindex;
 @property NSInteger phoneindex;
 @property NSArray *array;
@@ -65,8 +65,9 @@
     self.array = [NSArray arrayWithObjects:@"房产正在我名下",@"我是业主家属",@"我是租客", nil];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    NSIndexPath *path=[NSIndexPath indexPathForItem:0 inSection:1];
+    NSIndexPath *path=[NSIndexPath indexPathForItem:0 inSection:0];
     [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionNone];
+    _typeindex = 0;
     self.navigationItem.title = @"绑定房源";
 }
 
@@ -142,34 +143,37 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (range.location >= 1)
+    if (range.location >= 1){
+        if ([string  isEqual:@"\n"]) {
+            
+            NSInteger tag =  textField.tag;
+            switch (tag) {
+                case TAG+1:
+                    [self.txtField5 becomeFirstResponder];
+                    break;
+                case TAG+2:
+                    [self.txtField6 becomeFirstResponder];
+                    break;
+                case TAG+3:
+                    [self.txtField7 becomeFirstResponder];
+                    break;
+                case TAG+4:
+                    [self.txtField8 becomeFirstResponder];
+                    break;
+                case TAG+5:
+                    [self.txtField9 becomeFirstResponder];
+                    break;
+                case TAG+6:
+                    [textField resignFirstResponder];
+                    break;
+                default:
+                    break;
+            }
+        }
         return NO; // return NO to not change text
-    else{
-        NSInteger tag =  textField.tag;
-//        switch (tag) {
-//            case TAG+1:
-//                [self.txtField5 becomeFirstResponder];
-//                break;
-//            case TAG+2:
-//                [self.txtField6 becomeFirstResponder];
-//                break;
-//            case TAG+3:
-//                [self.txtField7 becomeFirstResponder];
-//                break;
-//            case TAG+4:
-//                [self.txtField8 becomeFirstResponder];
-//                break;
-//            case TAG+5:
-//                [self.txtField9 becomeFirstResponder];
-//                break;
-//            case TAG+6:
-//                [self.txtField4 becomeFirstResponder];
-//                break;
-//            default:
-//                break;
-//        }
-        return YES;
     }
+
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,9 +211,14 @@
 - (IBAction)sure:(UIButton *)sender {
     if ([self checkphone:_phoneindex]) {
         XWJCity *city = [XWJCity instance];
-        [city bindRoom:[NSString stringWithFormat:@"%ld",(long)_typeindex]  :^(NSArray *arr) {
+        [city bindRoom:[NSString stringWithFormat:@"%ld",(long)_typeindex]  :^(NSInteger arr) {
             
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            if (arr==1) {
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertview show];
+
+                alertview.delegate = self;
+            }
         }];
     }else{
         
@@ -219,6 +228,9 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 //- (IBAction)bind:(UIButton *)sender {
 //}
 

@@ -21,6 +21,15 @@
 #define REGISTER_URL  XWJBASEURL"user/register"
 #define RESETPWD_URL  XWJBASEURL"user/resetPass"
 
+
+//find
+
+#define GETFIND_URL XWJBASEURL"find/findDetail"
+//ad
+#define GETACTIVE_URL XWJBASEURL"act/findActPage"
+#define GETAD_URL  XWJBASEURL"index/ads"
+#define GETENROLL_URL XWJBASEURL"act/enrollAct"
+#define GETDETAILAD_URL XWJBASEURL"act/actDetail"
 //bind
 #define GETCITY_URL  XWJBASEURL"build/getCitys"
 #define GETDISTRICT_URL  XWJBASEURL"build/getSubdistrict"

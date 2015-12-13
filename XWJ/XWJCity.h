@@ -101,7 +101,7 @@ id = 9788;
 
 
 //userid 用户id A_id 小区a_id,B_id楼座b_id R_dy房间r_dr U_id业主u_id JU_RID房间ju_rid, Types类型角色（1，2，3）
--(void)bindRoom:(NSString *)index :(void (^)(NSArray *arr))success;
+-(void)bindRoom:(NSString *)index :(void (^)(NSInteger arr))success;
 
 -(void)selectCity:(NSInteger)index;
 
@@ -111,7 +111,17 @@ id = 9788;
 
 -(void)selectRoom:(NSInteger)index;
 
-
+/*
+ ClickCount = 34;
+ addTime = "2015-12-10";
+ content = "http://mp.weixin.qq.com/s?__biz=MzA3MDYyNzMyNg==&mid=402185314&idx=1&sn=62649235951c5f66fe1bafef7f2066ff&scene=0#wechat_redirect";
+ description = "\U6d77\U4fe1\U201c\U4fe1\U6211\U5bb6\U201d\U667a\U6167\U793e\U533aAPP\U662f\U6211\U516c\U53f8\U81ea\U5df1\U7814\U53d1\U7684\U4e00\U4e2aAPP\U7ba1\U7406\U8f6f\U4ef6\U3002";
+ id = 5;
+ isUrl = 1;
+ title = "\U6d77\U4fe1\U201c\U4fe1\U6211\U5bb6\U201d\U667a\U6167\U793e\U533aAPP\U5f00\U59cb\U6d4b\U8bd5\U4e86\U3002";
+ types = 0;
+ */
+-(void)getActive:(NSString *)type :(void (^)(NSArray *arr))success;
 
 /*
  data =     {

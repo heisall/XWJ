@@ -30,7 +30,7 @@ NSArray *myImgs;
     tableViewCellHeight = self.tableview.bounds.size.height/self.tableData.count;
 
     myImgs = [NSArray arrayWithObjects:@"mine1",@"mine2",@"mine3",@"mine4",@"mine5",@"mine6",@"mine7",@"mine8", nil];
-    self.collectionData = [NSArray arrayWithObjects:@"我的消息",@"我的发现",@"我的租售",@"我的订单",@"我的保修投诉",@"我的收件地址",@"我的积分",@"我的余额",nil];
+    self.collectionData = [NSArray arrayWithObjects:@"我的消息",@"我的发现",@"我的租售",@"我的订单",@"我的报修投诉",@"我的收件地址",@"我的积分",@"我的余额",nil];
     self.collcitonView.dataSource = self;
     self.collcitonView.delegate = self;
     [self.collcitonView registerNib:[UINib nibWithNibName:@"XWJCollectionCell" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];

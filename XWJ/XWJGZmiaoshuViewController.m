@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"保修详情";
+    self.navigationItem.title = @"报修详情";
 
 }
 

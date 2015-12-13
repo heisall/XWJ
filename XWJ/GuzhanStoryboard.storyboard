@@ -140,7 +140,7 @@
         <!--Zadd View Controller-->
         <scene sceneID="tx3-Vm-Q9V">
             <objects>
-                <viewController id="42l-VM-ZHa" customClass="XWJGZaddViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="guzhangbaoxiu" id="42l-VM-ZHa" customClass="XWJGZaddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3qx-Ww-2PU"/>
                         <viewControllerLayoutGuide type="bottom" id="pWz-e9-kVp"/>
@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5h-Nh-bbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="170"/>
+            <point key="canvasLocation" x="823" y="154"/>
         </scene>
         <!--Judge View Controller-->
         <scene sceneID="Nzw-24-n3W">
