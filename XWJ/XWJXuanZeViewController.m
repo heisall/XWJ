@@ -7,6 +7,7 @@
 //
 
 #import "XWJXuanZeViewController.h"
+#import "XWJTabViewController.h"
 #import "XWJBindHouseTableViewController.h"
 @interface XWJXuanZeViewController ()<XWJBindHouseDelegate>
 @property BOOL isBind;
@@ -88,7 +89,11 @@
     [self.navigationController showViewController:bind sender:nil];
 }
 - (IBAction)xuanze:(UIButton *)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.rootViewController = tab;
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*

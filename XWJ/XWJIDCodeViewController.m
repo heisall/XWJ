@@ -14,10 +14,13 @@
 #import "XWJUrl.h"
 @interface XWJIDCodeViewController (){
     int code;
+    int timeTick;
 }
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldIDCode;
 @property (weak, nonatomic) IBOutlet UIButton *btnGetcode;
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPhoneNumber;
+@property (weak, nonatomic) IBOutlet UILabel *numlabel;
+@property NSTimer *timer;
 @end
 
 @implementation XWJIDCodeViewController
@@ -26,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setStatusBar];
-    
+    timeTick = 61;
     self.navigationItem.title = @"注册";
 
 //    [self setNavigationBar];
@@ -48,6 +51,7 @@
 
 -(void)sendCodeRes{
 
+
     code = arc4random()%8999 + 1000;
     
 
@@ -68,17 +72,41 @@
     }];
 }
 
--(void)timerFired{
-    
+
+-(void)timeFireMethod
+{
+    timeTick--;
+    if(timeTick==0){
+        [_timer invalidate];
+        self.numlabel.hidden = YES;
+        _btnGetcode.enabled = YES;
+        timeTick = 61;
+//        [_btnGetcode setTitle:@"获取验证码" forState:UIControlStateNormal];
+        
+    }else
+    {
+        NSString *str = [NSString stringWithFormat:@"%d",timeTick];
+        if (_numlabel.hidden) {
+            _numlabel.hidden = NO;
+        }
+        _numlabel.text = str;
+//        [_btnGetcode setTitle:str forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)getIDCode:(id)sender {
 
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+    _btnGetcode.enabled = NO;
+  
     [self sendCodeRes];
+    
+    
+    
 //    self.btnGetcode.enabled = FALSE;
-    NSTimeInterval timeInterval =1.0 ;
+//    NSTimeInterval timeInterval =1.0 ;
     //定时器
-//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     
 
     /*

@@ -108,7 +108,7 @@
             
             NSArray *arr  = [dic objectForKey:@"data"];
             [self.houseArr addObjectsFromArray:arr];
-            
+            [self.tableView reloadData];
             NSLog(@"dic %@",dic);
         }
         
@@ -173,8 +173,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-//    return self.houseArr.count;
-    return 10;
+    return self.houseArr.count;
+//    return 10;
 
 }
 
@@ -187,11 +187,20 @@
         cell = [[XWJZFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"zftablecell"];
     }
     // Configure the cell...
-    cell.headImageView.image = [UIImage imageNamed:@"xinfangbackImg"];
-    cell.label1.text = @"海信湖岛世家";
-    cell.label2.text = @"3室2厅2卫 110平米";
-    cell.label3.text = @"青岛市四方区";
-    cell.label4.text = @"150万元";
+//    cell.headImageView.image = [UIImage imageNamed:@"xinfangbackImg"];
+//    cell.label1.text = @"海信湖岛世家";
+//    cell.label2.text = @"3室2厅2卫 110平米";
+//    cell.label3.text = @"青岛市四方区";
+//    cell.label4.text = @"150万元";
+    [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:[[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"xzst"]] placeholderImage:[UIImage imageNamed:@"xinfangbackImg"]];
+    
+    NSString * qu = [NSString stringWithFormat:@"%@%@",[[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"cityName"],[[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"quyu"]];
+//    NSString*money = [[NSString stringWithFormat:@"%@",[[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"jiage"]] ;
+NSString*money = [NSString stringWithFormat:@"%@",[[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"jiage"]];
+        cell.label1.text = [[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"lpmc"];
+        cell.label2.text = [[self.houseArr objectAtIndex:indexPath.row] objectForKey:@"zt"];
+        cell.label3.text = qu;
+        cell.label4.text = money;
     
     //    [cell.dialBtn setImage:[] forState:<#(UIControlState)#>]
     //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 69, self.view.bounds.size.width,1)];
@@ -207,14 +216,15 @@
     
     if (self.type == HOUSE2||self.type==HOUSEZU) {
         XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"zfdatail"];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setValue:@"" forKey:@""];
-        detail.dic = dic;
+//        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//        [dic setValue:@"" forKey:@""];
+//        detail.dic = [self.houseArr objectAtIndex:indexPath.row];
         detail.type = self.type;
         [self.navigationController showViewController: detail sender:self];
     }else{
         
         XWJNewHouseDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"newhousedetail"];
+        detail.dic = [self.houseArr objectAtIndex:indexPath.row];
         [self.navigationController showViewController:detail sender:self];
     }
 

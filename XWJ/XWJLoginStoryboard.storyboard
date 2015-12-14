@@ -876,12 +876,13 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-Ac-a0S">
-                                        <rect key="frame" x="505" y="10" width="75" height="30"/>
+                                        <rect key="frame" x="500" y="12" width="80" height="26"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="获取验证码">
+                                        <state key="normal" title="获取验证码" backgroundImage="getidcode">
                                             <color key="titleColor" red="0.0" green="0.4941176471" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <state key="disabled" backgroundImage="getidcode"/>
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.2901960784" green="0.66666666669999997" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -889,6 +890,13 @@
                                             <action selector="getIDCode:" destination="BfE-Qq-qlP" eventType="touchUpInside" id="wfO-Jj-Za3"/>
                                         </connections>
                                     </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-lg-Jh4">
+                                        <rect key="frame" x="500" y="12.5" width="80" height="26"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -898,7 +906,11 @@
                                     <constraint firstItem="Hk2-XN-AOU" firstAttribute="leading" secondItem="fiR-IG-SPW" secondAttribute="trailing" constant="8" id="Lem-vr-g2K"/>
                                     <constraint firstItem="Hk2-XN-AOU" firstAttribute="centerY" secondItem="dnr-vP-dQd" secondAttribute="centerY" id="cOy-8b-4SY"/>
                                     <constraint firstAttribute="height" constant="50" id="e1N-HS-z5s"/>
+                                    <constraint firstItem="CQZ-lg-Jh4" firstAttribute="height" secondItem="HrU-Ac-a0S" secondAttribute="height" id="jGJ-Td-olX"/>
+                                    <constraint firstItem="CQZ-lg-Jh4" firstAttribute="centerX" secondItem="HrU-Ac-a0S" secondAttribute="centerX" id="m57-D4-jA2"/>
+                                    <constraint firstItem="CQZ-lg-Jh4" firstAttribute="width" secondItem="HrU-Ac-a0S" secondAttribute="width" id="qlT-l8-KFi"/>
                                     <constraint firstItem="HrU-Ac-a0S" firstAttribute="centerY" secondItem="dnr-vP-dQd" secondAttribute="centerY" id="vui-Wb-e4R"/>
+                                    <constraint firstItem="CQZ-lg-Jh4" firstAttribute="centerY" secondItem="HrU-Ac-a0S" secondAttribute="centerY" id="wVG-Pq-cLx"/>
                                     <constraint firstItem="fiR-IG-SPW" firstAttribute="leading" secondItem="dnr-vP-dQd" secondAttribute="leading" constant="15" id="zEr-Fw-rLg"/>
                                 </constraints>
                             </view>
@@ -947,7 +959,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIt-gN-5H7">
-                                <rect key="frame" x="171.5" y="282" width="257" height="47"/>
+                                <rect key="frame" x="171" y="282" width="257" height="47"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.58039215686274503" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -986,6 +998,7 @@
                     </view>
                     <connections>
                         <outlet property="btnGetcode" destination="HrU-Ac-a0S" id="5pQ-ys-oic"/>
+                        <outlet property="numlabel" destination="CQZ-lg-Jh4" id="quQ-3e-q0S"/>
                         <outlet property="txtFieldIDCode" destination="ko7-L5-3xA" id="ceG-g2-8R1"/>
                         <outlet property="txtFieldPhoneNumber" destination="Hk2-XN-AOU" id="yO6-4i-Fc3"/>
                     </connections>

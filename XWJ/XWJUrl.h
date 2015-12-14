@@ -29,7 +29,9 @@
 
 #define GETWUYE_URL XWJBASEURL"sup/supIndex"
 
-#define GETXINFANG_URL XWJBASEURL"sale/newHouseIndex"
+#define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
+
+#define GETXINFANGDETAIL_URL XWJBASEURL"house/houseDetail"
 //ad
 #define GETACTIVE_URL XWJBASEURL"act/findActPage"
 #define GETAD_URL  XWJBASEURL"index/ads"

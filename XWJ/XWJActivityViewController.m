@@ -30,14 +30,14 @@
 
     }
     
-    if ([self.dic valueForKey:KEY_AD_TIME]!=[NSNull null]) {
+    if ((NSNull *)[self.dic valueForKey:KEY_AD_TIME]!=[NSNull null]) {
         
         self.time.text = [self.dic valueForKey:KEY_AD_TIME];
     }else{
         self.time.text = @"";
 
     }
-    if ([self.dic objectForKey:KEY_AD_CLICKCOUNT]!=[NSNull null]) {
+    if ((NSNull*)[self.dic valueForKey:KEY_AD_CLICKCOUNT]!=[NSNull null]) {
         
         NSString *count = [NSString stringWithFormat:@"%@",[self.dic objectForKey:KEY_AD_CLICKCOUNT] ];
         [self.clickBtn setTitle:count forState:UIControlStateNormal];

@@ -81,8 +81,10 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     
     NSString *title;
     switch (self.type) {
-        case HOUSENEW:
+        case HOUSENEW:{
             title = @"新房";
+            [self getXinFangdetail];
+        }
             break;
         case HOUSE2:
             title = @"二手房";
@@ -95,6 +97,36 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     }
     self.navigationItem.title = title;
     
+}
+
+-(void)getXinFangdetail{
+    NSString *url = GETXINFANGDETAIL_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"areaId"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+            //            NSMutableArray * array = [NSMutableArray array];
+            //            XWJCity *city  = [[XWJCity alloc] init];
+            
+//            NSArray *arr  = [dic objectForKey:@"data"];
+//            [self.houseArr addObjectsFromArray:arr];
+//            [self.tableView reloadData];
+//            NSLog(@"dic %@",dic);
+        }
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
