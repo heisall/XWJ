@@ -48,10 +48,20 @@
     
 }
 - (IBAction)commect:(id)sender {
+    
+    NSInteger count = [self.comBtn.titleLabel.text integerValue];
+    count++;
+    [self.comBtn setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
 }
 - (IBAction)zan:(UIButton *)sender {
+    NSInteger count = [sender.titleLabel.text integerValue];
+    count++;
+    [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
 }
 - (IBAction)share:(UIButton *)sender {
+    NSInteger count = [sender.titleLabel.text integerValue];
+    count++;
+    [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
 }
 
 -(void)getWuyeDetail{

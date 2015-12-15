@@ -9,38 +9,70 @@
 #import "XWJButlerViewController.h"
 #import "XWJButlerViewController.h"
 #import "LCBannerView.h"
-
+#import "XWJNoticeViewController.h"
+#import "XWJGuzhangViewController.h"
 #import "AFNetworking.h"
 #import "XWJCity.h"
-
+#import "XWJPay1ViewController.h"
+#import "XWJZFViewController.h"
 @implementation XWJButlerViewController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    [self initData];
+}
+
+-(void)addView{
+    for (int i=0; i<7; i++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"guanjia%d",i+1]] forState:UIControlStateNormal];
+        btn.frame = CGRectMake((SCREEN_SIZE.width/4+1)*(i%4), self.room.frame.origin.y+self.room.bounds.size.height+60 + ((int)(i/4))*(SCREEN_SIZE.width/4+1), SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4 );
+        btn.tag = i;
+        btn.backgroundColor = XWJColor(124, 197, 193);
+        [btn addTarget:self action:@selector(btnclick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+    }
+}
+
+-(void)initData{
+    self.titles = [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"物业监督",@"故障报修",@"物业投诉", @"物业账单",nil];
+
     
-    self.btn1.frame =CGRectMake(200, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bnt2.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bnt3.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bnt4.frame =CGRectMake(0+SCREEN_SIZE.width/4*3, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bnt5.frame =CGRectMake(0, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bt6.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-    self.bnt.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+    UIStoryboard * HomeStoryboard = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+    XWJNoticeViewController *notice = [HomeStoryboard instantiateViewControllerWithIdentifier:@"noticeController"];
+    notice.type  = @"0";
+    XWJNoticeViewController *notice2 = [HomeStoryboard instantiateViewControllerWithIdentifier:@"noticeController"];
+    notice2.type  = @"1";
+    
+    
+    UIStoryboard * wuy = [UIStoryboard storyboardWithName:@"WuyeStoryboard" bundle:nil];
+    UIViewController *wu = [wuy instantiateInitialViewController];
+    
+    XWJPay1ViewController *pay = [HomeStoryboard instantiateViewControllerWithIdentifier:@"pay1"];
+    
+    UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
+    XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
+    
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
+
+    XWJZFViewController *zf = [story instantiateInitialViewController];
+    zf.type = 2;
+    
+    self.vConlers = [NSArray arrayWithObjects:notice,notice2,wu,gz,notice,pay,zf,nil];
+}
+
+-(void)btnclick:(UIButton *)btn{
+    [self.navigationController showViewController:[self.vConlers objectAtIndex:btn.tag] sender:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationItem.title = @"管家";
     self.navigationItem.leftBarButtonItem = nil;
-    
+
     NSString *ti =[NSString stringWithFormat:@"%@%@",[[XWJCity instance].district valueForKey:@"a_name"]?[[XWJCity instance].district valueForKey:@"a_name"]:@"",[[XWJCity instance].buiding valueForKey:@"b_name"]?[[XWJCity instance].buiding valueForKey:@"b_name"]:@""];
     self.room.text  = ti;
-//    self.btn1.frame =CGRectMake(200, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bnt2.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bnt3.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bnt4.frame =CGRectMake(0+SCREEN_SIZE.width/4*3, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bnt5.frame =CGRectMake(0, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bt6.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
-//    self.bnt.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+    [self addView];
 
     [self getAd];
     
@@ -64,6 +96,9 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
 
 -(void)getAd{
     NSString *url = GETAD_URL;

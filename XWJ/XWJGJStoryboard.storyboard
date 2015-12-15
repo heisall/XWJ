@@ -32,41 +32,6 @@
                                 <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJb-qC-8i4">
-                                <rect key="frame" x="0.0" y="287" width="70" height="78"/>
-                                <animations/>
-                                <state key="normal" image="guanjia1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-ku-FrM">
-                                <rect key="frame" x="58" y="275" width="79" height="101"/>
-                                <animations/>
-                                <state key="normal" image="guanjia2"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGc-6j-DCk">
-                                <rect key="frame" x="135" y="274" width="62" height="102.5"/>
-                                <animations/>
-                                <state key="normal" image="guanjia3"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wE1-Y3-pbF">
-                                <rect key="frame" x="0.0" y="363" width="76" height="77"/>
-                                <animations/>
-                                <state key="normal" image="guanjia5"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XZ-Go-c81">
-                                <rect key="frame" x="64" y="359" width="67" height="85"/>
-                                <animations/>
-                                <state key="normal" image="guanjia6"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1a-0Z-yGR">
-                                <rect key="frame" x="133" y="358" width="67" height="84.5"/>
-                                <animations/>
-                                <state key="normal" image="guanjia7"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwh-oZ-Hb6">
-                                <rect key="frame" x="191" y="272" width="96" height="107"/>
-                                <animations/>
-                                <state key="normal" image="guanjia4"/>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,13 +46,6 @@
                     </view>
                     <connections>
                         <outlet property="adView" destination="uvt-PC-ff8" id="Kvc-0f-zc9"/>
-                        <outlet property="bnt" destination="U1a-0Z-yGR" id="hdV-49-SEr"/>
-                        <outlet property="bnt2" destination="5ch-ku-FrM" id="WZv-cG-wrZ"/>
-                        <outlet property="bnt3" destination="yGc-6j-DCk" id="dKG-dT-3mv"/>
-                        <outlet property="bnt4" destination="Iwh-oZ-Hb6" id="dFr-Sp-VTC"/>
-                        <outlet property="bnt5" destination="wE1-Y3-pbF" id="CTW-6T-Zch"/>
-                        <outlet property="bt6" destination="2XZ-Go-c81" id="CCN-hS-XlG"/>
-                        <outlet property="btn1" destination="YJb-qC-8i4" id="dv2-TT-Kcy"/>
                         <outlet property="room" destination="twv-OR-5jy" id="CmX-2w-1uw"/>
                     </connections>
                 </viewController>
@@ -96,13 +54,4 @@
             <point key="canvasLocation" x="206" y="196"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="guanjia1" width="37" height="37"/>
-        <image name="guanjia2" width="37" height="37"/>
-        <image name="guanjia3" width="37" height="37"/>
-        <image name="guanjia4" width="37" height="37"/>
-        <image name="guanjia5" width="37" height="37"/>
-        <image name="guanjia6" width="37" height="37"/>
-        <image name="guanjia7" width="52" height="52"/>
-    </resources>
 </document>
