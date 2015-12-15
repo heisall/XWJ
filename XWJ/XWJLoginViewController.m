@@ -13,7 +13,8 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "XWJHeader.h"
 #import "XWJAccount.h"
-@interface XWJLoginViewController ()
+#import "XWJCity.h"
+@interface XWJLoginViewController ()<XWJBindHouseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tFieldUserName;
 @property (weak, nonatomic) IBOutlet UITextField *tFieldPassWord;
@@ -148,9 +149,24 @@
 //                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
 //                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];
 //                [XWJAccount instance].qianming =[userDic valueForKey:@"id"];
-                XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-                UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                window.rootViewController = tab;
+                
+                BOOL isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+                if (!isBind) {
+                    UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
+                    
+                    [self.navigationController showViewController:view sender:nil];
+                    
+//                    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+//                    bind.title = @"城市选择";
+//                    bind.delegate = self;
+//                    bind->mode = HouseCity;
+//                    [self.navigationController showViewController:bind sender:nil];
+                }else{
+                
+                    XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    window.rootViewController = tab;
+                }
             }else{
                 NSString *errCode = [dic objectForKey:@"errorCode"];
                 UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -193,29 +209,40 @@
 
 #pragma bindhouse delegate
 -(void)didSelectAtIndex:(NSInteger)index Type:(HouseMode)type{
+    XWJCity *city = [XWJCity instance];
     switch (type) {
         case HouseCity:{
+            
+            [city selectCity:index];
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"小区选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"湖岛世家",@"花瓣里",@"依云小镇", nil];
+
             bind.delegate = self;
             bind->mode = HouseCommunity;
+            
             [self.navigationController showViewController:bind sender:nil];
+        
         }
             break;
         case HouseCommunity:{
+            
+            [city selectDistrict:index];
+            
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"楼座选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"一号楼",@"二号楼",@"三号楼", nil];
+
             bind.delegate = self;
             bind->mode = HouseFlour;
             [self.navigationController showViewController:bind sender:nil];
         }
             break;
         case HouseFlour:{
+            
+            [city selectBuilding:index];
+            
             XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
             bind.title = @"房间选择";
-            bind.dataSource = [NSArray arrayWithObjects:@"01单元001",@"01单元002",@"01单元003", nil];
+
             bind.delegate = self;
             bind->mode = HouseRoomNumber;
             [self.navigationController showViewController:bind sender:nil];
@@ -223,15 +250,11 @@
             break;
         case HouseRoomNumber:{
             
-            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            window.rootViewController = tab;
-
-//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            [UIApplication sharedApplication].keyWindow.rootViewController = [story instantiateInitialViewController];
-            //            XWJBingHouseViewController *bind = [[XWJBingHouseViewController alloc] initWithNibName:@"XWJBingHouseViewController" bundle:nil];
-//            [self.navigationController showViewController:bind sender:nil];
-
+            [city selectRoom:index];
+            
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+            [self.navigationController showViewController:[story instantiateViewControllerWithIdentifier:@"bindhouse1"] sender:nil];
+            
         }
             break;
         default:

@@ -9,6 +9,7 @@
 #import "XWJBaseViewController.h"
 #import "LCBannerView.h"
 @interface XWJHomeViewController : XWJBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,LCBannerViewDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *backScollView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *adScrollView;

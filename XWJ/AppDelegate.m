@@ -42,6 +42,10 @@
         ;
     }
     
+//    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+//    self.window.rootViewController = [loginStoryboard instantiateViewControllerWithIdentifier:@"bindhouse2"];
+    
+    
     return YES;
 }
 

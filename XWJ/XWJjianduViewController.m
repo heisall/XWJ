@@ -187,6 +187,8 @@
     cell.positionLabel.text = [[self.yuangong objectAtIndex:indexPath.row] objectForKey:@"Position"];
     cell.photoLabel.text = [[self.yuangong objectAtIndex:indexPath.row] objectForKey:@"Phone"];
     
+    cell.dialBtn.tag = indexPath.row;
+    [cell.dialBtn addTarget:self action:@selector(dial:) forControlEvents:UIControlEventTouchUpInside];
 //    [cell.dialBtn setImage:[] forState:<#(UIControlState)#>]
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 69, self.view.bounds.size.width,1)];
 //    view.backgroundColor  = [UIColor colorWithRed:206.0/255.0 green:207.0/255.0 blue:208.0/255.0 alpha:1.0];
@@ -195,6 +197,12 @@
     return cell;
 }
 
+-(void)dial:(UIButton *)sender{
+    NSString *phone=  [[self.yuangong objectAtIndex:sender.tag] objectForKey:@"Phone"];
+
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",phone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -27,8 +27,8 @@
                                     <constraint firstAttribute="height" constant="200" id="uH4-rB-7mH"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="湖岛世家1号楼1单元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twv-OR-5jy">
-                                <rect key="frame" x="20" y="230" width="151.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="湖岛世家1号楼1单元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twv-OR-5jy">
+                                <rect key="frame" x="20" y="230" width="600" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,6 +87,7 @@
                             <constraint firstItem="wE1-Y3-pbF" firstAttribute="width" secondItem="YJb-qC-8i4" secondAttribute="width" id="Gog-sJ-939"/>
                             <constraint firstItem="yGc-6j-DCk" firstAttribute="width" secondItem="5ch-ku-FrM" secondAttribute="width" id="Iqf-iG-Ct8"/>
                             <constraint firstItem="twv-OR-5jy" firstAttribute="top" secondItem="uvt-PC-ff8" secondAttribute="bottom" constant="10" id="QOF-K7-LHc"/>
+                            <constraint firstItem="twv-OR-5jy" firstAttribute="width" secondItem="QDa-5W-7Lh" secondAttribute="width" id="RSz-pp-BUm"/>
                             <constraint firstItem="2XZ-Go-c81" firstAttribute="width" secondItem="2XZ-Go-c81" secondAttribute="height" multiplier="1:1" id="VVU-aA-XeR"/>
                             <constraint firstItem="yGc-6j-DCk" firstAttribute="width" secondItem="yGc-6j-DCk" secondAttribute="height" multiplier="1:1" id="Wnn-cF-Nyv"/>
                             <constraint firstItem="YJb-qC-8i4" firstAttribute="top" secondItem="twv-OR-5jy" secondAttribute="bottom" constant="5" id="Wqf-24-qD2"/>

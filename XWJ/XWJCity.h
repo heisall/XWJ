@@ -29,6 +29,7 @@
 @property NSString *aid;
 @property NSNumber *bid;
 @property NSString *rid;
+@property NSString *ju_RID;
 @property NSString *rdy;
 
 

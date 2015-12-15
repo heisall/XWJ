@@ -19,6 +19,7 @@
 #import "XWJActivityViewController.h"
 #import "XWJCity.h"
 #import "XWJAccount.h"
+#import "XWJADViewController.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -60,6 +61,16 @@ NSArray *footer;
     self.shows = [NSMutableArray array];
     self.notices = [NSMutableArray array];
     [self getAd];
+    
+    
+    self.collectionView.frame = CGRectMake(0, self.scrollView.frame.origin.y
+                                           + self.scrollView.bounds.size.height+40, SCREEN_SIZE.width, (CELL_HEIGHT+HEADER_HEIGHT)*COLLECTION_NUMSECTIONS+100);
+    CGFloat height = self.scrollView.bounds.size.height+self.adScrollView.bounds.size.height+self.mesScrollview.bounds.size.height+self.collectionView.bounds.size.height+100;
+    
+    self.backScollView.contentSize = CGSizeMake(SCREEN_SIZE.width, height);
+    
+    
+    
     /******************** internet ********************/
 //    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
 //                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
@@ -106,6 +117,12 @@ NSArray *footer;
     }
     self.mesScrollview.contentSize = CGSizeMake(w*3, h);
     */
+    
+    
+}
+- (IBAction)qiandao:(UIButton *)sender {
+}
+- (IBAction)jifen:(UIButton *)sender {
 }
 
 -(void)msgClick:(UIButton *)sender{
@@ -155,6 +172,7 @@ NSArray *footer;
         [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
     }
+
 }
 
 
@@ -205,8 +223,8 @@ NSArray *footer;
     NSString *url = GETAD_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:[XWJCity instance].aid  forKey:@"a_id"];
-//        [dict setValue:@"1"  forKey:@"a_id"];
+//    [dict setValue:[XWJCity instance].aid  forKey:@"a_id"];
+        [dict setValue:@"1"  forKey:@"a_id"];
 
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
@@ -232,6 +250,7 @@ NSArray *footer;
 
             }
             
+            if(URLs&&URLs.count>0)
             [self.adScrollView addSubview:({
                 
                 LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
@@ -246,7 +265,8 @@ NSArray *footer;
                 bannerView;
             })];
             
-            [self.mesScrollview addSubview:({
+            if (titls&&titls.count>0)
+                [self.mesScrollview addSubview:({
                 
                 LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
                                                                                         self.mesScrollview.bounds.size.height)
@@ -415,6 +435,8 @@ NSArray *footer;
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
             XWJActivityViewController * acti = [storyboard instantiateViewControllerWithIdentifier:@"activityDetail"];
+            
+//            XWJADViewController *acti =[[XWJADViewController alloc] init];
             acti.dic  = [dic objectForKey:@"data"];
             acti.type = [acti.dic valueForKey:@"Types"];
             [self.navigationController showViewController:acti sender:nil];
@@ -449,18 +471,20 @@ NSArray *footer;
 //#define KEY_AD_CLICKCOUNT @"ClickCount"
 //#define KEY_AD_URL @"content"
 //#define KEY_AD_ID  @"id"
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
-        XWJActivityViewController * acti = [storyboard instantiateViewControllerWithIdentifier:@"activityDetail"];
-        NSMutableDictionary *dic  = [NSMutableDictionary dictionary];
-        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Content"] forKey:KEY_AD_TITLE];
-        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Description"] forKey:KEY_AD_CONTENT];
-        
-        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"url"] forKey:KEY_AD_URL];
-        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Types"] forKey:@"Types"];
-        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"ID"] forKey:KEY_AD_ID];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FindStoryboard" bundle:nil];
+//        XWJActivityViewController * acti = [storyboard instantiateViewControllerWithIdentifier:@"activityDetail"];
+//        NSMutableDictionary *dic  = [NSMutableDictionary dictionary];
+//        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Content"] forKey:KEY_AD_TITLE];
+//        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Description"] forKey:KEY_AD_CONTENT];
+//        
+//        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"url"] forKey:KEY_AD_URL];
+//        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"Types"] forKey:@"Types"];
+//        [dic setValue:[[self.shows objectAtIndex:index] objectForKey:@"ID"] forKey:KEY_AD_ID];
 
-        acti.dic  = dic;
-        acti.type = [acti.dic valueForKey:@"Types"];
+        XWJADViewController *acti= [[XWJADViewController alloc] init];
+        acti.dic  = [self.shows objectAtIndex:index];
+//        acti.type = [acti.dic valueForKey:@"Types"];
+        
         [self.navigationController showViewController:acti sender:nil];
     }
 }
@@ -687,8 +711,8 @@ NSArray *footer;
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor clearColor]];
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    [cell setBackgroundColor:[UIColor clearColor]];
 
 }
 -(void)showList{

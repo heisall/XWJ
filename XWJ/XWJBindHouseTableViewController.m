@@ -88,7 +88,7 @@
                 NSMutableArray *arr2 = [NSMutableArray array];
                 
                 for (NSDictionary *dic in arr) {
-                    [arr2 addObject:[dic valueForKey:@"JU_RID"]];
+                    [arr2 addObject:[dic valueForKey:@"R_id"]];
                 }
                 self.dataSource = arr2;
                 [self.tableView reloadData];
@@ -331,6 +331,26 @@
         [self.dataSource containsObject:self.city];
         NSLog(@"contains");
     }
+    
+    switch (mode) {
+        case HouseCity:
+            [[XWJCity instance] selectCity:indexPath.row];
+
+            break;
+         case HouseCommunity:
+            [[XWJCity instance] selectDistrict:indexPath.row];
+            break;
+        case HouseFlour:
+            [[XWJCity instance] selectBuilding:indexPath.row];
+            break;
+        case HouseRoomNumber:
+            [[XWJCity instance] selectRoom:indexPath.row];
+            break;
+        default:
+            break;
+    }
+
+    
     [self.delegate didSelectAtIndex:indexPath.row Type:mode];
 }
 

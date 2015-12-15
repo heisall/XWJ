@@ -38,6 +38,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="next"/>
                                                 <connections>
+                                                    <action selector="selectType:" destination="b5P-bG-wxp" eventType="touchUpInside" id="fv0-5L-DP4"/>
                                                     <segue destination="ahI-91-39I" kind="show" id="En1-j3-c07"/>
                                                 </connections>
                                             </button>
@@ -78,7 +79,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="X4i-Qa-8M6" kind="show" id="APL-zV-WYq"/>
+                                            <action selector="huodong:" destination="b5P-bG-wxp" eventType="touchUpInside" id="DIF-wu-Klg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -102,6 +103,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="fabu:" destination="b5P-bG-wxp" eventType="touchUpInside" id="PRN-dr-dUf"/>
                                             <segue destination="ahI-91-39I" kind="show" id="fJD-KI-W0a"/>
                                         </connections>
                                     </button>
@@ -171,6 +173,7 @@
                         <outlet property="mesBtn" destination="dcf-g5-qvq" id="IxV-Y4-Umk"/>
                         <outlet property="motionView" destination="wxR-e4-ToJ" id="N7z-VY-GpH"/>
                         <outlet property="publicView" destination="KgE-2f-tdq" id="wKa-FP-PYA"/>
+                        <outlet property="typeLabel" destination="TXs-WU-wgf" id="uvg-GL-tdk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvO-Em-xkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,7 +229,9 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-OI-XeB">
                                 <rect key="frame" x="536" y="28" width="34" height="23"/>
                                 <animations/>
-                                <state key="normal" title="2" image="findpinglun"/>
+                                <state key="normal" title="2" image="findpinglun">
+                                    <color key="titleColor" red="0.4431372549" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <state key="disabled" image="findpinglun">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -568,7 +573,7 @@
                                     <constraint firstItem="tPA-Fs-oqt" firstAttribute="leading" secondItem="Jb5-V6-yde" secondAttribute="leading" constant="20" id="ht0-q5-i7r"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-QY-AQu">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-QY-AQu">
                                 <rect key="frame" x="30" y="595" width="100" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -624,6 +629,6 @@
         <image name="next" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fJD-KI-W0a"/>
+        <segue reference="En1-j3-c07"/>
     </inferredMetricsTieBreakers>
 </document>

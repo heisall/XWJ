@@ -13,7 +13,7 @@
 @implementation XWJCity
 
 
-
+//@synthesize city;
 + (instancetype) instance {
     static XWJCity *_CTLClient;
     if ( _CTLClient==nil) {
@@ -26,14 +26,16 @@
     return _CTLClient;
 }
 
+
 -(void)selectCity:(NSInteger)index{
     _cno = [[_citys objectAtIndex:index] valueForKey:CityNo];
     _city = [_citys objectAtIndex:index];
-
+    
 }
 
 -(void)selectDistrict:(NSInteger)index{
     _aid = [[_districts objectAtIndex:index] valueForKey:a_id];
+//    [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"xiaoquid"];
     _district = [_districts objectAtIndex:index];
 
 }
@@ -45,7 +47,7 @@
 
 
 -(void)selectRoom:(NSInteger)index{
-    _rid = [[_rooms objectAtIndex:index] valueForKey:@"JU_RID"];
+    _rid = [[_rooms objectAtIndex:index] valueForKey:@"R_id"];
     _rdy = [[_rooms objectAtIndex:index] valueForKey:@"R_dy"];
     _room = [_rooms objectAtIndex:index];
 
@@ -119,15 +121,15 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    [dict setValue:_aid  forKey:a_id];
-//    [dict setValue:_bid  forKey:b_id];
-//    [dict setValue:_rdy  forKey:RDY];
-//    [dict setValue:_rid  forKey:R_id];
+    [dict setValue:_aid  forKey:a_id];
+    [dict setValue:_bid  forKey:b_id];
+    [dict setValue:_rdy  forKey:RDY];
+    [dict setValue:_rid  forKey:R_id];
 
-    [dict setValue:@"1"  forKey:a_id];
-    [dict setValue:@"1"  forKey:b_id];
-    [dict setValue:@"1"  forKey:RDY];
-    [dict setValue:@"101"  forKey:R_id];
+//    [dict setValue:@"1"  forKey:a_id];
+//    [dict setValue:@"1"  forKey:b_id];
+//    [dict setValue:@"1"  forKey:RDY];
+//    [dict setValue:@"101"  forKey:R_id];
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -293,7 +295,8 @@
     NSString *url = GETACTIVE_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:_aid  forKey:@"a_id"];
+//    [dict setValue:_aid  forKey:@"a_id"];
+        [dict setValue:@"1"  forKey:@"a_id"];
     [dict setValue:type  forKey:@"types"];
     [dict setValue:@"0" forKey:@"pageindex"];
     [dict setValue:@"20"  forKey:@"countperpage"];

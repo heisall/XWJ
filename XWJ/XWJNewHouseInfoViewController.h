@@ -10,4 +10,6 @@
 
 @interface XWJNewHouseInfoViewController : XWJBaseViewController
 
+@property NSMutableDictionary *dic;
+
 @end

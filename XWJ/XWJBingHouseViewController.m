@@ -143,33 +143,50 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (range.location >= 1){
-        if ([string  isEqual:@"\n"]) {
-            
+    if (range.location >= 0){
+//        if ([string  isEqual:@"\n"]) {
+        
             NSInteger tag =  textField.tag;
             switch (tag) {
-                case TAG+1:
+                case TAG+1:{
+                    self.txtField4.text = string;
                     [self.txtField5 becomeFirstResponder];
+                }
                     break;
-                case TAG+2:
+                case TAG+2:{
+                    self.txtField5.text = string;
+
                     [self.txtField6 becomeFirstResponder];
+                }
                     break;
-                case TAG+3:
+                case TAG+3:{
+                    self.txtField6.text = string;
+
                     [self.txtField7 becomeFirstResponder];
+                }
                     break;
-                case TAG+4:
+                case TAG+4:{
+                    self.txtField7.text = string;
+
                     [self.txtField8 becomeFirstResponder];
+                }
                     break;
-                case TAG+5:
+                case TAG+5:{
+                    self.txtField8.text = string;
+
                     [self.txtField9 becomeFirstResponder];
+                }
                     break;
-                case TAG+6:
+                case TAG+6:{
+                    self.txtField9.text = string;
+
                     [textField resignFirstResponder];
+                }
                     break;
                 default:
                     break;
             }
-        }
+//        }
         return NO; // return NO to not change text
     }
 

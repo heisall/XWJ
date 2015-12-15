@@ -8,10 +8,10 @@
 
 #import "XWJBaseViewController.h"
 #define KEY_AD_TITLE @"Title"
-#define KEY_AD_TIME  @"addTime"
-#define KEY_AD_CONTENT @"description"
+#define KEY_AD_TIME  @"AddTime"
+#define KEY_AD_CONTENT @"Description"
 #define KEY_AD_CLICKCOUNT @"ClickCount"
-#define KEY_AD_URL @"content"
+#define KEY_AD_URL @"Content"
 #define KEY_AD_ID  @"id"
 
 @interface XWJNoticeViewController : XWJBaseViewController

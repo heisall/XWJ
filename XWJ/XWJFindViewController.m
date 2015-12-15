@@ -10,7 +10,7 @@
 #import "XWJFindDetailViewController.h"
 #import "XWJCity.h"
 #import "UIImageView+WebCache.h"
-
+#import "XWJNoticeViewController.h"
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 2
 #define  SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -61,6 +61,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
                 [self getFind:i];
             }
             
+            self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
             NSLog(@"dic %@",dic);
         }
 
@@ -207,6 +208,61 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(10, 15, 0, 15);//分别为上、左、下、右
+}
+- (IBAction)huodong:(id)sender {
+        UIStoryboard * noticeStory = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+        XWJNoticeViewController *notice = [noticeStory instantiateViewControllerWithIdentifier:@"noticeController"];
+        notice.type  = @"0";
+        [self.navigationController showViewController:notice sender:nil];
+}
+- (IBAction)fabu:(id)sender {
+}
+- (IBAction)selectType:(id)sender {
+    
+//    self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
+    NSMutableArray *a = [NSMutableArray array];
+    for (NSDictionary *d in self.findlistArr) {
+        [a addObject:[d valueForKey:@"Memo"]];
+    }
+ 
+//    // 为UIPickerView控件设置dataSource和delegate
+//    self.picker.dataSource = self;
+//    self.picker.delegate = self;
+    
+}
+
+// UIPickerViewDataSource中定义的方法，该方法的返回值决定该控件包含多少列
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
+{
+    return 1;  // 返回1表明该控件只包含1列
+}
+// UIPickerViewDataSource中定义的方法，该方法的返回值决定该控件指定列包含多少个列表项
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+
+    return self.findlistArr.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+
+    return [[self.findlistArr objectAtIndex:row] valueForKey:@"Memo"];
+}
+// 当用户选中UIPickerViewDataSource中指定列和列表项时激发该方法
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component
+{
+    // 使用一个UIAlertView来显示用户选中的列表项
+//    UIAlertView* alert = [[UIAlertView alloc]
+//                          initWithTitle:@"提示"
+//                          message:[NSString stringWithFormat:@"你选中的图书是：%@"
+//                                   , [books objectAtIndex:row]]
+//                          delegate:nil
+//                          cancelButtonTitle:@"确定"
+//                          otherButtonTitles:nil];
+//    [alert show];
 }
 
 //选择了某个cell

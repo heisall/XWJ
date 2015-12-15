@@ -22,7 +22,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.dic = [NSMutableDictionary dictionary];
+    self.navigationItem.title =@"信息";
     // Do any additional setup after loading the view.
+    self.houseImg.image = [self.dic objectForKey:@"image"];
+    self.titleLabel.text = [self.dic valueForKey:@"lpmc"];
+    self.sizeLabel.text =[self.dic objectForKey:@"lpmc"];
+    self.totalLabel.text = [NSString stringWithFormat:@"%@",[self.dic objectForKey:@"jiage"]] ;
+    self.firstLabel.text = [self.dic objectForKey:@"lpmc"];
+    self.directionLabel.text =[self.dic objectForKey:@"lpmc"];
 }
 
 - (void)didReceiveMemoryWarning {

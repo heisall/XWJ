@@ -9,5 +9,5 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJNewHouseDetailViewController : XWJBaseViewController
-@property NSDictionary *dic;
+@property NSMutableDictionary *dic;
 @end

@@ -10,6 +10,7 @@
 #import "XWJNoticeViewController.h"
 #import "XWJUrl.h"
 #import "XWJAccount.h"
+#import "XWJBMViewController.h"
 @implementation XWJActivityViewController
 
 //#define KEY_TITLE @"title"
@@ -57,35 +58,42 @@
 
 //参数：id:通知/活动id ，account:用户账号，phone：手机号码， name:姓名
 - (IBAction)enroll:(UIButton *)sender {
-    NSString *url = GETENROLL_URL;
-    XWJAccount *account = [XWJAccount instance];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:[self.dic valueForKey:KEY_AD_ID]  forKey:@"id"];
-    [dict setValue:account.account  forKey:@"account"];
-    [dict setValue:account.phone forKey:@"phone"];
-    [dict setValue:account.name  forKey:@"name"];
     
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%s success ",__FUNCTION__);
-        
-        if(responseObject){
-            NSDictionary *dic = (NSDictionary *)responseObject;
-        
-            NSString *errCode = [dic objectForKey:@"errorCode"];
-            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alertview show];
-        
- 
-            NSLog(@"dic %@",dic);
-        }
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s fail %@",__FUNCTION__,error);
-
-    }];
+    
+    UIStoryboard *st =[UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+    XWJBMViewController *bm = [st instantiateViewControllerWithIdentifier:@"baoming"];
+    bm.houdongId = [self.dic valueForKey:KEY_AD_ID];
+    [self.navigationController showViewController:bm sender:nil];
+    
+//    NSString *url = GETENROLL_URL;
+//    XWJAccount *account = [XWJAccount instance];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    [dict setValue:[self.dic valueForKey:KEY_AD_ID]  forKey:@"id"];
+//    [dict setValue:account.account  forKey:@"account"];
+//    [dict setValue:account.phone forKey:@"phone"];
+//    [dict setValue:account.name  forKey:@"name"];
+//    
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+//    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"%s success ",__FUNCTION__);
+//        
+//        if(responseObject){
+//            NSDictionary *dic = (NSDictionary *)responseObject;
+//        
+//            NSString *errCode = [dic objectForKey:@"errorCode"];
+//            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alertview show];
+//        
+// 
+//            NSLog(@"dic %@",dic);
+//        }
+//        
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%s fail %@",__FUNCTION__,error);
+//
+//    }];
     
     NSLog(@"baoming");
 }
