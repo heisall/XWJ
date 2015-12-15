@@ -165,6 +165,7 @@ static CGFloat LCPageDistance = 10.0f;      // pageControl 到底部的距离
             btn.frame = CGRectMake(scrollW * i, 0, scrollW, scrollH);
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
             btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            btn.titleLabel.numberOfLines = 1;
             [btn setImage:[UIImage imageNamed:@"newMesIcon"] forState:UIControlStateNormal];
             [scrollView addSubview:btn];
             

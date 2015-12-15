@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *bnt2;
 @property (weak, nonatomic) IBOutlet UIButton *bnt3;
 @property (weak, nonatomic) IBOutlet UIButton *bnt;
-@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *room;
 
 @property (weak, nonatomic) IBOutlet UIButton *bt6;
 

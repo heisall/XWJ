@@ -58,6 +58,7 @@
 		A412558C1C0F59120042D8CC /* WuyeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */; };
 		A412558E1C0F595B0042D8CC /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */; };
 		A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */; };
+		A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -130,7 +131,6 @@
 		A48801811C09F22700714F5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48801801C09F22700714F5B /* UIKit.framework */; };
 		A48801851C09F41000714F5B /* ITabFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = A48801841C09F41000714F5B /* ITabFactory.h */; };
 		A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801871C09F80500714F5B /* XWJHomeViewController.m */; };
-		A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A488018A1C09F91100714F5B /* XWJButlerViewController.m */; };
 		A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A488018D1C09F94600714F5B /* XWJButlerTabFactory.m */; };
 		A48801911C09FAE700714F5B /* XWJLifeTabFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801901C09FAE700714F5B /* XWJLifeTabFactory.m */; };
 		A48801941C09FB3800714F5B /* XWJLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48801931C09FB3800714F5B /* XWJLifeViewController.m */; };
@@ -311,6 +311,8 @@
 		A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LifeStoryboard.storyboard; sourceTree = "<group>"; };
 		A43810BE1C1EF491001D2F29 /* XWJBMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBMViewController.h; sourceTree = "<group>"; };
 		A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBMViewController.m; sourceTree = "<group>"; };
+		A43810CE1C1FD135001D2F29 /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
+		A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerViewController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -427,8 +429,6 @@
 		A48801841C09F41000714F5B /* ITabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITabFactory.h; sourceTree = "<group>"; };
 		A48801861C09F80500714F5B /* XWJHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJHomeViewController.h; sourceTree = "<group>"; };
 		A48801871C09F80500714F5B /* XWJHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJHomeViewController.m; sourceTree = "<group>"; };
-		A48801891C09F91100714F5B /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
-		A488018A1C09F91100714F5B /* XWJButlerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerViewController.m; sourceTree = "<group>"; };
 		A488018C1C09F94600714F5B /* XWJButlerTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerTabFactory.h; sourceTree = "<group>"; };
 		A488018D1C09F94600714F5B /* XWJButlerTabFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerTabFactory.m; sourceTree = "<group>"; };
 		A488018F1C09FAE700714F5B /* XWJLifeTabFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJLifeTabFactory.h; sourceTree = "<group>"; };
@@ -913,8 +913,8 @@
 		A43C98481C1516AF006A61EE /* guanjia */ = {
 			isa = PBXGroup;
 			children = (
-				A48801891C09F91100714F5B /* XWJButlerViewController.h */,
-				A488018A1C09F91100714F5B /* XWJButlerViewController.m */,
+				A43810CE1C1FD135001D2F29 /* XWJButlerViewController.h */,
+				A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */,
 				A43C98491C1516CC006A61EE /* XWJGuanjiaViewController.h */,
 				A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */,
 				A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */,
@@ -1458,7 +1458,6 @@
 				A48801BC1C0B2EAD00714F5B /* XWJMyInfoViewController.m in Sources */,
 				A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */,
 				A43C97B21C1298AF006A61EE /* UIView+Layout.m in Sources */,
-				A488018B1C09F91100714F5B /* XWJButlerViewController.m in Sources */,
 				A43C98591C15E07D006A61EE /* XWJAccount.m in Sources */,
 				A43C98091C12E95C006A61EE /* XWJNoticeViewController.m in Sources */,
 				A41255061C0F22FC0042D8CC /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1473,6 +1472,7 @@
 				A4DC3C841C1C0D82003D4D18 /* XWJNewHouseDetailViewController.m in Sources */,
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
+				A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */,
 				A41255751C0F39D20042D8CC /* SDWebImageCompat.m in Sources */,
 				A4DC3CA71C1C8155003D4D18 /* XWJGZTableViewCell.m in Sources */,
 				A43C98241C140C16006A61EE /* XWJZFTableViewCell.m in Sources */,

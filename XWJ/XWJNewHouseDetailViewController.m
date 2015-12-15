@@ -92,8 +92,14 @@
                 button.tag = TAG+i;
                 button.userInteractionEnabled = YES;
 
-                [button sd_setImageWithURL:[NSURL URLWithString:[[self.photos objectAtIndex:i] valueForKey:@"hxt"]] placeholderImage:nil];
-                
+                NSString *url;
+                if ([[self.photos objectAtIndex:i] valueForKey:@"hxt"] != [NSNull null]) {
+                    url = [[self.photos objectAtIndex:i] valueForKey:@"hxt"];
+                }else{
+                    url = @"";
+                }
+
+                [button sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
                 UITapGestureRecognizer* singleRecognizer;
                 singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(SingleTap:)];
                 //点击的次数

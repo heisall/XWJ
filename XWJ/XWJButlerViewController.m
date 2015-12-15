@@ -15,19 +15,32 @@
 
 @implementation XWJButlerViewController
 
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationItem.title = @"管家";
-    self.navigationItem.leftBarButtonItem = nil;
-//    self.titlel.text  = [[XWJCity instance].city ];
-    self.btn1.frame =CGRectMake(0, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    self.btn1.frame =CGRectMake(200, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bnt2.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bnt3.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bnt4.frame =CGRectMake(0+SCREEN_SIZE.width/4*3, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bnt5.frame =CGRectMake(0, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bt6.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
     self.bnt.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"管家";
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    NSString *ti =[NSString stringWithFormat:@"%@%@",[[XWJCity instance].district valueForKey:@"a_name"]?[[XWJCity instance].district valueForKey:@"a_name"]:@"",[[XWJCity instance].buiding valueForKey:@"b_name"]?[[XWJCity instance].buiding valueForKey:@"b_name"]:@""];
+    self.room.text  = ti;
+//    self.btn1.frame =CGRectMake(200, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bnt2.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bnt3.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bnt4.frame =CGRectMake(0+SCREEN_SIZE.width/4*3, 400,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bnt5.frame =CGRectMake(0, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bt6.frame =CGRectMake(0+SCREEN_SIZE.width/4, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
+//    self.bnt.frame =CGRectMake(0+SCREEN_SIZE.width/4*2, 400+SCREEN_SIZE.width/4,SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4);
 
     [self getAd];
     

@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"报名";
     
-    self.phone.text = [NSString stringWithFormat:@"姓名 %@",[XWJAccount instance].account];
+    self.phone.text = [NSString stringWithFormat:@"电话 %@",[XWJAccount instance].account];
     
 }
 - (IBAction)baoming:(id)sender {
