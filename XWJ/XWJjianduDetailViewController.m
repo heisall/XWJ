@@ -43,10 +43,57 @@
     [dic setValue:@"保养几次了什么时候方便看车" forKey:KEY_CONTENT];
     
     [self initView];
-    self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
+    [self getWuyeDetail];
+//    self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
     
 }
+- (IBAction)commect:(id)sender {
+}
+- (IBAction)zan:(UIButton *)sender {
+}
+- (IBAction)share:(UIButton *)sender {
+}
 
+-(void)getWuyeDetail{
+    NSString *url = GETWUYEDETAIL_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic objectForKey:@"id"] forKey:@"id"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        /*
+         "A_id" = 1;
+         FindID = 9;
+         ID = 16;
+         LeaveWord = "\U611f\U8c22\U7ef4\U62a4\U6211\U4eec\U7684\U7f8e\U597d\U5bb6\U56ed";
+         NickName = "<null>";
+         PersonID = 36;
+         Photo = "<null>";
+         ReleaseTime = "12-15 0:00";
+         Types = "\U7559\U8a00";
+         
+         */
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dic);
+            self.array = [dic objectForKey:@"comments"];
+
+                
+            [self.tableView reloadData];
+            
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+}
 -(void)initView{
     
     NSString * zanCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"ClickPraiseCount"]];
@@ -59,9 +106,18 @@
     [_shareBtn setTitle:qqCount forState:UIControlStateNormal];
 //    [_zanBtn setTitle:zanCount forState:UIControlStateNormal];
     
+    NSString *type = [self.dic objectForKey:@"Types"];
     _timeLabel.text = [self.dic objectForKey:@"ReleaseTime"];
     _titleLabel.text=[self.dic objectForKey:@"Content"];
-    _typeLabel.text = [self.dic objectForKey:@"Types"];
+    _typeLabel.text = type;
+    
+    if ([type isEqualToString:@"工作进展"]) {
+        _typeLabel.backgroundColor = XWJColor(67, 164, 83);
+    }else if ([type isEqualToString:@"工作记录"]){
+        _typeLabel.backgroundColor = XWJColor(234, 116, 13);
+    }else{
+        _typeLabel.backgroundColor = XWJColor(255,44, 56);
+    }
     
     NSString *urls = [self.dic objectForKey:@"photo"];
     NSURL *url = [NSURL URLWithString:urls];
@@ -101,10 +157,19 @@
     }
     // Configure the cell...
     NSDictionary *dic = (NSDictionary *)self.array[indexPath.row];
-    cell.headImgView.image = [dic objectForKey:KEY_HEADIMG];
-    cell.commenterLabel.text = [dic valueForKey:KEY_TITLE];
-    cell.timeLabel.text = [dic valueForKey:KEY_TIME];
-    cell.contentLabel.text = [dic valueForKey:KEY_CONTENT];
+    
+    NSString *url ;
+    if ([dic objectForKey:@"Photo"]!=[NSNull null]) {
+        url = [dic objectForKey:@"Photo"];
+    }else{
+        url = @"";
+    }
+    
+    [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
+//    cell.headImgView.image = [dic objectForKey:KEY_HEADIMG];
+    cell.commenterLabel.text = ([dic valueForKey:@"NickName"]==[NSNull null])?@"小王":[dic valueForKey:@"NickName"];
+    cell.timeLabel.text = [dic valueForKey:@"ReleaseTime"];
+    cell.contentLabel.text = [dic valueForKey:@"LeaveWord"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     //    [cell.dialBtn setImage:[] forState:<#(UIControlState)#>]

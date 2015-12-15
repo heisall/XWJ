@@ -25,25 +25,8 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    // Do any additional setup after loading the view.
-    /******************** internet ********************/
-//    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181708260671.png",
-//                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
-//                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
-//    
-//    [self.adScrollView addSubview:({
-//        
-//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-//                                                                                300.0f)
-//                                    
-//                                                            delegate:self
-//                                                           imageURLs:URLs
-//                                                    placeholderImage:nil
-//                                                       timerInterval:5.0f
-//                                       currentPageIndicatorTintColor:[UIColor redColor]
-//                                              pageIndicatorTintColor:[UIColor whiteColor]];
-//        bannerView;
-//    })];
+
+    
 
 //    UIView *view =[[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40.0)];
 ////    view.backgroundColor = [UIColor grayColor];
@@ -71,6 +54,91 @@
     [super viewWillAppear:animated];
     self.navigationItem.title = @"物业监督";
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)addViews{
+    NSMutableArray *URLs = [NSMutableArray array] ;
+    
+    for (NSDictionary *dic in self.work) {
+        [URLs addObject:[dic objectForKey:@"photo"]];
+    }
+//
+//    [self.adScrollView addSubview:({
+//        
+//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+//                                                                                self.adScrollView.bounds.size.height)
+//                                    
+//                                                            delegate:self
+//                                                           imageURLs:URLs
+//                                                    placeholderImage:nil
+//                                                       timerInterval:5.0f
+//                                       currentPageIndicatorTintColor:[UIColor redColor]
+//                                              pageIndicatorTintColor:[UIColor whiteColor]];
+//        bannerView;
+//    })];
+    
+    NSInteger count = self.work.count;
+    CGFloat width = self.view.bounds.size.width/2;
+    CGFloat height = self.adScrollView.bounds.size.height;
+    self.adScrollView.contentSize = CGSizeMake(width*count, height);
+    for (int i=0; i<count; i++) {
+        
+        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(i*(width+10), 0, width, height-10)];
+        
+        UIImageView *im =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, backView.bounds.size.height)];
+        im.userInteractionEnabled = YES;
+        im.tag = i;
+        
+        [im sd_setImageWithURL:[NSURL URLWithString:URLs[i]]placeholderImage:nil];
+
+        UITapGestureRecognizer* singleRecognizer;
+        singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click:)];
+        //点击的次数
+        singleRecognizer.numberOfTapsRequired = 1;
+        [im addGestureRecognizer:singleRecognizer];
+      
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(width-100,0, 100, 25)];
+        label.textColor = [UIColor whiteColor];
+        NSString *type = [[self.work objectAtIndex:i] valueForKey:@"Types"];
+        label.text = type;
+        label.textAlignment = NSTextAlignmentCenter;
+        if ([type isEqualToString:@"工作进展"]) {
+            label.backgroundColor = XWJColor(67, 164, 83);
+        }else if ([type isEqualToString:@"工作记录"]){
+            label.backgroundColor = XWJColor(234, 116, 13);
+        }else{
+            label.backgroundColor = XWJColor(255,44, 56);
+        }
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, backView.bounds.size.height-60, width, 60)];
+        view.backgroundColor = [UIColor blackColor];
+        view.alpha = 0.7;
+        UILabel * label1 = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, width-20, 20)];
+        label1.textColor = [UIColor whiteColor];
+        label1.text = [[self.work objectAtIndex:i] valueForKey:@"Content"];
+        label1.lineBreakMode = NSLineBreakByWordWrapping;
+        UILabel * label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 100, 20)];
+        label2.textColor = [UIColor whiteColor];
+        label2.text = [[self.work objectAtIndex:i] valueForKey:@"ReleaseTime"];
+        label2.font = [UIFont systemFontOfSize:14.0];
+        UILabel * label3 = [[UILabel alloc] initWithFrame:CGRectMake(130, 30, 50, 20)];
+        label3.textColor = [UIColor whiteColor];
+        label3.text = [NSString stringWithFormat:@"点击 %@",[[self.work objectAtIndex:i] objectForKey:@"ClickPraiseCount"]];
+        
+        [view addSubview:label1];
+        [view addSubview:label2];
+        [view addSubview:label3];
+        [backView addSubview:im];
+        [backView addSubview:label];
+        [backView addSubview:view];
+        [self.adScrollView addSubview:backView];
+    }
+}
+
+-(void)click:(UITapGestureRecognizer *)ges{
+    
+    [self bannerView:nil didClickedImageIndex:ges.view.tag];
+    NSLog(@"click");
 }
 
 -(void)getWuye{
@@ -111,26 +179,8 @@
                 
                 [self.tableView reloadData];
                 
-                
-                NSMutableArray *URLs = [NSMutableArray array] ;
-                
-                for (NSDictionary *dic in self.work) {
-                    [URLs addObject:[dic objectForKey:@"photo"]];
-                }
-                
-                [self.adScrollView addSubview:({
-                    
-                    LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-                                                                                            self.adScrollView.bounds.size.height)
-                                                
-                                                                        delegate:self
-                                                                       imageURLs:URLs
-                                                                placeholderImage:nil
-                                                                   timerInterval:5.0f
-                                                   currentPageIndicatorTintColor:[UIColor redColor]
-                                                          pageIndicatorTintColor:[UIColor whiteColor]];
-                    bannerView;
-                })];
+                [self addViews];
+
             }
             
         }

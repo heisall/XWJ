@@ -28,6 +28,7 @@
 #define GETFIND_URL XWJBASEURL"find/findDetail"
 
 #define GETWUYE_URL XWJBASEURL"sup/supIndex"
+#define GETWUYEDETAIL_URL XWJBASEURL"sup/supDetail"
 
 #define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
 
