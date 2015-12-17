@@ -28,6 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    /**
+     *  注册所有的
+     */
+    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
+    [controlView addTarget:self action:@selector(resiginTF) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:controlView atIndex:0];
+    controlView.backgroundColor = [UIColor clearColor];
+    
     [self setStatusBar];
     timeTick = 61;
     self.navigationItem.title = @"注册";
@@ -36,6 +45,13 @@
     self.txtFieldIDCode.delegate = self;
     self.txtFieldPhoneNumber.delegate = self;
     
+}
+
+-(void)resiginTF
+{
+    NSLog(@"resign");
+    [self.txtFieldIDCode resignFirstResponder];
+    [self.txtFieldPhoneNumber resignFirstResponder];
 }
 
 -(void)setStatusBar{

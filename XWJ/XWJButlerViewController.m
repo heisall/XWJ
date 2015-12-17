@@ -20,6 +20,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self initData];
+    [self addView];
 }
 
 -(void)addView{
@@ -72,7 +73,7 @@
 
     NSString *ti =[NSString stringWithFormat:@"%@%@",[[XWJCity instance].district valueForKey:@"a_name"]?[[XWJCity instance].district valueForKey:@"a_name"]:@"",[[XWJCity instance].buiding valueForKey:@"b_name"]?[[XWJCity instance].buiding valueForKey:@"b_name"]:@""];
     self.room.text  = ti;
-    [self addView];
+//    [self addView];
 
     [self getAd];
     

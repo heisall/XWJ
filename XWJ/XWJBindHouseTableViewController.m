@@ -88,7 +88,7 @@
                 NSMutableArray *arr2 = [NSMutableArray array];
                 
                 for (NSDictionary *dic in arr) {
-                    [arr2 addObject:[dic valueForKey:@"R_id"]];
+                    [arr2 addObject:[NSString stringWithFormat:@"%@单元%@号",[dic valueForKey:@"R_dy"],[dic valueForKey:@"R_id"]]];
                 }
                 self.dataSource = arr2;
                 [self.tableView reloadData];

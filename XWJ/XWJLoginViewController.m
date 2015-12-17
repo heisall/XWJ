@@ -27,6 +27,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /**
+     *  注册所有的
+     */
+    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
+    [controlView addTarget:self action:@selector(resiginTextFields) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:controlView atIndex:0];
+    controlView.backgroundColor = [UIColor clearColor];
+    
     _tFieldUserName.delegate = self;
     _tFieldPassWord.delegate = self;
     
@@ -62,6 +71,15 @@
         [self prefersStatusBarHidden];
         [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     }
+}
+
+-(void)resiginTextFields
+{
+    
+    NSLog(@"resigne  tf");
+    [self.tFieldUserName resignFirstResponder];
+    [self.tFieldPassWord resignFirstResponder];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
