@@ -11,6 +11,8 @@
 #import "XWJCity.h"
 #import "UIImageView+WebCache.h"
 #import "XWJNoticeViewController.h"
+#import "XWJFindTypeController.h"
+#import "XWJFindPubViewController.h"
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 2
 #define  SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -29,9 +31,8 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJFindCollectionCellView" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
     
-    [self getFindList:@"0"];
-    
-
+    [self getFindList:nil];
+    self.select = -1;
 }
 
 //参数：pageindex：第几页（从0开始）countperpage：每页条数 a_id ：小区id，types:类型 userid:用户id
@@ -40,7 +41,10 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:@"1"  forKey:@"a_id"];
-    [dict setValue:type  forKey:@"types"];
+    
+    if (type) {
+        [dict setValue:type  forKey:@"types"];
+    }
     [dict setValue:@"0" forKey:@"pageindex"];
     [dict setValue:@"20"  forKey:@"countperpage"];
     
@@ -56,12 +60,31 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
             
             NSDictionary *dic2  = [dic objectForKey:@"data"];
             NSArray * arr = [dic2 objectForKey:@"types"];
-            [self.findlistArr addObjectsFromArray:arr];
-            for (NSInteger i=0; i<arr.count; i++) {
-                [self getFind:i];
-            }
             
-            self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
+            NSMutableDictionary *quanbu = [NSMutableDictionary dictionary];
+            [quanbu setValue:@"全部" forKey:@"Memo"];
+//            [quanbu setValue:@"" forKey:@"DictValue"];
+            
+            [self.findlistArr removeAllObjects];
+            [self.findlistArr addObject:quanbu];
+            [self.findlistArr addObjectsFromArray:arr];
+//            for (NSInteger i=0; i<arr.count; i++) {
+//                [self getFind:i];
+//            }
+            
+            NSArray *mes = [dic2 objectForKey:@"message"];
+            [self.finddetailArr removeAllObjects];
+            [self.finddetailArr addObjectsFromArray:mes] ;
+            [self.collectionView reloadData];
+            
+            
+            if (self.select>=0) {
+                self.typeLabel.text = [[self.findlistArr objectAtIndex:self.select] valueForKey:@"Memo"];
+            }else{
+                self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
+            }
+//            self.typeLabel.text = @"全部";
+
             NSLog(@"dic %@",dic);
         }
 
@@ -126,6 +149,9 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    if (self.select>=0) {
+        [self getFindList:[[self.findlistArr objectAtIndex:self.select] valueForKey:@"DictValue"]];
+    }
     self.navigationItem.title = @"依云小镇";
 //    self.title = @"依云小镇";
     self.navigationItem.leftBarButtonItem = nil;
@@ -169,14 +195,23 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 //    label3.text = @"10";
 //    label4.text = @"5分中前";
     
+        NSString *type  = [[self.finddetailArr objectAtIndex:indexPath.section* indexPath.row] valueForKey:@"Memo"];
+        label1.text = type;
     
-        label1.text = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"types"];
-        label2.text = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"content"];
+        if ([type isEqualToString:@"社区分享"]) {
+                label1.backgroundColor = XWJColor(255,44, 56);
+            }else if ([type isEqualToString:@"跳蚤市场"]){
+                    label1.backgroundColor = XWJColor(234, 116, 13);
+            }else{
+                label1.backgroundColor = XWJColor(67, 164, 83);
+        }
+//        label1.text = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"types"];
+        label2.text = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"content"];
     
-    NSString *urls = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"photo"];
-        NSString *count = [NSString stringWithFormat:@"%@",[[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"leaveWordCount"]];
+    NSString *urls = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"Photo"];
+        NSString *count = [NSString stringWithFormat:@"%@",[[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"LeaveWordCount"]];
         label3.text = count;
-        label4.text = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"releaseTime"];
+        label4.text = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"ReleaseTime"];
     
     NSURL *url = [NSURL URLWithString:[[urls componentsSeparatedByString:@","] objectAtIndex:0]];
     [imageView sd_setImageWithURL:url
@@ -216,6 +251,13 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
         [self.navigationController showViewController:notice sender:nil];
 }
 - (IBAction)fabu:(id)sender {
+    
+    XWJFindPubViewController *viewcon = [self.storyboard  instantiateViewControllerWithIdentifier:@"findpub"];
+    viewcon.dataSource = [NSMutableArray array];
+
+    [viewcon.dataSource addObjectsFromArray: self.findlistArr];
+    [self.navigationController showViewController:viewcon sender:nil];
+    
 }
 - (IBAction)selectType:(id)sender {
     
@@ -225,9 +267,10 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
         [a addObject:[d valueForKey:@"Memo"]];
     }
  
+    XWJFindTypeController *viewcon = [self.storyboard  instantiateViewControllerWithIdentifier:@"findtype"];
+    viewcon.array = self.findlistArr;
+    [self.navigationController showViewController:viewcon sender:nil];
 //    // 为UIPickerView控件设置dataSource和delegate
-//    self.picker.dataSource = self;
-//    self.picker.delegate = self;
     
 }
 
@@ -270,7 +313,8 @@ numberOfRowsInComponent:(NSInteger)component
 {
     
         XWJFindDetailViewController * con = [self.storyboard instantiateViewControllerWithIdentifier:@"findDetail"];
-        con.dic = [self.finddetailArr objectAtIndex:indexPath.row];
+        con.finddetail = self.finddetailArr;
+        con.dic = [self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS +indexPath.row];
         [self.navigationController showViewController:con sender:nil];
 //            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //            [cell setBackgroundColor:[UIColor greenColor]];

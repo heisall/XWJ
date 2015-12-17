@@ -115,11 +115,10 @@
         
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
         [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"log success ");
             
             NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
             NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-            
+//            [XWJAccount instance].uid = ;
             if (![username isEqualToString:uname]||![pwd isEqualToString:pass]) {
                 [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];

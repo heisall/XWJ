@@ -231,7 +231,7 @@
         [city bindRoom:[NSString stringWithFormat:@"%ld",(long)_typeindex]  :^(NSInteger arr) {
             
             if (arr==1) {
-                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"绑定成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alertview show];
 
                 alertview.delegate = self;

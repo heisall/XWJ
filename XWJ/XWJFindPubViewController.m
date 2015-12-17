@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScroll;
 @property (nonatomic)UIBarButtonItem *rightBarItem;
 @property (nonatomic)NSArray *imageArray;
-@property(nonatomic)NSArray *dataSource;
 @end
 
 @implementation XWJFindPubViewController
@@ -28,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     for (int i = 0; i<IMAGECOUNT; i++) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*(IMAGE_WIDTH+spacing), 0,IMAGE_WIDTH, IMAGE_WIDTH)];
         imgView.tag = TAG+i;
@@ -36,8 +34,8 @@
     }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.dataSource = [NSArray arrayWithObjects:@"二手市场",@"帮帮忙",@"个人商店", nil];
-    
+//    self.dataSource = [NSArray arrayWithObjects:@"二手市场",@"帮帮忙",@"个人商店", nil];
+    [self.dataSource removeObjectAtIndex:0];
     self.contentTextView.delegate = self;
 }
 
@@ -127,7 +125,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = self.dataSource[indexPath.row];
+    cell.textLabel.text = [self.dataSource[indexPath.row] objectForKey:@"Memo"];
     cell.textLabel.textColor =[UIColor colorWithRed:68.0/255.0 green:70.0/255.0 blue:71.0/255.0 alpha:1.0];
 //    celt.imageView.image = [];
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

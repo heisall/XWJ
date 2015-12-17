@@ -39,7 +39,6 @@
                                                 <state key="normal" image="next"/>
                                                 <connections>
                                                     <action selector="selectType:" destination="b5P-bG-wxp" eventType="touchUpInside" id="fv0-5L-DP4"/>
-                                                    <segue destination="ahI-91-39I" kind="show" id="En1-j3-c07"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -70,10 +69,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-e4-ToJ">
-                                <rect key="frame" x="0.0" y="30" width="300" height="90"/>
+                                <rect key="frame" x="0.0" y="30" width="299.5" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peV-cj-Pry">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="299.5" height="90"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="findhuodong">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,17 +93,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-2f-tdq">
-                                <rect key="frame" x="301" y="30" width="299" height="90"/>
+                                <rect key="frame" x="300" y="30" width="299.5" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-Tb-XhX">
-                                        <rect key="frame" x="0.0" y="0.0" width="299" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="299.5" height="90"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="findfabu">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="fabu:" destination="b5P-bG-wxp" eventType="touchUpInside" id="PRN-dr-dUf"/>
-                                            <segue destination="ahI-91-39I" kind="show" id="fJD-KI-W0a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -179,6 +177,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvO-Em-xkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="99"/>
+        </scene>
+        <!--Find Type Controller-->
+        <scene sceneID="OEV-cY-HVL">
+            <objects>
+                <viewController storyboardIdentifier="findtype" id="EVr-qy-5Mo" customClass="XWJFindTypeController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aoY-o4-1b0"/>
+                        <viewControllerLayoutGuide type="bottom" id="AeB-Zd-Sbb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gqb-0y-Qpb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vJd-RL-diw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vJd-RL-diw" firstAttribute="centerX" secondItem="Gqb-0y-Qpb" secondAttribute="centerX" id="6go-95-d80"/>
+                            <constraint firstItem="vJd-RL-diw" firstAttribute="width" secondItem="Gqb-0y-Qpb" secondAttribute="width" id="JVl-Ah-C2N"/>
+                            <constraint firstItem="vJd-RL-diw" firstAttribute="height" secondItem="Gqb-0y-Qpb" secondAttribute="height" id="mYS-EQ-hQn"/>
+                            <constraint firstItem="vJd-RL-diw" firstAttribute="centerY" secondItem="Gqb-0y-Qpb" secondAttribute="centerY" id="yhf-h4-sdD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="vJd-RL-diw" id="8ho-Qy-Fzi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQH-qN-jVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="482" y="784"/>
         </scene>
         <!--通知活动-->
         <scene sceneID="r4T-0d-jtE">
@@ -265,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKf-fW-7OE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="702"/>
+            <point key="canvasLocation" x="1116" y="576"/>
         </scene>
         <!--详情-->
         <scene sceneID="zn8-Zj-GqV">
@@ -510,7 +543,7 @@
         <!--发表主题-->
         <scene sceneID="1pG-Af-llf">
             <objects>
-                <viewController title="发表主题" id="ahI-91-39I" customClass="XWJFindPubViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="findpub" title="发表主题" id="ahI-91-39I" customClass="XWJFindPubViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CAg-xQ-Laf"/>
                         <viewControllerLayoutGuide type="bottom" id="3Wy-cb-Enu"/>
@@ -628,7 +661,4 @@
         <image name="headDefaultImg" width="65" height="65"/>
         <image name="next" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="En1-j3-c07"/>
-    </inferredMetricsTieBreakers>
 </document>

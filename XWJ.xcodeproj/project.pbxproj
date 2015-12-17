@@ -59,6 +59,7 @@
 		A412558E1C0F595B0042D8CC /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */; };
 		A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */; };
 		A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */; };
+		A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810FE1C231530001D2F29 /* XWJFindTypeController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -313,6 +314,8 @@
 		A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBMViewController.m; sourceTree = "<group>"; };
 		A43810CE1C1FD135001D2F29 /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
 		A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerViewController.m; sourceTree = "<group>"; };
+		A43810FD1C231530001D2F29 /* XWJFindTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindTypeController.h; sourceTree = "<group>"; };
+		A43810FE1C231530001D2F29 /* XWJFindTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindTypeController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -1025,6 +1028,8 @@
 				A43C980E1C1313D0006A61EE /* XWJFindDetailViewController.m */,
 				A43C98191C133914006A61EE /* XWJFindDetailTableViewCell.h */,
 				A43C981A1C133914006A61EE /* XWJFindDetailTableViewCell.m */,
+				A43810FD1C231530001D2F29 /* XWJFindTypeController.h */,
+				A43810FE1C231530001D2F29 /* XWJFindTypeController.m */,
 			);
 			name = Find;
 			sourceTree = "<group>";
@@ -1514,6 +1519,7 @@
 				A43C97CF1C129A79006A61EE /* LGPhotoPickerBrowserPhotoView.m in Sources */,
 				A4DC3CAE1C1D0FF9003D4D18 /* XWJCity.m in Sources */,
 				A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */,
+				A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */,
 				A4DC3C871C1C1133003D4D18 /* XWJNewHouseInfoViewController.m in Sources */,
 				A41255771C0F39D20042D8CC /* SDWebImageDownloader.m in Sources */,
 				A4DC3C931C1C5096003D4D18 /* XWJGZaddViewController.m in Sources */,

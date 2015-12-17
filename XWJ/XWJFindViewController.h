@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property NSMutableArray *findlistArr;
 @property NSMutableArray *finddetailArr;
-
+@property NSInteger select;
+@property NSMutableArray *findMes;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic)NSArray *array;
 @end

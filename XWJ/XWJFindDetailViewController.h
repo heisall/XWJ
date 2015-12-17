@@ -11,4 +11,5 @@
 @interface XWJFindDetailViewController : XWJBaseViewController
 @property(nonatomic)NSArray *array;
 @property NSDictionary *dic;
+@property NSMutableArray *finddetail;
 @end

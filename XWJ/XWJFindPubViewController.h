@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *titleTexField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property(nonatomic)NSMutableArray *dataSource;
 
 @end

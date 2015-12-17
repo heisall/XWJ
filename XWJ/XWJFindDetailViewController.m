@@ -50,17 +50,82 @@
     [dic setValue:@"小宝" forKey:KEY_TITLE];
     [dic setValue:@"2015-11-11" forKey:KEY_TIME];
     [dic setValue:@"保养几次了什么时候方便看车" forKey:KEY_CONTENT];
+    [self getFind:0];
     
-    
-    self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
+//    self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
 
 }
+
+-(void)getFind:(NSInteger )index{
+    
+    NSString *url = GETFIND_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"id"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        /*
+         find =         {
+         "a_id" = "<null>";
+         appID = 12;
+         clickPraiseCount = 0;
+         content = "\U661f\U5df4\U514b\U4e4b\U9ebb\U8fa3\U706b\U9505";
+         id = 10;
+         leaveWordCount = 0;
+         nickName = "<null>";
+         photo = "http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535403.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535601.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535471.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535433.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535420.jpg,http://www.hisenseplus.com/HisenseUpload/find_photo/imag201512082013535552.jpg";
+         releaseTime = "12-08 20:13";
+         shareQQCount = 0;
+         shareWXCount = 0;
+         types = "\U597d\U4eba\U597d\U4e8b";
+         };
+         */
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dic);
+            NSNumber *res =[dic objectForKey:@"result"];
+            if ([res intValue] == 1) {
+                
+                
+                /*
+                 
+                 "A_id" = 1;
+                 FindID = 22;
+                 ID = 15;
+                 LeaveWord = "\U671f\U5f85\U5723\U8bde\U8001\U7237\U7237\U7684\U5230\U6765";
+                 NickName = "<null>";
+                 PersonID = 36;
+                 Photo = "<null>";
+                 ReleaseTime = "12-15 0:00";
+                 Types = "\U7559\U8a00";
+                 */
+                
+                self.array = [[dic objectForKey:@"data"] objectForKey:@"comments"];
+                self.dic = [[dic objectForKey:@"data"] objectForKey:@"find"];
+                [self initView];
+                [self.tableView reloadData];
+
+            }
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+}
+
 -(void)initView{
 
     NSString * zanCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"clickPraiseCount"]];
     NSString *  leaveCount= [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"leaveWordCount"]];
     NSString * qqCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareQQCount"]];
-    NSString * wxCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareWXCount"]];
+//    NSString * wxCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareWXCount"]];
 
     [_phraseBtn setTitle:zanCount forState:UIControlStateNormal];
     [_CommentBtn setTitle:leaveCount forState:UIControlStateNormal];
@@ -69,8 +134,16 @@
 
     _timelabel.text = [self.dic objectForKey:@"releaseTime"];
     _titleLabel.text=[self.dic objectForKey:@"content"];
-    _typeLabel.text = [self.dic objectForKey:@"types"];
+        _typeLabel.text = [self.dic objectForKey:@"types"];
     
+    NSString *type = [self.dic objectForKey:@"types"];
+    if ([type isEqualToString:@"社区分享"]) {
+        _typeLabel.backgroundColor = XWJColor(255,44, 56);
+    }else if ([type isEqualToString:@"跳蚤市场"]){
+        _typeLabel.backgroundColor = XWJColor(234, 116, 13);
+    }else{
+        _typeLabel.backgroundColor = XWJColor(67, 164, 83);
+    }
     NSString *urls = [self.dic objectForKey:@"photo"];
     NSURL *url = [NSURL URLWithString:[[urls componentsSeparatedByString:@","] objectAtIndex:0]];
 
@@ -118,10 +191,31 @@
     }
     // Configure the cell...
     NSDictionary *dic = (NSDictionary *)self.array[indexPath.row];
-    cell.headImgView.image = [dic objectForKey:KEY_HEADIMG];
-    cell.commenterLabel.text = [dic valueForKey:KEY_TITLE];
-    cell.timeLabel.text = [dic valueForKey:KEY_TIME];
-    cell.contentLabel.text = [dic valueForKey:KEY_CONTENT];
+    
+    
+    
+    /*
+     
+     "A_id" = 1;
+     FindID = 22;
+     ID = 15;
+     LeaveWord = "\U671f\U5f85\U5723\U8bde\U8001\U7237\U7237\U7684\U5230\U6765";
+     NickName = "<null>";
+     PersonID = 36;
+     Photo = "<null>";
+     ReleaseTime = "12-15 0:00";
+     Types = "\U7559\U8a00";
+     */
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"Photo"]];
+    cell.commenterLabel.text = [dic objectForKey:@"NickName"]==[NSNull null]?@" ":[dic objectForKey:@"NickName"];
+    cell.timeLabel.text = [dic objectForKey:@"ReleaseTime"]==[NSNull null]?@" ":[dic objectForKey:@"ReleaseTime"];
+    cell.contentLabel.text = [dic objectForKey:@"LeaveWord"]==[NSNull null]?@" ":[dic objectForKey:@"LeaveWord"];
+    
+//    cell.headImgView.image = [dic objectForKey:KEY_HEADIMG];
+//    cell.commenterLabel.text = [dic valueForKey:KEY_TITLE];
+//    cell.timeLabel.text = [dic valueForKey:KEY_TIME];
+//    cell.contentLabel.text = [dic valueForKey:KEY_CONTENT];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     //    [cell.dialBtn setImage:[] forState:<#(UIControlState)#>]
