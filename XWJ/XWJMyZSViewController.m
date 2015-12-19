@@ -111,7 +111,7 @@ static NSString *cellid = @"zftablecell";
     //    if (self.type == HOUSE2||self.type==HOUSEZU) {
     
     UIStoryboard *zfstory = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
-    XWJZFDetailViewController *detail = [zfstory instantiateViewControllerWithIdentifier:@"zfdatail"];
+    XWJZFDetailViewController *detail = [zfstory instantiateViewControllerWithIdentifier:@"2fdatail"];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setValue:@"" forKey:@""];
     detail.dic = dic;

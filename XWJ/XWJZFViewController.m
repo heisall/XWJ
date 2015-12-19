@@ -738,7 +738,7 @@ typedef NS_ENUM(NSUInteger, selecttype) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (self.type == HOUSE2||self.type==HOUSEZU) {
-        XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"zfdatail"];
+        XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"2fdatail"];
 //        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //        [dic setValue:@"" forKey:@""];
         detail.dic = [self.houseArr objectAtIndex:indexPath.row];

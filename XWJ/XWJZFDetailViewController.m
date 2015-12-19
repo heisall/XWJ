@@ -16,6 +16,7 @@
     CGFloat collectionCellHeight;
     CGFloat collectionCellWidth;
 }
+@property (strong, nonatomic) IBOutlet UIScrollView *backScroll;
 
 @property (weak, nonatomic) IBOutlet UIView *adView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -51,10 +52,11 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     
 
     
-    UIScrollView *scrolView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
-    scrolView.contentSize = CGSizeMake(SCREEN_SIZE.width, SCREEN_SIZE.height+300);
-    [self.view.window addSubview:scrolView];
+//    UIScrollView *scrolView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
+//    scrolView.contentSize = CGSizeMake(SCREEN_SIZE.width, SCREEN_SIZE.height+300);
+//    [self.view  insertSubview:scrolView belowSubview:self.adView];
     
+
     if (self.type == HOUSEZU) {
         self.teseView.hidden = YES;
         self.collectionIView.hidden = NO;
@@ -85,6 +87,12 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     }
     self.navigationItem.title = title;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.backScroll.contentSize = CGSizeMake(SCREEN_SIZE.width
+                                             , SCREEN_SIZE.height +100);
 }
 
 /**

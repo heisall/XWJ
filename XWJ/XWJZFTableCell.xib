@@ -16,23 +16,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcY-Ra-Wg7">
-                        <rect key="frame" x="154" y="11" width="46.5" height="23"/>
+                        <rect key="frame" x="154" y="11" width="42" height="20.5"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ4-PA-SG9">
-                        <rect key="frame" x="154" y="39" width="42" height="20.5"/>
+                        <rect key="frame" x="154" y="36.5" width="37.5" height="18"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBc-DT-D0z">
-                        <rect key="frame" x="154" y="79" width="37.5" height="18"/>
+                        <rect key="frame" x="154" y="74" width="33" height="16"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.81568627449999997" green="0.81960784310000001" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -44,9 +44,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-uz-DsP">
-                        <rect key="frame" x="525" y="79" width="46.5" height="23"/>
+                        <rect key="frame" x="552.5" y="74" width="39.5" height="19.5"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.74117647060000003" green="0.070588235289999995" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -63,7 +63,7 @@
                     <constraint firstItem="PJ4-PA-SG9" firstAttribute="top" secondItem="BcY-Ra-Wg7" secondAttribute="bottom" constant="5" id="jNV-P7-d63"/>
                     <constraint firstItem="BcY-Ra-Wg7" firstAttribute="leading" secondItem="1yM-SV-ayg" secondAttribute="trailing" constant="8" id="lnz-0v-XzN"/>
                     <constraint firstItem="BcY-Ra-Wg7" firstAttribute="top" secondItem="1yM-SV-ayg" secondAttribute="top" id="t1e-49-9h0"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="QAJ-uz-DsP" secondAttribute="trailing" constant="20" id="voE-Uf-zgV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QAJ-uz-DsP" secondAttribute="trailing" id="voE-Uf-zgV"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

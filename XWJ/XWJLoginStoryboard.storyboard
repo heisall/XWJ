@@ -50,7 +50,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-Qt-NIS">
-                                <rect key="frame" x="80" y="277" width="440" height="20"/>
+                                <rect key="frame" x="80" y="307" width="440" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwm-XO-ijS">
-                                <rect key="frame" x="80" y="324" width="440" height="20"/>
+                                <rect key="frame" x="80" y="345" width="440" height="20"/>
                                 <animations/>
                                 <color key="textColor" red="0.3294117647" green="0.66274509800000003" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -115,7 +115,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-RR-PKk" userLabel="line2">
-                                <rect key="frame" x="80" y="297" width="440" height="1"/>
+                                <rect key="frame" x="80" y="327" width="440" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -123,7 +123,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-Ln-sCQ" userLabel="line1">
-                                <rect key="frame" x="80" y="344" width="440" height="1"/>
+                                <rect key="frame" x="80" y="365" width="440" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.83137254901960778" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -149,7 +149,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vCJ-Qt-NIS" firstAttribute="leading" secondItem="LzO-yJ-YPs" secondAttribute="leadingMargin" constant="60" id="12G-QW-Urq"/>
-                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="120" id="1Dl-cb-dfY"/>
+                            <constraint firstItem="t7L-as-Xt4" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="90" id="1Dl-cb-dfY"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="3UL-We-ioe"/>
                             <constraint firstItem="jFH-RR-PKk" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="4sV-NP-ZbX"/>
                             <constraint firstItem="YhC-cX-ZmF" firstAttribute="leading" secondItem="dMX-1E-e8j" secondAttribute="trailing" constant="36.5" id="87y-WV-jLv"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="Xwm-XO-ijS" firstAttribute="width" secondItem="vCJ-Qt-NIS" secondAttribute="width" id="MAF-Kr-7yZ"/>
                             <constraint firstItem="4dA-Kw-dZz" firstAttribute="top" secondItem="sKa-sJ-jzq" secondAttribute="bottom" constant="42" id="Oup-ny-6lw"/>
                             <constraint firstItem="4dA-Kw-dZz" firstAttribute="top" secondItem="dMX-1E-e8j" secondAttribute="bottom" constant="49" id="RfM-Mz-4vA"/>
-                            <constraint firstItem="Xwm-XO-ijS" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="27" id="VL6-92-sSx"/>
+                            <constraint firstItem="Xwm-XO-ijS" firstAttribute="top" secondItem="vCJ-Qt-NIS" secondAttribute="bottom" constant="18" id="VL6-92-sSx"/>
                             <constraint firstItem="vCJ-Qt-NIS" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="XNs-cc-6Vh"/>
                             <constraint firstItem="Xwm-XO-ijS" firstAttribute="centerX" secondItem="LzO-yJ-YPs" secondAttribute="centerX" id="Xxj-z0-b4R"/>
                             <constraint firstItem="tSb-oE-BiS" firstAttribute="height" secondItem="LzO-yJ-YPs" secondAttribute="height" id="a74-Y3-Kam"/>
