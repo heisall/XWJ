@@ -353,11 +353,12 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
             NSData *data = UIImageJPEGRepresentation(imageView.image,1.0);
             //            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-            if (aString) {
-                
-                [self.imageDatas addObject:data];
-            }
+            NSString *rawString=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
+
+            if (rawString) {
+                [self.imageDatas addObject:rawString];
+            }else
+            [self.imageDatas addObject:data];
         }
         
         self.imgScrollView.contentSize =CGSizeMake((IMAGE_WIDTH+spacing) * count, IMAGE_WIDTH);

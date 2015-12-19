@@ -436,10 +436,14 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
             NSData *data = UIImageJPEGRepresentation(imageView.image,1.0);
 //            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *rawString=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
 
-            if (aString) {
+            if (rawString) {
                 
+                [self.imageDatas addObject:rawString];
+            }else{
                 [self.imageDatas addObject:data];
+                
             }
         }
 

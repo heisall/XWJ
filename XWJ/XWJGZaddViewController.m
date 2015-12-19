@@ -61,9 +61,17 @@
             //            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
-            if (aString) {
+            
+            NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
+//            NSString *rawString=[[NSString alloc]initWithData:data encoding:enc];
+            NSString *rawString=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
+
+            if (rawString) {
                 
+                [self.imageDatas addObject:rawString];
+            }else{
                 [self.imageDatas addObject:data];
+                
             }
         }
         
@@ -96,10 +104,12 @@
      private String []pics;
      private String onDoorTime;
      */
-    
+    XWJAccount *account = [XWJAccount instance];
     [dict setValue:self.guzhangTV.text forKey:@"content"];
-    [dict setObject:self.imageDatas forKey:@"pics"];
-    [dict setObject:self.gzid forKey:@"useid"];
+    if (self.imageDatas) {
+        [dict setObject:self.imageDatas forKey:@"pics"];
+    }
+    [dict setObject:account.uid forKey:@"useid"];
     if (self.type ==1) {
         [dict setValue:@"维修" forKey:@"type"];
     }else
@@ -107,22 +117,29 @@
     
     [dict setValue:@"" forKey:@"onDoorTime"];
     
-    
-//    NSDictionary *guzhang = [NSDictionary dic];
+
+    NSMutableDictionary *guzhang = [NSMutableDictionary dictionary];
+    [guzhang setObject:dict forKey:@"complain"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager PUT:url parameters:guzhang success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%s success ",__FUNCTION__);
         
         if(responseObject){
             NSDictionary *dic = (NSDictionary *)responseObject;
             
-            //            NSMutableArray * array = [NSMutableArray array];
-            //            XWJCity *city  = [[XWJCity alloc] init];
+            NSNumber *res =[dic objectForKey:@"result"];
+            if ([res intValue] == 1) {
+                
+                NSString *errCode = [dic objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                
+            }
             
-            //            NSArray *arr  = [dic objectForKey:@"data"];
-            //            [self.houseArr removeAllObjects];
-            //            [self.houseArr addObjectsFromArray:arr];
-            //            [self.tableView reloadData];
             NSLog(@"dic %@",dic);
         }
         
