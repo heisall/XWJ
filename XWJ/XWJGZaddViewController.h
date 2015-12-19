@@ -9,5 +9,6 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJGZaddViewController : XWJBaseViewController
-
+@property NSInteger type;
+@property NSString *gzid;
 @end

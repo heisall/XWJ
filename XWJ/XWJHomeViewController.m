@@ -302,10 +302,13 @@ NSArray *footer;
 
     UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
     XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
+    gz.type = 1;
     
+    XWJGuzhangViewController *gz2 = [guzhang instantiateInitialViewController];
+    gz2.type = 2;
     self.isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
 //    self.isBind = YES;
-    NSArray *jump = [NSArray arrayWithObjects:notice,notice2,wu,gz,notice,pay, nil];
+    NSArray *jump = [NSArray arrayWithObjects:notice,notice2,wu,gz,gz2,pay, nil];
 
     if (!self.isBind&&((sender.tag-TAG == 3)||(sender.tag - TAG) == 5)) {
 //        

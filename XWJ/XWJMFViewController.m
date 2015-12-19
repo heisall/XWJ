@@ -389,7 +389,7 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
             self.cx  = [NSMutableArray arrayWithArray:[dic objectForKey:@"cx"]];
             self.md  = [NSMutableArray arrayWithArray:[dic objectForKey:@"md"]];
             self.zx  = [NSMutableArray arrayWithArray:[dic objectForKey:@"zx"]];
-            [self.lp insertObject:quanbu atIndex:0];
+//            [self.lp insertObject:quanbu atIndex:0];
             [self.cx insertObject:quanbu atIndex:0];
             [self.md insertObject:quanbu atIndex:0];
             [self.zx insertObject:quanbu atIndex:0];

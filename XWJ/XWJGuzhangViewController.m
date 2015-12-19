@@ -10,10 +10,12 @@
 #import "XWJGZmiaoshuViewController.h"
 #import "RatingBar/RatingBar.h"
 #import "XWJGZTableViewCell.h"
+#import "XWJAccount.h"
+#import "XWJGZaddViewController.h"
 #define TAG 100
 @interface XWJGuzhangViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property NSArray *guzhangArr;
 @end
 
 @implementation XWJGuzhangViewController
@@ -26,16 +28,26 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.navigationItem.title = @"故障报修";
-    
+    if (self.type == 1) {
+        self.navigationItem.title = @"故障报修";
+    }else{
+        self.navigationItem.title = @"物业投诉";
+    }
+    [self getGuzhang];
     [self setNavRightItem];
 }
 
 -(void)setNavRightItem{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 40);
+    
+    if (self.type == 1) {
+
     [btn setTitle:@"报修" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    }else
+        [btn setTitle:@"投诉" forState:UIControlStateNormal];
+
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     [btn addTarget:self action:@selector(baoxiu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *done= [[UIBarButtonItem  alloc] initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = done;
@@ -43,7 +55,8 @@
 
 -(void)baoxiu{
     
-        UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"guzhangbaoxiu"];
+        XWJGuzhangViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"guzhangbaoxiu"];
+    view.type = self.type;
     [self.navigationController showViewController:view sender:nil];
 }
 
@@ -65,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 20;
+    return self.guzhangArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,6 +147,49 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/*
+ userid	登录用户id	String
+ type	类型（维修、投诉）	String
+ */
+-(void)getGuzhang{
+    NSString *url = GETFGUZHANG_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
+    XWJAccount *account = [XWJAccount instance];
+    [dict setValue:account.uid forKey:@"userid"];
+    if (self.type==1) {
+ 
+        [dict setValue:@"维修" forKey:@"type"];
+    }else
+        [dict setValue:@"投诉" forKey:@"type"];
+
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            
+            //            NSMutableArray * array = [NSMutableArray array];
+            //            XWJCity *city  = [[XWJCity alloc] init];
+            
+//            NSArray *arr  = [dic objectForKey:@"data"];
+//            [self.houseArr removeAllObjects];
+//            [self.houseArr addObjectsFromArray:arr];
+//            [self.tableView reloadData];
+            NSLog(@"dic %@",dic);
+        }
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
 /*

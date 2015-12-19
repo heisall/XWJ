@@ -67,7 +67,7 @@
 		A43811181C24FFDD001D2F29 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811161C24FFDD001D2F29 /* ShareSDK.bundle */; };
 		A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */; };
 		A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111B1C257E60001D2F29 /* XWJMFViewController.m */; };
-		A438111F1C25C4A0001D2F29 /* XWJCZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */; };
+		A43811221C25C957001D2F29 /* XWJCZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -333,8 +333,8 @@
 		A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
 		A438111A1C257E60001D2F29 /* XWJMFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMFViewController.h; sourceTree = "<group>"; };
 		A438111B1C257E60001D2F29 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
-		A438111D1C25C4A0001D2F29 /* XWJCZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJCZFDetailViewController.h; sourceTree = "<group>"; };
-		A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCZFDetailViewController.m; sourceTree = "<group>"; };
+		A43811201C25C957001D2F29 /* XWJCZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJCZFDetailViewController.h; sourceTree = "<group>"; };
+		A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCZFDetailViewController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -930,8 +930,8 @@
 				A4DC3C861C1C1133003D4D18 /* XWJNewHouseInfoViewController.m */,
 				A438110D1C2462C4001D2F29 /* XWJHouseMapController.h */,
 				A438110E1C2462C4001D2F29 /* XWJHouseMapController.m */,
-				A438111D1C25C4A0001D2F29 /* XWJCZFDetailViewController.h */,
-				A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */,
+				A43811201C25C957001D2F29 /* XWJCZFDetailViewController.h */,
+				A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */,
 			);
 			name = zufang;
 			sourceTree = "<group>";
@@ -1505,7 +1505,7 @@
 				A43C981B1C133914006A61EE /* XWJFindDetailTableViewCell.m in Sources */,
 				A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */,
 				A4DC3C811C1BDC63003D4D18 /* XWJCZViewController.m in Sources */,
-				A438111F1C25C4A0001D2F29 /* XWJCZFDetailViewController.m in Sources */,
+				A43811221C25C957001D2F29 /* XWJCZFDetailViewController.m in Sources */,
 				A4DC3C841C1C0D82003D4D18 /* XWJNewHouseDetailViewController.m in Sources */,
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,

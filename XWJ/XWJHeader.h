@@ -19,4 +19,8 @@
 #define KEY_TIME  @"time"
 #define KEY_CONTENT @"content"
 
+#define IMAGECOUNT 6
+
+#define IMAGE_WIDTH 80
+#define spacing 5
 #endif /* XWJHeader_h */

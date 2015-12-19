@@ -355,13 +355,16 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)shoucang:(id)sender {
-    if (self.type == HOUSE2) {
-        [self shoucang:@"2"];
-    }
-    if (self.type ==HOUSEZU) {
-        [self shouCang:@"3"];
-    }
+//- (IBAction)shoucang:(id)sender {
+//    if (self.type == HOUSE2) {
+//        [self shoucang:@"2"];
+//    }
+//    if (self.type ==HOUSEZU) {
+//        [self shouCang:@"3"];
+//    }
+//}
+- (IBAction)shoucangEvt:(UIButton *)sender {
+    [self shouCang:@"2"];
 }
 
 -(void)shouCang:(NSString *)type{

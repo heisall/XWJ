@@ -10,4 +10,5 @@
 
 @interface XWJGuzhangViewController : XWJBaseViewController
 @property NSArray *data;
+@property NSInteger type;
 @end

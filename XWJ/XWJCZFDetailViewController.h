@@ -7,7 +7,10 @@
 //
 
 #import "XWJBaseViewController.h"
+#import "XWJZFViewController.h"
 
 @interface XWJCZFDetailViewController : XWJBaseViewController
 
+@property HOUSETYPE type;
+@property NSDictionary *dic;
 @end

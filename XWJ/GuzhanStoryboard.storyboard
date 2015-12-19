@@ -149,7 +149,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="很高兴为您服务 请您描述你要报修的内容。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uFc-IP-its">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFc-IP-its">
                                 <rect key="frame" x="20" y="30" width="560" height="150"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,7 +191,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOW-gs-GCZ">
-                                <rect key="frame" x="191" y="519" width="218" height="44"/>
+                                <rect key="frame" x="191" y="354" width="218" height="44"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0uV-Wo-6uJ"/>
@@ -246,8 +246,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="uFc-IP-its" secondAttribute="trailing" id="oZn-Sm-hDa"/>
                             <constraint firstItem="FTd-eu-X7N" firstAttribute="leading" secondItem="NVe-VD-hdf" secondAttribute="leadingMargin" constant="6" id="rFO-Is-BEe"/>
                             <constraint firstItem="TB6-NA-PJX" firstAttribute="leading" secondItem="FTd-eu-X7N" secondAttribute="trailing" id="s2g-p3-kpe"/>
+                            <constraint firstItem="zOW-gs-GCZ" firstAttribute="top" secondItem="lJo-lX-a5n" secondAttribute="bottom" constant="20" id="vad-UN-24v"/>
                             <constraint firstItem="lJo-lX-a5n" firstAttribute="leading" secondItem="NKR-x3-ANC" secondAttribute="trailing" constant="-127" id="zuD-Ek-vlJ"/>
-                            <constraint firstItem="pWz-e9-kVp" firstAttribute="top" secondItem="zOW-gs-GCZ" secondAttribute="bottom" constant="37" id="zzf-lv-Caz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

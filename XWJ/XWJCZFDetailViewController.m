@@ -1,220 +1,260 @@
 //
-//  XWJCZViewController.m
+//  XWJZFDetailViewController.m
 //  XWJ
 //
-//  Created by Sun on 15/12/12.
+//  Created by Sun on 15/12/9.
 //  Copyright © 2015年 Paul. All rights reserved.
 //
 
 #import "XWJCZFDetailViewController.h"
-#import "LGPhoto.h"
+#import "LCBannerView.h"
 #import "XWJAccount.h"
 #define  CELL_HEIGHT 30.0
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 5
-
-@interface XWJCZFDetailViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,LGPhotoPickerViewControllerDelegate>{
+@interface XWJCZFDetailViewController ()<LCBannerViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
     CGFloat collectionCellHeight;
     CGFloat collectionCellWidth;
-    
-    UIView *backview;
-    UIView *helperView;
 }
-@property (weak, nonatomic) IBOutlet UITextField *shiTF;
-@property (weak, nonatomic) IBOutlet UITextField *tingTF;
+@property (strong, nonatomic) IBOutlet UIScrollView *backScroll;
 
-@property (weak, nonatomic) IBOutlet UITextField *weiTF;
-@property (weak, nonatomic) IBOutlet UITextField *mianjiTF;
-@property (weak, nonatomic) IBOutlet UITextField *zujinTF;
-
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *xiaoquLabel;
+@property (weak, nonatomic) IBOutlet UIView *adView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zhuangxiuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loucengLabel;
+@property (weak, nonatomic) IBOutlet UILabel *shoufuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *niandaiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yuegongLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fukuanLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *yaoshiView;
+@property (weak, nonatomic) IBOutlet UIImageView *xuequView;
+@property (weak, nonatomic) IBOutlet UILabel *miaoshuLabel;
+@property (weak, nonatomic) IBOutlet UIButton *dialBtn;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionIView;
+@property (weak, nonatomic) IBOutlet UIView *teseView;
 @property (nonatomic) NSArray *collectionData;
-@property (nonatomic) NSArray *tableData;
-@property (nonatomic) NSArray *tableHolderData;
-@property (weak, nonatomic) IBOutlet UIScrollView *imgScrollView;
-@property NSMutableArray *imageDatas;
-@property (nonatomic) NSMutableArray *collectionSelect;
-
-@property NSMutableArray *lp;
-
-@property NSInteger lpIndex;
-
+@property (weak, nonatomic) IBOutlet UILabel *yueduLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chaoxiangLabel;
+@property NSMutableDictionary * datailDic;
 @end
+
 @implementation XWJCZFDetailViewController
-
-#define imgtag 100
-#define IMAGECOUNT 6
-
-#define IMAGE_WIDTH 80
-#define spacing 5
-
 static NSString *kcellIdentifier = @"collectionCellID";
 static NSString *kheaderIdentifier = @"headerIdentifier";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     
-    //    self.collectionData = [NSArray arrayWithObjects:@"床",@"衣柜",@"空调",@"电视",@"冰箱",@"洗衣机",@"天然气",@"暖气",@"热水器",@"宽带",nil];
     
-    self.tableData = [NSArray arrayWithObjects:@"描述",@"联系人",@"手机号", nil];
-    _tableHolderData = [NSArray arrayWithObjects:@"小区环境，交通状况等",@"请输入您的姓名",@"请输入您的手机号", nil];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"ZFCollectionCell" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"XWJSupplementaryView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kheaderIdentifier];
+    //    UIScrollView *scrolView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
+    //    scrolView.contentSize = CGSizeMake(SCREEN_SIZE.width, SCREEN_SIZE.height+300);
+    //    [self.view  insertSubview:scrolView belowSubview:self.adView];
     
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
-    for (int i = 0; i<IMAGECOUNT; i++) {
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*(IMAGE_WIDTH+spacing), 0,IMAGE_WIDTH, IMAGE_WIDTH)];
-        imgView.tag = imgtag+i;
-        [self.imgScrollView addSubview:imgView];
+    if (self.type == HOUSEZU) {
+        self.teseView.hidden = YES;
+        self.collectionIView.hidden = NO;
+//        self.collectionData = [NSArray arrayWithObjects:@"床",@"衣柜",@"空调",@"电视",@"冰箱",@"洗衣机",@"天然气",@"暖气",@"热水器",@"宽带",nil];
+        [self.collectionIView registerNib:[UINib nibWithNibName:@"ZFCollectionCell" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
+        [self.collectionIView registerNib:[UINib nibWithNibName:@"XWJSupplementaryView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kheaderIdentifier];
+        
+        self.collectionIView.dataSource = self;
+        self.collectionIView.delegate = self;
     }
     
-    [self getZFFubFilter];
-    self.navigationItem.title = @"我要出租";
-}
-
--(void)showSortView:(UIButton *)btn{
-    //添加半透明背景图
-    backview=[[UIView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.window.frame.size.height)];
-    backview.backgroundColor=[UIColor colorWithWhite:0 alpha:0.6];
-    backview.tag=4444;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeButtonClicked)];
-    backview.userInteractionEnabled = YES;
-    [backview addGestureRecognizer:tap];
-    [self.view.window addSubview:backview];
-    
-    //    //添加helper视图
-    float kHelperOrign_X=30;
-    float kHelperOrign_Y=(self.view.frame.size.height-300)/2+64;
-    helperView=[[UIView alloc]initWithFrame:CGRectMake(kHelperOrign_X, kHelperOrign_Y,self.view.frame.size.width-2*kHelperOrign_X, 300)];
-    helperView.backgroundColor=[UIColor whiteColor];
-    helperView.layer.cornerRadius=5;
-    helperView.tag=1002;
-    helperView.clipsToBounds=YES;
-    [backview addSubview:helperView];
-    
-    UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 40)];
-    titleLabel.textColor=[UIColor colorWithRed:95.0/255.0 green:170.0/255.0 blue:249.0/255.0 alpha:1];
-    titleLabel.font=[UIFont boldSystemFontOfSize:17];
-    [helperView addSubview:titleLabel];
-    UILabel *line=[[UILabel alloc]initWithFrame:CGRectMake(0, 40, helperView.frame.size.width, 2)];
-    line.backgroundColor=[UIColor colorWithRed:212.0/255.0 green:212.0/255.0 blue:212.0/255.0 alpha:1];
-    [helperView addSubview:line];
-    
-    NSMutableArray *array = [NSMutableArray array];
-    NSInteger  count = 0  ;
-    
-    count = self.lp.count;
-    [array addObjectsFromArray:self.lp];
-    
-    for (int i=0; i<count; i++) {
-        UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame=CGRectMake(0, 40+40*i, helperView.frame.size.width, 40);
-        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 40)];
-        label.text= [[array objectAtIndex:i] valueForKey:@"dicValue"];
-        [button addSubview:label];
-        
-        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(button.frame.size.width-20-10, 10, 20, 20)];
-        imageView.tag=7001;
-        [button addSubview:imageView];
-        
-        UILabel *line=[[UILabel alloc]initWithFrame:CGRectMake(0, 40-1, helperView.frame.size.width, 1)];
-        line.backgroundColor=[UIColor colorWithRed:212.0/255.0 green:212.0/255.0 blue:212.0/255.0 alpha:1];
-        [button addTarget:self action:@selector(sortTypeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        button.tag=60001+i;
-        [button addSubview:line];
-        
-        [helperView addSubview:button];
+    NSString *title;
+    switch (self.type) {
+        case HOUSENEW:{
+            title = @"新房";
+            //            [self getXinFangdetail];
+        }
+            break;
+        case HOUSE2:{
+            title = @"二手房";
+            [self get2Fangdetail];
+        }
+            break;
+        case HOUSEZU:{
+            title = @"租房";
+            [self getZFdetail];
+        }
+            break;
+        default:
+            break;
     }
-    
-}
--(void)closeButtonClicked{
-    //    UIView *backview=[self.view.window viewWithTag:3333];
-    [backview removeFromSuperview];
-}
-
--(void)sortTypeButtonClicked:(UIButton *)button{
-    
-    [self closeButtonClicked];
-    NSInteger index = button.tag - 60001;
-    NSLog(@"selcet id %ld",index);
-    self.xiaoquLabel.text = [NSString stringWithFormat:@"%@",[[self.lp objectAtIndex:index] objectForKey:@"dicValue"]];
-    
+    self.navigationItem.title = title;
     
 }
 
--(void)xuanze:(UIButton *)btn{
-    
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.backScroll.contentSize = CGSizeMake(SCREEN_SIZE.width
+                                             , SCREEN_SIZE.height +100);
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
+/**
+ id	二手房id	String
+ userid	登录用户id	String
+ */
+-(void)get2Fangdetail{
+    NSString *url = GET2HANDDETAIL_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic valueForKey:@"id"] forKey:@"id"];
     
-    return YES;
+    XWJAccount *acc  = [XWJAccount instance];
+    [dict setValue:acc.uid  forKey:@"userid"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            
+            
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            self.datailDic = [dic objectForKey:@"data"];
+            [self updateView];
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
-#pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+-(void)getZFdetail{
+    NSString *url = GETCHUZUDETAIL_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic valueForKey:@"id"] forKey:@"id"];
+    
+    XWJAccount *acc  = [XWJAccount instance];
+    [dict setValue:acc.uid  forKey:@"userid"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            
+            
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            self.datailDic = [dic objectForKey:@"data"];
+            [self updateView];
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(void)updateView{
     
-    return 3;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
+     data =     {
+     ReleaseTime = "12-19 13:43";
+     area = "<null>";
+     buildingArea = "<null>";
+     buildingInfo = "\U6e56\U5c9b\U4e16\U5bb6";
+     city = "<null>";
+     clickCount = 5;
+     contactPerson = "\U738b\U7ecf\U7406";
+     contactPhone = 18088888888;
+     des = "<null>";
+     floorCount = 9;
+     floors = 7;
+     "house_Indoor" = 5;
+     "house_Toilet" = 5;
+     "house_living" = 5;
+     id = 8;
+     isCollected = 0;
+     maidian = "<null>";
+     niandai = "<null>";
+     orientation = "\U53cc\U5357";
+     photo = "http://www.hisenseplus.com/HisenseUpload/loupan/imag201512191343238102.jpg,http://www.hisenseplus.com/HisenseUpload/loupan/imag201512191343238262.jpg";
+     renovationInfo = "\U7cbe\U88c5\U4fee";
+     rent = 500;
+     };
+     */
     
-    UITableViewCell *cell;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:@"cztablecell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cztablecell"];
+    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
+                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
+                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
+    if ([self.datailDic objectForKey:@"photo"]!=[NSNull null]) {
+        URLs = [[self.datailDic valueForKey:@"photo"] componentsSeparatedByString:@","];
     }
-    // Configure the cell...
-    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
-    cell.textLabel.textColor = XWJGREENCOLOR;
+    [self.adView addSubview:({
+        
+        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                                                                self.adView.bounds.size.height)
+                                    
+                                                            delegate:self
+                                                           imageURLs:URLs
+                                                    placeholderImage:nil
+                                                       timerInterval:3.0f
+                                       currentPageIndicatorTintColor:XWJGREENCOLOR
+                                              pageIndicatorTintColor:[UIColor whiteColor]];
+        bannerView;
+    })];
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    UITextField * content = [[UITextField alloc] initWithFrame:CGRectMake(100, 10, 200, 30)];
-    content.placeholder = [_tableHolderData objectAtIndex:indexPath.row];
-    content.tag = indexPath.row+100;
-    content.delegate = self;
-    [cell.contentView addSubview:content];
-    //    [cell addSubview:view];
-    return cell;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@",[self.datailDic objectForKey:@"buildingInfo"],[NSString stringWithFormat:@"%@室%@厅%@卫",[self.datailDic objectForKey:@"house_Indoor"],[self.datailDic objectForKey:@"house_living"],[self.datailDic objectForKey:@"house_Toilet"]]];
+    self.timeLabel.text = [NSString stringWithFormat:@"发布时间：%@",[self.datailDic objectForKey:@"ReleaseTime"]];
+    self.zoneLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"area"]];
+    self.moneyLabel.text = [NSString stringWithFormat:@"%@万元",[self.datailDic objectForKey:@"rent"]];
+    self.typeLabel.text = [NSString stringWithFormat:@"%@室%@厅%@卫",[self.datailDic objectForKey:@"house_Indoor"],[self.datailDic objectForKey:@"house_living"],[self.datailDic objectForKey:@"house_Toilet"]];
+    self.sizeLabel.text = [NSString stringWithFormat:@"%@M²",[self.datailDic objectForKey:@"buildingArea"]];
+    self.zhuangxiuLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"renovationInfo"]];
+    //    self.priceLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"renovationInfo"]];
+    self.loucengLabel.text = [NSString stringWithFormat:@"%@/%@",[self.datailDic objectForKey:@"floors"],[self.datailDic objectForKey:@"floorCount"]];
+    //    self.shoufuLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"renovationInfo"]];
+    self.niandaiLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"niandai"]];
+    //    self.yuegongLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"renovationInfo"]];
+    self.fukuanLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"fkfs"]];
+    
+    [self.dialBtn setTitle:[NSString stringWithFormat:@"%@ %@",[self.datailDic objectForKey:@"contactPerson"],[self.datailDic objectForKey:@"contactPhone"]] forState:UIControlStateNormal];
+    
+    
+    self.collectionData = [NSArray arrayWithArray:[self.datailDic objectForKey:@"supporting"]];
+    [self.collectionIView reloadData];
+    //    @property (weak, nonatomic) IBOutlet UIImageView *yaoshiView;
+    //    @property (weak, nonatomic) IBOutlet UIImageView *xuequView;
+    self.miaoshuLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"des"]];
+    //    self.datailDic;
+    
 }
 
-#pragma mark - Table view delegate
+- (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
+    
+}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+-(void)dail:(NSString *)tel{
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",tel];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
 #pragma mark -CollectionView datasource
 //section
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    collectionCellHeight = self.collectionView.frame.size.height/COLLECTION_NUMSECTIONS-1;
-    collectionCellWidth = self.collectionView.frame.size.width/COLLECTION_NUMITEMS-1;
+    collectionCellHeight = self.collectionIView.frame.size.height/COLLECTION_NUMSECTIONS-1;
+    collectionCellWidth = self.collectionIView.frame.size.width/COLLECTION_NUMITEMS-1;
     NSInteger count = self.collectionData.count;
     if (count>5) {
         return 2;
     }
-    return 1;
-}
+    return 1;}
 //item个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -255,14 +295,28 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //重用cell
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
+    UICollectionViewCell *cell = [self.collectionIView dequeueReusableCellWithReuseIdentifier:kcellIdentifier forIndexPath:indexPath];
+    cell.userInteractionEnabled = NO;
+    
     //赋值
     UIButton *btn = (UIButton *)[cell viewWithTag:1];
     
+    
     NSString * key = [NSString stringWithFormat:@"%@",[self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row] objectForKey:@"dicValue"]];
+
+    [btn setTitle:key forState:UIControlStateNormal];
     
-    [btn setTitle: key forState:UIControlStateNormal];
-    
+    NSNumber *num = [self.collectionData[indexPath.section*COLLECTION_NUMITEMS+indexPath.row] objectForKey:@"isSup"];
+
+    /*
+     {
+     dicKey = 1;
+     dicValue = "\U5e8a";
+     isSup = 1;
+     */
+    if ([num integerValue]==1) {
+        btn.selected = YES;
+    }
     //    cell.backgroundColor = [UIColor colorWithRed:68.0/255.0 green:70.0/255.0 blue:71.0/255.0 alpha:1.0];
     return cell;
     
@@ -313,233 +367,72 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     UIButton *btn = (UIButton *)[cell viewWithTag:1];
-    btn.selected = !btn.selected;
-    if (btn.selected) {
-        
-        [_collectionSelect setObject:@"1" atIndexedSubscript:indexPath.section*+indexPath.row];
-    }else{
-        [_collectionSelect setObject:@"0" atIndexedSubscript:indexPath.section*+indexPath.row];
-        
-    }
-}
-
-//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-//    UIButton *btn = (UIButton *)[cell viewWithTag:1];
-//    btn.selected = NO;
-//}
-- (void)presentPhotoPickerViewControllerWithStyle:(LGShowImageType)style {
-    // 创建控制器
-    LGPhotoPickerViewController *pickerVc = [[LGPhotoPickerViewController alloc] initWithShowType:style];
-    // 默认显示相册里面的内容SavePhotos
-    pickerVc.status = PickerViewShowStatusCameraRoll;
-    // 最多能选9张图片
-    pickerVc.maxCount = 6;
-    pickerVc.delegate = self;
-    //    self.showType = style;
-    [pickerVc showPickerVc:self];
-}
-
-- (void)pickerViewControllerDoneAsstes:(NSArray *)assets isOriginal:(BOOL)original{
-    
-    if (assets&&assets.count>0) {
-        self.imageDatas = [NSMutableArray array];
-        NSUInteger count = assets.count;
-        for (int i=0; i<count; i++) {
-            LGPhotoAssets *asset = [assets objectAtIndex:i];
-            UIImageView *imageView = [self.imgScrollView viewWithTag:imgtag+i];
-            imageView.image = asset.compressionImage;
-            
-            NSData *data = UIImageJPEGRepresentation(imageView.image,1.0);
-            //            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-            if (aString) {
-                
-                [self.imageDatas addObject:data];
-            }
-        }
-        
-        self.imgScrollView.contentSize =CGSizeMake((IMAGE_WIDTH+spacing) * count, IMAGE_WIDTH);
-        
-    }
-    
-}
-
--(void)getZFFubFilter{
-    NSString *url = GETCHUZUFBFILTER_URL;
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    
-    /*
-     buildingInfo	小区名称	String
-     pageindex	第几页	String,从0开始
-     countperpage	每页条数	String
-     district	区域	String
-     price	价格	String
-     style	户型	String
-     square	面积	String
-     
-     */
-    
-    
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%s success ",__FUNCTION__);
-        
-        if(responseObject){
-            NSDictionary *dic = (NSDictionary *)responseObject;
-            
-            //            NSMutableArray * array = [NSMutableArray array];
-            //            XWJCity *city  = [[XWJCity alloc] init];
-            
-            NSDictionary *quanbu  = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"dicKey",@"不限",@"dicValue", nil];
-            
-            
-            self.lp  = [NSMutableArray arrayWithArray:[dic objectForKey:@"lp"]];
-            //            self.cx  = [NSMutableArray arrayWithArray:[dic objectForKey:@"cx"]];
-            //            self.md  = [NSMutableArray arrayWithArray:[dic objectForKey:@"md"]];
-            //            self.zx  = [NSMutableArray arrayWithArray:[dic objectForKey:@"zx"]];
-            [self.lp insertObject:quanbu atIndex:0];
-            //            [self.cx insertObject:quanbu atIndex:0];
-            //            [self.md insertObject:quanbu atIndex:0];
-            //            [self.zx insertObject:quanbu atIndex:0];
-            
-            self.collectionData = [NSMutableArray arrayWithArray:[dic objectForKey:@"md"]];
-            self.collectionSelect = [NSMutableArray arrayWithCapacity:self.collectionData.count];
-            for (int i= 0; i<self.collectionData.count; i++) {
-                [self.collectionSelect addObject:@"0"];
-            }
-            [self.collectionView reloadData];
-            NSLog(@"dic %@",dic);
-        }
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s fail %@",__FUNCTION__,error);
-        
-    }];
-}
-
-- (IBAction)addImgae:(UIButton *)sender {
-    [self presentPhotoPickerViewControllerWithStyle:LGShowImageTypeImagePicker];
-    
-}
-- (IBAction)xuanxiaoqu:(UIButton *)sender {
-    [self showSortView:sender];
-}
-- (IBAction)sure:(UIButton *)sender {
-    
-    NSString *url = GETCHUZUFB_URL;
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    //    [dict setValue:@"" forKey:@"rentHouse"];
-    
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    formater.dateFormat = @"yyyy-MM-dd hh:mm:ss";
-    formater.timeZone = [NSTimeZone systemTimeZone];
-    NSString *time = [formater stringFromDate:date];
-    /*
-     
-     private String buildingInfo;
-     private String area;
-     private String house_Indoor;
-     private String house_living;
-     private String house_Toilet;
-     private Double buildingArea;
-     private Double useArea;
-     private Double rent;
-     private String floors;
-     private String floorCount;
-     private String supporting;
-     
-     private String fangyuanmiaoshu;
-     private String orientation;
-     private String renovationInfo;
-     private String description;
-     private String payMethod;
-     
-     private String mobilePhone;
-     private String[] photo;
-     private String addPerson;
-     private Integer clickCount;
-     private Date addTime;
-     */
-    [dict setValue:[[self.lp objectAtIndex:self.lpIndex] objectForKey:@"dicKey"] forKey:@"buildingInfo"];
-    [dict setValue:@"" forKey:@"area"];
-    [dict setValue:self.shiTF.text forKey:@"house_Indoor"];
-    [dict setValue:self.tingTF.text forKey:@"house_living"];
-    [dict setValue:self.weiTF.text forKey:@"house_Toilet"];
-    [dict setValue:self.xiaoquLabel.text forKey:@"buildingArea"];
-    [dict setValue:self.mianjiTF.text forKey:@"useArea"];
-    [dict setValue:self.zujinTF.text forKey:@"rent"];
-    [dict setValue:@"" forKey:@"supporting"];
-    
-    NSMutableString *md = [NSMutableString string];
-    for (int i=0; i<self.collectionSelect.count; i++) {
-        if ([[self.collectionSelect objectAtIndex:i] isEqualToString:@"1"]) {
-            [md appendFormat:@"%@,",[[self.collectionData objectAtIndex:i] valueForKey:@"dicKey"]];
-        }
-    }
-    
-    //    NSString * maid = [NSString stringWithFormat:@"%@,"];
-    [dict setValue:((UITextField *)[self.tableView viewWithTag:100]).text forKey:@"fangyuanmiaoshu"];
-    
-    //    [dict setValue:[[self.cx objectAtIndex:self.cxIndex] objectForKey:@"dicKey"] forKey:@"orientation"];
-    //    [dict setValue:[[self.zx objectAtIndex:self.zxIndex] objectForKey:@"dicKey"] forKey:@"renovationInfo"];
-    [dict setValue:((UITextField *)[self.tableView viewWithTag:102]).text
-            forKey:@"mobilePhone"];
-    if (self.imageDatas) {
-        [dict setObject:self.imageDatas forKey:@"photo"];
-    }
-    [dict setValue: ((UITextField *)[self.tableView viewWithTag:101]).text
-            forKey:@"addPerson"];
-    
-    [dict setValue:time forKey:@"addTime"];
-    [dict setValue:@"青岛市" forKey:@"city"];
-    
-    
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    [data setObject:dict forKey:@"rentHouse"];
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager PUT:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%s success ",__FUNCTION__);
-        
-        if(responseObject){
-            NSDictionary *dic = (NSDictionary *)responseObject;
-            
-            
-            NSString *errCode = [dic objectForKey:@"errorCode"];
-            NSNumber *nu = [dic objectForKey:@"result"];
-            
-            if ([nu integerValue]== 1) {
-                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                alertview.delegate = self;
-                [alertview show];
-            }else{
-                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                alertview.delegate = self;
-                [alertview show];
-            }
-            [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"dic %@",dic);
-        }
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s fail %@",__FUNCTION__,error);
-        
-    }];
+    btn.selected = YES;
+    //    [cell setBackgroundColor:[UIColor greenColor]];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)shoucang:(id)sender {
+    if (self.type == HOUSE2) {
+        [self shoucang:@"2"];
+    }
+    if (self.type ==HOUSEZU) {
+        [self shouCang:@"3"];
+    }
+}
+
+-(void)shouCang:(NSString *)type{
+    NSString *url = GETXINFANGSHOUCANG_URL;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    /*
+     userid	登录用户id	String
+     type	类型（1：买新房，2：二手房，3：出租房）	String,1,2,3
+     lpId	楼盘id	String
+     */
+    XWJAccount *account = [XWJAccount instance];
+    [dict setValue:[self.datailDic valueForKey:@"id"]  forKey:@"lpId"];
+    [dict setValue:type  forKey:@"type"];
+    [dict setValue: account.uid  forKey:@"userid"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dict);
+            NSNumber *res =[dict objectForKey:@"result"];
+            if ([res intValue] == 1) {
+                
+                NSString *errCode = [dict objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                
+            }
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+    
+}
+
+- (IBAction)dial:(UIButton *)sender {
+    [self dail:[NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"contactPhone"]]];
 }
 
 /*

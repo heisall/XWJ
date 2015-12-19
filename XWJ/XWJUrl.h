@@ -31,7 +31,10 @@
 #define GETWUYE_URL XWJBASEURL"sup/supIndex"
 #define GETWUYEDETAIL_URL XWJBASEURL"sup/supDetail"
 
-
+//guzhang
+#define  GETFGUZHANG_URL XWJBASEURL"bill/myComplains"
+#define  GETFGUZHANGDETAIL_URL XWJBASEURL"bill/complainDetail"
+#define  GETFGUZHANADD_URL XWJBASEURL"bill/saveEvaluate"
 //xinfang
 #define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
 #define GETXINFANGDETAIL_URL XWJBASEURL"house/houseDetail"

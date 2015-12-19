@@ -13,7 +13,7 @@
 #import "XWJMFViewController.h"
 #import "XWJCZViewController.h"
 #import "XWJNewHouseDetailViewController.h"
-
+#import "XWJCZFDetailViewController.h"
 typedef NS_ENUM(NSUInteger, selecttype) {
     selecttypequyu,
     selecttypezongjia,
@@ -737,14 +737,22 @@ typedef NS_ENUM(NSUInteger, selecttype) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.type == HOUSE2||self.type==HOUSEZU) {
+    if (self.type == HOUSE2) {
         XWJZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"2fdatail"];
 //        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //        [dic setValue:@"" forKey:@""];
         detail.dic = [self.houseArr objectAtIndex:indexPath.row];
         detail.type = self.type;
         [self.navigationController showViewController: detail sender:self];
-    }else{
+    }else if (self.type==HOUSEZU){
+        XWJCZFDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"czfdatail"];
+        //        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        //        [dic setValue:@"" forKey:@""];
+        detail.dic = [self.houseArr objectAtIndex:indexPath.row];
+        detail.type = self.type;
+        [self.navigationController showViewController: detail sender:self];
+    }
+    else{
         
         XWJNewHouseDetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"newhousedetail"];
         detail.dic = [self.houseArr objectAtIndex:indexPath.row];
