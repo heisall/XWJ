@@ -66,6 +66,8 @@
 		A43811111C24671F001D2F29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43811101C24671E001D2F29 /* MapKit.framework */; };
 		A43811181C24FFDD001D2F29 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811161C24FFDD001D2F29 /* ShareSDK.bundle */; };
 		A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */; };
+		A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111B1C257E60001D2F29 /* XWJMFViewController.m */; };
+		A438111F1C25C4A0001D2F29 /* XWJCZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -166,7 +168,6 @@
 		A4DC3C2A1C171C7A003D4D18 /* XWJMyhouseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C291C171C7A003D4D18 /* XWJMyhouseTableCell.xib */; };
 		A4DC3C341C1879C9003D4D18 /* XWJZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */; };
 		A4DC3C361C1881ED003D4D18 /* XWJZFTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */; };
-		A4DC3C531C19BC34003D4D18 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */; };
 		A4DC3C561C19C808003D4D18 /* XWJXuanZeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */; };
 		A4DC3C581C19CF57003D4D18 /* ZFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */; };
 		A4DC3C7E1C1B2F9C003D4D18 /* XWJMyZSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3C7D1C1B2F9C003D4D18 /* XWJMyZSViewController.m */; };
@@ -330,6 +331,10 @@
 		A43811101C24671E001D2F29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A43811161C24FFDD001D2F29 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
+		A438111A1C257E60001D2F29 /* XWJMFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMFViewController.h; sourceTree = "<group>"; };
+		A438111B1C257E60001D2F29 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
+		A438111D1C25C4A0001D2F29 /* XWJCZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJCZFDetailViewController.h; sourceTree = "<group>"; };
+		A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCZFDetailViewController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -490,8 +495,6 @@
 		A4DC3C321C1879C9003D4D18 /* XWJZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJZFDetailViewController.h; sourceTree = "<group>"; };
 		A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJZFDetailViewController.m; sourceTree = "<group>"; };
 		A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJZFTableCell.xib; sourceTree = "<group>"; };
-		A4DC3C511C19BC34003D4D18 /* XWJMFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMFViewController.h; sourceTree = "<group>"; };
-		A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
 		A4DC3C541C19C808003D4D18 /* XWJXuanZeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJXuanZeViewController.h; sourceTree = "<group>"; };
 		A4DC3C551C19C808003D4D18 /* XWJXuanZeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJXuanZeViewController.m; sourceTree = "<group>"; };
 		A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFCollectionCell.xib; sourceTree = "<group>"; };
@@ -913,11 +916,11 @@
 				A43C98231C140C16006A61EE /* XWJZFTableViewCell.m */,
 				A43C98281C140D93006A61EE /* XWJZFViewController.h */,
 				A43C98291C140D93006A61EE /* XWJZFViewController.m */,
+				A438111A1C257E60001D2F29 /* XWJMFViewController.h */,
+				A438111B1C257E60001D2F29 /* XWJMFViewController.m */,
 				A4DC3C321C1879C9003D4D18 /* XWJZFDetailViewController.h */,
 				A4DC3C331C1879C9003D4D18 /* XWJZFDetailViewController.m */,
 				A4DC3C351C1881ED003D4D18 /* XWJZFTableCell.xib */,
-				A4DC3C511C19BC34003D4D18 /* XWJMFViewController.h */,
-				A4DC3C521C19BC34003D4D18 /* XWJMFViewController.m */,
 				A4DC3C571C19CF57003D4D18 /* ZFCollectionCell.xib */,
 				A4DC3C7F1C1BDC63003D4D18 /* XWJCZViewController.h */,
 				A4DC3C801C1BDC63003D4D18 /* XWJCZViewController.m */,
@@ -927,6 +930,8 @@
 				A4DC3C861C1C1133003D4D18 /* XWJNewHouseInfoViewController.m */,
 				A438110D1C2462C4001D2F29 /* XWJHouseMapController.h */,
 				A438110E1C2462C4001D2F29 /* XWJHouseMapController.m */,
+				A438111D1C25C4A0001D2F29 /* XWJCZFDetailViewController.h */,
+				A438111E1C25C4A0001D2F29 /* XWJCZFDetailViewController.m */,
 			);
 			name = zufang;
 			sourceTree = "<group>";
@@ -1459,7 +1464,6 @@
 				A412557E1C0F39D20042D8CC /* UIImageView+HighlightedWebCache.m in Sources */,
 				A43C983F1C146BDC006A61EE /* XWJPay3ViewController.m in Sources */,
 				A43C97A81C1297E1006A61EE /* LGPhotoPickerViewController.m in Sources */,
-				A4DC3C531C19BC34003D4D18 /* XWJMFViewController.m in Sources */,
 				A488018E1C09F94600714F5B /* XWJButlerTabFactory.m in Sources */,
 				A43C97A51C1297E1006A61EE /* LGPhotoPickerGroup.m in Sources */,
 				A4F40BD31C08BE77006E2F19 /* XWJBaseViewController.m in Sources */,
@@ -1501,6 +1505,7 @@
 				A43C981B1C133914006A61EE /* XWJFindDetailTableViewCell.m in Sources */,
 				A48801881C09F80500714F5B /* XWJHomeViewController.m in Sources */,
 				A4DC3C811C1BDC63003D4D18 /* XWJCZViewController.m in Sources */,
+				A438111F1C25C4A0001D2F29 /* XWJCZFDetailViewController.m in Sources */,
 				A4DC3C841C1C0D82003D4D18 /* XWJNewHouseDetailViewController.m in Sources */,
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
@@ -1517,6 +1522,7 @@
 				A43C97D91C129B11006A61EE /* README.md in Sources */,
 				A4DC3C901C1C5084003D4D18 /* XWJGZmiaoshuViewController.m in Sources */,
 				A43C98361C146A1C006A61EE /* XWJPay1ViewController.m in Sources */,
+				A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */,
 				A4DC3C8D1C1C505B003D4D18 /* XWJGuzhangViewController.m in Sources */,
 				A41255721C0F39D20042D8CC /* README.md in Sources */,
 				A43C98531C15CC15006A61EE /* XWJForgetPwd2ViewController.m in Sources */,

@@ -75,12 +75,15 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
 //            [self getXinFangdetail];
         }
             break;
-        case HOUSE2:
+        case HOUSE2:{
             title = @"二手房";
             [self get2Fangdetail];
+        }
             break;
-        case HOUSEZU:
+        case HOUSEZU:{
             title = @"租房";
+            [self getZFdetail];
+        }
             break;
         default:
             break;
@@ -115,6 +118,34 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
         if(responseObject){
             
 
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            self.datailDic = [dic objectForKey:@"data"];
+            [self updateView];
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+}
+
+-(void)getZFdetail{
+    NSString *url = GETCHUZUDETAIL_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[self.dic valueForKey:@"id"] forKey:@"id"];
+    
+    XWJAccount *acc  = [XWJAccount instance];
+    [dict setValue:acc.uid  forKey:@"userid"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            
+            
             NSDictionary *dic = (NSDictionary *)responseObject;
             self.datailDic = [dic objectForKey:@"data"];
             [self updateView];
@@ -176,7 +207,7 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
         bannerView;
     })];
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"buildingInfo"]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@",[self.datailDic objectForKey:@"buildingInfo"],[NSString stringWithFormat:@"%@室%@厅%@卫",[self.datailDic objectForKey:@"house_Indoor"],[self.datailDic objectForKey:@"house_living"],[self.datailDic objectForKey:@"house_Toilet"]]];
     self.timeLabel.text = [NSString stringWithFormat:@"发布时间：%@",[self.datailDic objectForKey:@"ReleaseTime"]];
     self.zoneLabel.text = [NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"area"]];
     self.moneyLabel.text = [NSString stringWithFormat:@"%@万元",[self.datailDic objectForKey:@"rent"]];
@@ -325,9 +356,60 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)shoucang:(id)sender {
+    if (self.type == HOUSE2) {
+        [self shoucang:@"2"];
+    }
+    if (self.type ==HOUSEZU) {
+        [self shouCang:@"3"];
+    }
+}
+
+-(void)shouCang:(NSString *)type{
+    NSString *url = GETXINFANGSHOUCANG_URL;
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    /*
+     userid	登录用户id	String
+     type	类型（1：买新房，2：二手房，3：出租房）	String,1,2,3
+     lpId	楼盘id	String
+     */
+    XWJAccount *account = [XWJAccount instance];
+    [dict setValue:[self.datailDic valueForKey:@"id"]  forKey:@"lpId"];
+    [dict setValue:type  forKey:@"type"];
+    [dict setValue: account.uid  forKey:@"userid"];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dict);
+            NSNumber *res =[dict objectForKey:@"result"];
+            if ([res intValue] == 1) {
+                
+                NSString *errCode = [dict objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                
+            }
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
     
 }
+
 - (IBAction)dial:(UIButton *)sender {
     [self dail:[NSString stringWithFormat:@"%@",[self.datailDic objectForKey:@"contactPhone"]]];
 }

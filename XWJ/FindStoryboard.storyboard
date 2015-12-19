@@ -560,31 +560,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="来个标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-eo-idv">
-                                <rect key="frame" x="20" y="270" width="560" height="30"/>
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="不吐不快" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MaG-WJ-tEx">
-                                <rect key="frame" x="20" y="305" width="560" height="150"/>
+                                <rect key="frame" x="20" y="225" width="560" height="130"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="MiI-P5-tLZ"/>
+                                    <constraint firstAttribute="height" constant="130" id="MiI-P5-tLZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-TC-9Rz">
-                                <rect key="frame" x="0.0" y="30" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="30" width="600" height="150"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="h1C-eE-Xob"/>
+                                    <constraint firstAttribute="height" constant="150" id="h1C-eE-Xob"/>
                                 </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jb5-V6-yde">
-                                <rect key="frame" x="20" y="454" width="560" height="128"/>
+                                <rect key="frame" x="20" y="354" width="560" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPA-Fs-oqt">
                                         <rect key="frame" x="20" y="63" width="45" height="45"/>
@@ -614,7 +614,7 @@
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-QY-AQu">
-                                <rect key="frame" x="30" y="595" width="100" height="21"/>
+                                <rect key="frame" x="30" y="495" width="100" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ojY-l4-x1A"/>
@@ -632,7 +632,7 @@
                             <constraint firstItem="MaG-WJ-tEx" firstAttribute="width" secondItem="3ej-eo-idv" secondAttribute="width" id="77o-Wl-FBg"/>
                             <constraint firstItem="Jb5-V6-yde" firstAttribute="width" secondItem="MaG-WJ-tEx" secondAttribute="width" id="CKC-Hd-kjo"/>
                             <constraint firstItem="Jb5-V6-yde" firstAttribute="top" secondItem="MaG-WJ-tEx" secondAttribute="bottom" constant="-1" id="NE0-hy-WJj"/>
-                            <constraint firstItem="3ej-eo-idv" firstAttribute="top" secondItem="iz8-TC-9Rz" secondAttribute="bottom" constant="40" id="UJD-MJ-GxS"/>
+                            <constraint firstItem="3ej-eo-idv" firstAttribute="top" secondItem="iz8-TC-9Rz" secondAttribute="bottom" constant="10" id="UJD-MJ-GxS"/>
                             <constraint firstItem="4xd-QY-AQu" firstAttribute="leading" secondItem="unE-mV-HY2" secondAttribute="leadingMargin" constant="10" id="Whp-d6-NBt"/>
                             <constraint firstItem="MaG-WJ-tEx" firstAttribute="leading" secondItem="3ej-eo-idv" secondAttribute="leading" id="Y6b-Nl-f3b"/>
                             <constraint firstItem="iz8-TC-9Rz" firstAttribute="centerX" secondItem="unE-mV-HY2" secondAttribute="centerX" id="csO-Ij-eZD"/>
