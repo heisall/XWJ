@@ -8,6 +8,7 @@
 
 #import "XWJFindDetailViewController.h"
 #import "XWJFindDetailTableViewCell.h"
+#import "XWJAccount.h"
 #define KEY_HEADIMG @"headimg"
 #define KEY_TITLE @"title"
 #define KEY_TIME  @"time"
@@ -42,7 +43,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self initView];
+//    [self initView];
     NSMutableDictionary  *dic = [NSMutableDictionary dictionary];
     
     UIImage *image = [UIImage imageNamed:@"mor_icon_default"];
@@ -52,8 +53,66 @@
     [dic setValue:@"保养几次了什么时候方便看车" forKey:KEY_CONTENT];
     [self getFind:0];
     
+    [self.phraseBtn addTarget:self action:@selector(phrase:) forControlEvents:UIControlEventTouchUpInside];
 //    self.array = [NSArray arrayWithObjects:dic,dic,dic,dic,dic,dic,dic, nil];
 
+}
+
+-(void)phrase:(UIButton *)sender{
+    NSInteger count = [sender.titleLabel.text integerValue];
+    count++;
+    sender.enabled = NO;
+    [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+    [self pubCommentLword:@"" type:@"点赞"];
+}
+
+-(void)pubCommentLword:(NSString *)leaveword type:(NSString *)types{
+    NSString *url = GETFINDPUBCOM_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    /*
+     findId	发现id	String
+     types	类型	String,留言/点赞
+     personId	登录用户id	String
+     leaveWord	留言内容	String
+     findType	发现类别	String
+     leixing	区别是物业还是发现	String,find/supervise
+     */
+    XWJAccount *account = [XWJAccount instance];
+    [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"findId"];
+    [dict setValue:types  forKey:@"types"];
+    [dict setValue: account.uid  forKey:@"personId"];
+    [dict setValue:leaveword  forKey:@"leaveWord"];
+    [dict setValue:[self.dic valueForKey:@"types"]  forKey:@"findType"];
+    [dict setValue:@"find" forKey:@"leixing"];
+
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dict);
+            NSNumber *res =[dict objectForKey:@"result"];
+            if ([res intValue] == 1) {
+              
+                NSString *errCode = [dict objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+
+                
+            }
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
 -(void)getFind:(NSInteger )index{
@@ -62,8 +121,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"id"];
-    
-    
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%s success ",__FUNCTION__);
@@ -85,9 +142,9 @@
          };
          */
         if(responseObject){
-            NSDictionary *dic = (NSDictionary *)responseObject;
-            NSLog(@"dic %@",dic);
-            NSNumber *res =[dic objectForKey:@"result"];
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dict);
+            NSNumber *res =[dict objectForKey:@"result"];
             if ([res intValue] == 1) {
                 
                 
@@ -104,8 +161,8 @@
                  Types = "\U7559\U8a00";
                  */
                 
-                self.array = [[dic objectForKey:@"data"] objectForKey:@"comments"];
-                self.dic = [[dic objectForKey:@"data"] objectForKey:@"find"];
+                self.array = [[dict objectForKey:@"data"] objectForKey:@"comments"]; 
+                self.dic = [NSMutableDictionary dictionaryWithDictionary:[(NSDictionary*)[dict objectForKey:@"data"] objectForKey:@"find"] ];
                 [self initView];
                 [self.tableView reloadData];
 
@@ -122,9 +179,9 @@
 
 -(void)initView{
 
-    NSString * zanCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"clickPraiseCount"]];
-    NSString *  leaveCount= [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"leaveWordCount"]];
-    NSString * qqCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareQQCount"]];
+    NSString * zanCount = [self.dic objectForKey:@"clickPraiseCount"]==[NSNull null]?@" ":[self.dic objectForKey:@"clickPraiseCount"];
+    NSString *  leaveCount= [self.dic objectForKey:@"leaveWordCount"]==[NSNull null]?@" ":[self.dic objectForKey:@"leaveWordCount"];
+    NSString * qqCount = [self.dic objectForKey:@"shareQQCount"]==[NSNull null]?@" ":[self.dic objectForKey:@"shareQQCount"];
 //    NSString * wxCount = [NSString stringWithFormat:@"%@", [self.dic objectForKey:@"shareWXCount"]];
 
     [_phraseBtn setTitle:zanCount forState:UIControlStateNormal];
@@ -134,9 +191,9 @@
 
     _timelabel.text = [self.dic objectForKey:@"releaseTime"];
     _titleLabel.text=[self.dic objectForKey:@"content"];
-        _typeLabel.text = [self.dic objectForKey:@"types"];
+        _typeLabel.text = [self.dic objectForKey:@"Memo"];
     
-    NSString *type = [self.dic objectForKey:@"types"];
+    NSString *type = [self.dic objectForKey:@"Memo"];
     if ([type isEqualToString:@"社区分享"]) {
         _typeLabel.backgroundColor = XWJColor(255,44, 56);
     }else if ([type isEqualToString:@"跳蚤市场"]){
@@ -206,7 +263,8 @@
      ReleaseTime = "12-15 0:00";
      Types = "\U7559\U8a00";
      */
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"Photo"]];
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"Photo"]==[NSNull null]?@"":[dic objectForKey:@"Photo"]]];
     cell.commenterLabel.text = [dic objectForKey:@"NickName"]==[NSNull null]?@" ":[dic objectForKey:@"NickName"];
     cell.timeLabel.text = [dic objectForKey:@"ReleaseTime"]==[NSNull null]?@" ":[dic objectForKey:@"ReleaseTime"];
     cell.contentLabel.text = [dic objectForKey:@"LeaveWord"]==[NSNull null]?@" ":[dic objectForKey:@"LeaveWord"];
@@ -281,13 +339,14 @@
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     self.bottomView.frame = self.bottomRect;
-
     //do something
 }
 
 - (IBAction)enroll:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.textView resignFirstResponder];
+    [self pubCommentLword:self.textView.text type:@"留言"];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

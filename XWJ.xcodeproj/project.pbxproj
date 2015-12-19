@@ -60,6 +60,12 @@
 		A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */; };
 		A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */; };
 		A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810FE1C231530001D2F29 /* XWJFindTypeController.m */; };
+		A43811061C244DFB001D2F29 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A43811051C244DFB001D2F29 /* libsqlite3.tbd */; };
+		A43811091C2457EA001D2F29 /* XWJHttpComm.m in Sources */ = {isa = PBXBuildFile; fileRef = A43811081C2457EA001D2F29 /* XWJHttpComm.m */; };
+		A438110F1C2462C4001D2F29 /* XWJHouseMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438110E1C2462C4001D2F29 /* XWJHouseMapController.m */; };
+		A43811111C24671F001D2F29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43811101C24671E001D2F29 /* MapKit.framework */; };
+		A43811181C24FFDD001D2F29 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811161C24FFDD001D2F29 /* ShareSDK.bundle */; };
+		A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -316,6 +322,14 @@
 		A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJButlerViewController.m; sourceTree = "<group>"; };
 		A43810FD1C231530001D2F29 /* XWJFindTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindTypeController.h; sourceTree = "<group>"; };
 		A43810FE1C231530001D2F29 /* XWJFindTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindTypeController.m; sourceTree = "<group>"; };
+		A43811051C244DFB001D2F29 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A43811071C2457EA001D2F29 /* XWJHttpComm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJHttpComm.h; sourceTree = "<group>"; };
+		A43811081C2457EA001D2F29 /* XWJHttpComm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJHttpComm.m; sourceTree = "<group>"; };
+		A438110D1C2462C4001D2F29 /* XWJHouseMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJHouseMapController.h; sourceTree = "<group>"; };
+		A438110E1C2462C4001D2F29 /* XWJHouseMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJHouseMapController.m; sourceTree = "<group>"; };
+		A43811101C24671E001D2F29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A43811161C24FFDD001D2F29 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
+		A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -557,6 +571,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43811111C24671F001D2F29 /* MapKit.framework in Frameworks */,
+				A43811061C244DFB001D2F29 /* libsqlite3.tbd in Frameworks */,
 				A48801811C09F22700714F5B /* UIKit.framework in Frameworks */,
 				A46320721C00D6990062AA24 /* AddressBook.framework in Frameworks */,
 				A46320731C00D6990062AA24 /* AddressBookUI.framework in Frameworks */,
@@ -909,6 +925,8 @@
 				A4DC3C831C1C0D82003D4D18 /* XWJNewHouseDetailViewController.m */,
 				A4DC3C851C1C1133003D4D18 /* XWJNewHouseInfoViewController.h */,
 				A4DC3C861C1C1133003D4D18 /* XWJNewHouseInfoViewController.m */,
+				A438110D1C2462C4001D2F29 /* XWJHouseMapController.h */,
+				A438110E1C2462C4001D2F29 /* XWJHouseMapController.m */,
 			);
 			name = zufang;
 			sourceTree = "<group>";
@@ -928,6 +946,8 @@
 		A46320741C00D7AD0062AA24 /* SMS_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				A43811161C24FFDD001D2F29 /* ShareSDK.bundle */,
+				A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */,
 				A467B0FA1C0BE11300394B75 /* SMS_SDK.framework */,
 				A467B0F81C0BE0FA00394B75 /* MOBFoundation.framework */,
 			);
@@ -1122,6 +1142,8 @@
 		DA20ADF11BFB554C002032D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A43811101C24671E001D2F29 /* MapKit.framework */,
+				A43811051C244DFB001D2F29 /* libsqlite3.tbd */,
 				A48801801C09F22700714F5B /* UIKit.framework */,
 				A46320701C00D6990062AA24 /* AddressBook.framework */,
 				A46320711C00D6990062AA24 /* AddressBookUI.framework */,
@@ -1215,6 +1237,8 @@
 				A43C98541C15CF0E006A61EE /* XWJUrl.h */,
 				A43C98571C15E07D006A61EE /* XWJAccount.h */,
 				A43C98581C15E07D006A61EE /* XWJAccount.m */,
+				A43811071C2457EA001D2F29 /* XWJHttpComm.h */,
+				A43811081C2457EA001D2F29 /* XWJHttpComm.m */,
 			);
 			path = XWJ;
 			sourceTree = "<group>";
@@ -1345,6 +1369,7 @@
 				A41255491C0F33770042D8CC /* devAdv_red@2x.png in Resources */,
 				A4DC3CA01C1C7593003D4D18 /* Images.xcassets in Resources */,
 				A48801B41C0AE3D200714F5B /* mor_icon_default@2x.png in Resources */,
+				A43811181C24FFDD001D2F29 /* ShareSDK.bundle in Resources */,
 				A43C97FC1C129C68006A61EE /* shanguangdeng2@2x.png in Resources */,
 				A43C97F81C129C68006A61EE /* lock@2x.png in Resources */,
 				A43C97F21C129C68006A61EE /* broswerPic4.jpg in Resources */,
@@ -1354,6 +1379,7 @@
 				A4F5C19C1C0DE4BC00513CD9 /* XWJHomeCollectionCell3.xib in Resources */,
 				A48801CF1C0B5D1800714F5B /* devAdv_default@2x.png in Resources */,
 				A48801D21C0B5EC500714F5B /* FindStoryboard.storyboard in Resources */,
+				A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */,
 				A48801B21C0AE15E00714F5B /* MineStoryboard.storyboard in Resources */,
 				A40CD5C41C17137000E4D520 /* XWJlifeCollectionView.xib in Resources */,
 				A43C984D1C1516DF006A61EE /* XWJGJStoryboard.storyboard in Resources */,
@@ -1445,6 +1471,7 @@
 				A412552C1C0F2A080042D8CC /* UIImage+ImageOrientaion.m in Sources */,
 				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
 				A4DC3CA11C1C7593003D4D18 /* RatingBar.m in Sources */,
+				A43811091C2457EA001D2F29 /* XWJHttpComm.m in Sources */,
 				A41255121C0F22FC0042D8CC /* UIAlertView+AFNetworking.m in Sources */,
 				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
 				A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */,
@@ -1505,6 +1532,7 @@
 				A41255051C0F22FC0042D8CC /* AFHTTPRequestOperation.m in Sources */,
 				A41255151C0F22FC0042D8CC /* UIProgressView+AFNetworking.m in Sources */,
 				A412550B1C0F22FC0042D8CC /* AFURLRequestSerialization.m in Sources */,
+				A438110F1C2462C4001D2F29 /* XWJHouseMapController.m in Sources */,
 				A43C97A71C1297E1006A61EE /* LGPhotoPickerGroupViewController.m in Sources */,
 				A43C97A91C1297E1006A61EE /* LGPhotoPickerCollectionView.m in Sources */,
 				A41255161C0F22FC0042D8CC /* UIRefreshControl+AFNetworking.m in Sources */,

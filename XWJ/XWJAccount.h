@@ -22,6 +22,8 @@
 @property NSString *ganqing;
 @property NSString *intrest;
 @property NSString *qianming;
+
+
 + (instancetype) instance ;
 /*
  

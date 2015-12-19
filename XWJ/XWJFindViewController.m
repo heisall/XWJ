@@ -62,7 +62,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
             NSArray * arr = [dic2 objectForKey:@"types"];
             
             NSMutableDictionary *quanbu = [NSMutableDictionary dictionary];
-            [quanbu setValue:@"全部" forKey:@"Memo"];
+            [quanbu setValue:@"全部" forKey:@"memo"];
 //            [quanbu setValue:@"" forKey:@"DictValue"];
             
             [self.findlistArr removeAllObjects];
@@ -79,9 +79,9 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
             
             
             if (self.select>=0) {
-                self.typeLabel.text = [[self.findlistArr objectAtIndex:self.select] valueForKey:@"Memo"];
+                self.typeLabel.text = [[self.findlistArr objectAtIndex:self.select] valueForKey:@"memo"];
             }else{
-                self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
+                self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"memo"];
             }
 //            self.typeLabel.text = @"全部";
 
@@ -150,7 +150,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     [super viewWillAppear:animated];
     
     if (self.select>=0) {
-        [self getFindList:[[self.findlistArr objectAtIndex:self.select] valueForKey:@"DictValue"]];
+        [self getFindList:[[self.findlistArr objectAtIndex:self.select] valueForKey:@"dictValue"]];
     }
     self.navigationItem.title = @"依云小镇";
 //    self.title = @"依云小镇";
@@ -163,7 +163,9 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     //    collectionCellHeight = self.collectionView.frame.size.height/COLLECTION_NUMSECTIONS-1;
     //    collectionCellWidth = self.collectionView.frame.size.width/COLLECTION_NUMITEMS-1;
 //    return COLLECTION_NUMSECTIONS;
-    
+    if (self.finddetailArr.count==1) {
+        return 1;
+    }
     NSInteger count = self.finddetailArr.count/COLLECTION_NUMITEMS;
     NSLog(@"count %ld %ld",count,self.finddetailArr.count);
     return count;
@@ -175,6 +177,9 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 //    collectionCellHeight = self.collectionView.frame.size.height/COLLECTION_NUMSECTIONS-1;
 //    collectionCellWidth = self.collectionView.frame.size.width/COLLECTION_NUMITEMS-1;
     
+    if(self.finddetailArr&&self.finddetailArr.count==1){
+        return 1;
+    }
     return COLLECTION_NUMITEMS;
     
 }
@@ -195,7 +200,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 //    label3.text = @"10";
 //    label4.text = @"5分中前";
     
-        NSString *type  = [[self.finddetailArr objectAtIndex:indexPath.section* indexPath.row] valueForKey:@"Memo"];
+        NSString *type  = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+indexPath.row] valueForKey:@"Memo"];
         label1.text = type;
     
         if ([type isEqualToString:@"社区分享"]) {
@@ -206,6 +211,8 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
                 label1.backgroundColor = XWJColor(67, 164, 83);
         }
 //        label1.text = [[self.finddetailArr objectAtIndex:indexPath.row] objectForKey:@"types"];
+    
+    NSLog(@"%ld %ld time%@",indexPath.section,indexPath.row,[[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"ReleaseTime"]);
         label2.text = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"content"];
     
     NSString *urls = [[self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS+ indexPath.row] objectForKey:@"Photo"];
@@ -228,6 +235,10 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 {
     
     CGFloat width,height;
+    if (self.findlistArr.count ==1) {
+        return   CGSizeMake(collectionCellWidth/2-10, height);
+
+    }
     width = self.collectionView.frame.size.width;
     //    height = (self.collectionView.frame.size.height - HEADER_HEIGHT*COLLECTION_NUMSECTIONS)/3;
     height = CELL_HEIGHT;
@@ -262,10 +273,10 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 - (IBAction)selectType:(id)sender {
     
 //    self.typeLabel.text = [[self.findlistArr objectAtIndex:0] valueForKey:@"Memo"];
-    NSMutableArray *a = [NSMutableArray array];
-    for (NSDictionary *d in self.findlistArr) {
-        [a addObject:[d valueForKey:@"Memo"]];
-    }
+//    NSMutableArray *a = [NSMutableArray array];
+//    for (NSDictionary *d in self.findlistArr) {
+//        [a addObject:[d valueForKey:@"Memo"]];
+//    }
  
     XWJFindTypeController *viewcon = [self.storyboard  instantiateViewControllerWithIdentifier:@"findtype"];
     viewcon.array = self.findlistArr;
@@ -274,48 +285,16 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     
 }
 
-// UIPickerViewDataSource中定义的方法，该方法的返回值决定该控件包含多少列
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
-{
-    return 1;  // 返回1表明该控件只包含1列
-}
-// UIPickerViewDataSource中定义的方法，该方法的返回值决定该控件指定列包含多少个列表项
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component
-{
-
-    return self.findlistArr.count;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-
-    return [[self.findlistArr objectAtIndex:row] valueForKey:@"Memo"];
-}
-// 当用户选中UIPickerViewDataSource中指定列和列表项时激发该方法
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:
-(NSInteger)row inComponent:(NSInteger)component
-{
-    // 使用一个UIAlertView来显示用户选中的列表项
-//    UIAlertView* alert = [[UIAlertView alloc]
-//                          initWithTitle:@"提示"
-//                          message:[NSString stringWithFormat:@"你选中的图书是：%@"
-//                                   , [books objectAtIndex:row]]
-//                          delegate:nil
-//                          cancelButtonTitle:@"确定"
-//                          otherButtonTitles:nil];
-//    [alert show];
-}
-
 //选择了某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//- (void)collectionView:(UICollectionView *)collectionView :(NSIndexPath *)indexPath
 {
     
+    NSLog(@"%ld row %ld",indexPath.section,indexPath.row);
         XWJFindDetailViewController * con = [self.storyboard instantiateViewControllerWithIdentifier:@"findDetail"];
         con.finddetail = self.finddetailArr;
-        con.dic = [self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS +indexPath.row];
-        [self.navigationController showViewController:con sender:nil];
+    con.dic = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary*) [self.finddetailArr objectAtIndex:indexPath.section*COLLECTION_NUMITEMS +indexPath.row]];
+    [self.navigationController showViewController:con sender:nil];
 //            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //            [cell setBackgroundColor:[UIColor greenColor]];
     

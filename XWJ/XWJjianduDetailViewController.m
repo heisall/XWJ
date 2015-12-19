@@ -10,7 +10,7 @@
 #import "XWJHeader.h"
 #import "UIPlaceHolderTextView.h"
 #import "XWJFindDetailTableViewCell.h"
-
+#import "XWJAccount.h"
 #define MYTV_MESSAGE_COMMANTS_FONT [UIFont boldSystemFontOfSize:14.0f] // 
 #define LONGIN_TEXTVIEW_SELECTED_BORDER_COLOR [UIColor colorWithRed:50/255.0 green:176/255.0 blue:178/255.0 alpha:1].CGColor // 用户名和密码框选中的时候边框颜色
 #define TEXT_VIEW_MIN_HEIGH 44
@@ -49,19 +49,74 @@
 }
 - (IBAction)commect:(id)sender {
     
-    NSInteger count = [self.comBtn.titleLabel.text integerValue];
-    count++;
-    [self.comBtn setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+//    NSInteger count = [self.comBtn.titleLabel.text integerValue];
+//    count++;
+//    [self.comBtn setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
 }
 - (IBAction)zan:(UIButton *)sender {
     NSInteger count = [sender.titleLabel.text integerValue];
     count++;
+    sender.enabled = NO;
     [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+    [self pubCommentLword:@"" type:@"点赞"];
+
 }
 - (IBAction)share:(UIButton *)sender {
-    NSInteger count = [sender.titleLabel.text integerValue];
-    count++;
-    [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+//    NSInteger count = [sender.titleLabel.text integerValue];
+//    count++;
+//    [sender setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+}
+
+-(void)pubCommentLword:(NSString *)leaveword type:(NSString *)types{
+    NSString *url = GETFINDPUBCOM_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    /*
+     findId	发现id	String
+     types	类型	String,留言/点赞
+     personId	登录用户id	String
+     leaveWord	留言内容	String
+     findType	发现类别	String
+     leixing	区别是物业还是发现	String,find/supervise
+     */
+    XWJAccount *account = [XWJAccount instance];
+    [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"findId"];
+    [dict setValue:types  forKey:@"types"];
+    [dict setValue: account.uid  forKey:@"personId"];
+    [dict setValue:leaveword  forKey:@"leaveWord"];
+    [dict setValue:[self.dic valueForKey:@"types"]  forKey:@"findType"];
+    [dict setValue:@"supervise" forKey:@"leixing"];
+    
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dict);
+            NSNumber *res =[dict objectForKey:@"result"];
+            if ([res intValue] == 1) {
+                
+                NSString *errCode = [dict objectForKey:@"errorCode"];
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+                
+//                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                    [self.navigationController popViewControllerAnimated:YES];
+//                });
+                
+                
+            }
+            
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
 }
 
 -(void)getWuyeDetail{
@@ -251,13 +306,13 @@
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     self.bottomView.frame = self.bottomRect;
-    
+    [self.commentTextView resignFirstResponder];
     //do something
 }
 
 - (IBAction)enroll:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.commentTextView resignFirstResponder];
+    [self pubCommentLword:self.commentTextView.text type:@"留言"];//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

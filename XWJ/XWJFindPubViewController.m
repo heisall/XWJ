@@ -125,7 +125,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [self.dataSource[indexPath.row] objectForKey:@"Memo"];
+    cell.textLabel.text = [self.dataSource[indexPath.row] objectForKey:@"memo"];
     cell.textLabel.textColor =[UIColor colorWithRed:68.0/255.0 green:70.0/255.0 blue:71.0/255.0 alpha:1.0];
 //    celt.imageView.image = [];
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

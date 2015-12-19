@@ -8,6 +8,8 @@
 
 #import "XWJNewHouseDetailViewController.h"
 #import "XWJNewHouseInfoViewController.h"
+#import "XWJAccount.h"
+#import "XWJHouseMapController.h"
 @interface XWJNewHouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -25,6 +27,7 @@
 
 @implementation XWJNewHouseDetailViewController
 
+#define TAG 100
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,7 +42,6 @@
     label.textColor = XWJGREENCOLOR;
     label.text = @"楼盘信息";
     [view addSubview:label];
-    [self getXinFangdetail];
     self.infoTableView.tableHeaderView = view;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
@@ -48,10 +50,55 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self getXinFangdetail];
     self.navigationController.navigationBar.hidden = YES;
 }
-    #define TAG 100
 
+-(void)shouCang{
+    NSString *url = GETXINFANGSHOUCANG_URL;
+    
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        /*
+         userid	登录用户id	String
+         type	类型（1：买新房，2：二手房，3：出租房）	String,1,2,3
+         lpId	楼盘id	String
+         */
+        XWJAccount *account = [XWJAccount instance];
+        [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"lpId"];
+        [dict setValue:@"1"  forKey:@"type"];
+        [dict setValue: account.uid  forKey:@"userid"];
+   
+        
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+        [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%s success ",__FUNCTION__);
+            
+            if(responseObject){
+                NSDictionary *dict = (NSDictionary *)responseObject;
+                NSLog(@"dic %@",dict);
+                NSNumber *res =[dict objectForKey:@"result"];
+                if ([res intValue] == 1) {
+                    
+                    NSString *errCode = [dict objectForKey:@"errorCode"];
+                    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    alertview.delegate = self;
+                    [alertview show];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                    
+                }
+                
+            }
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%s fail %@",__FUNCTION__,error);
+            
+        }];
+    
+}
 -(void)getXinFangdetail{
     NSString *url = GETXINFANGDETAIL_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -74,18 +121,34 @@
             [self.tableData addObject:[NSString  stringWithFormat:@"地址 %@",[self.dic objectForKey:@"lpmc"]]] ;
             [self.tableData addObject:[NSString  stringWithFormat:@"状态 %@",[self.dic objectForKey:@"zt"]]] ;
             [self.tableData addObject:[NSString  stringWithFormat:@"优惠 %@",[self.dic objectForKey:@"yhxx"]]] ;
+//            特点、最新动态、周边配套和详细信息
+            [self.tableData addObject:[NSString  stringWithFormat:@"特点 %@",[self.dic objectForKey:@"zxdt"]]] ;
+            [self.tableData addObject:[NSString  stringWithFormat:@"最新动态 %@",[self.dic objectForKey:@"yhxx"]]] ;
+            [self.tableData addObject:[NSString  stringWithFormat:@"周边配套 %@",[self.dic objectForKey:@"zbpt"]]] ;
+            [self.tableData addObject:[NSString  stringWithFormat:@"详细信息 %@",[self.dic objectForKey:@"xxxx"]]] ;
+
             
             self.nameLabel.text = [self.dic objectForKey:@"lpmc"];
             self.moneyLabel.text = [NSString stringWithFormat:@"开盘 %@",[self.dic objectForKey:@"jiage"]];
             [self.locationBtn setTitle:[self.dic objectForKey:@"weiZhi"] forState:UIControlStateNormal];
             [self.timeBtn setTitle:[self.dic objectForKey:@"kpsj"] forState:UIControlStateNormal];
-            [self.houseImg sd_setImageWithURL:[NSURL URLWithString:[self.dic objectForKey:@"zst"]] placeholderImage:[UIImage imageNamed:@"newhouse"]];
+            
+            NSString *houseurl;
+            if ([self.dic valueForKey:@"zst"] != [NSNull null]) {
+                houseurl = [self.dic  valueForKey:@"zst"];
+            }else{
+                houseurl = @"";
+            }
+            
+            [self.houseImg sd_setImageWithURL:[NSURL URLWithString:houseurl] placeholderImage:[UIImage imageNamed:@"newhouse"]];
             [self.infoTableView reloadData];
             
             NSInteger count = self.photos.count;
-            CGFloat width = self.view.bounds.size.width/count;
+            CGFloat width = self.view.bounds.size.width/3;
             CGFloat height = self.scrollView.bounds.size.height;
             self.scrollView.contentSize = CGSizeMake(width*count, height);
+//            if(count>6)
+//                count = 6;
             for (int i=0; i<count; i++) {
                 UIImageView *button = [[UIImageView alloc ] init];
                 button.frame = CGRectMake(width*i, 0, width, height);
@@ -172,10 +235,26 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)yuyuekanfang:(UIButton *)sender {
+    
+    NSString *tel = [self.dic objectForKey:@"lxdh"];
+    
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",tel];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    
 }
 - (IBAction)shoucang:(UIButton *)sender {
+    [self shouCang];
 }
 - (IBAction)ditu:(UIButton *)sender {
+    
+    XWJHouseMapController *map = [self.storyboard instantiateViewControllerWithIdentifier:@"housemap"];
+    NSString *loc  = [self.dic objectForKey:@"gps"];
+//    loc = @"36.120";
+    if (![loc isEqual:[NSNull null]]) {
+        map.lati = [[loc componentsSeparatedByString:@"."][0] floatValue];
+        map.lon = [[loc componentsSeparatedByString:@"."][1] floatValue];
+        [self.navigationController showViewController:map sender:nil];
+    }
 }
 
 /*

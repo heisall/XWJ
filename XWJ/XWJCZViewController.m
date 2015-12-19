@@ -15,6 +15,9 @@
 @interface XWJCZViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>{
     CGFloat collectionCellHeight;
     CGFloat collectionCellWidth;
+    
+    UIView *backview;
+    UIView *helperView;
 }
 @property (weak, nonatomic) IBOutlet UITextField *shiTF;
 @property (weak, nonatomic) IBOutlet UITextField *tingTF;
@@ -55,6 +58,74 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     self.navigationItem.title = @"我要出租";
 }
 
+-(void)showSortView{
+    //添加半透明背景图
+    backview=[[UIView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.window.frame.size.height)];
+    backview.backgroundColor=[UIColor colorWithWhite:0 alpha:0.6];
+    backview.tag=4444;
+    [self.view.window addSubview:backview];
+    //[backview release];
+    
+    //    //添加helper视图
+    float kHelperOrign_X=30;
+    float kHelperOrign_Y=(self.view.frame.size.height-180)/2+64;
+    helperView=[[UIView alloc]initWithFrame:CGRectMake(kHelperOrign_X, kHelperOrign_Y,self.view.frame.size.width-2*kHelperOrign_X, 180)];
+    helperView.backgroundColor=[UIColor whiteColor];
+    helperView.layer.cornerRadius=5;
+    helperView.tag=1002;
+    helperView.clipsToBounds=YES;
+    [backview addSubview:helperView];
+    
+    UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 40)];
+//    titleLabel.text=LOCALANGER(@"JVC_DeviceList_sort");
+    titleLabel.textColor=[UIColor colorWithRed:95.0/255.0 green:170.0/255.0 blue:249.0/255.0 alpha:1];
+    titleLabel.font=[UIFont boldSystemFontOfSize:17];
+    [helperView addSubview:titleLabel];
+    UILabel *line=[[UILabel alloc]initWithFrame:CGRectMake(0, 40, helperView.frame.size.width, 2)];
+    line.backgroundColor=[UIColor colorWithRed:212.0/255.0 green:212.0/255.0 blue:212.0/255.0 alpha:1];
+    [helperView addSubview:line];
+    NSArray *array=[[NSArray alloc]initWithObjects:@"1",@"2",@"3", nil];
+    for (int i=0; i<2; i++) {
+        UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame=CGRectMake(0, 40+40*i, helperView.frame.size.width, 40);
+        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 40)];
+        label.text=array[i];
+        [button addSubview:label];
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(button.frame.size.width-20-10, 10, 20, 20)];
+//        imageView.image=[UIImage imageNamed:@"tcpUnselect"];
+    
+        imageView.tag=7001;
+        [button addSubview:imageView];
+        UILabel *line=[[UILabel alloc]initWithFrame:CGRectMake(0, 40-1, helperView.frame.size.width, 1)];
+        line.backgroundColor=[UIColor colorWithRed:212.0/255.0 green:212.0/255.0 blue:212.0/255.0 alpha:1];
+        [button addTarget:self action:@selector(xuanze:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag=60001+i;
+        [button addSubview:line];
+        [helperView addSubview:button];
+    }
+    
+//    UIButton *closeButton=[UIButton buttonWithType:UIButtonTypeCustom];
+//    closeButton.frame=CGRectMake(self.view.window.frame.size.width-kHelperOrign_X-32/2, kHelperOrign_Y-32/2, 32, 32);
+//    [closeButton setBackgroundImage:[UIImage imageNamed:@"help_close.png"] forState:UIControlStateNormal];
+//    [closeButton addTarget:self action:@selector(closeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//    [backview addSubview:closeButton];
+//    float space=(helperView.bounds.size.width-40-120);
+//    NSArray *titles=[[NSArray alloc]initWithObjects:@"jvc_more_loginout_ok",@"jvc_more_loginout_quit", nil];
+//    for (int i=0; i<2; i++) {
+//        UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+//        button.frame=CGRectMake(20+(space+60)*i, helperView.size.height-10-30, 60, 30);
+//        button.tag=50001+i;
+//        [button setBackgroundImage:[UIImage imageNamed:@"wel_btn"] forState:UIControlStateNormal];
+////        [button setTitle:LOCALANGER(titles[i]) forState:UIControlStateNormal];
+//        [button addTarget:self action:@selector(confirmbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [helperView addSubview:button];
+//    }
+
+}
+
+-(void)xuanze:(UIButton *)btn{
+    
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

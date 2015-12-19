@@ -690,16 +690,16 @@ NSArray *footer;
 //选择了某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%p %@",__FUNCTION__,indexPath);
-    self.section = indexPath.section;
-
-    switch (indexPath.section) {
-        case 0:
-            break;
-            
-        default:
-            break;
-    }
+//    NSLog(@"%p %@",__FUNCTION__,indexPath);
+//    self.section = indexPath.section;
+//
+//    switch (indexPath.section) {
+//        case 0:
+//            break;
+//            
+//        default:
+//            break;
+//    }
     
 //    UIViewController * con = [[XWJMyMessageController alloc] init];
 //    [self.navigationController showViewController:con sender:nil];

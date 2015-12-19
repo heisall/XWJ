@@ -26,13 +26,32 @@
 
 #define GETFINDLIST_URL XWJBASEURL"find/findIndex"
 #define GETFIND_URL XWJBASEURL"find/findDetail"
+#define GETFINDPUBCOM_URL XWJBASEURL"user/publishComments"
 
 #define GETWUYE_URL XWJBASEURL"sup/supIndex"
 #define GETWUYEDETAIL_URL XWJBASEURL"sup/supDetail"
 
-#define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
 
+//xinfang
+#define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
 #define GETXINFANGDETAIL_URL XWJBASEURL"house/houseDetail"
+#define GETXINFANGHXT_URL XWJBASEURL"house/stylePhoto"
+
+#define GET2HAND_URL XWJBASEURL"house/oldHouseList"
+#define GET2HANDDETAIL_URL XWJBASEURL"house/oldHouseDetail"
+#define GET2HANDDFILTER_URL XWJBASEURL"house/houseFilter"
+
+#define GETCHUZU_URL XWJBASEURL"house/rentHouseList"
+#define GETCHUZUDETAIL_URL XWJBASEURL"house/rentHouseDetail"
+#define GETCHUZUFILTER_URL XWJBASEURL"house/rentFilter"
+
+#define GET2HANDFBFILTER_URL XWJBASEURL"house/addOldHouse"
+#define GET2HANDFB_URL XWJBASEURL"house/saveOldHouse"   //put
+
+#define GETCHUZUFBFILTER_URL XWJBASEURL"house/addRentHouse"
+#define GETCHUZUFB_URL XWJBASEURL"house/saveRentHouse"  //put
+
+#define GETXINFANGSHOUCANG_URL XWJBASEURL"house/houseCollect"
 //ad
 #define GETACTIVE_URL XWJBASEURL"act/findActPage"
 #define GETAD_URL  XWJBASEURL"index/ads"
