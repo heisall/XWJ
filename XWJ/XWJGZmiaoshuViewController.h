@@ -10,4 +10,6 @@
 
 @interface XWJGZmiaoshuViewController : XWJBaseViewController
 
+@property NSMutableDictionary *detaildic;
+@property NSString *gzid;
 @end

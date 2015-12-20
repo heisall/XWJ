@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, selecttype) {
 
 @interface XWJZFViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>{
     UIView *backview;
-    UIView *helperView;
+    UIScrollView *helperView;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightcontraint;
 @property NSMutableArray *houseArr;
@@ -187,11 +187,12 @@ typedef NS_ENUM(NSUInteger, selecttype) {
     //    //添加helper视图
     float kHelperOrign_X=30;
     float kHelperOrign_Y=(self.view.frame.size.height-300)/2+64;
-    helperView=[[UIView alloc]initWithFrame:CGRectMake(kHelperOrign_X, kHelperOrign_Y,self.view.frame.size.width-2*kHelperOrign_X, 300)];
+    helperView=[[UIScrollView alloc]initWithFrame:CGRectMake(kHelperOrign_X, kHelperOrign_Y,self.view.frame.size.width-2*kHelperOrign_X, 300)];
     helperView.backgroundColor=[UIColor whiteColor];
     helperView.layer.cornerRadius=5;
     helperView.tag=1002;
     helperView.clipsToBounds=YES;
+    helperView.contentSize = CGSizeMake(helperView.frame.size.width, 500);
     [backview addSubview:helperView];
     
     UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 40)];

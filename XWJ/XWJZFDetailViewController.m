@@ -190,6 +190,14 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
     NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
                       @"http://img.guoluke.com/upload/201509091054250274.jpg"];
+    
+    if ([self.datailDic isEqual:[NSNull null]]){
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"获取信息失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertview.delegate = self;
+        [alertview show];
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     if ([self.datailDic objectForKey:@"photo"]!=[NSNull null]) {
         URLs = [[self.datailDic valueForKey:@"photo"] componentsSeparatedByString:@","];
     }

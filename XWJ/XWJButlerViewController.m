@@ -29,7 +29,7 @@
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"guanjia%d",i+1]] forState:UIControlStateNormal];
         btn.frame = CGRectMake((SCREEN_SIZE.width/4+1)*(i%4), self.room.frame.origin.y+self.room.bounds.size.height+60 + ((int)(i/4))*(SCREEN_SIZE.width/4+1), SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4 );
         btn.tag = i;
-        btn.backgroundColor = XWJColor(124, 197, 193);
+//        btn.backgroundColor = XWJColor(124, 197, 193);
         [btn addTarget:self action:@selector(btnclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
@@ -72,7 +72,7 @@
     self.navigationItem.leftBarButtonItem = nil;
 
     NSString *ti =[NSString stringWithFormat:@"%@%@",[[XWJCity instance].district valueForKey:@"a_name"]?[[XWJCity instance].district valueForKey:@"a_name"]:@"",[[XWJCity instance].buiding valueForKey:@"b_name"]?[[XWJCity instance].buiding valueForKey:@"b_name"]:@""];
-    self.room.text  = ti;
+//    self.room.text  = ti;
 //    [self addView];
 
     [self getAd];

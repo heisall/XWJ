@@ -590,7 +590,7 @@
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="IQX-n4-IOt"/>
@@ -606,7 +606,7 @@
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="U1R-im-HZc"/>
@@ -622,7 +622,7 @@
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="AJB-CH-qbe"/>
@@ -638,7 +638,7 @@
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="UZ2-8J-Wmj"/>
@@ -1570,6 +1570,7 @@
                         <outlet property="chaoxiangLabel" destination="YxR-cX-QMm" id="acP-jq-SVV"/>
                         <outlet property="collectionView" destination="Bs5-I9-eRn" id="cjN-0D-eS2"/>
                         <outlet property="imgScrollView" destination="5T0-gD-5Ly" id="7AD-B5-2vb"/>
+                        <outlet property="jiage" destination="MwS-Pl-ee1" id="Cou-jz-7Ro"/>
                         <outlet property="niandaiLabel" destination="bEA-zX-uKq" id="XNO-Cc-ATi"/>
                         <outlet property="niandaiTF" destination="bEA-zX-uKq" id="y6j-fu-D7k"/>
                         <outlet property="phoneTF" destination="CNk-DP-LLA" id="4rK-cC-1NS"/>

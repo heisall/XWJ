@@ -9,7 +9,8 @@
 #import "XWJMFViewController.h"
 #import "XWJAccount.h"
 #import "LGPhoto.h"
-
+#import "XWJUtil.h"
+#import "ProgressHUD.h"
 #define  CELL_HEIGHT 30.0
 #define  COLLECTION_NUMSECTIONS 2
 #define  COLLECTION_NUMITEMS 5
@@ -35,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *zhuangxiuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *niandaiTF;
+@property (weak, nonatomic) IBOutlet UITextField *jiage;
 @property (nonatomic) NSArray *collectionData;
 @property (nonatomic) NSMutableArray *collectionSelect;
 
@@ -435,12 +437,14 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
             
             NSData *data = UIImageJPEGRepresentation(imageView.image,1.0);
 //            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSString *rawString=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
+//            NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//            NSString *rawString=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
+            
+            NSString* encodeResult = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
 
-            if (rawString) {
+            if (encodeResult) {
                 
-                [self.imageDatas addObject:rawString];
+                [self.imageDatas addObject:encodeResult];
             }else{
                 [self.imageDatas addObject:data];
                 
@@ -460,17 +464,18 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
 
 - (IBAction)sure:(UIButton *)sender {
     
+    [ProgressHUD show:@"正在发布" Interaction:YES];
     NSString *url = GET2HANDFB_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 //    [dict setValue:@"" forKey:@"rentHouse"];
     
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    formater.dateFormat = @"yyyy-MM-dd hh:mm:ss";
-    formater.timeZone = [NSTimeZone systemTimeZone];
-    NSString *time = [formater stringFromDate:date];
+//    NSDate *date = [NSDate date];
+//    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+//    formater.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+//    formater.timeZone = [NSTimeZone systemTimeZone];
+//    NSString *time = [formater stringFromDate:date];
     /*
      
      @property (weak, nonatomic) IBOutlet UITextField *shiTF;
@@ -490,42 +495,51 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
      @property (weak, nonatomic) IBOutlet UILabel *xiaoquLabel;
      */
     [dict setValue:[[self.lp objectAtIndex:self.lpIndex] objectForKey:@"dicKey"] forKey:@"buildingInfo"];
-    [dict setValue:@"" forKey:@"area"];
+//    [dict setValue:@"" forKey:@"area"];
     [dict setValue:self.shiTF.text forKey:@"house_Indoor"];
     [dict setValue:self.tingTF.text forKey:@"house_living"];
     [dict setValue:self.weiTF.text forKey:@"house_Toilet"];
-    [dict setValue:self.areaTF.text forKey:@"buildingArea"];
-    [dict setValue:@"" forKey:@"useArea"];
-    [dict setValue:self.cengTF.text forKey:@"rent"];
+    
+    [dict setValue:[NSString stringWithFormat:@"%@",self.areaTF.text]forKey:@"buildingArea"];
+    [dict setValue:self.jiage.text forKey:@"rent"];
     [dict setValue:self.cengTF.text  forKey:@"floors"];
     [dict setValue:self.totalFloorTF.text forKey:@"floorCount"];
-    [dict setValue:@"" forKey:@"niandai"];
-    
+//
     NSMutableString *md = [NSMutableString string];
     for (int i=0; i<self.collectionSelect.count; i++) {
+
         if ([[self.collectionSelect objectAtIndex:i] isEqualToString:@"1"]) {
             [md appendFormat:@"%@,",[[self.collectionData objectAtIndex:i] valueForKey:@"dicKey"]];
         }
     }
-    
-//    NSString * maid = [NSString stringWithFormat:@"%@,"];
+//    NSMutableString *substr = [NSMutableString stringWithString:@","];
+    if (md.length>0) {
+        [md deleteCharactersInRange:NSMakeRange([md length]-1, 1)];//
+    }
+////    NSString * maid = [NSString stringWithFormat:@"%@,"];
     [dict setValue:md forKey:@"maidian"];
-    [dict setValue:@"" forKey:@"fangyuanmiaoshu"];
-
+//    [dict setValue:@"" forKey:@"fangyuanmiaoshu"];
+//
     [dict setValue:[[self.cx objectAtIndex:self.cxIndex] objectForKey:@"dicKey"] forKey:@"orientation"];
     [dict setValue:[[self.zx objectAtIndex:self.zxIndex] objectForKey:@"dicKey"] forKey:@"renovationInfo"];
     [dict setValue:self.phoneTF.text forKey:@"mobilePhone"];
+//
     if (self.imageDatas) {
         [dict setObject:self.imageDatas forKey:@"photo"];
     }
-    [dict setValue:[XWJAccount instance].name forKey:@"addPerson"];
-    [dict setValue:@"" forKey:@"clickCount"];
-    [dict setValue:time forKey:@"addTime"];
+    if ([XWJAccount instance].phone) {
+        [dict setValue:[XWJAccount instance].phone forKey:@"addPerson"];
+    }
     [dict setValue:@"青岛市" forKey:@"city"];
     
+    NSString * str = [XWJUtil dataTOjsonString:dict];
+    
+    
+//    NSMutableDictionary *guzhang = [NSMutableDictionary dictionary];
+//    [guzhang setObject:str forKey:@"complain"];
     
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    [data setObject:dict forKey:@"oldHouse"];
+    [data setObject:str forKey:@"oldHouse"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager PUT:url parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%s success ",__FUNCTION__);
@@ -536,7 +550,7 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
         
             NSString *errCode = [dic objectForKey:@"errorCode"];
             NSNumber *nu = [dic objectForKey:@"result"];
-            
+            [ProgressHUD dismiss];
             if ([nu integerValue]== 1) {
                 UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 alertview.delegate = self;

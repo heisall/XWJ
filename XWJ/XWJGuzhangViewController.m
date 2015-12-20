@@ -12,10 +12,11 @@
 #import "XWJGZTableViewCell.h"
 #import "XWJAccount.h"
 #import "XWJGZaddViewController.h"
+#import "XWJGZJudgeViewController.h"
 #define TAG 100
 @interface XWJGuzhangViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSArray *guzhangArr;
+@property NSMutableArray *guzhangArr;
 @end
 
 @implementation XWJGuzhangViewController
@@ -33,6 +34,7 @@
     }else{
         self.navigationItem.title = @"物业投诉";
     }
+    self.guzhangArr = [NSMutableArray array];
     [self getGuzhang];
     [self setNavRightItem];
 }
@@ -97,22 +99,37 @@
 //    UILabel *label4 = [cell viewWithTag:4];
 //    UIView *rate = [cell viewWithTag:5];
 //    UIButton *btn  = [cell viewWithTag:6];
+    /*
+     code = "4-20151220001";
+     createtime = "12-20 10:17";
+     hfzt = "<null>";
+     id = 33;
+     leixing = "\U7ef4\U4fee";
+     miaoshu = "\U4ed8\U51fa";
+     xing = "-1";
+     zt = "\U672a\U53d7\U7406";
+     */
     cell.timelabel.text = @"提交时间";
-    cell.time.text =@"12-12 12:00";
-    
+    cell.time.text = [NSString stringWithFormat:@"%@",[[self.guzhangArr objectAtIndex:indexPath.row] objectForKey:@"createtime"]];
+    cell.contentLabel.text = [NSString stringWithFormat:@"%@",[[self.guzhangArr objectAtIndex:indexPath.row] objectForKey:@"miaoshu"]];
+    cell.finishLabel.text = [NSString stringWithFormat:@"%@",[[self.guzhangArr objectAtIndex:indexPath.row] objectForKey:@"zt"]];
     cell.pingjiaBtn.tag = TAG + indexPath.row;
-    if (indexPath.row%2==0) {
+    
+    
+    NSString *xing = [NSString stringWithFormat:@"%@",[[self.guzhangArr objectAtIndex:indexPath.row] objectForKey:@"xing"]];
+    
+    if ([xing intValue]!=-1) {
         
-        if (!cell.pingjiaBtn.hidden) {
+//        if (!cell.pingjiaBtn.hidden) {
             RatingBar * _bar = [[RatingBar alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width-150, 0, 180, 30)];
             _bar.enable = NO;
-            _bar.starNumber = 2;
+            _bar.starNumber = [xing intValue];
             [cell.rateView addSubview:_bar];
             cell.pingjiaBtn.hidden = YES;
-        }
+//        }
     }else{
-//        cell.pingjiaBtn.hidden = NO;
-        cell.pingjiaBtn.tag = indexPath.row;
+        cell.pingjiaBtn.hidden = NO;
+        cell.pingjiaBtn.tag = indexPath.row+100;
         [cell.pingjiaBtn addTarget:self action:@selector(pingjia:) forControlEvents:UIControlEventTouchUpInside];
     }
         // Configure the cell...
@@ -130,7 +147,11 @@
 
 -(void)pingjia:(UIButton *)btn{
     NSLog(@"btn %ld",(long)btn.tag);
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"gzpingjia"] animated:YES ];
+    
+    XWJGZJudgeViewController *jubge = [self.storyboard instantiateViewControllerWithIdentifier:@"gzpingjia"];
+    jubge.gzid = [[self.guzhangArr objectAtIndex:btn.tag-100] objectForKey:@"id"];
+    jubge.miaoshu = [[self.guzhangArr objectAtIndex:btn.tag-100] objectForKey:@"miaoshu"];
+    [self.navigationController pushViewController:jubge animated:YES ];
 }
 
 #pragma mark - Table view delegate
@@ -138,8 +159,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
         XWJGZmiaoshuViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"guzhangmiaoxu"];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setValue:@"" forKey:@""];
+//        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//        [dic setValue:@"" forKey:@""];
+    detail.detaildic  =  [NSMutableDictionary dictionaryWithDictionary:[self.data objectAtIndex:indexPath.row]];
         [self.navigationController showViewController: detail sender:self];
 
     
@@ -160,12 +182,15 @@
 
     XWJAccount *account = [XWJAccount instance];
     [dict setValue:account.uid forKey:@"userid"];
+//        [dict setValue:@"1" forKey:@"userid"];
+
     if (self.type==1) {
  
         [dict setValue:@"维修" forKey:@"type"];
     }else
         [dict setValue:@"投诉" forKey:@"type"];
 
+    [dict setValue:@"1" forKey:@"a_id"];
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -177,11 +202,10 @@
             //            NSMutableArray * array = [NSMutableArray array];
             //            XWJCity *city  = [[XWJCity alloc] init];
             
-//            NSArray *arr  = [dic objectForKey:@"data"];
-//            [self.houseArr removeAllObjects];
-//            [self.houseArr addObjectsFromArray:arr];
-//            [self.tableView reloadData];
-            NSLog(@"dic %@",dic);
+            NSArray *arr  = [dic objectForKey:@"data"];
+            [self.guzhangArr removeAllObjects];
+            [self.guzhangArr addObjectsFromArray:arr];
+            [self.tableView reloadData];
         }
         
         

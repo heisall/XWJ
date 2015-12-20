@@ -26,7 +26,61 @@
     self.tableView.dataSource = self;
     
     self.array = [NSArray arrayWithObjects:@"青岛市",@"海信花园",@"1号楼1单元101户",@"", nil];
+    [self getZhangDan];
+}
 
+-(void)getZhangDan{
+    /*
+     a_id	小区a_id
+     b_id	楼座b_id
+     r_dy	房间r_dy
+     r_id	房间r_id
+     */
+        NSString *url = GETFZHANGDAN_URL;
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        
+//        XWJAccount *account = [XWJAccount instance];
+//        //    [dict setValue:account.uid forKey:@"userid"];
+//        [dict setValue:@"1" forKey:@"userid"];
+//        
+//        if (self.type==1) {
+//            
+//            [dict setValue:@"维修" forKey:@"type"];
+//        }else
+//            [dict setValue:@"投诉" forKey:@"type"];
+        [dict setValue:@"1" forKey:@"a_id"];
+        [dict setValue:@"1" forKey:@"b_id"];
+        [dict setValue:@"1" forKey:@"r_dy"];
+        [dict setValue:@"101" forKey:@"r_id"];
+    
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+        [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%s success ",__FUNCTION__);
+            
+            if(responseObject){
+                NSDictionary *dic = (NSDictionary *)responseObject;
+                
+                //            NSMutableArray * array = [NSMutableArray array];
+                //            XWJCity *city  = [[XWJCity alloc] init];
+                
+                //            NSArray *arr  = [dic objectForKey:@"data"];
+                //            [self.houseArr removeAllObjects];
+                //            [self.houseArr addObjectsFromArray:arr];
+                //            [self.tableView reloadData];
+                NSLog(@"dic %@",dic);
+            }
+            
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%s fail %@",__FUNCTION__,error);
+            
+        }];
+    
+    
+    
+    
 }
 
 #pragma mark - Table view data source

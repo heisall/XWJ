@@ -9,5 +9,6 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJGZJudgeViewController : XWJBaseViewController
-
+@property NSString *gzid;
+@property NSString *miaoshu ;
 @end

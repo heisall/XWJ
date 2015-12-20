@@ -57,6 +57,9 @@
 		A41255881C0F522E0042D8CC /* XWJjianduDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41255871C0F522E0042D8CC /* XWJjianduDetailViewController.m */; };
 		A412558C1C0F59120042D8CC /* WuyeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */; };
 		A412558E1C0F595B0042D8CC /* LifeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */; };
+		A41A1FE11C26522E002129DF /* XWJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A1FE01C26522E002129DF /* XWJUtil.m */; };
+		A41A1FE61C267EBB002129DF /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A41A1FE31C267EBB002129DF /* ProgressHUD.bundle */; };
+		A41A1FE71C267EBB002129DF /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A1FE51C267EBB002129DF /* ProgressHUD.m */; };
 		A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */; };
 		A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */; };
 		A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810FE1C231530001D2F29 /* XWJFindTypeController.m */; };
@@ -317,6 +320,11 @@
 		A41255871C0F522E0042D8CC /* XWJjianduDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJjianduDetailViewController.m; sourceTree = "<group>"; };
 		A412558B1C0F59120042D8CC /* WuyeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WuyeStoryboard.storyboard; sourceTree = "<group>"; };
 		A412558D1C0F595B0042D8CC /* LifeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LifeStoryboard.storyboard; sourceTree = "<group>"; };
+		A41A1FDF1C26522E002129DF /* XWJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJUtil.h; sourceTree = "<group>"; };
+		A41A1FE01C26522E002129DF /* XWJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJUtil.m; sourceTree = "<group>"; };
+		A41A1FE31C267EBB002129DF /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		A41A1FE41C267EBB002129DF /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		A41A1FE51C267EBB002129DF /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		A43810BE1C1EF491001D2F29 /* XWJBMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBMViewController.h; sourceTree = "<group>"; };
 		A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBMViewController.m; sourceTree = "<group>"; };
 		A43810CE1C1FD135001D2F29 /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
@@ -745,6 +753,16 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		A41A1FE21C267EBB002129DF /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A41A1FE31C267EBB002129DF /* ProgressHUD.bundle */,
+				A41A1FE41C267EBB002129DF /* ProgressHUD.h */,
+				A41A1FE51C267EBB002129DF /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		A43C97891C1297E1006A61EE /* LGPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1114,6 +1132,8 @@
 			children = (
 				A4DC3CAC1C1D0FF9003D4D18 /* XWJCity.h */,
 				A4DC3CAD1C1D0FF9003D4D18 /* XWJCity.m */,
+				A41A1FDF1C26522E002129DF /* XWJUtil.h */,
+				A41A1FE01C26522E002129DF /* XWJUtil.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1185,6 +1205,7 @@
 		DAC4AF181BF0619700D66E76 /* XWJ */ = {
 			isa = PBXGroup;
 			children = (
+				A41A1FE21C267EBB002129DF /* ProgressHUD */,
 				A4DC3CAB1C1D0FE2003D4D18 /* model */,
 				A4DC3CA81C1D0A48003D4D18 /* shangcheng */,
 				A4DC3C881C1C4E1E003D4D18 /* guzhang */,
@@ -1414,6 +1435,7 @@
 				A43C97FF1C129C68006A61EE /* xiang.png in Resources */,
 				A43C97F71C129C68006A61EE /* checkbox_pic_non@2x.png in Resources */,
 				A4DC3C2A1C171C7A003D4D18 /* XWJMyhouseTableCell.xib in Resources */,
+				A41A1FE61C267EBB002129DF /* ProgressHUD.bundle in Resources */,
 				A412554A1C0F33770042D8CC /* devAdv_white@2x.png in Resources */,
 				A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */,
 				A43C97FD1C129C68006A61EE /* X.png in Resources */,
@@ -1446,6 +1468,7 @@
 				A48801C01C0B408100714F5B /* XWJSuggestionController.m in Sources */,
 				A43C97A41C1297E1006A61EE /* LGPhotoPickerDatas.m in Sources */,
 				A41255731C0F39D20042D8CC /* NSData+ImageContentType.m in Sources */,
+				A41A1FE71C267EBB002129DF /* ProgressHUD.m in Sources */,
 				A4F5C17D1C0C86A800513CD9 /* XWJHomeViewController2.m in Sources */,
 				A41255831C0F39EE0042D8CC /* LCBannerView.m in Sources */,
 				A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */,
@@ -1479,6 +1502,7 @@
 				A41255121C0F22FC0042D8CC /* UIAlertView+AFNetworking.m in Sources */,
 				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
 				A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */,
+				A41A1FE11C26522E002129DF /* XWJUtil.m in Sources */,
 				A488019A1C09FB6F00714F5B /* XWJMineViewController.m in Sources */,
 				A43C984B1C1516CC006A61EE /* XWJGuanjiaViewController.m in Sources */,
 				DAC4AF1C1BF0619700D66E76 /* main.m in Sources */,
