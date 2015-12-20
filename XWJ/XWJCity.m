@@ -90,6 +90,18 @@
                 
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"bind"];
                 [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"a_id"];
+                [[NSUserDefaults standardUserDefaults] setValue:[XWJAccount instance].account forKey:@"username"];
+                [[NSUserDefaults standardUserDefaults] setValue:[_district objectForKey:a_name] forKey:@"xiaoqu"];
+
+                XWJCity *cityinstance = [XWJCity instance];
+ 
+                NSString *area = [_district objectForKey:a_name];
+                NSString *build = [cityinstance.buiding valueForKey:b_name];
+                NSString *roomNum = [cityinstance.room valueForKey:@"R_id"];
+                NSString *dy = [cityinstance.room valueForKey:@"R_dy"];
+                NSString *huname = [NSString stringWithFormat:@"%@%@单元%@",area,dy,roomNum];
+                [[NSUserDefaults standardUserDefaults] setValue:huname forKey:@"huname"];
+                
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 errCode = @"绑定成功";
                 success(1);

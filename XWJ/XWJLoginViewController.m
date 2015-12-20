@@ -44,21 +44,7 @@
     [UIApplication sharedApplication].statusBarHidden = YES;
 
     
-    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
 
-    if (username) {
-        
-        self.tFieldUserName.text = username;
-    }else{
-        
-            self.tFieldUserName.text = @"15092245487";
-    }
-    if (pwd) {
-        
-        self.tFieldPassWord.text = pwd;
-    }else
-        self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
     
 //    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
@@ -83,6 +69,21 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+    
+    if (username) {
+        
+        self.tFieldUserName.text = username;
+    }else{
+        
+        self.tFieldUserName.text = @"15092245487";
+    }
+    if (pwd) {
+        
+        self.tFieldPassWord.text = pwd;
+    }else
+        self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
 }
 - (BOOL)prefersStatusBarHidden
@@ -119,11 +120,13 @@
             NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
             NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
 //            [XWJAccount instance].uid = ;
-            if (![username isEqualToString:uname]||![pwd isEqualToString:pass]) {
+            if (![username isEqualToString:uname]) {
                 [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
                 [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"bind"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+            }else if(![pwd isEqualToString:pass]){
+                [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
             }
             
             NSDictionary *dic = (NSDictionary *)responseObject;

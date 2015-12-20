@@ -24,13 +24,17 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+//    [dic valueForKey:@"R_dy"],[dic valueForKey:@"R_id"]]
     XWJCity *cityinstance = [XWJCity instance];
     NSString *city  = [cityinstance.city valueForKey:CityName];
     NSString *dis = [cityinstance.district valueForKey:a_name];
     NSString *build = [cityinstance.buiding valueForKey:b_name];
-    NSString *room = [cityinstance.room valueForKey:JU_RID];
+    NSString *roomNum = [cityinstance.room valueForKey:@"R_id"];
+    NSString *dy = [cityinstance.room valueForKey:@"R_dy"];
     
-    self.array = [NSArray arrayWithObjects:city,dis,[NSString stringWithFormat:@"%@%@",build,room], nil];
+//    NSString *rdy = [cityinstance.rdy ];
+    self.array = [NSArray arrayWithObjects:city,dis,[NSString stringWithFormat:@"%@%@单元%@",build,dy,roomNum], nil];
     self.typearray = [NSArray arrayWithObjects:@"城市",@"小区",@"房号", nil];
     self.navigationItem.title = @"绑定房源";
     

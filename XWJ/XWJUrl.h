@@ -38,6 +38,8 @@
 #define  GETFGUZHANGDETAIL_URL XWJBASEURL"bill/complainDetail"
 #define  GETFGUZHANADD_URL XWJBASEURL"bill/complainSave"
 #define  GETGUZHANGPINGJIA_URL  XWJBASEURL"bill/saveEvaluate"
+
+#define  GETGUANJIAAD_URL  XWJBASEURL"keep/keepIndex"
 //xinfang
 #define GETXINFANG_URL XWJBASEURL"house/newHouseIndex"
 #define GETXINFANGDETAIL_URL XWJBASEURL"house/houseDetail"

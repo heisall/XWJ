@@ -117,7 +117,7 @@ NSArray *footer;
     }
     self.mesScrollview.contentSize = CGSizeMake(w*3, h);
     */
-    
+
     
 }
 - (IBAction)qiandao:(UIButton *)sender {
@@ -493,7 +493,15 @@ NSArray *footer;
 }
 
 -(void)setNavigationBar2{
-    self.navigationItem.title = @"依云小镇";
+    
+
+        NSString *ti = [[NSUserDefaults standardUserDefaults] objectForKey:@"xiaoqu"];
+    if (ti) {
+        
+        self.navigationItem.title = ti;
+    }else
+        self.navigationItem.title = @"依云小镇";
+    
     UIImage *image = [UIImage imageNamed:@"homemes"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, image.size.width, image.size.height);

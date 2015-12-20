@@ -60,6 +60,7 @@
 		A41A1FE11C26522E002129DF /* XWJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A1FE01C26522E002129DF /* XWJUtil.m */; };
 		A41A1FE61C267EBB002129DF /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A41A1FE31C267EBB002129DF /* ProgressHUD.bundle */; };
 		A41A1FE71C267EBB002129DF /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A1FE51C267EBB002129DF /* ProgressHUD.m */; };
+		A41A1FEA1C26E236002129DF /* XWJWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A1FE91C26E236002129DF /* XWJWebViewController.m */; };
 		A43810C01C1EF491001D2F29 /* XWJBMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */; };
 		A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810CF1C1FD135001D2F29 /* XWJButlerViewController.m */; };
 		A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43810FE1C231530001D2F29 /* XWJFindTypeController.m */; };
@@ -325,6 +326,8 @@
 		A41A1FE31C267EBB002129DF /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		A41A1FE41C267EBB002129DF /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		A41A1FE51C267EBB002129DF /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		A41A1FE81C26E236002129DF /* XWJWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJWebViewController.h; sourceTree = "<group>"; };
+		A41A1FE91C26E236002129DF /* XWJWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJWebViewController.m; sourceTree = "<group>"; };
 		A43810BE1C1EF491001D2F29 /* XWJBMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJBMViewController.h; sourceTree = "<group>"; };
 		A43810BF1C1EF491001D2F29 /* XWJBMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJBMViewController.m; sourceTree = "<group>"; };
 		A43810CE1C1FD135001D2F29 /* XWJButlerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJButlerViewController.h; sourceTree = "<group>"; };
@@ -962,6 +965,8 @@
 				A43C98491C1516CC006A61EE /* XWJGuanjiaViewController.h */,
 				A43C984A1C1516CC006A61EE /* XWJGuanjiaViewController.m */,
 				A43C984C1C1516DF006A61EE /* XWJGJStoryboard.storyboard */,
+				A41A1FE81C26E236002129DF /* XWJWebViewController.h */,
+				A41A1FE91C26E236002129DF /* XWJWebViewController.m */,
 			);
 			name = guanjia;
 			sourceTree = "<group>";
@@ -1563,6 +1568,7 @@
 				A41255151C0F22FC0042D8CC /* UIProgressView+AFNetworking.m in Sources */,
 				A412550B1C0F22FC0042D8CC /* AFURLRequestSerialization.m in Sources */,
 				A438110F1C2462C4001D2F29 /* XWJHouseMapController.m in Sources */,
+				A41A1FEA1C26E236002129DF /* XWJWebViewController.m in Sources */,
 				A43C97A71C1297E1006A61EE /* LGPhotoPickerGroupViewController.m in Sources */,
 				A43C97A91C1297E1006A61EE /* LGPhotoPickerCollectionView.m in Sources */,
 				A41255161C0F22FC0042D8CC /* UIRefreshControl+AFNetworking.m in Sources */,

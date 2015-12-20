@@ -43,7 +43,7 @@
     [dict setValue:user forKey:@"account"];
     [dict setValue:pwd forKey:@"password"];
     [dict setValue:@"iPhone" forKey:@"type"];
-    [dict setValue:@"168.0.0.1" forKey:@"ip"];
+    [dict setValue:@"" forKey:@"ip"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager PUT:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"res success ");
@@ -54,17 +54,24 @@
         
         NSNumber * result = [dic valueForKey:@"result"];
         
-        if ([result intValue]== 1) {
-            NSString *sid = [[[dic valueForKey:@"data"] valueForKey:@"user"] valueForKey:@"U_id"];
-            NSLog(@"sid %@",sid);
-            [XWJAccount instance].uid = sid;
-        }
-         
-//        [_txtFieldPwd resignFirstResponder];
-            NSString *errCode = [dic objectForKey:@"errorCode"];
-        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        alertview.delegate = self;
-        [alertview show];
+            if ([result intValue]== 1) {
+                
+                NSString *sid = [[[dic valueForKey:@"data"] valueForKey:@"user"] valueForKey:@"id"];
+                NSLog(@"sid %@",sid);
+                [XWJAccount instance].uid = sid;
+                [XWJAccount instance].account = [[[dic valueForKey:@"data"] valueForKey:@"user"] valueForKey:@"Account"];
+                [XWJAccount instance].password = pwd;
+                UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alertview.delegate = self;
+                [alertview show];
+            }else{
+             
+    //        [_txtFieldPwd resignFirstResponder];
+                NSString *errCode = [dic objectForKey:@"errorCode"];
+            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            alertview.delegate = self;
+            [alertview show];
+            }
         }
 //        id jsonObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
 //        

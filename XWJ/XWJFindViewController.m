@@ -152,8 +152,11 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     if (self.select>=0) {
         [self getFindList:[[self.findlistArr objectAtIndex:self.select] valueForKey:@"dictValue"]];
     }
-    self.navigationItem.title = @"依云小镇";
-//    self.title = @"依云小镇";
+    NSString *ti = [[NSUserDefaults standardUserDefaults] objectForKey:@"xiaoqu"];
+    if (ti) {
+        self.navigationItem.title = ti;
+    }else
+        self.navigationItem.title = @"依云小镇";//    self.title = @"依云小镇";
     self.navigationItem.leftBarButtonItem = nil;
 }
 
