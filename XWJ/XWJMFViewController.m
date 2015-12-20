@@ -265,6 +265,7 @@ static NSString *kheaderIdentifier = @"headerIdentifier";
 
             
         }
+            break;
         case 4:{
             self.zxIndex = index;
             self.zhuangxiuLabel.text = [NSString stringWithFormat:@"%@",[[self.zx objectAtIndex:index] objectForKey:@"dicValue"]];

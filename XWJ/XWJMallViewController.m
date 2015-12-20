@@ -18,6 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"商城";
+    
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    UIImage *image = [UIImage imageNamed:@"backIcon"];
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+//    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//    [btn setBackgroundImage:image forState:UIControlStateNormal];
+//    UIBarButtonItem *barButtonItem = [[UIBarButtonItem  alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning {

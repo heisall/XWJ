@@ -302,6 +302,7 @@ typedef NS_ENUM(NSUInteger, selecttype) {
             [self getfangInfo];
 
         }
+            break;
         case selecttypezongjia:{
             self.priceIndex = index;
 //            [self get2handfang:@""];

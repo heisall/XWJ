@@ -30,13 +30,23 @@
         btn.frame = CGRectMake((SCREEN_SIZE.width/4+1)*(i%4), self.room.frame.origin.y+self.room.bounds.size.height+60 + ((int)(i/4))*(SCREEN_SIZE.width/4+1), SCREEN_SIZE.width/4 , SCREEN_SIZE.width/4 );
         btn.tag = i;
 //        btn.backgroundColor = XWJColor(124, 197, 193);
+        [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
+        btn.backgroundColor = [UIColor whiteColor];
+        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        btn.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(15, 25, 0, 0)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(70, -28, 0, 0)];
+        
+//        btn.al
+        [btn setTitle:self.titles[i] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
 }
 
 -(void)initData{
-    self.titles = [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"物业监督",@"故障报修",@"物业投诉", @"物业账单",nil];
+    self.titles = [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"故障报修",@"投诉表扬", @"物业账单",@"物业监督",@"房屋租赁",nil];
 
     
     UIStoryboard * HomeStoryboard = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
@@ -51,15 +61,17 @@
     
     XWJPay1ViewController *pay = [HomeStoryboard instantiateViewControllerWithIdentifier:@"pay1"];
     
-    UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
-    XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
-    
     UIStoryboard * story = [UIStoryboard storyboardWithName:@"XWJZFStoryboard" bundle:nil];
 
     XWJZFViewController *zf = [story instantiateInitialViewController];
     zf.type = 2;
+    UIStoryboard *guzhang = [UIStoryboard storyboardWithName:@"GuzhanStoryboard" bundle:nil];
+    XWJGuzhangViewController *gz = [guzhang instantiateInitialViewController];
+    gz.type = 1;
     
-    self.vConlers = [NSArray arrayWithObjects:notice,notice2,wu,gz,notice,pay,zf,nil];
+    XWJGuzhangViewController *gz2 = [guzhang instantiateInitialViewController];
+    gz2.type = 2;
+    self.vConlers = [NSArray arrayWithObjects:notice,notice2,gz,gz2,pay,wu,zf,nil];
 }
 
 -(void)btnclick:(UIButton *)btn{
@@ -71,6 +83,7 @@
     self.navigationItem.title = @"管家";
     self.navigationItem.leftBarButtonItem = nil;
 
+    self.tabBarController.tabBar.hidden = NO;
     NSString *ti =[NSString stringWithFormat:@"%@%@",[[XWJCity instance].district valueForKey:@"a_name"]?[[XWJCity instance].district valueForKey:@"a_name"]:@"",[[XWJCity instance].buiding valueForKey:@"b_name"]?[[XWJCity instance].buiding valueForKey:@"b_name"]:@""];
 //    self.room.text  = ti;
 //    [self addView];
