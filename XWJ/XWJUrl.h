@@ -21,7 +21,10 @@
 #define REGISTER_URL  XWJBASEURL"user/register"
 #define RESETPWD_URL  XWJBASEURL"user/resetPass"
 
-
+//life
+#define GETLIFEAD_URL  XWJBASEURL"life/lifeIndex"
+#define GETSHANGMENAD_URL  XWJBASEURL"life/onDoorIndex"
+#define GETLIFEMORE_URL  XWJBASEURL"life/classifyIndex"
 //find
 
 #define GETFINDLIST_URL XWJBASEURL"find/findIndex"

@@ -99,7 +99,7 @@
                 NSString *build = [cityinstance.buiding valueForKey:b_name];
                 NSString *roomNum = [cityinstance.room valueForKey:@"R_id"];
                 NSString *dy = [cityinstance.room valueForKey:@"R_dy"];
-                NSString *huname = [NSString stringWithFormat:@"%@%@单元%@",area,dy,roomNum];
+                NSString *huname = [NSString stringWithFormat:@"%@%@%@单元%@",area,build,dy,roomNum];
                 [[NSUserDefaults standardUserDefaults] setValue:huname forKey:@"huname"];
                 
                 [[NSUserDefaults standardUserDefaults] synchronize];

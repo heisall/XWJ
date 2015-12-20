@@ -24,7 +24,7 @@ static NSString *kcellIdentifier = @"collectionCellID";
 NSArray *myImgs;
 -(void)viewDidLoad{
 
-    self.tableData = [NSArray arrayWithObjects:@"关于信我家",@"邀请家人",@"修改密码",@"版本检查",@"修改建议",@"系统设置" ,nil];
+    self.tableData = [NSArray arrayWithObjects:@"关于信我家",@"邀请家人",@"修改密码",@"版本检查",@"修改建议",@"系统设置" ,@"退出登录" ,nil];
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     tableViewCellHeight = self.tableview.bounds.size.height/self.tableData.count;
@@ -209,6 +209,12 @@ NSArray *myImgs;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MineStoryboard" bundle:nil];
         [self.navigationController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"suggestStory"] sender:nil];
     }
+    if (indexPath.row == 6) {
+        
+        UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+        [UIApplication sharedApplication].keyWindow.rootViewController = [loginStoryboard instantiateInitialViewController];
+    }
+    
 }
 
 @end

@@ -653,8 +653,16 @@ NSArray *footer;
         label.text = footer[indexPath.section];
     }
     
-    UIButton *button  = (UIButton*)[view viewWithTag:0];
+    UIButton *button  = (UIButton*)[view viewWithTag:2];
+    button.tag = 100+indexPath.section;
+    [button addTarget:self action:@selector(headerClick:) forControlEvents:UIControlEventTouchUpInside];
     return view;
+}
+
+-(void)headerClick:(UIButton *)btn{
+    NSInteger index =btn.tag;
+    NSLog(@"header %ld ",index);
+    
 }
 
 //定义每个UICollectionViewCell 的大小
