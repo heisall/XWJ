@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -478,38 +477,36 @@
                                                     <rect key="frame" x="28" y="40" width="37.5" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMZ-v8-nPS">
                                                     <rect key="frame" x="28" y="68" width="544" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-dR-zST">
-                                                    <rect key="frame" x="28" y="15" width="480" height="20.5"/>
+                                                    <rect key="frame" x="28" y="15" width="544" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-m9-JhR">
-                                                    <rect key="frame" x="548" y="14" width="34" height="23"/>
+                                                    <rect key="frame" x="548" y="37" width="34" height="23"/>
                                                     <animations/>
                                                     <state key="normal" title="2" image="findpinglun">
-                                                        <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     </state>
                                                     <state key="disabled" image="findpinglun"/>
                                                 </button>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.57647058819999997" green="0.80392156859999997" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="Eyw-dR-zST" firstAttribute="width" secondItem="tWT-1N-ZVl" secondAttribute="width" multiplier="4:5" id="2V4-yF-Ecr"/>
                                                 <constraint firstItem="bMZ-v8-nPS" firstAttribute="leading" secondItem="vMQ-hG-Da6" secondAttribute="leading" id="Bch-6G-OsF"/>
-                                                <constraint firstItem="VSu-m9-JhR" firstAttribute="centerY" secondItem="Eyw-dR-zST" secondAttribute="centerY" id="GK5-iz-Mi1"/>
                                                 <constraint firstItem="vMQ-hG-Da6" firstAttribute="top" secondItem="Eyw-dR-zST" secondAttribute="bottom" constant="5" id="JAy-id-AhJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VSu-m9-JhR" secondAttribute="trailing" constant="10" id="LQS-dL-gX6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bMZ-v8-nPS" secondAttribute="trailing" constant="20" id="MGO-RO-rZ0"/>
@@ -517,6 +514,8 @@
                                                 <constraint firstItem="bMZ-v8-nPS" firstAttribute="top" secondItem="vMQ-hG-Da6" secondAttribute="bottom" constant="10" id="X9m-Xa-NDb"/>
                                                 <constraint firstItem="Eyw-dR-zST" firstAttribute="leading" secondItem="tWT-1N-ZVl" secondAttribute="leadingMargin" constant="20" id="aBK-6m-hej"/>
                                                 <constraint firstItem="vMQ-hG-Da6" firstAttribute="leading" secondItem="Eyw-dR-zST" secondAttribute="leading" id="aRO-cA-Ux6"/>
+                                                <constraint firstItem="VSu-m9-JhR" firstAttribute="centerY" secondItem="vMQ-hG-Da6" secondAttribute="centerY" id="u3L-Pa-RDp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Eyw-dR-zST" secondAttribute="trailing" constant="20" id="uCW-MD-kEC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -563,14 +562,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QoT-op-vcS">
-                                <rect key="frame" x="40" y="47" width="490" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QoT-op-vcS">
+                                <rect key="frame" x="20" y="70.5" width="560" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYi-r5-OSh">
+                                <rect key="frame" x="20" y="40" width="68" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7et-32-wad">
+                                <rect key="frame" x="20" y="110.5" width="34" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5QY-mG-piN">
+                                <rect key="frame" x="20" y="140.5" width="560" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc0-AA-bZi">
-                                <rect key="frame" x="171.5" y="170" width="257" height="36"/>
+                                <rect key="frame" x="172" y="190.5" width="257" height="36"/>
                                 <animations/>
                                 <state key="normal" title="报名" backgroundImage="loginnext">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -580,35 +599,38 @@
                                     <action selector="surePay:" destination="MC0-LM-RVS" eventType="touchUpInside" id="gmF-Mh-soI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuM-5I-3Ff">
-                                <rect key="frame" x="40" y="97" width="490" height="20.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QuM-5I-3Ff" firstAttribute="top" secondItem="QoT-op-vcS" secondAttribute="bottom" constant="20" id="2zT-ZB-2ui"/>
+                            <constraint firstItem="7et-32-wad" firstAttribute="top" secondItem="QoT-op-vcS" secondAttribute="bottom" constant="10" id="0e0-bo-GOL"/>
+                            <constraint firstItem="7et-32-wad" firstAttribute="leading" secondItem="WYi-r5-OSh" secondAttribute="leading" id="4Y7-im-esG"/>
+                            <constraint firstItem="5QY-mG-piN" firstAttribute="top" secondItem="7et-32-wad" secondAttribute="bottom" constant="10" id="BaR-V5-fW5"/>
+                            <constraint firstItem="QoT-op-vcS" firstAttribute="top" secondItem="WYi-r5-OSh" secondAttribute="bottom" constant="10" id="YvB-5s-ab8"/>
+                            <constraint firstItem="WYi-r5-OSh" firstAttribute="leading" secondItem="Az8-yW-zUa" secondAttribute="leadingMargin" id="aBs-vH-snB"/>
                             <constraint firstItem="Fc0-AA-bZi" firstAttribute="centerX" secondItem="Az8-yW-zUa" secondAttribute="centerX" id="dDc-UV-GeR"/>
-                            <constraint firstItem="Fc0-AA-bZi" firstAttribute="top" secondItem="QuM-5I-3Ff" secondAttribute="bottom" constant="52.5" id="e2Y-wb-dV8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QoT-op-vcS" secondAttribute="trailing" constant="50" id="eIo-2J-QrG"/>
-                            <constraint firstItem="QoT-op-vcS" firstAttribute="leading" secondItem="Az8-yW-zUa" secondAttribute="leadingMargin" constant="20" id="ezm-Ah-VAZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QoT-op-vcS" secondAttribute="trailing" id="eIo-2J-QrG"/>
+                            <constraint firstItem="QoT-op-vcS" firstAttribute="leading" secondItem="Az8-yW-zUa" secondAttribute="leadingMargin" id="ezm-Ah-VAZ"/>
                             <constraint firstItem="QoT-op-vcS" firstAttribute="top" secondItem="Mhf-9e-taf" secondAttribute="bottom" constant="27" id="glo-Gm-oa4"/>
-                            <constraint firstItem="QuM-5I-3Ff" firstAttribute="width" secondItem="QoT-op-vcS" secondAttribute="width" id="jTF-h9-dTI"/>
-                            <constraint firstItem="QuM-5I-3Ff" firstAttribute="leading" secondItem="QoT-op-vcS" secondAttribute="leading" id="xd1-k7-dwM"/>
+                            <constraint firstItem="WYi-r5-OSh" firstAttribute="top" secondItem="Mhf-9e-taf" secondAttribute="bottom" constant="20" id="gun-9s-IeX"/>
+                            <constraint firstItem="Fc0-AA-bZi" firstAttribute="top" secondItem="5QY-mG-piN" secondAttribute="bottom" constant="20.5" id="mjt-dW-vRp"/>
+                            <constraint firstItem="5QY-mG-piN" firstAttribute="width" secondItem="QoT-op-vcS" secondAttribute="width" id="v2d-65-nr6"/>
+                            <constraint firstItem="5QY-mG-piN" firstAttribute="leading" secondItem="QoT-op-vcS" secondAttribute="leading" id="vaV-at-6eZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="glo-Gm-oa4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="name" destination="QoT-op-vcS" id="EMp-TG-Cm8"/>
-                        <outlet property="phone" destination="QuM-5I-3Ff" id="wzb-Rb-TYD"/>
+                        <outlet property="name" destination="5QY-mG-piN" id="e9r-ty-plZ"/>
+                        <outlet property="telPhone" destination="QoT-op-vcS" id="dHW-Pq-T7Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRu-FW-Oj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="987"/>
+            <point key="canvasLocation" x="762" y="985"/>
         </scene>
         <!--Pay1 View Controller-->
         <scene sceneID="oi0-XX-KDi">

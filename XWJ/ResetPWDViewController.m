@@ -9,7 +9,10 @@
 #import "ResetPWDViewController.h"
 #import <SMS_SDK/SMSSDK.h>
 
-@interface ResetPWDViewController ()
+@interface ResetPWDViewController (){
+    int timeTick;
+
+}
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldIDCode;
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPhoneNumber;
 
@@ -20,11 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    /**
+     *  注册所有的
+     */
+    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
+    [controlView addTarget:self action:@selector(resiginTF) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:controlView atIndex:0];
+    controlView.backgroundColor = [UIColor clearColor];
+    timeTick = 61;
+
     [self setStatusBar];
     [self setNavigationBar];
     self.txtFieldIDCode.delegate = self;
     self.txtFieldPhoneNumber.delegate = self;
 
+}
+
+-(void)resiginTF
+{
+    NSLog(@"resign");
+    [self.txtFieldIDCode resignFirstResponder];
+    [self.txtFieldPhoneNumber resignFirstResponder];
 }
 
 -(void)setStatusBar{

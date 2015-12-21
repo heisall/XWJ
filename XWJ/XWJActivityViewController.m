@@ -45,15 +45,25 @@
     }else{
         self.clickBtn.hidden = YES;
     }
+    
+    
+    self.webView = [[UIWebView alloc] init];
+    [self.view addSubview:self.webView];
+    if (![self.type isEqualToString:@"1"]) {
+        self.btn.hidden = YES;
+        
+        self.webView.frame = CGRectMake(0, 130, SCREEN_SIZE.width, SCREEN_SIZE.height);
+    }else{
+        self.webView.frame = CGRectMake(0, 180, SCREEN_SIZE.width, SCREEN_SIZE.height);
+    }
+    
     NSString *url = [self.dic valueForKey:KEY_AD_URL];
     if (url&&(NSNull *)url != [NSNull null]) {
 
         NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         [self.webView loadRequest:request];
     }
-    if (![self.type isEqualToString:@"1"]) {
-        self.btn.hidden = YES;
-    }
+    
 }
 
 //参数：id:通知/活动id ，account:用户账号，phone：手机号码， name:姓名

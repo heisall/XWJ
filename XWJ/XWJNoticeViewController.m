@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"通知活动";
+    self.navigationItem.title = @"物业通知";
     
     /*
      ClickCount = 34;
@@ -122,7 +122,7 @@
 //    cell.clickBtn.titleLabel.text = @""
     [cell.clickBtn setTitle:[dic valueForKey:KEY_AD_CLICKCOUNT] forState:UIControlStateNormal];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                         
+    
     //    [cell.dialBtn setImage:[] forState:<#(UIControlState)#>]
     //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 69, self.view.bounds.size.width,1)];
     //    view.backgroundColor  = [UIColor colorWithRed:206.0/255.0 green:207.0/255.0 blue:208.0/255.0 alpha:1.0];

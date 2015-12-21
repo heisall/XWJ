@@ -11,6 +11,7 @@
 @interface XWJBMViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *telPhone;
 
 @end
 
@@ -34,7 +35,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:_houdongId  forKey:@"id"];
     [dict setValue:account.account  forKey:@"account"];
-    [dict setValue:account.account forKey:@"phone"];
+    [dict setValue:self.telPhone.text forKey:@"phone"];
     [dict setValue:self.name.text  forKey:@"name"];
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];

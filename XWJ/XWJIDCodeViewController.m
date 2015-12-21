@@ -101,11 +101,12 @@
         
     }else
     {
-        NSString *str = [NSString stringWithFormat:@"%d",timeTick];
+        NSString *str = [NSString stringWithFormat:@"%d秒后重新发送",timeTick];
         if (_numlabel.hidden) {
             _numlabel.hidden = NO;
         }
         _numlabel.text = str;
+        self.btnGetcode.titleLabel.text = @"";
 //        [_btnGetcode setTitle:str forState:UIControlStateNormal];
     }
 }
@@ -117,43 +118,7 @@
   
     [self sendCodeRes];
     
-    
-    
-//    self.btnGetcode.enabled = FALSE;
-//    NSTimeInterval timeInterval =1.0 ;
-    //定时器
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-    
 
-    /*
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS
-     //这个参数可以选择是通过发送验证码还是语言来获取验证码
-                            phoneNumber:self.txtFieldPhoneNumber.text
-                                   zone:@"86"
-                       customIdentifier:nil //自定义短信模板标识
-                                 result:^(NSError *error)
-     {
-         
-         if (!error)
-         {
-             NSLog(@"block 获取验证码成功");
-             
-         }
-         else
-         {
-             
-             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"codesenderrtitle", nil)
-                                                             message:[NSString stringWithFormat:@"%@",[error.userInfo objectForKey:@"getVerificationCode"]]
-                                                            delegate:self
-                                                   cancelButtonTitle:NSLocalizedString(@"sure", nil)
-                                                   otherButtonTitles:nil, nil];
-             [alert show];
-             
-         }
-         
-     }];
-     
-     */
 }
 - (IBAction)verifyIDcode:(id)sender {
 //    UIStoryboard *storyboard = [UIStoryboard  storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
@@ -177,37 +142,7 @@
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertview show];
     }
-    /*
-    [SMSSDK  commitVerificationCode:self.txtFieldIDCode.text
-     //传获取到的区号
-                        phoneNumber:self.txtFieldPhoneNumber.text
-                               zone:@"86"
-                             result:^(NSError *error)
-     {
-         NSString *message ;
-         if (!error)
-         {
-             NSLog(@"验证成功");
-             message = @"验证成功";
-             
-             NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-             [defaults setValue:self.txtFieldPhoneNumber.text forKey:@"username"];
-             [defaults synchronize];
-             
-             UIStoryboard *storyboard = [UIStoryboard  storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
-             UIViewController *resetPassword = [storyboard instantiateViewControllerWithIdentifier:@"resetpwd"];
-//             UIViewController *resetPassword = [[UIViewController alloc] initWithNibName:@"XWJResetPasswordViewController" bundle:nil];
-             [self.navigationController pushViewController:resetPassword animated:YES];
-         }
-         else
-         {
-             NSLog(@"验证失败");
-             message = @"验证失败";
-             UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-             [alertview show];
-         }
-     }];
-     */
+ 
     
 }
 

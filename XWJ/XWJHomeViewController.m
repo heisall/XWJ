@@ -27,7 +27,7 @@
 
 #define TAG 100
 
-@interface XWJHomeViewController ()<XWJBindHouseDelegate>
+@interface XWJHomeViewController ()<XWJBindHouseDelegate,UIAlertViewDelegate>
 @property (nonatomic)NSTimer *timer;
 @property (nonatomic, assign) CGFloat timerInterval;
 @property NSInteger currentPage;
@@ -68,57 +68,7 @@ NSArray *footer;
     CGFloat height = self.scrollView.bounds.size.height+self.adScrollView.bounds.size.height+self.mesScrollview.bounds.size.height+self.collectionView.bounds.size.height+100;
     
     self.backScollView.contentSize = CGSizeMake(SCREEN_SIZE.width, height);
-    
-    
-    
-    /******************** internet ********************/
-//    NSArray *URLs = @[@"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
-//                      @"http://admin.guoluke.com:80/userfiles/files/admin/201509181707000766.png",
-//                      @"http://img.guoluke.com/upload/201509091054250274.jpg"];
-//    
-//    [self.adScrollView addSubview:({
-//        
-//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-//                                                                                self.adScrollView.bounds.size.height)
-//                                    
-//                                                            delegate:self
-//                                                           imageURLs:URLs
-//                                                    placeholderImage:nil
-//                                                       timerInterval:3.0f
-//                                       currentPageIndicatorTintColor:[UIColor redColor]
-//                                              pageIndicatorTintColor:[UIColor whiteColor]];
-//        bannerView;
-//    })];
-    
-//    NSArray *titls = [NSArray arrayWithObjects:@"重要公告寒流来袭，快把装备上全1",@"重要公告寒流来袭，快把装备上全2",@"重要公告寒流来袭，快把装备上全3", nil];
-//    [self.mesScrollview addSubview:({
-//        
-//        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
-//                                                                                self.mesScrollview.bounds.size.height)
-//                                    
-//                                                            delegate:self
-//                                                              titles:titls timerInterval:2.0
-//                                       currentPageIndicatorTintColor:[UIColor clearColor] pageIndicatorTintColor:[UIColor clearColor]];
-//        bannerView;
-//    })];
-    
-    /*
-    self.timerInterval = 2.0;
-    CGFloat h = self.mesScrollview.bounds.size.height;
-    CGFloat w = [UIScreen mainScreen].bounds.size.width;
 
-    for (int i=0; i<3; i++) {
-        UIButton * btn  = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(i*w, 0, w,h);
-        btn.tag = i;
-        btn.titleLabel.text = [NSString stringWithFormat:@"元旦放假通知%d",i];
-        [btn addTarget:self action:@selector(msgClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.mesScrollview addSubview:btn];
-    }
-    self.mesScrollview.contentSize = CGSizeMake(w*3, h);
-    */
-
-    
 }
 - (IBAction)qiandao:(UIButton *)sender {
 }
@@ -143,7 +93,7 @@ NSArray *footer;
     NSLog(@"view width %f height %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
 //    NSArray * arr= [NSArray arrayWithObjects:@"故障报修",@"在线缴费",@"我要投诉",@"物业监督",@"物业监督", nil];
-    NSArray * arr= [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"物业监督",@"故障报修",@"物业投诉", @"物业账单",nil];
+    NSArray * arr= [NSArray arrayWithObjects:@"物业通知",@"社区活动",@"物业监督",@"物业报修",@"物业投诉", @"物业账单",nil];
 
     NSArray * business= [NSArray arrayWithObjects:@"hometongzhi",@"homehuodong",@"homewy",@"homegz",@"homets",@"homejf", nil];
 
@@ -310,7 +260,7 @@ NSArray *footer;
 //    self.isBind = YES;
     NSArray *jump = [NSArray arrayWithObjects:notice,notice2,wu,gz,gz2,pay, nil];
 
-    if (!self.isBind&&((sender.tag-TAG == 3)||(sender.tag - TAG) == 5)) {
+    if (!self.isBind&&((sender.tag-TAG == 3)||(sender.tag - TAG == 5)||(sender.tag - TAG == 4))) {
 //        
 //        XWJCity *city = [XWJCity instance];
 //
@@ -323,15 +273,10 @@ NSArray *footer;
 //                [arr2 addObject:[dic valueForKey:@"CityName"]];
 //            }
 //        }];
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"您还没有绑定房间，请绑定后使用。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertview.delegate = self;
+        [alertview show];
         
-        XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
-        bind.title = @"城市选择";
-        //            bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
-        
-//        bind.dataSource = arr2;
-        bind.delegate = self;
-        bind->mode = HouseCity;
-        [self.navigationController showViewController:bind sender:nil];
  
     }else{
 //        if(sender.tag -TAG >1)
@@ -342,6 +287,19 @@ NSArray *footer;
 
     }
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+    bind.title = @"城市选择";
+    //            bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市",@"烟台市",@"临沂市", nil];
+    
+    //        bind.dataSource = arr2;
+    bind.delegate = self;
+    bind->mode = HouseCity;
+    [self.navigationController showViewController:bind sender:nil];
+}
+
 #pragma bindhouse delegate
 -(void)didSelectAtIndex:(NSInteger)index Type:(HouseMode)type{
     XWJCity *city = [XWJCity instance];

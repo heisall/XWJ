@@ -27,7 +27,8 @@
     [defaults setValue:self.txtFieldPwd.text forKey:@"password"];
     [defaults synchronize];
     
-    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [self.txtFieldPwd resignFirstResponder];
+//    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     [self regist:self.user Pass:self.txtFieldPwd.text];
     
@@ -43,7 +44,7 @@
     [dict setValue:user forKey:@"account"];
     [dict setValue:pwd forKey:@"password"];
     [dict setValue:@"iPhone" forKey:@"type"];
-    [dict setValue:@"" forKey:@"ip"];
+    [dict setValue:@"192.168.0.1" forKey:@"ip"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager PUT:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"res success ");
@@ -70,6 +71,7 @@
                 NSString *errCode = [dic objectForKey:@"errorCode"];
             UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:errCode delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             alertview.delegate = self;
+                alertview.tag = 100;
             [alertview show];
             }
         }
@@ -106,6 +108,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     
+    if (alertView.tag == 100) {
+        return;
+    }
     UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
     
     [self.navigationController showViewController:view sender:nil];

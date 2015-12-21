@@ -25,12 +25,12 @@
 @property NSMutableArray *btn;
 @property UIView * typeContainView;
 @property UIView *adView;
-
+@property UIScrollView *scroll;
 @end
 
 @implementation XWJSHuoViewController
 
-@synthesize array1,array2,array3,array4;
+@synthesize array1,array2,array3,array4,scroll;
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -39,7 +39,12 @@
     array3 =[NSMutableArray array ];
     array4 =[NSMutableArray array ];
 
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    scroll  =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
+    [self.view addSubview:scroll];
+    scroll.contentSize = CGSizeMake(SCREEN_SIZE.width, SCREEN_SIZE.height+100);
+    scroll.showsHorizontalScrollIndicator = NO;
+    scroll.showsVerticalScrollIndicator = NO;
     [self addView];
     [self getGShuoAD];
 
@@ -110,13 +115,13 @@
         
         [button addTarget:self action:@selector(typeclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.btn addObject:button];
-        [self.view addSubview:button];
+        [scroll addSubview:button];
     }
     ((UIButton*)self.btn[0]).selected=YES;
     _typeContainView = [[UIView alloc] initWithFrame:CGRectMake(0, btny+60, SCREEN_SIZE.width, SCREEN_SIZE.height-btny)];
 //    _typeContainView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_typeContainView];
-    [self.view addSubview:self.adView];
+    [scroll addSubview:_typeContainView];
+    [scroll addSubview:self.adView];
 }
 
 -(void)addTypeOneView:(NSArray*)arr{
@@ -129,64 +134,35 @@
 //    NSArray * title = [NSArray arrayWithObjects:@"上门",@"商户",@"商品",@"家装", nil];
     for (int i=0; i<count; i++) {
         
-        if (count>7) {
+        if (i>7) {
             break;
         }
-        if (count==7) {
-            UIImageView *button = [[UIImageView alloc] init];
-            
-            button.frame = CGRectMake(width*(i%hang)+paddingLeft/2, paddingLeft+i/hang*paddingTop, width-paddingLeft, height-paddingLeft);
-            button.tag = 1000+i;
-            button.userInteractionEnabled = YES;
-            
-            NSString *url;
-            if ([[arr objectAtIndex:i] valueForKey:@"thumb"] != [NSNull null]) {
-                url = [[arr objectAtIndex:i] valueForKey:@"thumb"];
-            }else{
-                url = @"";
-            }
-            
-            [button sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
-            UITapGestureRecognizer* singleRecognizer;
-            singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-            //点击的次数
-            singleRecognizer.numberOfTapsRequired = 1;
-            [button addGestureRecognizer:singleRecognizer];
-            UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(width*(i%hang)+30, paddingLeft+i/hang*paddingTop+80, 50, 30)];
-            
-            
-            
-            label.text = [[arr objectAtIndex:i] valueForKey:@"cateName"];
-            [self.typeContainView addSubview:label];
-            [self.typeContainView addSubview:button];
-        }else{
-            UIImageView *button = [[UIImageView alloc] init];
-            
-            button.frame = CGRectMake(width*(i%hang)+paddingLeft/2, paddingLeft+i/hang*paddingTop, width-paddingLeft, height-paddingLeft);
-            button.tag = 1000+i;
-            button.userInteractionEnabled = YES;
-            
-            NSString *url;
-            if ([[arr objectAtIndex:i] valueForKey:@"thumb"] != [NSNull null]) {
-                url = [[arr objectAtIndex:i] valueForKey:@"thumb"];
-            }else{
-                url = @"";
-            }
-            
-            [button sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
-            UITapGestureRecognizer* singleRecognizer;
-            singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-            //点击的次数
-            singleRecognizer.numberOfTapsRequired = 1;
-            [button addGestureRecognizer:singleRecognizer];
-            UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(width*(i%hang)+30, paddingLeft+i/hang*paddingTop+80, 50, 30)];
 
+            UIImageView *button = [[UIImageView alloc] init];
             
+            button.frame = CGRectMake(width*(i%hang)+paddingLeft/2, paddingLeft+i/hang*paddingTop, width-paddingLeft, height-paddingLeft);
+            button.tag = 1000+i;
+            button.userInteractionEnabled = YES;
             
+            NSString *url;
+            if ([[arr objectAtIndex:i] valueForKey:@"thumb"] != [NSNull null]) {
+                url = [[arr objectAtIndex:i] valueForKey:@"thumb"];
+            }else{
+                url = @"";
+            }
+            
+            [button sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
+            UITapGestureRecognizer* singleRecognizer;
+            singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+            //点击的次数
+            singleRecognizer.numberOfTapsRequired = 1;
+            [button addGestureRecognizer:singleRecognizer];
+            UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(width*(i%hang)+width/3.5, paddingLeft+i/hang*paddingTop+height-20, 50, 30)];
+
             label.text = [[arr objectAtIndex:i] valueForKey:@"cateName"];
             [self.typeContainView addSubview:label];
             [self.typeContainView addSubview:button];
-        }
+
     }
 }
 
@@ -196,7 +172,7 @@
 }
 
 -(void)getGShuoAD{
-    NSString *url = GETSHANGMENAD_URL;
+    NSString *url = GETLIFEAD_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
@@ -213,33 +189,41 @@
             NSLog(@"dic %@",dic);
             
             self.adArr = [dic objectForKey:@"ad"];
-            self.thumbArr = [dic objectForKey:@"thumb"];
+//            self.thumbArr = [dic objectForKey:@"jz"];
+            self.array1 =  [dic objectForKey:@"sm"];
+            self.array2 =  [dic objectForKey:@"sh"];
+            self.array3 =  [dic objectForKey:@"sp"];
+            self.array4 =  [dic objectForKey:@"jz"];
+
+            
             
             NSMutableArray *URLs = [NSMutableArray array];
             for (NSDictionary
                  *dic in self.adArr) {
                 [URLs addObject:[dic valueForKey:@"Photo"]];
             }
-            for (NSDictionary *d in self.thumbArr) {
-                NSNumber *num  =[d objectForKey:@"parent_id"];
-                switch ([num intValue]) {
-                    case 1:
-                        [self.array1 addObject:d];
-                        break;
-                    case 2:
-                        [self.array2 addObject:d];
-                        break;
-                    case 3:
-                        [self.array3 addObject:d];
-                        break;
-                    case 4:
-                        [self.array4 addObject:d];
-                        break;
-                    default:
-                        break;
-                }
-                
-            }
+            
+            
+//            for (NSDictionary *d in self.thumbArr) {
+//                NSNumber *num  =[d objectForKey:@"parent_id"];
+//                switch ([num intValue]) {
+//                    case 1:
+//                        [self.array1 addObject:d];
+//                        break;
+//                    case 2:
+//                        [self.array2 addObject:d];
+//                        break;
+//                    case 3:
+//                        [self.array3 addObject:d];
+//                        break;
+//                    case 4:
+//                        [self.array4 addObject:d];
+//                        break;
+//                    default:
+//                        break;
+//                }
+//                
+//            }
             [self addTypeOneView:self.array1];
 
             if(URLs&&URLs.count>0)

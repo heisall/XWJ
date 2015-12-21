@@ -11,10 +11,13 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFURLResponseSerialization.h"
 #import "XWJUrl.h"
+#import "XWJAccount.h"
 @interface XWJForgetPwdViewController (){
-    
+    int timeTick;
+
     int code;
 }
+@property NSTimer *timer;
 
 @end
 
@@ -24,7 +27,46 @@
     [super viewDidLoad];
     self.navigationItem.title = @"找回密码";
     code = -1;
+    timeTick = 61;
+
+    
+    /**
+     *  注册所有的
+     */
+    UIControl *controlView = [[UIControl alloc] initWithFrame:self.view.frame];
+    [controlView addTarget:self action:@selector(resiginTF) forControlEvents:UIControlEventTouchUpInside];
+    [self.view insertSubview:controlView atIndex:0];
+    controlView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
+}
+
+-(void)timeFireMethod
+{
+    timeTick--;
+    if(timeTick==0){
+        [_timer invalidate];
+        self.numlabel.hidden = YES;
+        _codeBtn.enabled = YES;
+        timeTick = 61;
+        //        [_btnGetcode setTitle:@"获取验证码" forState:UIControlStateNormal];
+        
+    }else
+    {
+        NSString *str = [NSString stringWithFormat:@"%d秒后重新发送",timeTick];
+        if (_numlabel.hidden) {
+            _numlabel.hidden = NO;
+        }
+        _numlabel.text = str;
+        _codeBtn.titleLabel.text = @"";
+        //        [_btnGetcode setTitle:str forState:UIControlStateNormal];
+    }
+}
+
+-(void)resiginTF
+{
+    NSLog(@"resign");
+    [self.textPhone resignFirstResponder];
+    [self.txtIdcode resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,8 +75,10 @@
 }
 - (IBAction)getIDCode:(id)sender {
     
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+    _codeBtn.enabled = NO;
+
     code = arc4random()%8999 + 1000;
-    
     
     NSString *uid = @"2735";
     NSString *phone = self.textPhone.text;

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtIdcode;
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *numlabel;
 
 @end

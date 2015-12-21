@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Find View Controller-->
@@ -213,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="482" y="784"/>
         </scene>
-        <!--通知活动-->
+        <!--物业通知-->
         <scene sceneID="r4T-0d-jtE">
             <objects>
-                <viewController storyboardIdentifier="activityDetail" title="通知活动" automaticallyAdjustsScrollViewInsets="NO" id="X4i-Qa-8M6" customClass="XWJActivityViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="activityDetail" title="物业通知" automaticallyAdjustsScrollViewInsets="NO" id="X4i-Qa-8M6" customClass="XWJActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Byv-mq-1NK"/>
                         <viewControllerLayoutGuide type="bottom" id="pDa-Tj-nvW"/>
@@ -225,8 +224,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【亲子欢乐行】冬令营全面开启" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvq-Z6-ssR">
-                                <rect key="frame" x="34" y="28" width="480" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【亲子欢乐行】冬令营全面开启" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvq-Z6-ssR">
+                                <rect key="frame" x="34" y="28" width="486" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -240,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy6-pr-nkk">
-                                <rect key="frame" x="175" y="100" width="250" height="40"/>
+                                <rect key="frame" x="175" y="84" width="250" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.58039215690000001" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -250,18 +249,17 @@
                                 <state key="normal" title="我要报名">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" title="我已报名"/>
                                 <connections>
                                     <action selector="enroll:" destination="X4i-Qa-8M6" eventType="touchUpInside" id="NUN-tx-WPW"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXF-mJ-mhD">
-                                <rect key="frame" x="0.0" y="172" width="600" height="428"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-OI-XeB">
+                                <rect key="frame" x="530" y="28" width="50" height="23"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-OI-XeB">
-                                <rect key="frame" x="536" y="28" width="34" height="23"/>
-                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="YH7-j0-UFa"/>
+                                </constraints>
                                 <state key="normal" title="2" image="findpinglun">
                                     <color key="titleColor" red="0.4431372549" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -273,18 +271,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GXF-mJ-mhD" firstAttribute="centerX" secondItem="e1a-mV-uzi" secondAttribute="centerX" id="1pn-58-Aa6"/>
                             <constraint firstItem="2Kb-FN-6DO" firstAttribute="top" secondItem="Uvq-Z6-ssR" secondAttribute="bottom" constant="7.5" id="HF4-dF-z85"/>
                             <constraint firstItem="9U2-OI-XeB" firstAttribute="top" secondItem="Uvq-Z6-ssR" secondAttribute="top" id="ISx-KY-1Rt"/>
-                            <constraint firstItem="GXF-mJ-mhD" firstAttribute="width" secondItem="e1a-mV-uzi" secondAttribute="width" id="LVc-ND-bwS"/>
+                            <constraint firstItem="9U2-OI-XeB" firstAttribute="leading" secondItem="Uvq-Z6-ssR" secondAttribute="trailing" constant="10" id="O3O-fp-mKe"/>
                             <constraint firstItem="Uvq-Z6-ssR" firstAttribute="top" secondItem="Byv-mq-1NK" secondAttribute="bottom" constant="8" id="Szf-FS-Aau"/>
-                            <constraint firstItem="Uvq-Z6-ssR" firstAttribute="width" secondItem="e1a-mV-uzi" secondAttribute="width" multiplier="4:5" id="YIC-iy-5zi"/>
-                            <constraint firstItem="cy6-pr-nkk" firstAttribute="top" secondItem="2Kb-FN-6DO" secondAttribute="bottom" constant="26.5" id="e7E-wF-05n"/>
+                            <constraint firstItem="cy6-pr-nkk" firstAttribute="top" secondItem="2Kb-FN-6DO" secondAttribute="bottom" constant="10" id="e7E-wF-05n"/>
                             <constraint firstItem="Uvq-Z6-ssR" firstAttribute="leading" secondItem="e1a-mV-uzi" secondAttribute="leadingMargin" constant="14" id="fnm-Xm-hGq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9U2-OI-XeB" secondAttribute="trailing" constant="10" id="gLK-DV-RyU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9U2-OI-XeB" secondAttribute="trailing" id="gLK-DV-RyU"/>
                             <constraint firstItem="2Kb-FN-6DO" firstAttribute="leading" secondItem="Uvq-Z6-ssR" secondAttribute="leading" id="j4t-Fo-gSy"/>
-                            <constraint firstItem="GXF-mJ-mhD" firstAttribute="top" secondItem="cy6-pr-nkk" secondAttribute="bottom" constant="32" id="mBb-SN-heU"/>
-                            <constraint firstItem="pDa-Tj-nvW" firstAttribute="top" secondItem="GXF-mJ-mhD" secondAttribute="bottom" id="ulH-Ft-7UF"/>
                             <constraint firstItem="cy6-pr-nkk" firstAttribute="centerX" secondItem="e1a-mV-uzi" secondAttribute="centerX" id="unI-0j-tbp"/>
                         </constraints>
                     </view>
@@ -293,7 +287,6 @@
                         <outlet property="btn" destination="cy6-pr-nkk" id="tjN-U6-39v"/>
                         <outlet property="clickBtn" destination="9U2-OI-XeB" id="Sdp-Uu-rMq"/>
                         <outlet property="time" destination="2Kb-FN-6DO" id="WqZ-X6-7rP"/>
-                        <outlet property="webView" destination="GXF-mJ-mhD" id="5As-Z8-Rsa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKf-fW-7OE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -73,6 +73,7 @@
 		A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */; };
 		A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111B1C257E60001D2F29 /* XWJMFViewController.m */; };
 		A43811221C25C957001D2F29 /* XWJCZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */; };
+		A43A8D141C283C4E00143DE7 /* XWJShuoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
 		A43C97A31C1297E1006A61EE /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C978C1C1297E1006A61EE /* LGPhotoAssets.m */; };
@@ -208,7 +209,6 @@
 		DA20ADFE1BFB567D002032D1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADFD1BFB567D002032D1 /* MessageUI.framework */; };
 		DA20AE001BFB5687002032D1 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20ADFF1BFB5687002032D1 /* JavaScriptCore.framework */; };
 		DA20AE021BFB5694002032D1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA20AE011BFB5694002032D1 /* libstdc++.tbd */; };
-		DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */; };
 		DA8834731BFCB47F001B2862 /* XWJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */; };
 		DA8834751BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8834741BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard */; };
 		DAC4AF1C1BF0619700D66E76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC4AF1B1BF0619700D66E76 /* main.m */; };
@@ -349,6 +349,8 @@
 		A438111B1C257E60001D2F29 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
 		A43811201C25C957001D2F29 /* XWJCZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJCZFDetailViewController.h; sourceTree = "<group>"; };
 		A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCZFDetailViewController.m; sourceTree = "<group>"; };
+		A43A8D121C283C4E00143DE7 /* XWJShuoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJShuoListViewController.h; sourceTree = "<group>"; };
+		A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJShuoListViewController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
 		A43C97861C11EB2C006A61EE /* XWJFindPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJFindPubViewController.h; sourceTree = "<group>"; };
 		A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJFindPubViewController.m; sourceTree = "<group>"; };
@@ -564,8 +566,6 @@
 		DA20ADFD1BFB567D002032D1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DA20ADFF1BFB5687002032D1 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		DA20AE011BFB5694002032D1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		DA20AE051BFB5AE3002032D1 /* XWJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJRegisterViewController.h; sourceTree = "<group>"; };
-		DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJRegisterViewController.m; sourceTree = "<group>"; };
 		DA8834711BFCB47F001B2862 /* XWJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJLoginViewController.h; sourceTree = "<group>"; };
 		DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJLoginViewController.m; sourceTree = "<group>"; };
 		DA8834741BFCB4A3001B2862 /* XWJLoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XWJLoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -1133,6 +1133,8 @@
 				A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */,
 				A41A1FEB1C26F3F2002129DF /* XWJSHuoViewController.h */,
 				A41A1FEC1C26F3F2002129DF /* XWJSHuoViewController.m */,
+				A43A8D121C283C4E00143DE7 /* XWJShuoListViewController.h */,
+				A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */,
 			);
 			name = shangcheng;
 			sourceTree = "<group>";
@@ -1249,8 +1251,6 @@
 				A41255281C0F2A080042D8CC /* UIImage+BundlePath.m */,
 				A41255291C0F2A080042D8CC /* UIImage+ImageOrientaion.h */,
 				A412552A1C0F2A080042D8CC /* UIImage+ImageOrientaion.m */,
-				DA20AE051BFB5AE3002032D1 /* XWJRegisterViewController.h */,
-				DA20AE061BFB5AE3002032D1 /* XWJRegisterViewController.m */,
 				DA8834711BFCB47F001B2862 /* XWJLoginViewController.h */,
 				DA8834721BFCB47F001B2862 /* XWJLoginViewController.m */,
 				A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */,
@@ -1562,7 +1562,6 @@
 				A41255721C0F39D20042D8CC /* README.md in Sources */,
 				A43C98531C15CC15006A61EE /* XWJForgetPwd2ViewController.m in Sources */,
 				A48801C61C0B451300714F5B /* XWJMyHouseController.m in Sources */,
-				DA20AE071BFB5AE3002032D1 /* XWJRegisterViewController.m in Sources */,
 				A41255201C0F264E0042D8CC /* XWJjianduViewController.m in Sources */,
 				A43C97C91C129A79006A61EE /* LGPhotoPickerBrowserPhoto.m in Sources */,
 				A48801941C09FB3800714F5B /* XWJLifeViewController.m in Sources */,
@@ -1581,6 +1580,7 @@
 				A48801A01C09FBD100714F5B /* XWJMindTabFactory.m in Sources */,
 				A41255881C0F522E0042D8CC /* XWJjianduDetailViewController.m in Sources */,
 				A43C97AC1C1297E1006A61EE /* LGPhotoPickerGroupTableViewCell.m in Sources */,
+				A43A8D141C283C4E00143DE7 /* XWJShuoListViewController.m in Sources */,
 				A43C97CA1C129A79006A61EE /* LGPhotoRect.m in Sources */,
 				A43C97CE1C129A79006A61EE /* LGPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				A412550F1C0F22FC0042D8CC /* README.md in Sources */,

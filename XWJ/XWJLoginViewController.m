@@ -28,6 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+    if (username&&pwd) {
+        [self login:username :pwd];
+    }
+    
     /**
      *  注册所有的
      */
@@ -35,6 +41,7 @@
     [controlView addTarget:self action:@selector(resiginTextFields) forControlEvents:UIControlEventTouchUpInside];
     [self.view insertSubview:controlView atIndex:0];
     controlView.backgroundColor = [UIColor clearColor];
+    
     
     _tFieldUserName.delegate = self;
     _tFieldPassWord.delegate = self;
@@ -72,6 +79,7 @@
     NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     
+
     if (username) {
         
         self.tFieldUserName.text = username;
@@ -96,17 +104,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)login:(id)sender {
-    
-    
-//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-    
-    NSString *username = self.tFieldUserName.text;
-    NSString *pwd = self.tFieldPassWord.text;
+-(void)login:(NSString *)username :(NSString *)pwd{
     if (username.length>0&&pwd.length>0) {
         
-//        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
+        //        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
         NSString *url = LOGIN_URL;
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -119,7 +120,7 @@
             
             NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
             NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-//            [XWJAccount instance].uid = ;
+            //            [XWJAccount instance].uid = ;
             if (![username isEqualToString:uname]) {
                 [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
@@ -165,10 +166,10 @@
                 [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
                 [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
                 [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
-//                [XWJAccount instance].money =[userDic valueForKey:@"id"];
-//                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
-//                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];
-//                [XWJAccount instance].qianming =[userDic valueForKey:@"id"];
+                //                [XWJAccount instance].money =[userDic valueForKey:@"id"];
+                //                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
+                //                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];
+                //                [XWJAccount instance].qianming =[userDic valueForKey:@"id"];
                 
                 BOOL isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
                 if (!isBind) {
@@ -176,13 +177,13 @@
                     
                     [self.navigationController showViewController:view sender:nil];
                     
-//                    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
-//                    bind.title = @"城市选择";
-//                    bind.delegate = self;
-//                    bind->mode = HouseCity;
-//                    [self.navigationController showViewController:bind sender:nil];
+                    //                    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+                    //                    bind.title = @"城市选择";
+                    //                    bind.delegate = self;
+                    //                    bind->mode = HouseCity;
+                    //                    [self.navigationController showViewController:bind sender:nil];
                 }else{
-                
+                    
                     XWJTabViewController *tab = [[XWJTabViewController alloc] init];
                     UIWindow *window = [UIApplication sharedApplication].keyWindow;
                     window.rootViewController = tab;
@@ -194,13 +195,13 @@
                 [alertview show];
             }
             
-
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"log fail ");
             //        dispatch_async(dispatch_get_main_queue(), ^{
-//            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-//            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//            window.rootViewController = tab;            //        });
+            //            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+            //            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            //            window.rootViewController = tab;            //        });
             
             UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             alertview.delegate = self;
@@ -210,21 +211,31 @@
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:nil message:@"请输入用户名和密码" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         alertview.delegate = self;
         [alertview show];
-//    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
-//        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
-//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//        window.rootViewController = tab;
-//    }
+        //    if ([self.tFieldUserName.text isEqualToString:username]&&[self.tFieldPassWord.text isEqualToString:pwd]) {
+        //        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        //        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //        window.rootViewController = tab;
+        //    }
     }
-
+    
     /*
-    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
-    bind.title = @"城市选择";
-    bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市", nil];
-    bind.delegate = self;
-    bind->mode = HouseCity;
-    [self.navigationController showViewController:bind sender:nil];
+     XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+     bind.title = @"城市选择";
+     bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市", nil];
+     bind.delegate = self;
+     bind->mode = HouseCity;
+     [self.navigationController showViewController:bind sender:nil];
      */
+}
+- (IBAction)login:(id)sender {
+    
+    
+//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+    
+    NSString *username = self.tFieldUserName.text;
+    NSString *pwd = self.tFieldPassWord.text;
+    [self login:username :pwd];
 }
 
 #pragma bindhouse delegate
