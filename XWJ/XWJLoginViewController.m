@@ -166,7 +166,7 @@
                 [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
                 [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
                 [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
-                [XWJAccount instance].array = [userDic valueForKey:@""];
+                [XWJAccount instance].array = [userDic valueForKey:@"area"];
                 
                 //                [XWJAccount instance].money =[userDic valueForKey:@"id"];
                 //                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
