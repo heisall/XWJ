@@ -194,6 +194,9 @@
 		A4DC3CB11C1D1ED7003D4D18 /* XWJMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */; };
 		A4DC3CB41C1DFC8B003D4D18 /* XWJADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
+		A4F2571B1C2B59FF00B2EC58 /* XWJShuoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F2571A1C2B59FF00B2EC58 /* XWJShuoTableCell.xib */; };
+		A4F2571E1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2571D1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m */; };
+		A4F257211C2B6BE100B2EC58 /* XWJMerDetailList.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F257201C2B6BE100B2EC58 /* XWJMerDetailList.m */; };
 		A4F40B351C07670B006E2F19 /* seperate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40B341C07670B006E2F19 /* seperate@2x.png */; };
 		A4F40BCA1C08A44D006E2F19 /* nav_Back_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */; };
 		A4F40BCD1C08B1EB006E2F19 /* XWJIDCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F40BCC1C08B1EB006E2F19 /* XWJIDCodeViewController.m */; };
@@ -546,6 +549,11 @@
 		A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJADViewController.m; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
+		A4F2571A1C2B59FF00B2EC58 /* XWJShuoTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJShuoTableCell.xib; sourceTree = "<group>"; };
+		A4F2571C1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJShuolistTableViewCell.h; sourceTree = "<group>"; };
+		A4F2571D1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJShuolistTableViewCell.m; sourceTree = "<group>"; };
+		A4F2571F1C2B6BE100B2EC58 /* XWJMerDetailList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJMerDetailList.h; sourceTree = "<group>"; };
+		A4F257201C2B6BE100B2EC58 /* XWJMerDetailList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMerDetailList.m; sourceTree = "<group>"; };
 		A4F40B341C07670B006E2F19 /* seperate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seperate@2x.png"; sourceTree = "<group>"; };
 		A4F40BC91C08A44D006E2F19 /* nav_Back_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_Back_Icon@2x.png"; path = "XWJ/nav_Back_Icon@2x.png"; sourceTree = "<group>"; };
 		A4F40BCB1C08B1EB006E2F19 /* XWJIDCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJIDCodeViewController.h; sourceTree = "<group>"; };
@@ -1135,6 +1143,11 @@
 				A41A1FEC1C26F3F2002129DF /* XWJSHuoViewController.m */,
 				A43A8D121C283C4E00143DE7 /* XWJShuoListViewController.h */,
 				A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */,
+				A4F2571A1C2B59FF00B2EC58 /* XWJShuoTableCell.xib */,
+				A4F2571C1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.h */,
+				A4F2571D1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m */,
+				A4F2571F1C2B6BE100B2EC58 /* XWJMerDetailList.h */,
+				A4F257201C2B6BE100B2EC58 /* XWJMerDetailList.m */,
 			);
 			name = shangcheng;
 			sourceTree = "<group>";
@@ -1401,6 +1414,7 @@
 				A4F5C17A1C0C7DE700513CD9 /* tab_more_select@2x.png in Resources */,
 				A4DC3C981C1C5230003D4D18 /* gztablecell.xib in Resources */,
 				A488017A1C09D2A400714F5B /* XWJBingHouseViewController.xib in Resources */,
+				A4F2571B1C2B59FF00B2EC58 /* XWJShuoTableCell.xib in Resources */,
 				DAC4AF271BF0619700D66E76 /* Images.xcassets in Resources */,
 				A41255491C0F33770042D8CC /* devAdv_red@2x.png in Resources */,
 				A4DC3CA01C1C7593003D4D18 /* Images.xcassets in Resources */,
@@ -1479,6 +1493,7 @@
 				A43C97A41C1297E1006A61EE /* LGPhotoPickerDatas.m in Sources */,
 				A41255731C0F39D20042D8CC /* NSData+ImageContentType.m in Sources */,
 				A41A1FE71C267EBB002129DF /* ProgressHUD.m in Sources */,
+				A4F257211C2B6BE100B2EC58 /* XWJMerDetailList.m in Sources */,
 				A4F5C17D1C0C86A800513CD9 /* XWJHomeViewController2.m in Sources */,
 				A41255831C0F39EE0042D8CC /* LCBannerView.m in Sources */,
 				A488017F1C09F13300714F5B /* XWJHomeTabFactory.m in Sources */,
@@ -1592,6 +1607,7 @@
 				A43810FF1C231530001D2F29 /* XWJFindTypeController.m in Sources */,
 				A4DC3C871C1C1133003D4D18 /* XWJNewHouseInfoViewController.m in Sources */,
 				A41255771C0F39D20042D8CC /* SDWebImageDownloader.m in Sources */,
+				A4F2571E1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m in Sources */,
 				A4DC3C931C1C5096003D4D18 /* XWJGZaddViewController.m in Sources */,
 				A43C97CD1C129A79006A61EE /* LGPhotoPickerBrowserPhotoImageView.m in Sources */,
 				A412557D1C0F39D20042D8CC /* UIImage+MultiFormat.m in Sources */,

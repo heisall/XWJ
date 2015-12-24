@@ -9,6 +9,7 @@
 #import "XWJSHuoViewController.h"
 #import "XWJWebViewController.h"
 #import "LCBannerView.h"
+#import "XWJShuoListViewController.h"
 #define PADDINGTOP 64.0
 @interface XWJSHuoViewController()<LCBannerViewDelegate>{
     CGFloat typeBtnheight;
@@ -169,6 +170,27 @@
 -(void)singleTap:(UITapGestureRecognizer *)image{
     NSInteger index = image.view.tag;
     NSLog(@"single tap %lu",index);
+    NSArray *array ;
+    switch (_selecttype) {
+        case 1:
+            array = array1;
+            break;
+        case 2:
+            array = array2;
+            break;
+        case 3:
+            array = array3;
+            break;
+        case 4:
+            array = array4;
+            break;
+        default:
+            break;
+    }
+    
+    XWJShuoListViewController * list= [[XWJShuoListViewController alloc] init];
+    list.dic = [array objectAtIndex:index-1000];
+    [self.navigationController showViewController:list sender:self];
 }
 
 -(void)getGShuoAD{
@@ -188,14 +210,13 @@
             NSDictionary *dic = (NSDictionary *)responseObject;
             NSLog(@"dic %@",dic);
             
+            _selecttype = 1;
             self.adArr = [dic objectForKey:@"ad"];
 //            self.thumbArr = [dic objectForKey:@"jz"];
             self.array1 =  [dic objectForKey:@"sm"];
             self.array2 =  [dic objectForKey:@"sh"];
             self.array3 =  [dic objectForKey:@"sp"];
             self.array4 =  [dic objectForKey:@"jz"];
-
-            
             
             NSMutableArray *URLs = [NSMutableArray array];
             for (NSDictionary

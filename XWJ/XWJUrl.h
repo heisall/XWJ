@@ -25,6 +25,10 @@
 #define GETLIFEAD_URL  XWJBASEURL"life/lifeIndex"
 #define GETSHANGMENAD_URL  XWJBASEURL"life/onDoorIndex"
 #define GETLIFEMORE_URL  XWJBASEURL"life/classifyIndex"
+#define GETSHLIST_URL  XWJBASEURL"life/merchantList"
+
+#define GETLIFESTORE_URL  XWJBASEURL"life/storeDetail"
+#define GETGOODDETAIL_URL  XWJBASEURL"life/goodsDetail"
 //find
 
 #define GETFINDLIST_URL XWJBASEURL"find/findIndex"

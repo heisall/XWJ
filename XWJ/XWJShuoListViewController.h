@@ -10,4 +10,6 @@
 
 @interface XWJShuoListViewController : XWJBaseViewController
 @property NSInteger type;
+@property NSMutableDictionary *dic;
+
 @end
