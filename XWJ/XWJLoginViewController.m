@@ -85,13 +85,13 @@
         self.tFieldUserName.text = username;
     }else{
         
-        self.tFieldUserName.text = @"15092245487";
+//        self.tFieldUserName.text = @"15092245487";
     }
     if (pwd) {
         
         self.tFieldPassWord.text = pwd;
     }else
-        self.tFieldPassWord.text = @"123456";
+//        self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
 }
 - (BOOL)prefersStatusBarHidden

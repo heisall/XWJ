@@ -23,9 +23,9 @@
     
 }
 - (IBAction)done:(id)sender {
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    [defaults setValue:self.txtFieldPwd.text forKey:@"password"];
-    [defaults synchronize];
+//    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+//    [defaults setValue:self.txtFieldPwd.text forKey:@"password"];
+//    [defaults synchronize];
     
     [self.txtFieldPwd resignFirstResponder];
 //    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
@@ -41,10 +41,16 @@
     NSLog(@"%p url %@",__FUNCTION__,url);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:user forKey:@"account"];
-    [dict setValue:pwd forKey:@"password"];
-    [dict setValue:@"iPhone" forKey:@"type"];
-    [dict setValue:@"192.168.0.1" forKey:@"ip"];
+    [dict setValue:[NSString stringWithFormat:@"%@",user] forKey:@"account"];
+    [dict setValue:[NSString stringWithFormat:@"%@",pwd] forKey:@"password"];
+    [dict setValue:@"iPhone5S" forKey:@"type"];
+    [dict setValue:@"" forKey:@"ip"];
+
+//        [dict setValue:@"15092244444" forKey:@"account"];
+//        [dict setValue:@"111111" forKey:@"password"];
+//        [dict setValue:@"iPhone" forKey:@"type"];
+//        [dict setValue:@"192.168.0.1" forKey:@"ip"];
+    
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager PUT:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"res success ");
