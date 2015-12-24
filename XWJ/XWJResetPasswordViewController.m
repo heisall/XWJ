@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "XWJUrl.h"
 #import "XWJAccount.h"
+#import "XWJUtil.h"
 @interface XWJResetPasswordViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldPwd;
 
@@ -43,8 +44,8 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:[NSString stringWithFormat:@"%@",user] forKey:@"account"];
     [dict setValue:[NSString stringWithFormat:@"%@",pwd] forKey:@"password"];
-    [dict setValue:@"iPhone5S" forKey:@"type"];
-    [dict setValue:@"" forKey:@"ip"];
+    [dict setValue:[XWJUtil deviceString] forKey:@"type"];
+    [dict setValue:[XWJUtil deviceIPAdress] forKey:@"ip"];
 
 //        [dict setValue:@"15092244444" forKey:@"account"];
 //        [dict setValue:@"111111" forKey:@"password"];

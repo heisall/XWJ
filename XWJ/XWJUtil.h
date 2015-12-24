@@ -10,4 +10,6 @@
 
 @interface XWJUtil : NSObject
 +(NSString*)dataTOjsonString:(id)object;
++ (NSString*)deviceString;
++ (NSString *)deviceIPAdress ;
 @end

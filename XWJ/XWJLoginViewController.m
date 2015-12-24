@@ -31,7 +31,7 @@
     NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     if (username&&pwd) {
-        [self login:username :pwd];
+//        [self login:username :pwd];
     }
     
     /**
@@ -166,6 +166,8 @@
                 [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
                 [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
                 [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
+                [XWJAccount instance].array = [userDic valueForKey:@""];
+                
                 //                [XWJAccount instance].money =[userDic valueForKey:@"id"];
                 //                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
                 //                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];

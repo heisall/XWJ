@@ -82,8 +82,14 @@
     manager.responseSerializer = [AFHTTPResponseSerializer new];
 
     [manager GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+        _btnGetcode.enabled = NO;
         NSLog(@"success");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *view  = [[UIAlertView alloc] initWithTitle:@"" message:@"验证码发送失败请稍后再试" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [view show];
         NSLog(@"failure");
     }];
 }
@@ -112,13 +118,9 @@
 }
 
 - (IBAction)getIDCode:(id)sender {
-
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
-    _btnGetcode.enabled = NO;
   
     [self sendCodeRes];
     
-
 }
 - (IBAction)verifyIDcode:(id)sender {
 //    UIStoryboard *storyboard = [UIStoryboard  storyboardWithName:@"XWJLoginStoryboard" bundle:nil];

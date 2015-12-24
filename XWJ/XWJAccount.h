@@ -22,7 +22,7 @@
 @property NSString *ganqing;
 @property NSString *intrest;
 @property NSString *qianming;
-
+@property NSArray  *array;
 
 + (instancetype) instance ;
 /*
