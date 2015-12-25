@@ -48,6 +48,7 @@
 -(void)selectRoom:(NSInteger)index{
     _rid = [[_rooms objectAtIndex:index] valueForKey:@"R_id"];
     _rdy = [[_rooms objectAtIndex:index] valueForKey:@"R_dy"];
+    _ju_RID  = [[_rooms objectAtIndex:index] valueForKey:@"JU_RID"];
     _room = [_rooms objectAtIndex:index];
 
 }
@@ -64,7 +65,7 @@
     [dict setValue:_aid  forKey:@"A_id"];
     [dict setValue:_bid  forKey:@"B_id"];
     [dict setValue:_rdy  forKey:@"R_dy"];
-    [dict setValue:_rid  forKey:@"JU_RID"];
+    [dict setValue:_ju_RID  forKey:@"JU_RID"];
     [dict setValue:[_yezhu valueForKey:@"U_id"] forKey:@"U_id"];
     [dict setValue:index forKey:@"Types"];
     
