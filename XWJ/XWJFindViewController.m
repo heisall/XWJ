@@ -13,6 +13,7 @@
 #import "XWJNoticeViewController.h"
 #import "XWJFindTypeController.h"
 #import "XWJFindPubViewController.h"
+#import "XWJAccount.h"
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 2
 #define  SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -31,6 +32,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
 
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJFindCollectionCellView" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
     
+
     [self getFindList:nil];
     self.select = -1;
 }
@@ -40,7 +42,7 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     NSString *url = GETFINDLIST_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:@"1"  forKey:@"a_id"];
+    [dict setValue:[XWJAccount instance].aid  forKey:@"a_id"];
     
     if (type) {
         [dict setValue:type  forKey:@"types"];
@@ -152,11 +154,21 @@ static NSString *kcellIdentifier = @"findcollectionCellID";
     if (self.select>=0) {
         [self getFindList:[[self.findlistArr objectAtIndex:self.select] valueForKey:@"dictValue"]];
     }
+    
+
     NSString *ti = [[NSUserDefaults standardUserDefaults] objectForKey:@"xiaoqu"];
     if (ti) {
         self.navigationItem.title = ti;
     }else
         self.navigationItem.title = @"依云小镇";//    self.title = @"依云小镇";
+    
+    if ([XWJAccount instance].array&&[XWJAccount instance].array.count>0) {
+        for (NSDictionary *dic in [XWJAccount instance].array ) {
+            if ([[dic valueForKey:@"isDefault" ] integerValue]== 1) {
+                self.navigationItem.title = [NSString stringWithFormat:@"%@",[dic valueForKey:@"A_name"]];
+            }
+        }
+    }
     self.navigationItem.leftBarButtonItem = nil;
 }
 

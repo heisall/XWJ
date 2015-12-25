@@ -30,16 +30,19 @@
 //    [self getShuoMore];
     
 //        _adView =[[UIView alloc] initWithFrame:CGRectMake(0, PADDINGTOP, SCREEN_SIZE.width, SCREEN_SIZE.height/4)];
-    scroll  =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
-    [self.view addSubview:scroll];
-    scroll.contentSize = CGSizeMake(SCREEN_SIZE.width, SCREEN_SIZE.height+100);
-    scroll.showsHorizontalScrollIndicator = NO;
-    scroll.showsVerticalScrollIndicator = NO;
+//    scroll  =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
+    
+    
+    self.adView =[[UIView alloc] initWithFrame:CGRectMake(0, PADDINGTOP, SCREEN_SIZE.width, SCREEN_SIZE.height/4)];
+
+//    self.adView.backgroundColor =[UIColor blackColor];
+    [self.view addSubview:self.adView];
+
+
     [self addView];
 }
 
 -(void)addView{
-    self.adView =[[UIView alloc] initWithFrame:CGRectMake(0, PADDINGTOP, SCREEN_SIZE.width, SCREEN_SIZE.height/5)];
     
     self.btn = [NSMutableArray array];
     NSInteger count = 3;
@@ -68,13 +71,16 @@
         
         [button addTarget:self action:@selector(typeclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.btn addObject:button];
-        [scroll addSubview:button];
+        [self.view addSubview:button];
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, btny+height, SCREEN_SIZE.width, SCREEN_SIZE.height-btny+height)];
+        [self.view addSubview:_tableView];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     }
     ((UIButton*)self.btn[0]).selected=YES;
-    _typeContainView = [[UIView alloc] initWithFrame:CGRectMake(0, btny+60, SCREEN_SIZE.width, SCREEN_SIZE.height-btny)];
+//    _typeContainView = [[UIView alloc] initWithFrame:CGRectMake(0, btny+60, SCREEN_SIZE.width, SCREEN_SIZE.height-btny)];
     //    _typeContainView.backgroundColor = [UIColor redColor];
-    [scroll addSubview:_typeContainView];
-    [scroll addSubview:self.adView];
+//    [scroll addSubview:_typeContainView];
 }
 -(void)typeclick:(UIButton *)butn{
     NSInteger index = butn.tag;

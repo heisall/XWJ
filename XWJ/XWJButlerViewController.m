@@ -26,8 +26,16 @@
     [self addView];
     
     [self getGuanjiaAD];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"huname"]) {
-        self.room.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"huname"];
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"huname"]) {
+//        self.room.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"huname"];
+//    }
+    
+    if ([XWJAccount instance].array&&[XWJAccount instance].array.count>0) {
+        for (NSDictionary *dic in [XWJAccount instance].array ) {
+            if ([[dic valueForKey:@"isDefault" ] integerValue]== 1) {
+                self.room.text = [NSString stringWithFormat:@"%@",[dic valueForKey:@"A_name"]];
+            }
+        }
     }
 ;
 }
@@ -45,7 +53,7 @@
     //    [dict setValue:[XWJCity instance].aid  forKey:@"a_id"];
 //    [dict setValue:@"1"  forKey:@"a_id"];
 //    NSString *userid = [XWJAccount in];
-    NSString *aid = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_id"];
+//    NSString *aid = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_id"];
     
     [dict setValue:@"1" forKey:@"a_id"];
     [dict setValue:[XWJAccount instance].uid forKey:@"userid"];

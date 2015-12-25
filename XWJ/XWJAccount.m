@@ -43,5 +43,20 @@
         failure(error);
     }];
 }
+-(void)logout{
+    self.uid= nil;
+    self.account= nil;
+    self.password= nil;
+    self.NickName = nil;
+    self.phone = nil;
+    self.name = nil;
+    self.Sex = nil;
+    self.jifen = nil;
+    self.money = nil;
+    self.ganqing = nil;
+    self.intrest = nil;
+    self.qianming = nil;
+    self.aid = nil;
+}
 
 @end

@@ -129,10 +129,6 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     [dict setValue:[self.dic objectForKey:@"parent_id"] forKey:@"parent_id"];
-    //    NSString *aid = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_id"];
-    
-    //    [dict setValue:@"1" forKey:@"a_id"];
-    //    [dict setValue:[XWJAccount instance].uid forKey:@"userid"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%s success ",__FUNCTION__);
@@ -209,7 +205,7 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
+    return 95;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -238,7 +234,7 @@
     NSArray *arr = self.tabledata;
 
     cell.label1.text =     [[arr objectAtIndex:indexPath.row] objectForKey:@"sname"];
-    cell.label2.text = [NSString stringWithFormat:@"查看人数 ：%@",[[arr objectAtIndex:indexPath.row] objectForKey:@"visits"]];
+    cell.label2.text = [NSString stringWithFormat:@"查看人数:%@",[[arr objectAtIndex:indexPath.row] objectForKey:@"visits"]];
     if ([[arr objectAtIndex:indexPath.row] objectForKey:@"logo"]!=[NSNull null]) {
         
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[[arr objectAtIndex:indexPath.row] objectForKey:@"logo"]]];

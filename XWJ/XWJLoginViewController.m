@@ -82,14 +82,14 @@
 
     if (username) {
         
-        self.tFieldUserName.text = username;
+//        self.tFieldUserName.text = username;
     }else{
         
 //        self.tFieldUserName.text = @"15092245487";
     }
     if (pwd) {
         
-        self.tFieldPassWord.text = pwd;
+//        self.tFieldPassWord.text = pwd;
     }else
 //        self.tFieldPassWord.text = @"123456";
     self.navigationController.navigationBar.hidden = YES;
@@ -118,17 +118,7 @@
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
         [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-            NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-            //            [XWJAccount instance].uid = ;
-            if (![username isEqualToString:uname]) {
-                [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
-                [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
-                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"bind"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }else if(![pwd isEqualToString:pass]){
-                [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
-            }
+
             
             NSDictionary *dic = (NSDictionary *)responseObject;
             
@@ -156,6 +146,18 @@
              */
             if ([result intValue]== 1) {
                 
+                NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+                NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+                //            [XWJAccount instance].uid = ;
+                if (![username isEqualToString:uname]) {
+                    [[NSUserDefaults standardUserDefaults] setValue:username forKey:@"username"];
+                    [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
+                    //                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"bind"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                }else if(![pwd isEqualToString:pass]){
+                    [[NSUserDefaults standardUserDefaults] setValue:pwd forKey:@"password"];
+                }
+                
                 NSDictionary *userDic = [[dic objectForKey:@"data"] objectForKey:@"user"];
                 NSString *sid = [userDic valueForKey:@"id"];
                 NSLog(@"sid %@",sid);
@@ -166,14 +168,22 @@
                 [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
                 [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
                 [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
-                [XWJAccount instance].array = [userDic valueForKey:@"area"];
+                /*
+                 "A_id" = 4;
+                 "A_name" = "\U9ea6\U5c9b\U91d1\U5cb8";
+                 isDefault = 1;
+                 */
+                [XWJAccount instance].array = [[dic objectForKey:@"data"] valueForKey:@"area"];
+                if ([XWJAccount instance].array&&[XWJAccount instance].array.count>0) {
+                    for (NSDictionary *di in [XWJAccount instance].array ) {
+                        if ([[di valueForKey:@"isDefault" ] integerValue]== 1) {
+                            [XWJAccount instance].aid = [NSString stringWithFormat:@"%@",[di valueForKey:@"A_id"]];
+                        }
+                    }
+                }
                 
-                //                [XWJAccount instance].money =[userDic valueForKey:@"id"];
-                //                [XWJAccount instance].ganqing =[userDic valueForKey:@"id"];
-                //                [XWJAccount instance].intrest =[userDic valueForKey:@"id"];
-                //                [XWJAccount instance].qianming =[userDic valueForKey:@"id"];
-                
-                BOOL isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+//                BOOL isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+                BOOL isBind = [XWJAccount instance].aid?TRUE:FALSE;
                 if (!isBind) {
                     UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
                     
@@ -230,13 +240,9 @@
      */
 }
 - (IBAction)login:(id)sender {
-    
-    
-//    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
-//    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-    
     NSString *username = self.tFieldUserName.text;
     NSString *pwd = self.tFieldPassWord.text;
+    [[XWJAccount instance] logout];
     [self login:username :pwd];
 }
 

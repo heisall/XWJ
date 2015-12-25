@@ -51,7 +51,8 @@ NSArray *footer;
     self.collectionView.delegate = self;
     
    
-     [XWJCity instance].aid = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_id"];
+//     [XWJCity instance].aid = [[NSUserDefaults standardUserDefaults] valueForKey:@"a_id"];
+    [XWJAccount instance].aid = [XWJAccount instance].aid;
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJSupplementaryView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kheaderIdentifier];
     footer = [NSArray arrayWithObjects:@"生活信息",@"商城信息",@"房屋信息", nil];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XWJHomeCollectionCell2" bundle:nil] forCellWithReuseIdentifier:kcellIdentifier];
@@ -256,7 +257,9 @@ NSArray *footer;
     
     XWJGuzhangViewController *gz2 = [guzhang instantiateInitialViewController];
     gz2.type = 2;
-    self.isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+    
+//    self.isBind = [[NSUserDefaults standardUserDefaults] boolForKey:@"bind"];
+    self.isBind = [XWJAccount instance].aid?YES:NO;
 //    self.isBind = YES;
     NSArray *jump = [NSArray arrayWithObjects:notice,notice2,wu,gz,gz2,pay, nil];
 
@@ -459,6 +462,15 @@ NSArray *footer;
         self.navigationItem.title = ti;
     }else
         self.navigationItem.title = @"依云小镇";
+    
+    
+    if ([XWJAccount instance].array&&[XWJAccount instance].array.count>0) {
+        for (NSDictionary *dic in [XWJAccount instance].array ) {
+            if ([[dic valueForKey:@"isDefault" ] integerValue]== 1) {
+                self.navigationItem.title = [NSString stringWithFormat:@"%@",[dic valueForKey:@"A_name"]];
+            }
+        }
+    }
     
     UIImage *image = [UIImage imageNamed:@"homemes"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

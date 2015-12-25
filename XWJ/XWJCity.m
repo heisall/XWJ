@@ -35,7 +35,6 @@
 
 -(void)selectDistrict:(NSInteger)index{
     _aid = [[_districts objectAtIndex:index] valueForKey:a_id];
-//    [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"xiaoquid"];
     _district = [_districts objectAtIndex:index];
 
 }
@@ -88,10 +87,11 @@
             NSString *errCode ;
             if ([result intValue]== 1) {
                 
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"bind"];
-                [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"a_id"];
-                [[NSUserDefaults standardUserDefaults] setValue:[XWJAccount instance].account forKey:@"username"];
-                [[NSUserDefaults standardUserDefaults] setValue:[_district objectForKey:a_name] forKey:@"xiaoqu"];
+//                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"bind"];
+//                [[NSUserDefaults standardUserDefaults] setValue:_aid forKey:@"a_id"];
+                [XWJAccount instance].aid = _aid;
+//                [[NSUserDefaults standardUserDefaults] setValue:[XWJAccount instance].account forKey:@"username"];
+//                [[NSUserDefaults standardUserDefaults] setValue:[_district objectForKey:a_name] forKey:@"xiaoqu"];
 
                 XWJCity *cityinstance = [XWJCity instance];
  
