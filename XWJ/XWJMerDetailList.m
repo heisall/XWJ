@@ -9,6 +9,7 @@
 #import "XWJMerDetailList.h"
 #import "XWJShangHuTableViewCell.h"
 #import "LCBannerView.h"
+#import "XWJSPDetailViewController.h"
 #define PADDINGTOP 64.0
 #define BTN_WIDTH 100.0
 #define BTN_HEIGHT 50.0
@@ -34,7 +35,6 @@
     
 //        _adView =[[UIView alloc] initWithFrame:CGRectMake(0, PADDINGTOP, SCREEN_SIZE.width, SCREEN_SIZE.height/4)];
 //    scroll  =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height)];
-    
     
     self.adView =[[UIView alloc] initWithFrame:CGRectMake(0, PADDINGTOP, SCREEN_SIZE.width, SCREEN_SIZE.height/5)];
 
@@ -104,9 +104,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-//    XWJMerDetailList *list= [[XWJMerDetailList alloc] init];
+    XWJSPDetailViewController *list= [[XWJSPDetailViewController alloc] init];
 //    list.dic = [self.goodsArr objectAtIndex:indexPath.row];
-//    [self.navigationController showViewController:list sender:self];
+    list.goods_id = [[self.goodsArr objectAtIndex:indexPath.row] objectForKey:@"goods_id"];
+    [self.navigationController showViewController:list sender:self];
 }
 
 //0 zx 1 xl 2 jp

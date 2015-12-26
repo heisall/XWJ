@@ -31,8 +31,10 @@
     
     [self.view addSubview:self.adView];
     [self.view addSubview:scroll];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self getShangmen];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

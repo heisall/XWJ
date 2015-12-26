@@ -9,5 +9,5 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJSPDetailViewController : XWJBaseViewController
-
+@property NSString *goods_id;
 @end
