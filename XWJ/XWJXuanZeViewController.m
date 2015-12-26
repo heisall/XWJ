@@ -8,7 +8,9 @@
 
 #import "XWJXuanZeViewController.h"
 #import "XWJTabViewController.h"
+#import "XWJLoginViewController.h"
 #import "XWJBindHouseTableViewController.h"
+#import "XWJAccount.h"
 @interface XWJXuanZeViewController ()<XWJBindHouseDelegate>
 @property BOOL isBind;
 
@@ -27,6 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSArray *views = self.navigationController.viewControllers;
+    BOOL fromLogin = NO;
+    for (UIViewController *con  in views) {
+        if ([con isKindOfClass:[XWJLoginViewController class]]) {
+            fromLogin = YES;
+            break;
+        }
+    }
+    if (!fromLogin) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
 #pragma bindhouse delegate
 -(void)didSelectAtIndex:(NSInteger)index Type:(HouseMode)type{
     switch (type) {
@@ -87,9 +103,12 @@
     bind.delegate = self;
     bind->mode = HouseCity;
     [self.navigationController showViewController:bind sender:nil];
+        
 }
 - (IBAction)xuanze:(UIButton *)sender {
     
+    
+    [XWJAccount instance].aid = @"1";
     XWJTabViewController *tab = [[XWJTabViewController alloc] init];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     window.rootViewController = tab;

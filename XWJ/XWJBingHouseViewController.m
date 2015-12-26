@@ -9,7 +9,8 @@
 #import "XWJBingHouseViewController.h"
 #import "XWJdef.h"
 #import "XWJCity.h"
-
+#import "XWJLoginViewController.h"
+#import "XWJTabViewController.h"
 //#define 1000000000
 @interface XWJBingHouseViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 @property NSInteger typeindex;
@@ -247,7 +248,22 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    NSArray *views = self.navigationController.viewControllers;
+    BOOL fromLogin = NO;
+    for (UIViewController *con  in views) {
+        if ([con isKindOfClass:[XWJLoginViewController class]]) {
+            fromLogin = YES;
+            break;
+        }
+    }
+    if (fromLogin) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        
+        XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        window.rootViewController = tab;
+    }
 }
 //- (IBAction)bind:(UIButton *)sender {
 //}

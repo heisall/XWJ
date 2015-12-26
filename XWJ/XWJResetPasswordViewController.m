@@ -118,10 +118,10 @@
     if (alertView.tag == 100) {
         return;
     }
-    UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
+//    UIViewController *view =[self.storyboard instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
     
-    [self.navigationController showViewController:view sender:nil];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController showViewController:view sender:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

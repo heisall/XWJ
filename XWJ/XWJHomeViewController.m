@@ -20,6 +20,8 @@
 #import "XWJCity.h"
 #import "XWJAccount.h"
 #import "XWJADViewController.h"
+#import "XWJShuoListViewController.h"
+#import "XWJShangmenViewController.h"
 #define  CELL_HEIGHT 150.0
 #define  COLLECTION_NUMSECTIONS 3
 #define  COLLECTION_NUMITEMS 1
@@ -35,6 +37,7 @@
 @property (nonatomic)NSInteger section;
 @property NSMutableArray *notices;
 @property NSMutableArray *shows ;
+@property NSMutableArray *shuoArr ;
 @end
 
 @implementation XWJHomeViewController
@@ -70,6 +73,12 @@ NSArray *footer;
     
     self.backScollView.contentSize = CGSizeMake(SCREEN_SIZE.width, height);
 
+//    送水 5，家政 6，鲜花 31，洗衣 7，蛋糕16
+//    cateName = "\U6d17\U8863";
+//    id = 7;
+//    "parent_id" = 1;
+    self.shuoArr = [NSMutableArray arrayWithObjects:@{@"cateName":@"送水",@"id":@"5",@"parent_id":@"1"},@{@"cateName":@"家政",@"id":@"6",@"parent_id":@"1"},@{@"cateName":@"洗衣",@"id":@"7",@"parent_id":@"1"},@{@"cateName":@"鲜花",@"id":@"31",@"parent_id":@"1"},@{@"cateName":@"蛋糕",@"id":@"16",@"parent_id":@"1"}, nil];
+    
 }
 - (IBAction)qiandao:(UIButton *)sender {
 }
@@ -175,7 +184,7 @@ NSArray *footer;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 //    [dict setValue:[XWJCity instance].aid  forKey:@"a_id"];
-        [dict setValue:@"1"  forKey:@"a_id"];
+        [dict setValue:[XWJAccount instance].aid  forKey:@"a_id"];
 
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
@@ -555,15 +564,19 @@ NSArray *footer;
     switch (section) {
         case 0:
         {
-            [self.tabBarController setSelectedIndex:2];
+            XWJShuoListViewController * list= [[XWJShuoListViewController alloc] init];
+//            list.dic = [self.thumb objectAtIndex:index-1000];
+            list.dic = [self.shuoArr objectAtIndex:btn.tag-1];
+            [self.navigationController showViewController:list sender:self];
+            
+//            [self.tabBarController setSelectedIndex:2];
         }
             break;
         case 1:
         {
-//            [self.tabBarController setSelectedIndex:1];
-
+            [self.tabBarController setSelectedIndex:2];
             
-            [self.navigationController showViewController:[[UIStoryboard storyboardWithName:@"XWJShangchengStoryboard" bundle:nil] instantiateInitialViewController]sender:nil];
+//            [self.navigationController showViewController:[[UIStoryboard storyboardWithName:@"XWJShangchengStoryboard" bundle:nil] instantiateInitialViewController]sender:nil];
         }
             break;
         case 2:{
@@ -630,7 +643,14 @@ NSArray *footer;
 }
 
 -(void)headerClick:(UIButton *)btn{
-    NSInteger index =btn.tag;
+    NSInteger index =btn.tag-100;
+    
+    if (index ==0) {
+        XWJShangmenViewController *shangmen  =[[XWJShangmenViewController alloc] init];
+        [self.navigationController showViewController:shangmen sender:nil];
+    }else if(index == 1){
+        [self.tabBarController setSelectedIndex:2];
+    }
     NSLog(@"header %ld ",index);
     
 }

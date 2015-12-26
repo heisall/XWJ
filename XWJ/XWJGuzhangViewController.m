@@ -190,7 +190,9 @@
     }else
         [dict setValue:@"投诉" forKey:@"type"];
 
-    [dict setValue:@"1" forKey:@"a_id"];
+    [dict setValue:[XWJAccount instance].aid forKey:@"a_id"];
+
+//    [dict setValue:@"1" forKey:@"a_id"];
     
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {

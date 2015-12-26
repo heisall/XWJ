@@ -55,7 +55,9 @@
 //    NSString *userid = [XWJAccount in];
 //    NSString *aid = [[NSUserDefaults standardUserDefaults] objectForKey:@"a_id"];
     
-    [dict setValue:@"1" forKey:@"a_id"];
+//    [dict setValue:@"1" forKey:@"a_id"];
+        [dict setValue:[XWJAccount instance].aid forKey:@"a_id"];
+
     [dict setValue:[XWJAccount instance].uid forKey:@"userid"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -67,6 +69,9 @@
             
             self.notices = [dic objectForKey:@"ads"];
             
+            self.roomDic = [dic objectForKey:@"room"];
+            
+            self.room.text = [NSString stringWithFormat:@"%@%@号楼%@单元%@",[self.roomDic objectForKey:@"A_name"],[self.roomDic objectForKey:@"b_id"],[self.roomDic objectForKey:@"r_dy"],[self.roomDic objectForKey:@"r_id"]];
             NSMutableArray *URLs = [NSMutableArray array];
             for (NSDictionary
                  *dic in self.notices) {

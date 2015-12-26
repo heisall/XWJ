@@ -237,7 +237,38 @@
     cell.label2.text = [NSString stringWithFormat:@"查看人数:%@",[[arr objectAtIndex:indexPath.row] objectForKey:@"visits"]];
     if ([[arr objectAtIndex:indexPath.row] objectForKey:@"logo"]!=[NSNull null]) {
         
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[[arr objectAtIndex:indexPath.row] objectForKey:@"logo"]]];
+        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[[arr objectAtIndex:indexPath.row] objectForKey:@"logo"]] ];
+    }
+    
+    
+    
+    NSString * prop = [[arr objectAtIndex:indexPath.row] objectForKey:@"prop"]==[NSNull null]?nil:[[arr objectAtIndex:indexPath.row] objectForKey:@"prop"] ;
+    
+//    NSString *prop = @"有点甜,杭州的,中央特供";
+    cell.tedeView.hidden = YES;
+    if (prop&&![prop isEqualToString:@""]) {
+        NSArray *teseArr = [prop componentsSeparatedByString:@","];
+        if (teseArr&&teseArr.count>0) {
+            cell.tedeView.hidden = NO;
+            CGFloat wid = 34.0;
+            for (int i =0; i<teseArr.count; i++) {
+                
+                UIView *view = [cell.tedeView viewWithTag:100+i];
+                if (view) {
+                    [(UIButton *)view setTitle:[teseArr objectAtIndex:i] forState:UIControlStateNormal];
+
+                }else{
+                    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(1+i*wid, 0, wid, 20)];
+                    [btn setBackgroundImage:[UIImage imageNamed:@"kuang" ] forState:UIControlStateNormal];
+    //                btn.enabled = NO;
+                    btn.titleLabel.font = [UIFont systemFontOfSize:8];
+                    [btn setTitle:[teseArr objectAtIndex:i] forState:UIControlStateNormal];
+                    [btn setTitleColor:XWJGREENCOLOR forState:UIControlStateNormal];
+                    btn.tag  = 100+i;
+                    [cell.tedeView addSubview:btn];
+                }
+            }
+        }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -257,6 +288,7 @@
 //        [UIApplication sharedApplication].keyWindow.rootViewController = [loginStoryboard instantiateInitialViewController];
 //    }
     XWJMerDetailList *list= [[XWJMerDetailList alloc] init];
+    list.dic = [self.tabledata objectAtIndex:indexPath.row];
     [self.navigationController showViewController:list sender:self];
 }
 

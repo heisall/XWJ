@@ -14,6 +14,7 @@
 #import "XWJCZViewController.h"
 #import "XWJNewHouseDetailViewController.h"
 #import "XWJCZFDetailViewController.h"
+#import "XWJAccount.h"
 typedef NS_ENUM(NSUInteger, selecttype) {
     selecttypequyu,
     selecttypezongjia,
@@ -570,7 +571,10 @@ typedef NS_ENUM(NSUInteger, selecttype) {
     if (area) {
         [dict setValue:area  forKey:@"area"];
     }
-    [dict setValue:@"1" forKey:@"a_id"];
+ 
+    [dict setValue:[XWJAccount instance].aid forKey:@"a_id"];
+
+//    [dict setValue:@"1" forKey:@"a_id"];
     [dict setValue:@"0" forKey:@"pageindex"];
     [dict setValue:@"20"  forKey:@"countperpage"];
     

@@ -15,7 +15,7 @@
 
 @property NSMutableArray *notices;
 @property NSMutableArray *shows ;
-
+@property NSDictionary *roomDic;
 @property NSArray *vConlers;
 @property NSArray *titles;
 

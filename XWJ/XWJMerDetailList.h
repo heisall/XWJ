@@ -9,5 +9,5 @@
 #import "XWJBaseViewController.h"
 
 @interface XWJMerDetailList : XWJBaseViewController
-
+@property NSDictionary *dic;
 @end

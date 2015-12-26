@@ -8,6 +8,7 @@
 
 #import "XWJPay1ViewController.h"
 #import "XWJPay1TableViewCell.h"
+#import "XWJAccount.h"
 @interface XWJPay1ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property NSArray *array;
 
@@ -49,7 +50,9 @@
 //            [dict setValue:@"维修" forKey:@"type"];
 //        }else
 //            [dict setValue:@"投诉" forKey:@"type"];
-        [dict setValue:@"1" forKey:@"a_id"];
+    
+    [dict setValue:[XWJAccount instance].aid forKey:@"a_id"];
+//        [dict setValue:@"1" forKey:@"a_id"];
         [dict setValue:@"1" forKey:@"b_id"];
         [dict setValue:@"1" forKey:@"r_dy"];
         [dict setValue:@"101" forKey:@"r_id"];

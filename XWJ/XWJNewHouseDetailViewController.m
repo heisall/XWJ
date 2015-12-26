@@ -68,8 +68,8 @@
         [dict setValue:[self.dic valueForKey:@"id"]  forKey:@"lpId"];
         [dict setValue:@"1"  forKey:@"type"];
         [dict setValue: account.uid  forKey:@"userid"];
-   
-        
+        [dict setValue:@"1" forKey:@"isCollect"];
+    
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
         [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%s success ",__FUNCTION__);
@@ -85,7 +85,7 @@
                     alertview.delegate = self;
                     [alertview show];
                     
-                    [self.navigationController popViewControllerAnimated:YES];
+//                    [self.navigationController popViewControllerAnimated:YES];
                     
                     
                 }
@@ -142,7 +142,7 @@
             
             [self.houseImg sd_setImageWithURL:[NSURL URLWithString:houseurl] placeholderImage:[UIImage imageNamed:@"newhouse"]];
             [self.infoTableView reloadData];
-            
+            self.infoTableView.contentSize = CGSizeMake(0, 30*self.tableData.count+60);
             NSInteger count = self.photos.count;
             CGFloat width = self.view.bounds.size.width/3;
             CGFloat height = self.scrollView.bounds.size.height;

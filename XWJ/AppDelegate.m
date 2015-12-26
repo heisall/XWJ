@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "XWJdef.h"
 #import "AFNetworking.h"
+#import "XWJAccount.h"
+#import "XWJTabViewController.h"
 ////腾讯开放平台（对应QQ和QQ空间）SDK头文件
 //#import <TencentOpenAPI/TencentOAuth.h>
 //#import <TencentOpenAPI/QQApiInterface.h>
@@ -119,13 +121,14 @@
 //
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
+    NSString *uname = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
+    NSString *pass = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
 
-    if (![self checkAutoLogin]) {
-        UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
-        self.window.rootViewController = [loginStoryboard instantiateInitialViewController];
-
+    if (uname&&pass) {
+        [self loginUname:uname Pwd:pass];
     }else{
-        ;
+        [self toLoginController];
+        
     }
     
 //    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
@@ -135,15 +138,106 @@
     return YES;
 }
 
+-(void)loginUname:(NSString *)username Pwd:(NSString *)pwd{
+    if (username.length>0&&pwd.length>0) {
+        
+        //        NSString *url = @"http://www.hisenseplus.com:8100/appPhone/rest/user/userLogin";
+        NSString *url = LOGIN_URL;
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setValue:username forKey:@"account"];
+        [dict setValue:pwd forKey:@"password"];
+        
+        
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+        [manager POST:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSNumber * result = [dic valueForKey:@"result"];
+            if ([result intValue]== 1) {
+            
+                NSDictionary *userDic = [[dic objectForKey:@"data"] objectForKey:@"user"];
+                NSString *sid = [userDic valueForKey:@"id"];
+                NSLog(@"sid %@",sid);
+                [XWJAccount instance].uid = sid;
+                [XWJAccount instance].account = [userDic valueForKey:@"Account"];
+                [XWJAccount instance].password = pwd;
+                [XWJAccount instance].NickName =[userDic valueForKey:@"NickName"];
+                [XWJAccount instance].name = [userDic valueForKey:@"NAME"];
+                [XWJAccount instance].Sex = [userDic valueForKey:@"sex"];
+                [XWJAccount instance].phone = [userDic valueForKey:@"TEL"];
+                /*
+                 "A_id" = 4;
+                 "A_name" = "\U9ea6\U5c9b\U91d1\U5cb8";
+                 isDefault = 1;
+                 */
+                [XWJAccount instance].array = [[dic objectForKey:@"data"] valueForKey:@"area"];
+                if ([XWJAccount instance].array&&[XWJAccount instance].array.count>0) {
+                    for (NSDictionary *di in [XWJAccount instance].array ) {
+                        if ([[di valueForKey:@"isDefault" ] integerValue]== 1) {
+                            [XWJAccount instance].aid = [NSString stringWithFormat:@"%@",[di valueForKey:@"A_id"]];
+                        }
+                    }
+                }
+                
+                BOOL isBind = [XWJAccount instance].aid?TRUE:FALSE;
+                if (!isBind) {
+                    
+                    UIStoryboard * login = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+                    UIViewController *view =[login instantiateViewControllerWithIdentifier:@"xuanzefangshi"];
+                    
+                    UINavigationController *nav = [[UINavigationController alloc] init];
+                    [nav showViewController:view sender:nil];
+                    self.window.rootViewController = nav;
+                    
+                    //                    XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+                    //                    bind.title = @"城市选择";
+                    //                    bind.delegate = self;
+                    //                    bind->mode = HouseCity;
+                    //                    [self.navigationController showViewController:bind sender:nil];
+                }else{
+                    
+                    XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    window.rootViewController = tab;
+                }
+            }else{
+                [self toLoginController];
+
+            }
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"log fail ");
+            //        dispatch_async(dispatch_get_main_queue(), ^{
+            //            XWJTabViewController *tab = [[XWJTabViewController alloc] init];
+            //            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            //            window.rootViewController = tab;            //        });
+            
+            [self toLoginController];
+
+        }];
+    }
+    
+    /*
+     XWJBindHouseTableViewController *bind = [[XWJBindHouseTableViewController alloc] init];
+     bind.title = @"城市选择";
+     bind.dataSource = [NSArray arrayWithObjects:@"青岛市",@"济南市",@"威海市", nil];
+     bind.delegate = self;
+     bind->mode = HouseCity;
+     [self.navigationController showViewController:bind sender:nil];
+     */
+}
+
+-(void)toLoginController{
+    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
+    self.window.rootViewController = [loginStoryboard instantiateInitialViewController];
+
+}
 -(void)getCity{
     
     NSString *url = GETCITY_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    //    [dict setValue:username forKey:@"account"];
-    //    [dict setValue:pwd forKey:@"password"];
-    
-    
+ 
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%s success ",__FUNCTION__);
