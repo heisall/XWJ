@@ -130,7 +130,7 @@
         
     }
     numLabel.text  = [NSString stringWithFormat:@"%lu",selection.count];
-    priceLabel.text = [NSString stringWithFormat:@"%f",total];
+    priceLabel.text = [NSString stringWithFormat:@"%.3f",total];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -369,8 +369,16 @@
                 [ProgressHUD showError:@"不支持多商户同时结算"];
             }else{
                 
+                NSMutableArray *arr = [NSMutableArray array];
+                for (NSIndexPath *indes in selection) {
+                    
+                    NSDictionary *dic  = [[[carListArr objectAtIndex:indes.section] objectForKey:@"data"] objectAtIndex:indes.row];
+                    NSDictionary *d = [NSDictionary dictionaryWithDictionary:dic];
+                    [arr addObject:d];
+                }
                 XWJJiesuanViewController *con = [self.storyboard instantiateViewControllerWithIdentifier:@"jiesuanview"];
                 con.price = priceLabel.text;
+                con.arr = arr;
                 [self.navigationController showViewController:con sender:nil];
             }
         

@@ -33,7 +33,7 @@ GKHpickerAddressView * instance;
 
 + (GKHpickerAddressView *)shareInstancePickerAddressByctrl:(UIViewController *)ctrl block:(passStrValueBlock)block;{
     static dispatch_once_t   p;
-    dispatch_once(&p,^{
+//    dispatch_once(&p,^{
         instance=[[GKHpickerAddressView alloc] init];
         [instance setBackgroundColor:[UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0]];
         [instance setUserInteractionEnabled:YES];
@@ -41,7 +41,7 @@ GKHpickerAddressView * instance;
         [ctrl.view endEditing:YES];
         [ctrl.view addSubview:instance];
         [instance.textfield becomeFirstResponder];
-    });
+//    });
     //
     [instance getPickerData];
     [instance.textfield becomeFirstResponder];

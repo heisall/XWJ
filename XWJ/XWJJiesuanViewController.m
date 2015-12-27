@@ -8,6 +8,7 @@
 
 #import "XWJJiesuanViewController.h"
 #import "LocationPickerVC.h"
+#import "XWJJiesuanTableViewCell.h"
 @interface XWJJiesuanViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property NSArray *array;
 @property NSArray *payarray;
@@ -22,13 +23,14 @@
     // Do any additional setup after loading the view.
     
     self.scrollView.contentSize = CGSizeMake(0, 1000);
-    self.array = [NSArray arrayWithObjects:@"青岛市",@"海信花园",@"1号楼1单元101户", nil];
+//    self.array = [NSArray arrayWithObjects:@"青岛市",@"海信花园",@"1号楼1单元101户", nil];
     self.payarray = [NSArray arrayWithObjects:@"货到付款",@"微信支付",@"支付宝", nil];
     self.zhifuIconArr = [NSArray arrayWithObjects:@"",@"zhifuweixin",@"zhifubao", nil];
     
-    
+    [self.shangpinTableView registerNib:[UINib nibWithNibName:@"XWJJiesuanCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+
     float money =  [self.price floatValue]+8.0;
-    self.totalLabel.text = [NSString stringWithFormat:@"￥ %f",money];
+    self.totalLabel.text = [NSString stringWithFormat:@"￥ %.3f",money];
     self.payTableView.dataSource  = self;
     self.payTableView.delegate = self;
 //    self.payTableView.contentSize = CGSizeMake(0, 30+3*60);
@@ -67,7 +69,7 @@
     if (tableView.tag == TAG) {
         return 40.0;
     }
-    return 60.0;
+    return 100.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,8 +77,7 @@
     if (tableView.tag == TAG) {
         return self.payarray.count;
     }
-    return self.array.count;
-    
+    return self.arr.count;    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -110,19 +111,30 @@
         return cell;
     }
     
-    UITableViewCell  *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"pay3cell"];
+    /*
+     "goods_id" = 14;
+     "goods_image" = "http://www.hisenseplus.com/ecmall/data/files/store_7/goods_87/small_201512221541271733.jpg";
+     "goods_name" = "\U949f\U7231\U9c9c\U82b1\U901f\U9012 33\U6735\U73ab\U7470\U82b1\U675f \U9c9c\U82b1\U5feb\U9012\U5317\U4eac\U5168\U56fd\U82b1\U5e97\U9001\U82b1 33\U6735\U9999\U69df\U73ab\U7470\U82b1\U675f1";
+     price = 2592;
+     quantity = 1;
+     "rec_id" = 21;
+     "spec_id" = 14;
+     "store_id" = 7;
+     "store_name" = "\U521a\U54e5\U9c9c\U82b1";
+     */
+    XWJJiesuanTableViewCell  *cell;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pay3cell"];
+        cell = [[XWJJiesuanTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     // Configure the cell...
-    
-    
-    if(indexPath.row){
-        
-    }
-  
-    
+    NSString *url = [[self.arr objectAtIndex:indexPath.row] objectForKey:@"goods_image"];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:url]];
+    cell.title.text = [[self.arr objectAtIndex:indexPath.row] objectForKey:@"goods_name"];
+    cell.price.text = [NSString stringWithFormat:@"%@",[[self.arr objectAtIndex:indexPath.row] objectForKey:@"price"]];
+    cell.numLabel.text = [NSString stringWithFormat:@"x%@",[[self.arr objectAtIndex:indexPath.row] objectForKey:@"quantity"]];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(void)viewWillAppear:(BOOL)animated{

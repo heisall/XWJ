@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *yunfeiLabel;
 @property (weak, nonatomic) IBOutlet UITextView *liuyanTextView;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property NSArray *arr;
 @property NSString *price;
 @end
