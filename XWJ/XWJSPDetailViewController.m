@@ -12,6 +12,8 @@
 #import "XWJAccount.h"
 #import "XWJUtil.h"
 #import "ProgressHUD/ProgressHUD.h"
+#import "XWJYueLineViewController.h"
+#import "XWJYouHuiViewController.h"
 @interface XWJSPDetailViewController ()<LCBannerViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property UIScrollView *scrollView;
 
@@ -419,6 +421,20 @@
     }else if([butn.titleLabel.text isEqualToString:@"加入购物车"]){
         [self addCar];
 //        UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
+    }else if([butn.titleLabel.text isEqualToString:@"在线预约"]){
+        UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
+        XWJYueLineViewController *view = [car instantiateViewControllerWithIdentifier:@"yuyueline"];
+        [self.navigationController showViewController:view sender:nil];
+        
+    }else if([butn.titleLabel.text isEqualToString:@"优惠政策"]){
+        XWJYouHuiViewController *con = [[XWJYouHuiViewController alloc] init];
+        con.zhengce = [self.goodsDic objectForKey:@"policy"];
+        [self.navigationController showViewController:con sender:nil];
+
+    }else if([butn.titleLabel.text isEqualToString:@"在线订购"]){
+//        UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
+//        XWJYueLineViewController *view = [car instantiateViewControllerWithIdentifier:@"yuyueline"];
+//        [self.navigationController showViewController:view sender:nil];
     }
     
 }

@@ -73,6 +73,13 @@
 		A43811191C24FFDD001D2F29 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43811171C24FFDD001D2F29 /* ShareSDKUI.bundle */; };
 		A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A438111B1C257E60001D2F29 /* XWJMFViewController.m */; };
 		A43811221C25C957001D2F29 /* XWJCZFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */; };
+		A43928F11C302F5100572F70 /* XWJJiesuanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43928F01C302F5100572F70 /* XWJJiesuanCell.xib */; };
+		A43928F41C30309000572F70 /* XWJJiesuanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A43928F31C30309000572F70 /* XWJJiesuanTableViewCell.m */; };
+		A43928F91C3039B500572F70 /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = A43928F61C3039B500572F70 /* Address.plist */; };
+		A43928FA1C3039B500572F70 /* GKHpickerAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A43928F81C3039B500572F70 /* GKHpickerAddressView.m */; };
+		A43928FE1C3039C500572F70 /* UIView+RGSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A43928FD1C3039C500572F70 /* UIView+RGSize.m */; };
+		A43929021C3039DA00572F70 /* LocationPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A43929001C3039DA00572F70 /* LocationPickerVC.m */; };
+		A43929031C3039DA00572F70 /* LocationPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43929011C3039DA00572F70 /* LocationPickerVC.xib */; };
 		A43A8D141C283C4E00143DE7 /* XWJShuoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */; };
 		A43C97851C11CB5D006A61EE /* XWJFindCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */; };
 		A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C97871C11EB2C006A61EE /* XWJFindPubViewController.m */; };
@@ -200,6 +207,9 @@
 		A4DC3CAE1C1D0FF9003D4D18 /* XWJCity.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CAD1C1D0FF9003D4D18 /* XWJCity.m */; };
 		A4DC3CB11C1D1ED7003D4D18 /* XWJMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */; };
 		A4DC3CB41C1DFC8B003D4D18 /* XWJADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */; };
+		A4E28DF81C2FF07C00644909 /* XWJYueLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E28DF71C2FF07C00644909 /* XWJYueLineViewController.m */; };
+		A4E28DFB1C2FF39600644909 /* XWJYouHuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E28DFA1C2FF39600644909 /* XWJYouHuiViewController.m */; };
+		A4E28DFE1C30225000644909 /* XWJJiesuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E28DFD1C30225000644909 /* XWJJiesuanViewController.m */; };
 		A4ED9BD71C036B1100142991 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */; };
 		A4F2571B1C2B59FF00B2EC58 /* XWJShuoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F2571A1C2B59FF00B2EC58 /* XWJShuoTableCell.xib */; };
 		A4F2571E1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2571D1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m */; };
@@ -362,6 +372,18 @@
 		A438111B1C257E60001D2F29 /* XWJMFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMFViewController.m; sourceTree = "<group>"; };
 		A43811201C25C957001D2F29 /* XWJCZFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJCZFDetailViewController.h; sourceTree = "<group>"; };
 		A43811211C25C957001D2F29 /* XWJCZFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJCZFDetailViewController.m; sourceTree = "<group>"; };
+		A43928F01C302F5100572F70 /* XWJJiesuanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJJiesuanCell.xib; sourceTree = "<group>"; };
+		A43928F21C30309000572F70 /* XWJJiesuanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJJiesuanTableViewCell.h; sourceTree = "<group>"; };
+		A43928F31C30309000572F70 /* XWJJiesuanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJJiesuanTableViewCell.m; sourceTree = "<group>"; };
+		A43928F61C3039B500572F70 /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
+		A43928F71C3039B500572F70 /* GKHpickerAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHpickerAddressView.h; sourceTree = "<group>"; };
+		A43928F81C3039B500572F70 /* GKHpickerAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHpickerAddressView.m; sourceTree = "<group>"; };
+		A43928FC1C3039C500572F70 /* UIView+RGSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RGSize.h"; sourceTree = "<group>"; };
+		A43928FD1C3039C500572F70 /* UIView+RGSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RGSize.m"; sourceTree = "<group>"; };
+		A43928FF1C3039DA00572F70 /* LocationPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPickerVC.h; sourceTree = "<group>"; };
+		A43929001C3039DA00572F70 /* LocationPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPickerVC.m; sourceTree = "<group>"; };
+		A43929011C3039DA00572F70 /* LocationPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationPickerVC.xib; sourceTree = "<group>"; };
+		A43929041C303A0E00572F70 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		A43A8D121C283C4E00143DE7 /* XWJShuoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJShuoListViewController.h; sourceTree = "<group>"; };
 		A43A8D131C283C4E00143DE7 /* XWJShuoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJShuoListViewController.m; sourceTree = "<group>"; };
 		A43C97841C11CB5D006A61EE /* XWJFindCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJFindCollectionCellView.xib; sourceTree = "<group>"; };
@@ -568,6 +590,12 @@
 		A4DC3CB01C1D1ED7003D4D18 /* XWJMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJMallViewController.m; sourceTree = "<group>"; };
 		A4DC3CB21C1DFC8A003D4D18 /* XWJADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJADViewController.h; sourceTree = "<group>"; };
 		A4DC3CB31C1DFC8A003D4D18 /* XWJADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJADViewController.m; sourceTree = "<group>"; };
+		A4E28DF61C2FF07C00644909 /* XWJYueLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJYueLineViewController.h; sourceTree = "<group>"; };
+		A4E28DF71C2FF07C00644909 /* XWJYueLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJYueLineViewController.m; sourceTree = "<group>"; };
+		A4E28DF91C2FF39600644909 /* XWJYouHuiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJYouHuiViewController.h; sourceTree = "<group>"; };
+		A4E28DFA1C2FF39600644909 /* XWJYouHuiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJYouHuiViewController.m; sourceTree = "<group>"; };
+		A4E28DFC1C30225000644909 /* XWJJiesuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWJJiesuanViewController.h; sourceTree = "<group>"; };
+		A4E28DFD1C30225000644909 /* XWJJiesuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWJJiesuanViewController.m; sourceTree = "<group>"; };
 		A4ED9BD51C036B1100142991 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
 		A4ED9BD61C036B1100142991 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
 		A4F2571A1C2B59FF00B2EC58 /* XWJShuoTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWJShuoTableCell.xib; sourceTree = "<group>"; };
@@ -801,6 +829,25 @@
 				A41A1FE51C267EBB002129DF /* ProgressHUD.m */,
 			);
 			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		A43928F51C3039B500572F70 /* GKHLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A43928F61C3039B500572F70 /* Address.plist */,
+				A43928F71C3039B500572F70 /* GKHpickerAddressView.h */,
+				A43928F81C3039B500572F70 /* GKHpickerAddressView.m */,
+			);
+			path = GKHLocationPicker;
+			sourceTree = "<group>";
+		};
+		A43928FB1C3039C500572F70 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A43928FC1C3039C500572F70 /* UIView+RGSize.h */,
+				A43928FD1C3039C500572F70 /* UIView+RGSize.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		A43C97891C1297E1006A61EE /* LGPhotoPicker */ = {
@@ -1190,6 +1237,15 @@
 				A49DD3FE1C2F0BB500DB1EC1 /* XWJCarStoryboard.storyboard */,
 				A49DD4001C2F0E1D00DB1EC1 /* XWJCarViewController.h */,
 				A49DD4011C2F0E1D00DB1EC1 /* XWJCarViewController.m */,
+				A4E28DF61C2FF07C00644909 /* XWJYueLineViewController.h */,
+				A4E28DF71C2FF07C00644909 /* XWJYueLineViewController.m */,
+				A4E28DF91C2FF39600644909 /* XWJYouHuiViewController.h */,
+				A4E28DFA1C2FF39600644909 /* XWJYouHuiViewController.m */,
+				A4E28DFC1C30225000644909 /* XWJJiesuanViewController.h */,
+				A4E28DFD1C30225000644909 /* XWJJiesuanViewController.m */,
+				A43928F01C302F5100572F70 /* XWJJiesuanCell.xib */,
+				A43928F21C30309000572F70 /* XWJJiesuanTableViewCell.h */,
+				A43928F31C30309000572F70 /* XWJJiesuanTableViewCell.m */,
 			);
 			name = shangcheng;
 			sourceTree = "<group>";
@@ -1272,6 +1328,12 @@
 		DAC4AF181BF0619700D66E76 /* XWJ */ = {
 			isa = PBXGroup;
 			children = (
+				A43929041C303A0E00572F70 /* Header.h */,
+				A43928FF1C3039DA00572F70 /* LocationPickerVC.h */,
+				A43929001C3039DA00572F70 /* LocationPickerVC.m */,
+				A43929011C3039DA00572F70 /* LocationPickerVC.xib */,
+				A43928FB1C3039C500572F70 /* Category */,
+				A43928F51C3039B500572F70 /* GKHLocationPicker */,
 				A41A1FE21C267EBB002129DF /* ProgressHUD */,
 				A4DC3CAB1C1D0FE2003D4D18 /* model */,
 				A4DC3CA81C1D0A48003D4D18 /* shangcheng */,
@@ -1444,6 +1506,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43928F91C3039B500572F70 /* Address.plist in Resources */,
 				A43C97EF1C129C68006A61EE /* broswerPic1.jpg in Resources */,
 				A43C97FB1C129C68006A61EE /* shanguangdeng2.png in Resources */,
 				A49DD3FA1C2F087C00DB1EC1 /* XWJGouwucheCell.xib in Resources */,
@@ -1451,6 +1514,7 @@
 				A48801A81C0AADAE00714F5B /* liebiao@3x.png in Resources */,
 				A49DD3FF1C2F0BB500DB1EC1 /* XWJCarStoryboard.storyboard in Resources */,
 				A48801D41C0B66B800714F5B /* HomeStoryboard.storyboard in Resources */,
+				A43928F11C302F5100572F70 /* XWJJiesuanCell.xib in Resources */,
 				A43C97F61C129C68006A61EE /* checkbox_pic_non2@2x.png in Resources */,
 				A43C981E1C14073D006A61EE /* XWJZFStoryboard.storyboard in Resources */,
 				A43C97FE1C129C68006A61EE /* X@2x.png in Resources */,
@@ -1501,6 +1565,7 @@
 				A43C97F91C129C68006A61EE /* paizhao.png in Resources */,
 				A4DC3C361C1881ED003D4D18 /* XWJZFTableCell.xib in Resources */,
 				A43C97EE1C129C68006A61EE /* broswerPic0.jpg in Resources */,
+				A43929031C3039DA00572F70 /* LocationPickerVC.xib in Resources */,
 				A48801DF1C0B7DC500714F5B /* XWJSupplementaryView.xib in Resources */,
 				A43C97FF1C129C68006A61EE /* xiang.png in Resources */,
 				A43C97F71C129C68006A61EE /* checkbox_pic_non@2x.png in Resources */,
@@ -1568,11 +1633,13 @@
 				A43C98391C146ACE006A61EE /* XWJPay2ViewController.m in Sources */,
 				A4F40BD01C08B5B4006E2F19 /* XWJResetPasswordViewController.m in Sources */,
 				A48801911C09FAE700714F5B /* XWJLifeTabFactory.m in Sources */,
+				A4E28DF81C2FF07C00644909 /* XWJYueLineViewController.m in Sources */,
 				A41255141C0F22FC0042D8CC /* UIImageView+AFNetworking.m in Sources */,
 				A412552C1C0F2A080042D8CC /* UIImage+ImageOrientaion.m in Sources */,
 				A488019D1C09FBBB00714F5B /* XWJFindTabFactory.m in Sources */,
 				A4DC3CA11C1C7593003D4D18 /* RatingBar.m in Sources */,
 				A43811091C2457EA001D2F29 /* XWJHttpComm.m in Sources */,
+				A43928FA1C3039B500572F70 /* GKHpickerAddressView.m in Sources */,
 				A41255121C0F22FC0042D8CC /* UIAlertView+AFNetworking.m in Sources */,
 				A43C98151C132798006A61EE /* XWJNotcieTableViewCell.m in Sources */,
 				A43C982A1C140D93006A61EE /* XWJZFViewController.m in Sources */,
@@ -1607,6 +1674,7 @@
 				A4DC3C841C1C0D82003D4D18 /* XWJNewHouseDetailViewController.m in Sources */,
 				A412557F1C0F39D20042D8CC /* UIImageView+WebCache.m in Sources */,
 				A412557B1C0F39D20042D8CC /* UIButton+WebCache.m in Sources */,
+				A4E28DFE1C30225000644909 /* XWJJiesuanViewController.m in Sources */,
 				A41A1FED1C26F3F2002129DF /* XWJSHuoViewController.m in Sources */,
 				A43810D01C1FD135001D2F29 /* XWJButlerViewController.m in Sources */,
 				A41255751C0F39D20042D8CC /* SDWebImageCompat.m in Sources */,
@@ -1622,6 +1690,7 @@
 				A4DC3C901C1C5084003D4D18 /* XWJGZmiaoshuViewController.m in Sources */,
 				A43C98361C146A1C006A61EE /* XWJPay1ViewController.m in Sources */,
 				A438111C1C257E60001D2F29 /* XWJMFViewController.m in Sources */,
+				A43929021C3039DA00572F70 /* LocationPickerVC.m in Sources */,
 				A4DC3C8D1C1C505B003D4D18 /* XWJGuzhangViewController.m in Sources */,
 				A41255721C0F39D20042D8CC /* README.md in Sources */,
 				A43C98531C15CC15006A61EE /* XWJForgetPwd2ViewController.m in Sources */,
@@ -1650,6 +1719,7 @@
 				A43C97CA1C129A79006A61EE /* LGPhotoRect.m in Sources */,
 				A43C97CE1C129A79006A61EE /* LGPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				A412550F1C0F22FC0042D8CC /* README.md in Sources */,
+				A43928FE1C3039C500572F70 /* UIView+RGSize.m in Sources */,
 				A41255081C0F22FC0042D8CC /* AFNetworkReachabilityManager.m in Sources */,
 				A48801A31C09FDAD00714F5B /* XWJTabViewController.m in Sources */,
 				A43C97CF1C129A79006A61EE /* LGPhotoPickerBrowserPhotoView.m in Sources */,
@@ -1661,6 +1731,7 @@
 				A4F2571E1C2B5B4600B2EC58 /* XWJShuolistTableViewCell.m in Sources */,
 				A4DC3C931C1C5096003D4D18 /* XWJGZaddViewController.m in Sources */,
 				A43C97CD1C129A79006A61EE /* LGPhotoPickerBrowserPhotoImageView.m in Sources */,
+				A4E28DFB1C2FF39600644909 /* XWJYouHuiViewController.m in Sources */,
 				A412557D1C0F39D20042D8CC /* UIImage+MultiFormat.m in Sources */,
 				A48801851C09F41000714F5B /* ITabFactory.h in Sources */,
 				A4F5B7A41C2EB9D5009D177E /* XWJSPDetailViewController.m in Sources */,
@@ -1668,6 +1739,7 @@
 				A48801C31C0B41EF00714F5B /* XWJMyMessageController.m in Sources */,
 				A412552B1C0F2A080042D8CC /* UIImage+BundlePath.m in Sources */,
 				A412557C1C0F39D20042D8CC /* UIImage+GIF.m in Sources */,
+				A43928F41C30309000572F70 /* XWJJiesuanTableViewCell.m in Sources */,
 				A43C97881C11EB2C006A61EE /* XWJFindPubViewController.m in Sources */,
 				A43C97CC1C129A79006A61EE /* LGImagePickerSelectView.m in Sources */,
 				A41255101C0F22FC0042D8CC /* AFNetworkActivityIndicatorManager.m in Sources */,
