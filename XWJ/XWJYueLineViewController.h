@@ -11,5 +11,7 @@
 @interface XWJYueLineViewController : XWJBaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *lianxirenTextF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextF;
+@property NSString *goodid;
+@property NSString *stordid;
 
 @end

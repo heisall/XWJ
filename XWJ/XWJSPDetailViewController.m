@@ -424,6 +424,9 @@
     }else if([butn.titleLabel.text isEqualToString:@"在线预约"]){
         UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
         XWJYueLineViewController *view = [car instantiateViewControllerWithIdentifier:@"yuyueline"];
+        view.goodid = [self.goodsDic objectForKey:@"goods_id"];
+        view.stordid = [self.goodsDic objectForKey:@"store_id"];
+
         [self.navigationController showViewController:view sender:nil];
         
     }else if([butn.titleLabel.text isEqualToString:@"优惠政策"]){

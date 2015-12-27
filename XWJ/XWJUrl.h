@@ -26,6 +26,7 @@
 #define ADDCAR_URL  XWJBASEURL"order/addCart"
 #define GETCARLIST_URL  XWJBASEURL"order/cartList"
 #define CLEANCAR_URL  XWJBASEURL"order/cleanCart"
+#define GETGOODORDER_URL  XWJBASEURL"order/bookOnLine"
 
 //life
 #define GETLIFEAD_URL  XWJBASEURL"life/lifeIndex"
