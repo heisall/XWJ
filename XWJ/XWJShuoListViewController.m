@@ -9,7 +9,7 @@
 #import "XWJShuoListViewController.h"
 #import "LCBannerView.h"
 #import "XWJShuolistTableViewCell.h"
-#import "XWJMerDetailList.h"
+#import "XWJMerDetailListController.h"
 @interface XWJShuoListViewController()<LCBannerViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property UIView *adView;
 @property NSMutableArray *tabledata;
@@ -287,7 +287,7 @@
 //        UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"XWJLoginStoryboard" bundle:nil];
 //        [UIApplication sharedApplication].keyWindow.rootViewController = [loginStoryboard instantiateInitialViewController];
 //    }
-    XWJMerDetailList *list= [[XWJMerDetailList alloc] init];
+    XWJMerDetailListController *list= [[XWJMerDetailListController alloc] init];
     list.dic = [self.tabledata objectAtIndex:indexPath.row];
     [self.navigationController showViewController:list sender:self];
 }

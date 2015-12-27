@@ -53,7 +53,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationItem.leftBarButtonItem = nil;
+
+    UIImage *image = [UIImage imageNamed:@"gouwuche"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 100, 30);
+    [btn addTarget:self action:@selector(gouwuche) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"购物车" forState:UIControlStateNormal];
+    [btn setBackgroundImage:image forState:UIControlStateNormal];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem  alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = barButtonItem;
     self.navigationItem.title = @"生活";
 
 //    self.view.backgroundColor = [UIColor redColor];
@@ -64,7 +72,10 @@
 //    [self.view addSubview:label];
 
 }
-
+-(void)gouwuche{
+            UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
+    [self.navigationController showViewController:[car instantiateInitialViewController] sender:self];
+}
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
     NSLog(@"you clicked image in %@ at index: %ld", bannerView, (long)index);

@@ -1,5 +1,5 @@
 //
-//  XWJMerDetailList.h
+//  XWJMerDetailListController.h
 //  XWJ
 //
 //  Created by Sun on 15/12/24.
@@ -8,6 +8,6 @@
 
 #import "XWJBaseViewController.h"
 
-@interface XWJMerDetailList : XWJBaseViewController
+@interface XWJMerDetailListController : XWJBaseViewController
 @property NSDictionary *dic;
 @end

@@ -9,6 +9,9 @@
 #import "XWJSPDetailViewController.h"
 #import "LCBannerView.h"
 #import "XWJSPDetailTableViewCell.h"
+#import "XWJAccount.h"
+#import "XWJUtil.h"
+#import "ProgressHUD/ProgressHUD.h"
 @interface XWJSPDetailViewController ()<LCBannerViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property UIScrollView *scrollView;
 
@@ -21,7 +24,7 @@
 @property UITableView *tableView;
 @property UIButton * dianpuBtn;
 @property UILabel *headerLabel;
-@property NSDictionary *goodsArr;
+@property NSDictionary *goodsDic;
 @property NSArray *comments ;
 @property UIButton *button;
 
@@ -195,6 +198,46 @@
     return cell;
 }
 
+-(void)addCar{
+    NSString *url = ADDCAR_URL;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    //    [dict setValue:@"1" forKey:@"store_id"];
+    [dict setValue:[XWJAccount instance].account  forKey:@"account"];
+    [dict setValue:[NSString stringWithFormat:@"%@",[self.goodsDic objectForKey:@"store_id"]] forKey:@"storeId"];
+    [dict setValue:[NSString stringWithFormat:@"%@",[self.goodsDic objectForKey:@"goods_id"]] forKey:@"goodsId"];
+    [dict setValue:@"1" forKey:@"counts"];
+    [dict setValue:[NSString stringWithFormat:@"%@",[self.goodsDic objectForKey:@"price"]] forKey:@"unitPrice"];
+    [dict setValue:@"0" forKey:@"flg"];//0加入购物车 1修改
+    
+    /*
+     {"account":"177777777777","storeId":"4","goodsId":"4","counts":"1","unitPrice":"24","flg":"1"}
+     */
+    NSString * cart = [XWJUtil dataTOjsonString:dict];
+    NSDictionary * carDic = [NSDictionary dictionaryWithObject:cart forKey:@"cart"];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    [manager PUT:url parameters:carDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%s success ",__FUNCTION__);
+        
+        if(responseObject){
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSLog(@"dic %@",dic);
+            NSString *errCode = [dic objectForKey:@"errorCode"];
+            NSNumber *nu = [dic objectForKey:@"result"];
+      
+            if ([nu integerValue]== 1) {
+                [ProgressHUD showSuccess:errCode];
+            }else{
+                [ProgressHUD showError:errCode];
+            }
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s fail %@",__FUNCTION__,error);
+        
+    }];
+}
+
 -(void)getDetail{
     NSString *url = GETGOODDETAIL_URL;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -219,11 +262,11 @@
             NSDictionary *dic = (NSDictionary *)responseObject;
             NSLog(@"dic %@",dic);
             
-            self.goodsArr = [dic objectForKey:@"goods"];
+            self.goodsDic = [dic objectForKey:@"goods"];
             self.comments = [dic objectForKey:@"comments"];
             
             [self.tableView reloadData];
-            self.tableView.contentSize = CGSizeMake(0, 100*self.goodsArr.count+150);
+            self.tableView.contentSize = CGSizeMake(0, 100*self.goodsDic.count+150);
             //            self.adArr = [dic objectForKey:@"ad"];
             //            self.thumb = [dic objectForKey:@"thumb"];
         
@@ -259,13 +302,13 @@
     
 //    if(self.comments&&self.comments.count>0)
     headerLabel.text = [NSString stringWithFormat:@"(%lu人参与评论)",(unsigned long)self.comments.count];
-    youhuLabel.text = [NSString stringWithFormat:@"￥ %@",[self.goodsArr objectForKey:@"price"]];
-    shichangjiaLabel.text = [NSString stringWithFormat:@"市场价: ￥%@",[self.goodsArr objectForKey:@"old_price"] ];
-    xiaoliangLabel.text = [NSString stringWithFormat:@"销量：%@件",[self.goodsArr objectForKey:@"sales"]];
-    titleLabel.text = [self.goodsArr objectForKey:@"goods_name"];
+    youhuLabel.text = [NSString stringWithFormat:@"￥ %@",[self.goodsDic objectForKey:@"price"]];
+    shichangjiaLabel.text = [NSString stringWithFormat:@"市场价: ￥%@",[self.goodsDic objectForKey:@"old_price"] ];
+    xiaoliangLabel.text = [NSString stringWithFormat:@"销量：%@件",[self.goodsDic objectForKey:@"sales"]];
+    titleLabel.text = [self.goodsDic objectForKey:@"goods_name"];
     
     [self addBottomBtn];
-    NSString * prop = [self.goodsArr objectForKey:@"goods_img"]==[NSNull null]?nil:[self.goodsArr objectForKey:@"goods_img"] ;
+    NSString * prop = [self.goodsDic objectForKey:@"goods_img"]==[NSNull null]?nil:[self.goodsDic objectForKey:@"goods_img"] ;
     
     if (prop&&![prop isEqualToString:@""]) {
         NSArray *imgs = [prop componentsSeparatedByString:@","];
@@ -296,7 +339,7 @@
     
     
     NSMutableArray *URLs = [NSMutableArray array];
-    [URLs addObject:[self.goodsArr objectForKey:@"default_image"]];
+    [URLs addObject:[self.goodsDic objectForKey:@"default_image"]];
     
     if(URLs&&URLs.count>0)
         [self.adView addSubview:({
@@ -322,7 +365,7 @@
 -(void)addBottomBtn{
     self.btn = [NSMutableArray array];
 
-    NSString *type = [self.goodsArr objectForKey:@"order_type"];
+    NSString *type = [self.goodsDic objectForKey:@"order_type"];
     
     if (type) {
         
@@ -371,9 +414,13 @@
 -(void)typeclick:(UIButton *)butn{
 
     if ([butn.titleLabel.text isEqualToString:@"拨打电话"]) {
-        NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",[self.goodsArr objectForKey:@"tel"]];
+        NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",[self.goodsDic objectForKey:@"tel"]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }else if([butn.titleLabel.text isEqualToString:@"加入购物车"]){
+        [self addCar];
+//        UIStoryboard *car  = [UIStoryboard storyboardWithName:@"XWJCarStoryboard" bundle:nil];
     }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

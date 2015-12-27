@@ -21,6 +21,12 @@
 #define REGISTER_URL  XWJBASEURL"user/register"
 #define RESETPWD_URL  XWJBASEURL"user/resetPass"
 
+
+//car
+#define ADDCAR_URL  XWJBASEURL"order/addCart"
+#define GETCARLIST_URL  XWJBASEURL"order/cartList"
+#define CLEANCAR_URL  XWJBASEURL"order/cleanCart"
+
 //life
 #define GETLIFEAD_URL  XWJBASEURL"life/lifeIndex"
 #define GETSHANGMENAD_URL  XWJBASEURL"life/onDoorIndex"

@@ -1,19 +1,19 @@
 //
-//  XWJMerDetailList.m
+//  XWJMerDetailListController.m
 //  XWJ
 //
 //  Created by Sun on 15/12/24.
 //  Copyright © 2015年 Paul. All rights reserved.
 //
 
-#import "XWJMerDetailList.h"
+#import "XWJMerDetailListController.h"
 #import "XWJShangHuTableViewCell.h"
 #import "LCBannerView.h"
 #import "XWJSPDetailViewController.h"
 #define PADDINGTOP 64.0
 #define BTN_WIDTH 100.0
 #define BTN_HEIGHT 50.0
-@interface XWJMerDetailList()<UITableViewDataSource,UITableViewDelegate,LCBannerViewDelegate>
+@interface XWJMerDetailListController()<UITableViewDataSource,UITableViewDelegate,LCBannerViewDelegate>
 @property NSMutableArray *btn;
 @property UIView * typeContainView;
 @property UIView *adView;
@@ -22,7 +22,7 @@
 @property NSArray *goodsArr;
 @property NSDictionary *store;
 @end
-@implementation XWJMerDetailList
+@implementation XWJMerDetailListController
 
 @synthesize scroll;
 -(void)viewDidLoad{
@@ -160,6 +160,9 @@
 //            self.thumb = [dic objectForKey:@"thumb"];
             NSMutableArray *URLs = [NSMutableArray array];
          
+            if ([self.store valueForKey:@"store_banner"] ==[NSNull null]){
+                return;
+            }
             [URLs addObject:[self.store valueForKey:@"store_banner"]];
             
 //            [self addView];
